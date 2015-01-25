@@ -11,7 +11,7 @@
 
 // SETTING TO NO WILL DISPLAY TEST ADS
 // SETTING TO YES WILL REMOVE ALL TEST ADS
-#define REMOVE_TEST_ADS NO
+#define REMOVE_TEST_ADS YES
 
 // Specify test ads id here
 // To add another id follow this format

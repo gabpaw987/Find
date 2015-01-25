@@ -57,13 +57,13 @@
     self.titles =
     @[
       @{@"title": LOCALIZED(@"HOME"), @"icon": ICON_HOME},
-      @{@"title": LOCALIZED(@"CATEGORIES"), @"icon": ICON_CATEGORIES},
+//      @{@"title": LOCALIZED(@"CATEGORIES"), @"icon": ICON_CATEGORIES},
       @{@"title": LOCALIZED(@"STARRED"), @"icon": ICON_STARRED},
       @{@"title": LOCALIZED(@"FEATURED"), @"icon": ICON_FEATURED},
       @{@"title": LOCALIZED(@"MAP"), @"icon": ICON_MAP},
       @{@"title": LOCALIZED(@"SEARCH"), @"icon": ICON_SEARCH},
       @{@"title": LOCALIZED(@"NEWS"), @"icon": ICON_NEWS},
-      @{@"title": LOCALIZED(@"WEATHER"), @"icon": ICON_WEATHER}
+ //     @{@"title": LOCALIZED(@"WEATHER"), @"icon": ICON_WEATHER}
       ];
     
     self.extras =
@@ -96,7 +96,7 @@
 }
 
 -(IBAction)didClickButtonMenu:(id)sender {
-    
+  /*
     CGFloat angle = 0;
     
     if(buttonMenuClose.tag == kMenuAnimationClosed) {
@@ -117,6 +117,9 @@
         [self.slidingViewController resetTopViewAnimated:YES];
         
     }];
+  */
+    [self.slidingViewController resetTopViewAnimated:YES];
+    
 }
 
 - (void) showViewController:(UIViewController*)viewController {
@@ -233,15 +236,15 @@
         
         [self.slidingViewController resetTopViewAnimated:YES];
     }
-    
+/*
     if (indexPath.section == 0 && indexPath.row == 1) {
         UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardCategories"];
         [self showViewController:viewController];
         
         [self.slidingViewController resetTopViewAnimated:YES];
     }
-    
-    if (indexPath.section == 0 && indexPath.row == 2) {
+*/
+    if (indexPath.section == 0 && indexPath.row == 1) {
 //        self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardCategories"];
         
         UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardFavorites"];
@@ -250,41 +253,41 @@
         [self.slidingViewController resetTopViewAnimated:YES];
     }
     
-    if(indexPath.section == 0 && indexPath.row == 3) {
+    if(indexPath.section == 0 && indexPath.row == 2) {
         UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardFeatured"];
         [self showViewController:viewController];
         
         [self.slidingViewController resetTopViewAnimated:YES];
     }
     
-    if(indexPath.section == 0 && indexPath.row == 4) {
+    if(indexPath.section == 0 && indexPath.row == 3) {
         UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardMap"];
         [self showViewController:viewController];
         
         [self.slidingViewController resetTopViewAnimated:YES];
     }
     
-    if(indexPath.section == 0 && indexPath.row == 5) {
+    if(indexPath.section == 0 && indexPath.row == 4) {
         UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardSearch"];
         [self showViewController:viewController];
         
         [self.slidingViewController resetTopViewAnimated:YES];
     }
     
-    if(indexPath.section == 0 && indexPath.row == 6) {
+    if(indexPath.section == 0 && indexPath.row == 5) {
         UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardNews"];
         [self showViewController:viewController];
         
         [self.slidingViewController resetTopViewAnimated:YES];
     }
-    
+  /*
     if(indexPath.section == 0 && indexPath.row == 7) {
         UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardWeather"];
         [self showViewController:viewController];
         
         [self.slidingViewController resetTopViewAnimated:YES];
     }
-    
+*/
     if(indexPath.section == 1 && indexPath.row == 0) {
         UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardAboutUs"];
         [self showViewController:viewController];
