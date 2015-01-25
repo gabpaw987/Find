@@ -37,7 +37,7 @@
 #define AD_BG_COLOR [UIColor clearColor]
 
 // AdMob banner height
-#define AD_BANNER_HEIGHT 50
+#define AD_BANNER_HEIGHT 0
 
 // SHOW ADS ONLY IN MAIN VIEW (NEWS+SLIDER)
 #define SHOW_ADS_MAIN_VIEW YES
