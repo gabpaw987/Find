@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SideViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SideViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 
 -(IBAction)didClickButtonMenu:(id)sender;
 @property(nonatomic, retain) IBOutlet UITableView* tableViewSide;

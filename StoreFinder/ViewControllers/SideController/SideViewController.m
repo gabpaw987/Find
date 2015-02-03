@@ -87,6 +87,18 @@
       ];
     
     buttonMenuClose.tag = kMenuAnimationClosed;
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+    tapGesture.numberOfTapsRequired = 1;
+    tapGesture.cancelsTouchesInView = NO; //So the user can still interact with controls in the modal view
+    
+    [self.slidingViewController.view addGestureRecognizer:tapGesture];
+    
+    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
+    swipeGesture.direction = UISwipeGestureRecognizerDirectionLeft;
+    swipeGesture.cancelsTouchesInView = YES; //So the user can still interact with controls in the modal view
+    
+    [self.slidingViewController.view addGestureRecognizer:swipeGesture];
 }
 
 - (void)didReceiveMemoryWarning
@@ -120,6 +132,40 @@
   */
     [self.slidingViewController resetTopViewAnimated:YES];
     
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    return YES;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    return YES;
+}
+
+- (void)handleSwipeGesture:(UISwipeGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        [self.slidingViewController resetTopViewAnimated:YES];
+    }
+}
+
+- (void)handleTapGesture:(UITapGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        UIView* view = sender.view;
+        CGPoint loc = [sender locationInView:view];
+        UIView* subview = [view hitTest:loc withEvent:nil];
+        //NSLog(NSStringFromClass([subview class]));
+
+        if (![NSStringFromClass([subview class]) isEqualToString:@"UITableViewCellContentView"] &&
+            [subview class] != [UIView class] &&
+            [subview class] != [UINavigationItem class] &&
+             subview != self.view) {
+            [self.slidingViewController resetTopViewAnimated:YES];
+        }
+    }
 }
 
 - (void) showViewController:(UIViewController*)viewController {
