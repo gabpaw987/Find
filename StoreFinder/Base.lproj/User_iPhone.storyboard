@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1DC-Tf-ace">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1DC-Tf-ace">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -34,11 +34,12 @@
                         <segue destination="EDg-hl-k0X" kind="push" identifier="segueLogin" id="dd4-cR-zDQ"/>
                         <segue destination="Lfn-He-738" kind="push" identifier="segueRegister" id="rEC-M8-1j4"/>
                         <segue destination="knj-WR-dtE" kind="push" identifier="segueProfile" id="zgH-Us-5en"/>
+                        <segue destination="pLT-2N-JU6" kind="push" identifier="SegueToMyTickets" id="viV-8P-W89"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SGN-cO-F8l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2542" y="727"/>
+            <point key="canvasLocation" x="-2858" y="1031"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ovR-Oi-mYo">
@@ -71,6 +72,93 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DjY-OC-7cf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1400" y="1575"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="D7j-Dy-bhw">
+            <objects>
+                <navigationController storyboardIdentifier="storyboardTickets" definesPresentationContext="YES" id="pLT-2N-JU6" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="SZL-BB-n7Q"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mQH-gl-D3C">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="baF-ia-fWZ" kind="relationship" relationship="rootViewController" id="FTC-Vc-xxo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hzw-Yn-CAS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1498" y="2585"/>
+        </scene>
+        <!--Tickets View Controller-->
+        <scene sceneID="eDm-Fw-uhl">
+            <objects>
+                <viewController id="baF-ia-fWZ" customClass="TicketsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="drt-Pr-Umi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ADd-87-x8W">
+                                <rect key="frame" x="0.0" y="-5" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ticketCell" id="zWo-wc-0bE">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zWo-wc-0bE" id="WGk-XI-PnI">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="X2I-et-6z2" kind="push" identifier="SegueToQRCode" id="4Yt-Il-gf7"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kUx-3s-NaY">
+                        <barButtonItem key="leftBarButtonItem" image="ic_close.png" id="glE-e5-nFd">
+                            <connections>
+                                <action selector="didClickCloseButton:" destination="baF-ia-fWZ" id="JCt-HW-BnE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="ticketTableView" destination="ADd-87-x8W" id="5Zm-c3-NBV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aDI-nk-hnp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-983" y="2541"/>
+        </scene>
+        <!--Code View Controller-->
+        <scene sceneID="NeW-5U-iLu">
+            <objects>
+                <viewController storyboardIdentifier="storyboardQRcode" id="X2I-et-6z2" customClass="QRCodeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qjv-28-3P0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SQY-QJ-j3E">
+                                <rect key="frame" x="43" y="235" width="233" height="97"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" cocoaTouchSystemColor="lightTextColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cxF-i8-cuS"/>
+                    <connections>
+                        <outlet property="QRTicket" destination="SQY-QJ-j3E" id="LBz-gv-3BL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RSh-bw-I7a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-386" y="2541"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="1oz-3V-0wO">

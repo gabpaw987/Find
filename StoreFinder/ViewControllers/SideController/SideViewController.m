@@ -62,15 +62,16 @@
       @{@"title": LOCALIZED(@"FEATURED"), @"icon": ICON_FEATURED},
       @{@"title": LOCALIZED(@"MAP"), @"icon": ICON_MAP},
       @{@"title": LOCALIZED(@"SEARCH"), @"icon": ICON_SEARCH},
-      @{@"title": LOCALIZED(@"NEWS"), @"icon": ICON_NEWS},
- //     @{@"title": LOCALIZED(@"WEATHER"), @"icon": ICON_WEATHER}
+      @{@"title": LOCALIZED(@"MY_EVENTS"), @"icon": ICON_MY_EVENTS}
+    //@{@"title": LOCALIZED(@"NEWS"), @"icon": ICON_NEWS}
+    //@{@"title": LOCALIZED(@"WEATHER"), @"icon": ICON_WEATHER}
       ];
     
     self.extras =
     @[
       @{@"title": LOCALIZED(@"ABOUT_US"), @"icon": ICON_ABOUT_US},
       @{@"title": LOCALIZED(@"TERMS_CONDITIONS"), @"icon": ICON_TERMS_CONDITIONS},
-      @{@"title": LOCALIZED(@"ANIMATION"), @"icon": ICON_ANIMATION},
+      //@{@"title": LOCALIZED(@"ANIMATION"), @"icon": ICON_ANIMATION},
       ];
     
     self.users =
@@ -319,9 +320,16 @@
         
         [self.slidingViewController resetTopViewAnimated:YES];
     }
-    
+/*
     if(indexPath.section == 0 && indexPath.row == 5) {
         UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardNews"];
+        [self showViewController:viewController];
+        
+        [self.slidingViewController resetTopViewAnimated:YES];
+    }
+ */
+    if(indexPath.section == 0 && indexPath.row == 5) {
+        UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardMyEvents"];
         [self showViewController:viewController];
         
         [self.slidingViewController resetTopViewAnimated:YES];
@@ -347,38 +355,39 @@
         
         [self.slidingViewController resetTopViewAnimated:YES];
     }
-    
+    /*
     if(indexPath.section == 1 && indexPath.row == 2) {
         UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardAnimation"];
         [self showViewController:viewController];
         
         [self.slidingViewController resetTopViewAnimated:YES];
     }
+    */
     
+    UserSession* user = [UserAccessSession getUserSession];
+            
     if(indexPath.section == 2 && indexPath.row == 0) {
         
-        UserSession* user = [UserAccessSession getUserSession];
         
         if(user != nil) {
-            NSString* identifier = @"storyboardRegister";
-            
-            if(user != nil)
-                identifier = @"storyboardProfile";
+
+//            NSString* identifier = @"storyboardProfile";
             
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"User_iPhone" bundle:nil];
-            UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:identifier];
+            UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"storyboardProfile"];
             vc.modalPresentationStyle = UIModalPresentationFullScreen;
             vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
             
             AppDelegate* delegate = [AppDelegate instance];
             [[delegate.window rootViewController] presentViewController:vc animated:YES completion:nil];
             [self.slidingViewController resetTopViewAnimated:YES];
+           
         }
         else {
             
-            NSString* identifier = @"storyboardRegister";
+  //          NSString* identifier = @"storyboardRegister";
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"User_iPhone" bundle:nil];
-            UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:identifier];
+            UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"storyboardRegister"];
             vc.modalPresentationStyle = UIModalPresentationFullScreen;
             vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
             
@@ -389,7 +398,21 @@
     }
     
     if(indexPath.section == 2 && indexPath.row == 1) {
-        
+        if(user!= nil){
+           
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"User_iPhone" bundle:nil];
+            UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"storyboardTickets"];
+            vc.modalPresentationStyle = UIModalPresentationFullScreen;
+            vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            
+            AppDelegate* delegate = [AppDelegate instance];
+            [[delegate.window rootViewController] presentViewController:vc animated:YES completion:nil];
+            [self.slidingViewController resetTopViewAnimated:YES];
+            
+        }
+        else{
+            
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"User_iPhone" bundle:nil];
         UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"storyboardLogin"];
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
@@ -399,6 +422,7 @@
         [[delegate.window rootViewController] presentViewController:vc animated:YES completion:nil];
         
         [self.slidingViewController resetTopViewAnimated:YES];
+        }
     }
     
     
@@ -413,7 +437,8 @@
         
         self.users =
         @[
-          @{@"title": LOCALIZED(@"PROFILE"), @"icon": ICON_PROFILE}
+          @{@"title": LOCALIZED(@"PROFILE"), @"icon": ICON_PROFILE},
+          @{@"title": LOCALIZED(@"MY_TICKETS"), @"icon": ICON_MY_TICKETS}
           ];
     }
     else {

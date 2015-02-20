@@ -42,10 +42,6 @@
 
 #define ICON_SEARCH @"ic_search.png"
 
-#define ICON_NEWS @"ic_news.png"
-
-#define ICON_WEATHER @"ic_weather.png"
-
 #define ICON_ABOUT_US @"ic_about.png"
 
 #define ICON_LOGIN @"ic_login.png"
@@ -58,7 +54,17 @@
 
 #define ICON_PROFILE @"ic_register.png"
 
+#define ICON_MY_EVENTS @"ic_my_events.png"
+
+#define ICON_MY_TICKETS @"ic_tickets.png"
+
+// can we remove these icons
 #define ICON_ANIMATION @"ic_settings.png"
+
+#define ICON_NEWS @"ic_news.png"
+
+#define ICON_WEATHER @"ic_weather.png"
+
 
 
 #define ICON_DETAIL_EMAIL @"ic_detail_email.png"

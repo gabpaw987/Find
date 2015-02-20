@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Gvb-KB-Czs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Gvb-KB-Czs">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -24,13 +24,42 @@
                         <segue destination="raW-xK-DWZ" kind="push" identifier="segueTermsConditions" id="eZm-ga-jiM"/>
                         <segue destination="0Vi-Jf-1f8" kind="push" identifier="segueAboutUs" id="bhw-mn-9zb"/>
                         <segue destination="qeZ-bU-JZV" kind="push" identifier="segueWeather" id="ejv-Rv-ptj"/>
-                        <segue destination="rcx-J8-GVG" kind="push" identifier="segueAnimation" id="hgH-L2-upH"/>
                         <segue destination="qR5-87-zGu" kind="relationship" relationship="rootViewController" id="MFO-sE-VG4"/>
+                        <segue destination="QFo-IK-QiI" kind="push" identifier="PushToMyEvents" id="Aki-zB-TOf"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQd-gy-V0S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-190" y="277"/>
+        </scene>
+        <!--MyEvents View Controller-->
+        <scene sceneID="GoO-5f-1Jr">
+            <objects>
+                <viewController storyboardIdentifier="storyboardMyEvents" title="MyEvents View Controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QFo-IK-QiI" customClass="MyEventsController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sT5-Jf-C1s" customClass="MGListView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="BsU-cc-nn6">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="tableView" destination="BsU-cc-nn6" id="jFH-3b-iKP"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="2GF-gq-Vdz"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <connections>
+                        <outlet property="listViewMain" destination="sT5-Jf-C1s" id="tU9-le-N6o"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b32-eN-Dqk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="556" y="-402"/>
         </scene>
         <!--Side View Controller-->
         <scene sceneID="6Rg-ff-V3G">

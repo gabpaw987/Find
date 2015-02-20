@@ -474,6 +474,11 @@
 		CBF66C60194D9B95003CC75F /* star_half.png in Resources */ = {isa = PBXBuildFile; fileRef = CBF66C5A194D9B95003CC75F /* star_half.png */; };
 		CBF66C61194D9B95003CC75F /* star_half@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBF66C5B194D9B95003CC75F /* star_half@2x.png */; };
 		CBFEC954194CC0BC00A64FEC /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBFEC953194CC0BC00A64FEC /* ReviewCell.xib */; };
+		E39C05691A96A0E800BDFFE7 /* MyEventsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E39C05681A96A0E800BDFFE7 /* MyEventsController.m */; };
+		E3EA95521A96EBB4000066E8 /* ic_my_events.png in Resources */ = {isa = PBXBuildFile; fileRef = E3EA95511A96EBB4000066E8 /* ic_my_events.png */; };
+		E3EA95541A96EDBD000066E8 /* ic_tickets.png in Resources */ = {isa = PBXBuildFile; fileRef = E3EA95531A96EDBD000066E8 /* ic_tickets.png */; };
+		E3EA95571A96F2C6000066E8 /* TicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EA95561A96F2C6000066E8 /* TicketsViewController.m */; };
+		E3EA955B1A97407F000066E8 /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EA955A1A97407F000066E8 /* QRCodeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1073,6 +1078,14 @@
 		CBF66C5A194D9B95003CC75F /* star_half.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_half.png; sourceTree = "<group>"; };
 		CBF66C5B194D9B95003CC75F /* star_half@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_half@2x.png"; sourceTree = "<group>"; };
 		CBFEC953194CC0BC00A64FEC /* ReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
+		E39C05671A96A0E800BDFFE7 /* MyEventsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEventsController.h; sourceTree = "<group>"; };
+		E39C05681A96A0E800BDFFE7 /* MyEventsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEventsController.m; sourceTree = "<group>"; };
+		E3EA95511A96EBB4000066E8 /* ic_my_events.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_my_events.png; path = ../../../../../Downloads/ic_my_events.png; sourceTree = "<group>"; };
+		E3EA95531A96EDBD000066E8 /* ic_tickets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_tickets.png; path = ../../../../../Downloads/ic_tickets.png; sourceTree = "<group>"; };
+		E3EA95551A96F2C6000066E8 /* TicketsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TicketsViewController.h; path = "untitled folder/TicketsViewController.h"; sourceTree = "<group>"; };
+		E3EA95561A96F2C6000066E8 /* TicketsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TicketsViewController.m; path = "untitled folder/TicketsViewController.m"; sourceTree = "<group>"; };
+		E3EA95591A97407F000066E8 /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRCodeViewController.h; path = "untitled folder 2/QRCodeViewController.h"; sourceTree = "<group>"; };
+		E3EA955A1A97407F000066E8 /* QRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QRCodeViewController.m; path = "untitled folder 2/QRCodeViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1815,6 +1828,9 @@
 		CBAED25C1948A40F00769D68 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E3EA955C1A974094000066E8 /* QRCodeController */,
+				E3EA95581A96F2DF000066E8 /* TicketsViewController */,
+				E39C056A1A96A0EE00BDFFE7 /* MyEventsController */,
 				CB820ADE194F7C69000E64DB /* AboutUsController */,
 				CB4F50DF195422F7002EB321 /* AnimationController */,
 				CB3B8E161949E6BA00574652 /* CategoryController */,
@@ -2348,6 +2364,8 @@
 				CB26279B1950AF820024C15A /* ic_menu_new_review@2x.png */,
 				CB2627961950AE080024C15A /* ic_menu_reviews.png */,
 				CB2627971950AE080024C15A /* ic_menu_reviews@2x.png */,
+				E3EA95511A96EBB4000066E8 /* ic_my_events.png */,
+				E3EA95531A96EDBD000066E8 /* ic_tickets.png */,
 				CB26275719508DA60024C15A /* ic_about.png */,
 				CB26275819508DA60024C15A /* ic_about@2x.png */,
 				CB26275919508DA60024C15A /* ic_featured.png */,
@@ -2467,6 +2485,33 @@
 				CBF66C5B194D9B95003CC75F /* star_half@2x.png */,
 			);
 			path = Star;
+			sourceTree = "<group>";
+		};
+		E39C056A1A96A0EE00BDFFE7 /* MyEventsController */ = {
+			isa = PBXGroup;
+			children = (
+				E39C05671A96A0E800BDFFE7 /* MyEventsController.h */,
+				E39C05681A96A0E800BDFFE7 /* MyEventsController.m */,
+			);
+			name = MyEventsController;
+			sourceTree = "<group>";
+		};
+		E3EA95581A96F2DF000066E8 /* TicketsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E3EA95551A96F2C6000066E8 /* TicketsViewController.h */,
+				E3EA95561A96F2C6000066E8 /* TicketsViewController.m */,
+			);
+			name = TicketsViewController;
+			sourceTree = "<group>";
+		};
+		E3EA955C1A974094000066E8 /* QRCodeController */ = {
+			isa = PBXGroup;
+			children = (
+				E3EA95591A97407F000066E8 /* QRCodeViewController.h */,
+				E3EA955A1A97407F000066E8 /* QRCodeViewController.m */,
+			);
+			name = QRCodeController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2698,6 +2743,7 @@
 				CB7DFB5A1951731D007FC9B9 /* ic_web_refresh.png in Resources */,
 				CB48DD2E19D444660039C26B /* side_bar_list_header_bg@3x.png in Resources */,
 				CB48DD0A19D444460039C26B /* line_divider@3x.png in Resources */,
+				E3EA95541A96EDBD000066E8 /* ic_tickets.png in Resources */,
 				CB2627C01950D67F0024C15A /* button_call.png in Resources */,
 				CB7DFB851951A5EE007FC9B9 /* bg_slider_handle_selected.png in Resources */,
 				CB4221BA194B01BB00528013 /* image_counter.png in Resources */,
@@ -2761,6 +2807,7 @@
 				CB48DD6919D44E630039C26B /* ic_home@3x.png in Resources */,
 				CB7199521959B2FD001DB700 /* ReviewLoadMoreCell.xib in Resources */,
 				CB26276E19508DA60024C15A /* ic_login@2x.png in Resources */,
+				E3EA95521A96EBB4000066E8 /* ic_my_events.png in Resources */,
 				CB7DFBD8195216BB007FC9B9 /* Default.png in Resources */,
 				CB820AA2194F783D000E64DB /* LoginView.xib in Resources */,
 				CB2627AF1950CE050024C15A /* FooterView.xib in Resources */,
@@ -2876,6 +2923,7 @@
 				CBAED3691948A4EF00769D68 /* METransitions.m in Sources */,
 				CBAED3B11948A4EF00769D68 /* MGTopLeftLabel.m in Sources */,
 				CB3B8E1D1949E6C800574652 /* CategoryViewController.m in Sources */,
+				E3EA95571A96F2C6000066E8 /* TicketsViewController.m in Sources */,
 				CBAED3A21948A4EF00769D68 /* MGTextField.m in Sources */,
 				CBAED3AA1948A4EF00769D68 /* MGImageViewer.m in Sources */,
 				CBAED3A01948A4EF00769D68 /* MGFileManager.m in Sources */,
@@ -2887,6 +2935,7 @@
 				CBAED4131948E97B00769D68 /* Review.m in Sources */,
 				CBAED3B81948A4EF00769D68 /* MGUIImageExtras.m in Sources */,
 				CBAED3AE1948A4EF00769D68 /* MGRawScrollView.m in Sources */,
+				E39C05691A96A0E800BDFFE7 /* MyEventsController.m in Sources */,
 				CBAED3BA1948A4EF00769D68 /* JSONKit.m in Sources */,
 				CB344E8319787F7D000784DA /* NSManageObject+Bindings.m in Sources */,
 				CBAED3A31948A4EF00769D68 /* MGUIAppearance.m in Sources */,
@@ -2942,6 +2991,7 @@
 				CB3B8E2E194A1E1A00574652 /* Favorite.m in Sources */,
 				CBAED3BC1948A4EF00769D68 /* Reachability.m in Sources */,
 				CBAED3931948A4EF00769D68 /* AFHTTPClient.m in Sources */,
+				E3EA955B1A97407F000066E8 /* QRCodeViewController.m in Sources */,
 				CBAED2611948A43B00769D68 /* AppDelegate.m in Sources */,
 				CBAED4071948E18400769D68 /* NSString+HTML.m in Sources */,
 				CB820A9D194F7793000E64DB /* LoginViewController.m in Sources */,
