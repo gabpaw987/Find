@@ -42,14 +42,7 @@
                              titleTextColor:WHITE_TEXT_COLOR];
 
     self.QRTicket.text =@"QR CODE";
-    
 }
-
-
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-
 
 
 @end
