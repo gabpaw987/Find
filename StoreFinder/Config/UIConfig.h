@@ -54,9 +54,9 @@
 
 #define ICON_PROFILE @"ic_register.png"
 
-#define ICON_MY_EVENTS @"ic_my_events.png"
+#define ICON_MY_EVENTS @"ic_news.png"
 
-#define ICON_MY_TICKETS @"ic_tickets.png"
+#define ICON_MY_TICKETS @"ic_settings.png"
 
 // can we remove these icons
 #define ICON_ANIMATION @"ic_settings.png"

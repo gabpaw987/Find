@@ -1078,8 +1078,8 @@
 		CBF66C5A194D9B95003CC75F /* star_half.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_half.png; sourceTree = "<group>"; };
 		CBF66C5B194D9B95003CC75F /* star_half@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_half@2x.png"; sourceTree = "<group>"; };
 		CBFEC953194CC0BC00A64FEC /* ReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
-		E31AD8051A9AA85600803120 /* ic_my_events.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_my_events.png; path = ../../../../../Downloads/icons/ic_my_events.png; sourceTree = "<group>"; };
-		E31AD8061A9AA85600803120 /* ic_tickets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_tickets.png; path = ../../../../../Downloads/icons/ic_tickets.png; sourceTree = "<group>"; };
+		E31AD8051A9AA85600803120 /* ic_my_events.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_my_events.png; path = ../../Downloads/icons/ic_my_events.png; sourceTree = SOURCE_ROOT; };
+		E31AD8061A9AA85600803120 /* ic_tickets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_tickets.png; path = ../../Downloads/icons/ic_tickets.png; sourceTree = SOURCE_ROOT; };
 		E39C05671A96A0E800BDFFE7 /* MyEventsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEventsController.h; sourceTree = "<group>"; };
 		E39C05681A96A0E800BDFFE7 /* MyEventsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEventsController.m; sourceTree = "<group>"; };
 		E3EA95551A96F2C6000066E8 /* TicketsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TicketsViewController.h; path = "untitled folder/TicketsViewController.h"; sourceTree = "<group>"; };
