@@ -474,9 +474,9 @@
 		CBF66C60194D9B95003CC75F /* star_half.png in Resources */ = {isa = PBXBuildFile; fileRef = CBF66C5A194D9B95003CC75F /* star_half.png */; };
 		CBF66C61194D9B95003CC75F /* star_half@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBF66C5B194D9B95003CC75F /* star_half@2x.png */; };
 		CBFEC954194CC0BC00A64FEC /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBFEC953194CC0BC00A64FEC /* ReviewCell.xib */; };
+		E31AD8071A9AA85600803120 /* ic_my_events.png in Resources */ = {isa = PBXBuildFile; fileRef = E31AD8051A9AA85600803120 /* ic_my_events.png */; };
+		E31AD8081A9AA85600803120 /* ic_tickets.png in Resources */ = {isa = PBXBuildFile; fileRef = E31AD8061A9AA85600803120 /* ic_tickets.png */; };
 		E39C05691A96A0E800BDFFE7 /* MyEventsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E39C05681A96A0E800BDFFE7 /* MyEventsController.m */; };
-		E3EA95521A96EBB4000066E8 /* ic_my_events.png in Resources */ = {isa = PBXBuildFile; fileRef = E3EA95511A96EBB4000066E8 /* ic_my_events.png */; };
-		E3EA95541A96EDBD000066E8 /* ic_tickets.png in Resources */ = {isa = PBXBuildFile; fileRef = E3EA95531A96EDBD000066E8 /* ic_tickets.png */; };
 		E3EA95571A96F2C6000066E8 /* TicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EA95561A96F2C6000066E8 /* TicketsViewController.m */; };
 		E3EA955B1A97407F000066E8 /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EA955A1A97407F000066E8 /* QRCodeViewController.m */; };
 /* End PBXBuildFile section */
@@ -1078,10 +1078,10 @@
 		CBF66C5A194D9B95003CC75F /* star_half.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_half.png; sourceTree = "<group>"; };
 		CBF66C5B194D9B95003CC75F /* star_half@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_half@2x.png"; sourceTree = "<group>"; };
 		CBFEC953194CC0BC00A64FEC /* ReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
+		E31AD8051A9AA85600803120 /* ic_my_events.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_my_events.png; path = ../../../../../Downloads/icons/ic_my_events.png; sourceTree = "<group>"; };
+		E31AD8061A9AA85600803120 /* ic_tickets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_tickets.png; path = ../../../../../Downloads/icons/ic_tickets.png; sourceTree = "<group>"; };
 		E39C05671A96A0E800BDFFE7 /* MyEventsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEventsController.h; sourceTree = "<group>"; };
 		E39C05681A96A0E800BDFFE7 /* MyEventsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEventsController.m; sourceTree = "<group>"; };
-		E3EA95511A96EBB4000066E8 /* ic_my_events.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_my_events.png; path = ../../../../../Downloads/ic_my_events.png; sourceTree = "<group>"; };
-		E3EA95531A96EDBD000066E8 /* ic_tickets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_tickets.png; path = ../../../../../Downloads/ic_tickets.png; sourceTree = "<group>"; };
 		E3EA95551A96F2C6000066E8 /* TicketsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TicketsViewController.h; path = "untitled folder/TicketsViewController.h"; sourceTree = "<group>"; };
 		E3EA95561A96F2C6000066E8 /* TicketsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TicketsViewController.m; path = "untitled folder/TicketsViewController.m"; sourceTree = "<group>"; };
 		E3EA95591A97407F000066E8 /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRCodeViewController.h; path = "untitled folder 2/QRCodeViewController.h"; sourceTree = "<group>"; };
@@ -2340,6 +2340,8 @@
 				CB48DD5919D44E630039C26B /* ic_menu@3x.png */,
 				CB48DD5A19D44E630039C26B /* ic_news@3x.png */,
 				CB48DD5B19D44E630039C26B /* ic_register@3x.png */,
+				E31AD8051A9AA85600803120 /* ic_my_events.png */,
+				E31AD8061A9AA85600803120 /* ic_tickets.png */,
 				CB48DD5C19D44E630039C26B /* ic_search@3x.png */,
 				CB48DD5D19D44E630039C26B /* ic_settings@3x.png */,
 				CB48DD5E19D44E630039C26B /* ic_starred@3x.png */,
@@ -2364,8 +2366,6 @@
 				CB26279B1950AF820024C15A /* ic_menu_new_review@2x.png */,
 				CB2627961950AE080024C15A /* ic_menu_reviews.png */,
 				CB2627971950AE080024C15A /* ic_menu_reviews@2x.png */,
-				E3EA95511A96EBB4000066E8 /* ic_my_events.png */,
-				E3EA95531A96EDBD000066E8 /* ic_tickets.png */,
 				CB26275719508DA60024C15A /* ic_about.png */,
 				CB26275819508DA60024C15A /* ic_about@2x.png */,
 				CB26275919508DA60024C15A /* ic_featured.png */,
@@ -2646,6 +2646,7 @@
 				CB26276B19508DA60024C15A /* ic_featured.png in Resources */,
 				CB422139194AD85000528013 /* ic_map_route.png in Resources */,
 				CB48DD3D19D4446B0039C26B /* star_half@3x.png in Resources */,
+				E31AD8071A9AA85600803120 /* ic_my_events.png in Resources */,
 				CB422143194AD85000528013 /* map_info_shadow.png in Resources */,
 				CB26274A19507C030024C15A /* side_bar_list_header_bg@2x.png in Resources */,
 				CB48DD1D19D444580039C26B /* ic_map_draw@3x.png in Resources */,
@@ -2743,7 +2744,6 @@
 				CB7DFB5A1951731D007FC9B9 /* ic_web_refresh.png in Resources */,
 				CB48DD2E19D444660039C26B /* side_bar_list_header_bg@3x.png in Resources */,
 				CB48DD0A19D444460039C26B /* line_divider@3x.png in Resources */,
-				E3EA95541A96EDBD000066E8 /* ic_tickets.png in Resources */,
 				CB2627C01950D67F0024C15A /* button_call.png in Resources */,
 				CB7DFB851951A5EE007FC9B9 /* bg_slider_handle_selected.png in Resources */,
 				CB4221BA194B01BB00528013 /* image_counter.png in Resources */,
@@ -2807,7 +2807,6 @@
 				CB48DD6919D44E630039C26B /* ic_home@3x.png in Resources */,
 				CB7199521959B2FD001DB700 /* ReviewLoadMoreCell.xib in Resources */,
 				CB26276E19508DA60024C15A /* ic_login@2x.png in Resources */,
-				E3EA95521A96EBB4000066E8 /* ic_my_events.png in Resources */,
 				CB7DFBD8195216BB007FC9B9 /* Default.png in Resources */,
 				CB820AA2194F783D000E64DB /* LoginView.xib in Resources */,
 				CB2627AF1950CE050024C15A /* FooterView.xib in Resources */,
@@ -2846,6 +2845,7 @@
 				CB48DCCC19D444260039C26B /* blur_weather@3x.png in Resources */,
 				CB820AD4194F78A3000E64DB /* textbox_username.png in Resources */,
 				CB7DFBCF19520F28007FC9B9 /* button_login_large.png in Resources */,
+				E31AD8081A9AA85600803120 /* ic_tickets.png in Resources */,
 				CB48DD4A19D444700039C26B /* textbox_password@3x.png in Resources */,
 				CB2627951950ACE40024C15A /* star_fave_map_normal@2x.png in Resources */,
 				CB4F50E619542B4A002EB321 /* ic_settings@2x.png in Resources */,
@@ -3167,6 +3167,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/StoreFinder/Libraries/FacebookSDK",
+					"/Users/Julie/Downloads/parse-starter-project-1.6.2/ParseStarterProject",
+					"/Users/Julie/Downloads/parse-starter-project-1.6.2/ParseSwiftStarterProject",
+					"/Users/Julie/Downloads/PushTutorial-master/iOS",
+					/Users/Julie/Downloads/StoreFinder,
+					v1.6.5/StoreFinder/StoreFinder/Libraries/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StoreFinder/StoreFinder-Prefix.pch";
@@ -3175,6 +3180,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/StoreFinder/Libraries/GoogleMobileAdsSdk",
+					/Users/Julie/Downloads/StoreFinder,
+					v1.6.5/StoreFinder/StoreFinder/Libraries/GoogleMobileAdsSdk,
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = StoreFinder;
@@ -3190,6 +3197,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/StoreFinder/Libraries/FacebookSDK",
+					"/Users/Julie/Downloads/parse-starter-project-1.6.2/ParseStarterProject",
+					"/Users/Julie/Downloads/parse-starter-project-1.6.2/ParseSwiftStarterProject",
+					"/Users/Julie/Downloads/PushTutorial-master/iOS",
+					/Users/Julie/Downloads/StoreFinder,
+					v1.6.5/StoreFinder/StoreFinder/Libraries/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StoreFinder/StoreFinder-Prefix.pch";
@@ -3198,6 +3210,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/StoreFinder/Libraries/GoogleMobileAdsSdk",
+					/Users/Julie/Downloads/StoreFinder,
+					v1.6.5/StoreFinder/StoreFinder/Libraries/GoogleMobileAdsSdk,
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = StoreFinder;
