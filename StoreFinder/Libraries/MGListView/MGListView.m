@@ -118,7 +118,6 @@
     MGListCell* cell;
     
     if(!isCustomCell) {
-//        [tableView registerNib:[UINib nibWithNibName:_nibName bundle:nil] forCellReuseIdentifier:_cellIdentifier];
         cell = [tableView dequeueReusableCellWithIdentifier:_cellIdentifier];
         
         [self.delegate MGListView:self didCreateCell:cell indexPath:indexPath];

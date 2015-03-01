@@ -93,31 +93,6 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" rowHeight="25" id="BJl-Xr-pUt" customClass="MGListCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BJl-Xr-pUt" id="I9E-SW-o8u">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="25"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="side_bar_list_header_bg.png" id="TEH-zt-pvk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HEADER" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EhI-Oi-XRQ">
-                                                    <rect key="frame" x="9" y="4" width="206" height="18"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="labelTitle" destination="EhI-Oi-XRQ" id="LCH-Df-Ofo"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EntryCell" rowHeight="50" id="mWx-NG-H0N" customClass="MGListCell">
                                         <rect key="frame" x="0.0" y="47" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -129,22 +104,17 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rWf-nA-uZV">
-                                                    <rect key="frame" x="50" y="13" width="162" height="22"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rWf-nA-uZV">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_home.png" id="TfM-lC-FZ3">
-                                                    <rect key="frame" x="20" y="13" width="22" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <outlet property="imgViewIcon" destination="TfM-lC-FZ3" id="HAW-wB-wGc"/>
                                             <outlet property="imgViewSelectionBackground" destination="83V-mi-Orw" id="tdV-3g-tGO"/>
                                             <outlet property="labelTitle" destination="rWf-nA-uZV" id="r1l-Kx-LdN"/>
                                         </connections>
@@ -213,30 +183,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3HC-AC-0tj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1831" y="4547"/>
-        </scene>
-        <!--Animation View Controller-->
-        <scene sceneID="FXq-Nq-IaJ">
-            <objects>
-                <viewController storyboardIdentifier="storyboardAnimation" id="rcx-J8-GVG" customClass="AnimationViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xVk-sH-0af">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="iwR-aG-Uiv" customClass="MGRawScrollView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="3jM-H5-VfK"/>
-                    <connections>
-                        <outlet property="scrollViewMain" destination="iwR-aG-Uiv" id="FTu-GM-yiT"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CBA-dW-E5l" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1831" y="5347"/>
         </scene>
         <!--About Us View Controller-->
         <scene sceneID="24I-uS-mJK">
@@ -900,7 +846,6 @@
         <image name="header_logo.png" width="134" height="30"/>
         <image name="ic_check.png" width="27" height="27"/>
         <image name="ic_close.png" width="27" height="27"/>
-        <image name="ic_home.png" width="22" height="22"/>
         <image name="ic_map_arrow.png" width="30" height="30"/>
         <image name="ic_map_draw.png" width="36" height="36"/>
         <image name="ic_map_location.png" width="36" height="36"/>
@@ -913,7 +858,6 @@
         <image name="nav_bar.png" width="320" height="64"/>
         <image name="side_bar_header.png" width="320" height="64"/>
         <image name="side_bar_list_bg.png" width="320" height="50"/>
-        <image name="side_bar_list_header_bg.png" width="320" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

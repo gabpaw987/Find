@@ -55,10 +55,6 @@
                     <rect key="frame" x="283" y="3" width="25" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tag_featured.png" id="bAA-8q-RhY">
-                    <rect key="frame" x="272" y="200" width="40" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                </imageView>
                 <view contentMode="scaleToFill" id="0wf-7b-94i" customClass="RateView">
                     <rect key="frame" x="12" y="203" width="110" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -70,7 +66,6 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="imgViewFave" destination="ufF-un-Hdt" id="xI4-Tb-bGa"/>
-                <outlet property="imgViewFeatured" destination="bAA-8q-RhY" id="B9d-jb-pKo"/>
                 <outlet property="imgViewThumb" destination="SQP-Zp-B84" id="Uuv-b8-Dlz"/>
                 <outlet property="labelDetails" destination="kqi-0l-aQF" id="DdA-1S-Y8V"/>
                 <outlet property="labelExtraInfo" destination="XCg-wV-JRG" id="nNR-E8-caJ"/>
@@ -83,7 +78,6 @@
     </objects>
     <resources>
         <image name="list_store_placeholder.png" width="310" height="240"/>
-        <image name="tag_featured.png" width="40" height="40"/>
         <image name="tag_starred.png" width="25" height="42"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

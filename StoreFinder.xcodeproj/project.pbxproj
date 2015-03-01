@@ -240,7 +240,6 @@
 		CB48DD8A19D452030039C26B /* profile_thumb_placeholder@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB48DD8119D452030039C26B /* profile_thumb_placeholder@3x.png */; };
 		CB48DD8B19D452030039C26B /* review_thumb_placeholder@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB48DD8219D452030039C26B /* review_thumb_placeholder@3x.png */; };
 		CB48DD8C19D452030039C26B /* list_news_placeholder_210@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB48DD8319D452030039C26B /* list_news_placeholder_210@2x.png */; };
-		CB4F50DD195421F1002EB321 /* AnimationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB4F50DC195421F1002EB321 /* AnimationView.xib */; };
 		CB4F50E219542301002EB321 /* AnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4F50E119542301002EB321 /* AnimationViewController.m */; };
 		CB4F50E519542B4A002EB321 /* ic_settings.png in Resources */ = {isa = PBXBuildFile; fileRef = CB4F50E319542B4A002EB321 /* ic_settings.png */; };
 		CB4F50E619542B4A002EB321 /* ic_settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB4F50E419542B4A002EB321 /* ic_settings@2x.png */; };
@@ -326,10 +325,8 @@
 		CB7DFBE019521982007FC9B9 /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7DFBDE19521982007FC9B9 /* ReviewViewController.m */; };
 		CB7DFBE419521999007FC9B9 /* SideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7DFBE319521999007FC9B9 /* SideViewController.m */; };
 		CB7DFBE8195224DF007FC9B9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7DFBE7195224DF007FC9B9 /* RegisterViewController.m */; };
-		CB7DFBEA19522909007FC9B9 /* WeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB7DFBE919522909007FC9B9 /* WeatherView.xib */; };
 		CB7DFBEE19522AC2007FC9B9 /* blur_weather.png in Resources */ = {isa = PBXBuildFile; fileRef = CB7DFBEC19522AC2007FC9B9 /* blur_weather.png */; };
 		CB7DFBEF19522AC2007FC9B9 /* blur_weather@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB7DFBED19522AC2007FC9B9 /* blur_weather@2x.png */; };
-		CB7DFBF319522CCE007FC9B9 /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7DFBF219522CCE007FC9B9 /* WeatherViewController.m */; };
 		CB7DFBF619523964007FC9B9 /* ic_weather.png in Resources */ = {isa = PBXBuildFile; fileRef = CB7DFBF419523964007FC9B9 /* ic_weather.png */; };
 		CB7DFBF719523964007FC9B9 /* ic_weather@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB7DFBF519523964007FC9B9 /* ic_weather@2x.png */; };
 		CB820A8E194EC78C000E64DB /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB820A8D194EC78C000E64DB /* SearchResultViewController.m */; };
@@ -477,6 +474,9 @@
 		E31AD8071A9AA85600803120 /* ic_my_events.png in Resources */ = {isa = PBXBuildFile; fileRef = E31AD8051A9AA85600803120 /* ic_my_events.png */; };
 		E31AD8081A9AA85600803120 /* ic_tickets.png in Resources */ = {isa = PBXBuildFile; fileRef = E31AD8061A9AA85600803120 /* ic_tickets.png */; };
 		E39C05691A96A0E800BDFFE7 /* MyEventsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E39C05681A96A0E800BDFFE7 /* MyEventsController.m */; };
+		E3ADDAFB1AA2DE0600C4A642 /* Tonite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3ADDAF91AA2DE0600C4A642 /* Tonite.storyboard */; };
+		E3ADDB021AA2E18300C4A642 /* BrowseEventController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3ADDB011AA2E18300C4A642 /* BrowseEventController.m */; };
+		E3ADDB051AA2E22200C4A642 /* EventListingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3ADDB041AA2E22200C4A642 /* EventListingCell.m */; };
 		E3EA95571A96F2C6000066E8 /* TicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EA95561A96F2C6000066E8 /* TicketsViewController.m */; };
 		E3EA955B1A97407F000066E8 /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EA955A1A97407F000066E8 /* QRCodeViewController.m */; };
 /* End PBXBuildFile section */
@@ -730,7 +730,6 @@
 		CB48DD8119D452030039C26B /* profile_thumb_placeholder@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_thumb_placeholder@3x.png"; sourceTree = "<group>"; };
 		CB48DD8219D452030039C26B /* review_thumb_placeholder@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "review_thumb_placeholder@3x.png"; sourceTree = "<group>"; };
 		CB48DD8319D452030039C26B /* list_news_placeholder_210@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list_news_placeholder_210@2x.png"; sourceTree = "<group>"; };
-		CB4F50DC195421F1002EB321 /* AnimationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnimationView.xib; sourceTree = "<group>"; };
 		CB4F50E019542301002EB321 /* AnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationViewController.h; sourceTree = "<group>"; };
 		CB4F50E119542301002EB321 /* AnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationViewController.m; sourceTree = "<group>"; };
 		CB4F50E319542B4A002EB321 /* ic_settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_settings.png; sourceTree = "<group>"; };
@@ -823,11 +822,8 @@
 		CB7DFBE319521999007FC9B9 /* SideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideViewController.m; sourceTree = "<group>"; };
 		CB7DFBE6195224DF007FC9B9 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		CB7DFBE7195224DF007FC9B9 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
-		CB7DFBE919522909007FC9B9 /* WeatherView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherView.xib; sourceTree = "<group>"; };
 		CB7DFBEC19522AC2007FC9B9 /* blur_weather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blur_weather.png; sourceTree = "<group>"; };
 		CB7DFBED19522AC2007FC9B9 /* blur_weather@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blur_weather@2x.png"; sourceTree = "<group>"; };
-		CB7DFBF119522CCE007FC9B9 /* WeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewController.h; sourceTree = "<group>"; };
-		CB7DFBF219522CCE007FC9B9 /* WeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewController.m; sourceTree = "<group>"; };
 		CB7DFBF419523964007FC9B9 /* ic_weather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_weather.png; sourceTree = "<group>"; };
 		CB7DFBF519523964007FC9B9 /* ic_weather@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_weather@2x.png"; sourceTree = "<group>"; };
 		CB820A8C194EC78C000E64DB /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
@@ -1082,6 +1078,11 @@
 		E31AD8061A9AA85600803120 /* ic_tickets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_tickets.png; path = ../../Downloads/icons/ic_tickets.png; sourceTree = SOURCE_ROOT; };
 		E39C05671A96A0E800BDFFE7 /* MyEventsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEventsController.h; sourceTree = "<group>"; };
 		E39C05681A96A0E800BDFFE7 /* MyEventsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEventsController.m; sourceTree = "<group>"; };
+		E3ADDAFA1AA2DE0600C4A642 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = StoreFinder/Base.lproj/Tonite.storyboard; sourceTree = "<group>"; };
+		E3ADDB001AA2E18300C4A642 /* BrowseEventController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowseEventController.h; sourceTree = "<group>"; };
+		E3ADDB011AA2E18300C4A642 /* BrowseEventController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowseEventController.m; sourceTree = "<group>"; };
+		E3ADDB031AA2E22200C4A642 /* EventListingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventListingCell.h; sourceTree = "<group>"; };
+		E3ADDB041AA2E22200C4A642 /* EventListingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventListingCell.m; sourceTree = "<group>"; };
 		E3EA95551A96F2C6000066E8 /* TicketsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TicketsViewController.h; path = "untitled folder/TicketsViewController.h"; sourceTree = "<group>"; };
 		E3EA95561A96F2C6000066E8 /* TicketsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TicketsViewController.m; path = "untitled folder/TicketsViewController.m"; sourceTree = "<group>"; };
 		E3EA95591A97407F000066E8 /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRCodeViewController.h; path = "untitled folder 2/QRCodeViewController.h"; sourceTree = "<group>"; };
@@ -1484,15 +1485,6 @@
 			path = Blur;
 			sourceTree = "<group>";
 		};
-		CB7DFBF019522CC4007FC9B9 /* WeatherController */ = {
-			isa = PBXGroup;
-			children = (
-				CB7DFBF119522CCE007FC9B9 /* WeatherViewController.h */,
-				CB7DFBF219522CCE007FC9B9 /* WeatherViewController.m */,
-			);
-			path = WeatherController;
-			sourceTree = "<group>";
-		};
 		CB820A96194F27D8000E64DB /* MGButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -1682,6 +1674,7 @@
 		CBAED2221948A1DD00769D68 /* StoreFinder */ = {
 			isa = PBXGroup;
 			children = (
+				E3ADDAFF1AA2E14700C4A642 /* ToniteViewControllers */,
 				CBAED2591948A40F00769D68 /* DataParser */,
 				CBAED4101948E96B00769D68 /* Models */,
 				CBAED4091948E53700769D68 /* CoreData */,
@@ -1850,7 +1843,6 @@
 				CB7DFBE119521999007FC9B9 /* SideController */,
 				CB4221D6194B0BC500528013 /* StoreController */,
 				CB820AE1194F7C69000E64DB /* T&CController */,
-				CB7DFBF019522CC4007FC9B9 /* WeatherController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1859,7 +1851,6 @@
 			isa = PBXGroup;
 			children = (
 				CB820A9E194F783D000E64DB /* AboutUsView.xib */,
-				CB4F50DC195421F1002EB321 /* AnimationView.xib */,
 				CB3B8E1E1949FC6800574652 /* CategoryCell.xib */,
 				CB42218B194AEC2300528013 /* DetailCell.xib */,
 				CB3B8E27194A06A100574652 /* FeaturedCell.xib */,
@@ -1877,7 +1868,6 @@
 				CB2D4BBD194E1AB5002CF419 /* SearchView.xib */,
 				CB3B8E121949D7B100574652 /* SliderView.xib */,
 				CB820AA0194F783D000E64DB /* TCView.xib */,
-				CB7DFBE919522909007FC9B9 /* WeatherView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1893,6 +1883,7 @@
 		CBAED2671948A4A600769D68 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				E3ADDAF91AA2DE0600C4A642 /* Tonite.storyboard */,
 				CBAED22E1948A1DD00769D68 /* Main_iPhone.storyboard */,
 				CBAED2311948A1DD00769D68 /* Main_iPad.storyboard */,
 				CB26273B195072180024C15A /* User_iPhone.storyboard */,
@@ -2496,6 +2487,17 @@
 			name = MyEventsController;
 			sourceTree = "<group>";
 		};
+		E3ADDAFF1AA2E14700C4A642 /* ToniteViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E3ADDB001AA2E18300C4A642 /* BrowseEventController.h */,
+				E3ADDB011AA2E18300C4A642 /* BrowseEventController.m */,
+				E3ADDB031AA2E22200C4A642 /* EventListingCell.h */,
+				E3ADDB041AA2E22200C4A642 /* EventListingCell.m */,
+			);
+			name = ToniteViewControllers;
+			sourceTree = "<group>";
+		};
 		E3EA95581A96F2DF000066E8 /* TicketsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2613,7 +2615,6 @@
 				CB48D56D1A2C40A4008A04BE /* Default-736.png in Resources */,
 				CB48DD7819D44E630039C26B /* ic_web_refresh@3x.png in Resources */,
 				CB48DD6F19D44E630039C26B /* ic_news@3x.png in Resources */,
-				CB7DFBEA19522909007FC9B9 /* WeatherView.xib in Resources */,
 				CB48DCEF19D444370039C26B /* button_share_facebook@3x.png in Resources */,
 				CB26277819508DA60024C15A /* ic_starred@2x.png in Resources */,
 				CB4221C1194B01BB00528013 /* line_divider_shadow@2x.png in Resources */,
@@ -2688,6 +2689,7 @@
 				CB7DFBF719523964007FC9B9 /* ic_weather@2x.png in Resources */,
 				CB4221BE194B01BB00528013 /* line_divider_pad.png in Resources */,
 				CB7DFB7619519B91007FC9B9 /* textbox_search_selected.png in Resources */,
+				E3ADDAFB1AA2DE0600C4A642 /* Tonite.storyboard in Resources */,
 				CB4221B5194B01BB00528013 /* divider@2x.png in Resources */,
 				CB48DCEC19D444370039C26B /* button_red@3x.png in Resources */,
 				CB7DFB551951726C007FC9B9 /* ic_web_back@2x.png in Resources */,
@@ -2782,7 +2784,6 @@
 				CB820AA1194F783D000E64DB /* AboutUsView.xib in Resources */,
 				CB422133194AD85000528013 /* ic_map_location.png in Resources */,
 				CB2627D11950DF6F0024C15A /* button_share_facebook@2x.png in Resources */,
-				CB4F50DD195421F1002EB321 /* AnimationView.xib in Resources */,
 				CB2627CB1950D67F0024C15A /* button_web@2x.png in Resources */,
 				CB7DFB7719519B91007FC9B9 /* textbox_search_selected@2x.png in Resources */,
 				CBF66C5E194D9B95003CC75F /* star_fill.png in Resources */,
@@ -2957,6 +2958,8 @@
 				CBAED3871948A4EF00769D68 /* SearchRawView.m in Sources */,
 				CBAED3651948A4EF00769D68 /* ECSlidingViewController.m in Sources */,
 				CB820AE5194F7C69000E64DB /* TCViewController.m in Sources */,
+				E3ADDB021AA2E18300C4A642 /* BrowseEventController.m in Sources */,
+				E3ADDB051AA2E22200C4A642 /* EventListingCell.m in Sources */,
 				CBAED3A41948A4EF00769D68 /* JBParallaxCell.m in Sources */,
 				CB594AD3194D715E0062413B /* MGFooterView.m in Sources */,
 				CB2D4BC1194E21BB002CF419 /* SearchViewController.m in Sources */,
@@ -2971,7 +2974,6 @@
 				CBAED3BB1948A4EF00769D68 /* MBProgressHUD.m in Sources */,
 				CBAED3A11948A4EF00769D68 /* MGGalleryView.m in Sources */,
 				CBAED39A1948A4EF00769D68 /* AFXMLRequestOperation.m in Sources */,
-				CB7DFBF319522CCE007FC9B9 /* WeatherViewController.m in Sources */,
 				CBAED3941948A4EF00769D68 /* AFHTTPRequestOperation.m in Sources */,
 				CBAED3881948A4EF00769D68 /* UserAccessSession.m in Sources */,
 				CB422190194B006500528013 /* ImageViewerController.m in Sources */,
@@ -3084,6 +3086,14 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
+		E3ADDAF91AA2DE0600C4A642 /* Tonite.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E3ADDAFA1AA2DE0600C4A642 /* Base */,
+			);
+			name = Tonite.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -3185,6 +3195,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = StoreFinder;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3215,6 +3226,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = StoreFinder;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

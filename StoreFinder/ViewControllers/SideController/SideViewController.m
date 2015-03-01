@@ -66,7 +66,7 @@
     //@{@"title": LOCALIZED(@"NEWS"), @"icon": ICON_NEWS}
     //@{@"title": LOCALIZED(@"WEATHER"), @"icon": ICON_WEATHER}
       ];
-    
+/*
     self.extras =
     @[
       @{@"title": LOCALIZED(@"ABOUT_US"), @"icon": ICON_ABOUT_US},
@@ -86,7 +86,7 @@
       @{@"title": LOCALIZED(@"HEADER_EXTRAS")},
       @{@"title": LOCALIZED(@"HEADER_USER")}
       ];
-    
+    */
     buttonMenuClose.tag = kMenuAnimationClosed;
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
@@ -185,39 +185,40 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     BOOL screen = IS_IPHONE_6_PLUS_AND_ABOVE;
-    int height = screen ? 58 : 50;
+    int height = screen ? 200 : 240;
     
     return height;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 25;
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 1;
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0)
         return [self.titles count];
-    
+ /*
     if (section == 1)
         return [self.extras count];
     
     if (section == 2)
         return [self.users count];
-    
+    */
     return 0;
 }
+
+
 
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     MGListCell* cell =  [tableView dequeueReusableCellWithIdentifier:@"EntryCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     cell.selectedColor = WHITE_TEXT_COLOR;
     cell.unSelectedColor = WHITE_TEXT_COLOR;
     
@@ -230,12 +231,13 @@
     if(indexPath.section == 0) {
         NSDictionary* dict = self.titles[indexPath.row];
         title = dict[@"title"];
-        
+        /*
         UIImage* img = [UIImage imageNamed:dict[@"icon"]];
         cell.selectedImageIcon = img;
         cell.unselectedImageIcon = img;
+         */
     }
-    
+   /*
     if(indexPath.section == 1) {
         NSDictionary* dict = self.extras[indexPath.row];
         title = dict[@"title"];
@@ -253,12 +255,13 @@
         cell.selectedImageIcon = img;
         cell.unselectedImageIcon = img;
     }
-    
+    */
     [cell.labelTitle setText:title];
+    
     
     return cell;
 }
-
+/*
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
     MGListCell* headerCell = [tableView dequeueReusableCellWithIdentifier:@"HeaderCell"];
@@ -268,6 +271,11 @@
     
     return headerCell;
 }
+ 
+ -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+ return 25;
+ }
+ */
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -362,10 +370,10 @@
         
         [self.slidingViewController resetTopViewAnimated:YES];
     }
-    */
+    
     
     UserSession* user = [UserAccessSession getUserSession];
-            
+ 
     if(indexPath.section == 2 && indexPath.row == 0) {
         
         
@@ -425,7 +433,7 @@
         }
     }
     
-    
+    */
 }
 
 

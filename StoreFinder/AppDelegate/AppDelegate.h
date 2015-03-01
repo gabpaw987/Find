@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ContentViewController.h"
+//#import "BrowseEventController.h"
 #import "SideViewController.h"
 #import "ReviewViewController.h"
 
@@ -33,6 +34,7 @@
 @property (strong, retain) id <LocationDelegate> locationDelegate;
 
 @property (strong, nonatomic) UIWindow *window;
+//@property (nonatomic, strong) BrowseEventController* contentViewController;
 @property (nonatomic, strong) ContentViewController* contentViewController;
 @property (nonatomic, strong) SideViewController* sideViewController;
 

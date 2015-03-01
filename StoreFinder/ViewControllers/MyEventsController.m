@@ -12,15 +12,18 @@
 
 @interface MyEventsController() <MGListViewDelegate >
 
+
 @end
 
 @implementation MyEventsController
 
 @synthesize listViewMain;
 
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithNibName:nibNameOrNil bundle: nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -108,7 +111,7 @@
 
 -(void) performParsing {
     
-    listViewMain.arrayData = [NSMutableArray arrayWithArray:[CoreDataController getFeaturedStores]];
+    listViewMain.arrayData = [NSMutableArray arrayWithArray:[CoreDataController getAllStores]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -120,7 +123,7 @@
 
 
 -(void) MGListView:(MGListView *)_listView didSelectCell:(MGListCell *)cell indexPath:(NSIndexPath *)indexPath {
-    
+    [cell.imgViewThumb stopAnimating];
     DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardDetail"];
     vc.store = listViewMain.arrayData[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
@@ -131,30 +134,29 @@
     
     if(cell != nil) {
         Store* store = [listViewMain.arrayData objectAtIndex:indexPath.row];
-        Photo* p = [CoreDataController getStorePhotoByStoreId:store.store_id];
+        NSArray* arrayPhotos = [CoreDataController getStorePhotosByStoreId:store.store_id];
+       
         Favorite* fave = [CoreDataController getFavoriteByStoreId:store.store_id];
         
-        cell.imgViewFeatured.hidden = NO;
         cell.imgViewFave.hidden = NO;
         
         if(fave == nil)
             cell.imgViewFave.hidden = YES;
-        
-        if([store.featured intValue] < 1)
-            cell.imgViewFeatured.hidden = YES;
-        
-        
-        
+     
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.backgroundColor = [UIColor clearColor];
         
         [cell.labelDescription setText:store.phone_no];
-        
-        if(p != nil)
-            [self setImage:p.thumb_url imageView:cell.imgViewThumb];
-        else
+        NSInteger numOfEventPhotos = arrayPhotos.count;
+        if(numOfEventPhotos == 0 ||
+           arrayPhotos == nil){
             [self setImage:nil imageView:cell.imgViewThumb];
-        
+        }
+        else{
+            Photo* p = arrayPhotos[0];
+            [self setImage:p.photo_url imageView:cell.imgViewThumb];
+     
+        }
         
         cell.labelHeader1.backgroundColor = [BLACK_TEXT_COLOR colorWithAlphaComponent:0.66];
         
@@ -186,11 +188,12 @@
     return cell;
 }
 
+
 -(void)MGListView:(MGListView *)listView scrollViewDidScroll:(UIScrollView *)scrollView {
     
 }
 
--(void)setImage:(NSString*)imageUrl imageView:(UIImageView*)imgView {
+-(UIImageView*)setImage:(NSString*)imageUrl imageView:(UIImageView*)imgView {
     
     NSURL* url = [NSURL URLWithString:imageUrl];
     NSURLRequest* urlRequest = [NSURLRequest requestWithURL:url];
@@ -220,6 +223,7 @@
                             } failure:^(NSURLRequest* request, NSHTTPURLResponse* response, NSError* error) {
                                 
                             }];
+    return imgView;
 }
 
 

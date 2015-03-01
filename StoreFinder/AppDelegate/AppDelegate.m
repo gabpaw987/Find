@@ -23,6 +23,7 @@
 @synthesize sideViewController;
 @synthesize contentViewController;
 
+
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
@@ -58,9 +59,10 @@
     
     self.slidingViewController = [ECSlidingViewController slidingWithTopViewController:navController];
     self.slidingViewController.underLeftViewController  = sideViewController;
+    
     self.slidingViewController.underRightViewController = nil;
     
-    self.slidingViewController.anchorRightPeekAmount  = ANCHOR_LEFT_PEEK; //44.0
+    self.slidingViewController.anchorRightPeekAmount  = 0;ANCHOR_LEFT_PEEK; //44.0
     self.slidingViewController.anchorLeftRevealAmount = ANCHOR_RIGHT_PEEK; //276.0
     
     self.window.rootViewController = self.slidingViewController;
