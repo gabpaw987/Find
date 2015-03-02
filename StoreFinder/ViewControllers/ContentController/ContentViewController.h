@@ -10,6 +10,7 @@
 
 @interface ContentViewController : UIViewController
 
+
 @property (nonatomic, retain) IBOutlet MGListView* listViewNews;
 @property (nonatomic, retain) IBOutlet MGSlider* slider;
 

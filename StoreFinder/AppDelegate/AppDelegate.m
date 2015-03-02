@@ -22,7 +22,7 @@
 
 @synthesize sideViewController;
 @synthesize contentViewController;
-
+@synthesize rightMenuController;
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -56,16 +56,22 @@
     UINavigationController* navController = [storyboard instantiateViewControllerWithIdentifier:@"storyboardNavigation"];
     
     sideViewController = [storyboard instantiateViewControllerWithIdentifier:@"storyboardSideView"];
+    rightMenuController = [storyboard instantiateViewControllerWithIdentifier:@"storyboardRightSide"];
     
     self.slidingViewController = [ECSlidingViewController slidingWithTopViewController:navController];
+    
     self.slidingViewController.underLeftViewController  = sideViewController;
     
-    self.slidingViewController.underRightViewController = nil;
+    self.slidingViewController.underRightViewController = rightMenuController;
     
-    self.slidingViewController.anchorRightPeekAmount  = 0;ANCHOR_LEFT_PEEK; //44.0
-    self.slidingViewController.anchorLeftRevealAmount = ANCHOR_RIGHT_PEEK; //276.0
+    self.slidingViewController.anchorRightPeekAmount  = 0.0;
+    //self.slidingViewController.anchorLeftPeekAmount = 0.0;
+    //self.slidingViewController.anchorRightRevealAmount = 350.0;
+    self.slidingViewController.anchorLeftRevealAmount = 276.0;//; //276.0
+    
     
     self.window.rootViewController = self.slidingViewController;
+    
     [self.window makeKeyAndVisible];
     
     [[FHSTwitterEngine sharedEngine] permanentlySetConsumerKey:TWITTER_CONSUMER_KEY

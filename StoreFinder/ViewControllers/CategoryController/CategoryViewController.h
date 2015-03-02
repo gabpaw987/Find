@@ -12,4 +12,5 @@
 
 @property (nonatomic, retain) IBOutlet MGListView* listViewMain;
 
+
 @end

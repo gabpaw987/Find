@@ -14,6 +14,5 @@
 @property(nonatomic, retain) IBOutlet UITableView* tableViewSide;
 @property(nonatomic, retain) IBOutlet UIButton* buttonMenuClose;
 
--(void)updateUI;
-
+-(void) updateUI;
 @end

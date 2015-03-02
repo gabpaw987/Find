@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "ContentViewController.h"
-//#import "BrowseEventController.h"
 #import "SideViewController.h"
+#import "RightSideViewController.h"
 #import "ReviewViewController.h"
 
 @class AppDelegate;
@@ -34,9 +34,11 @@
 @property (strong, retain) id <LocationDelegate> locationDelegate;
 
 @property (strong, nonatomic) UIWindow *window;
-//@property (nonatomic, strong) BrowseEventController* contentViewController;
+@property (nonatomic, strong) RightSideViewController*
+    rightMenuController;
 @property (nonatomic, strong) ContentViewController* contentViewController;
 @property (nonatomic, strong) SideViewController* sideViewController;
+
 
 +(AppDelegate*) instance;
 

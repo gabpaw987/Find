@@ -473,10 +473,8 @@
 		CBFEC954194CC0BC00A64FEC /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBFEC953194CC0BC00A64FEC /* ReviewCell.xib */; };
 		E31AD8071A9AA85600803120 /* ic_my_events.png in Resources */ = {isa = PBXBuildFile; fileRef = E31AD8051A9AA85600803120 /* ic_my_events.png */; };
 		E31AD8081A9AA85600803120 /* ic_tickets.png in Resources */ = {isa = PBXBuildFile; fileRef = E31AD8061A9AA85600803120 /* ic_tickets.png */; };
+		E3268B7A1AA513C6004FA763 /* RightSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3268B791AA513C6004FA763 /* RightSideViewController.m */; };
 		E39C05691A96A0E800BDFFE7 /* MyEventsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E39C05681A96A0E800BDFFE7 /* MyEventsController.m */; };
-		E3ADDAFB1AA2DE0600C4A642 /* Tonite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3ADDAF91AA2DE0600C4A642 /* Tonite.storyboard */; };
-		E3ADDB021AA2E18300C4A642 /* BrowseEventController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3ADDB011AA2E18300C4A642 /* BrowseEventController.m */; };
-		E3ADDB051AA2E22200C4A642 /* EventListingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3ADDB041AA2E22200C4A642 /* EventListingCell.m */; };
 		E3EA95571A96F2C6000066E8 /* TicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EA95561A96F2C6000066E8 /* TicketsViewController.m */; };
 		E3EA955B1A97407F000066E8 /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EA955A1A97407F000066E8 /* QRCodeViewController.m */; };
 /* End PBXBuildFile section */
@@ -1076,13 +1074,10 @@
 		CBFEC953194CC0BC00A64FEC /* ReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
 		E31AD8051A9AA85600803120 /* ic_my_events.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_my_events.png; path = ../../Downloads/icons/ic_my_events.png; sourceTree = SOURCE_ROOT; };
 		E31AD8061A9AA85600803120 /* ic_tickets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_tickets.png; path = ../../Downloads/icons/ic_tickets.png; sourceTree = SOURCE_ROOT; };
+		E3268B781AA513C6004FA763 /* RightSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightSideViewController.h; sourceTree = "<group>"; };
+		E3268B791AA513C6004FA763 /* RightSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightSideViewController.m; sourceTree = "<group>"; };
 		E39C05671A96A0E800BDFFE7 /* MyEventsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEventsController.h; sourceTree = "<group>"; };
 		E39C05681A96A0E800BDFFE7 /* MyEventsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEventsController.m; sourceTree = "<group>"; };
-		E3ADDAFA1AA2DE0600C4A642 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = StoreFinder/Base.lproj/Tonite.storyboard; sourceTree = "<group>"; };
-		E3ADDB001AA2E18300C4A642 /* BrowseEventController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowseEventController.h; sourceTree = "<group>"; };
-		E3ADDB011AA2E18300C4A642 /* BrowseEventController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowseEventController.m; sourceTree = "<group>"; };
-		E3ADDB031AA2E22200C4A642 /* EventListingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventListingCell.h; sourceTree = "<group>"; };
-		E3ADDB041AA2E22200C4A642 /* EventListingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventListingCell.m; sourceTree = "<group>"; };
 		E3EA95551A96F2C6000066E8 /* TicketsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TicketsViewController.h; path = "untitled folder/TicketsViewController.h"; sourceTree = "<group>"; };
 		E3EA95561A96F2C6000066E8 /* TicketsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TicketsViewController.m; path = "untitled folder/TicketsViewController.m"; sourceTree = "<group>"; };
 		E3EA95591A97407F000066E8 /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRCodeViewController.h; path = "untitled folder 2/QRCodeViewController.h"; sourceTree = "<group>"; };
@@ -1674,7 +1669,6 @@
 		CBAED2221948A1DD00769D68 /* StoreFinder */ = {
 			isa = PBXGroup;
 			children = (
-				E3ADDAFF1AA2E14700C4A642 /* ToniteViewControllers */,
 				CBAED2591948A40F00769D68 /* DataParser */,
 				CBAED4101948E96B00769D68 /* Models */,
 				CBAED4091948E53700769D68 /* CoreData */,
@@ -1821,6 +1815,7 @@
 		CBAED25C1948A40F00769D68 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E3268B771AA51371004FA763 /* RightSideViewController */,
 				E3EA955C1A974094000066E8 /* QRCodeController */,
 				E3EA95581A96F2DF000066E8 /* TicketsViewController */,
 				E39C056A1A96A0EE00BDFFE7 /* MyEventsController */,
@@ -1883,7 +1878,6 @@
 		CBAED2671948A4A600769D68 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				E3ADDAF91AA2DE0600C4A642 /* Tonite.storyboard */,
 				CBAED22E1948A1DD00769D68 /* Main_iPhone.storyboard */,
 				CBAED2311948A1DD00769D68 /* Main_iPad.storyboard */,
 				CB26273B195072180024C15A /* User_iPhone.storyboard */,
@@ -2478,6 +2472,15 @@
 			path = Star;
 			sourceTree = "<group>";
 		};
+		E3268B771AA51371004FA763 /* RightSideViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E3268B781AA513C6004FA763 /* RightSideViewController.h */,
+				E3268B791AA513C6004FA763 /* RightSideViewController.m */,
+			);
+			name = RightSideViewController;
+			sourceTree = "<group>";
+		};
 		E39C056A1A96A0EE00BDFFE7 /* MyEventsController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2485,17 +2488,6 @@
 				E39C05681A96A0E800BDFFE7 /* MyEventsController.m */,
 			);
 			name = MyEventsController;
-			sourceTree = "<group>";
-		};
-		E3ADDAFF1AA2E14700C4A642 /* ToniteViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				E3ADDB001AA2E18300C4A642 /* BrowseEventController.h */,
-				E3ADDB011AA2E18300C4A642 /* BrowseEventController.m */,
-				E3ADDB031AA2E22200C4A642 /* EventListingCell.h */,
-				E3ADDB041AA2E22200C4A642 /* EventListingCell.m */,
-			);
-			name = ToniteViewControllers;
 			sourceTree = "<group>";
 		};
 		E3EA95581A96F2DF000066E8 /* TicketsViewController */ = {
@@ -2689,7 +2681,6 @@
 				CB7DFBF719523964007FC9B9 /* ic_weather@2x.png in Resources */,
 				CB4221BE194B01BB00528013 /* line_divider_pad.png in Resources */,
 				CB7DFB7619519B91007FC9B9 /* textbox_search_selected.png in Resources */,
-				E3ADDAFB1AA2DE0600C4A642 /* Tonite.storyboard in Resources */,
 				CB4221B5194B01BB00528013 /* divider@2x.png in Resources */,
 				CB48DCEC19D444370039C26B /* button_red@3x.png in Resources */,
 				CB7DFB551951726C007FC9B9 /* ic_web_back@2x.png in Resources */,
@@ -2958,8 +2949,6 @@
 				CBAED3871948A4EF00769D68 /* SearchRawView.m in Sources */,
 				CBAED3651948A4EF00769D68 /* ECSlidingViewController.m in Sources */,
 				CB820AE5194F7C69000E64DB /* TCViewController.m in Sources */,
-				E3ADDB021AA2E18300C4A642 /* BrowseEventController.m in Sources */,
-				E3ADDB051AA2E22200C4A642 /* EventListingCell.m in Sources */,
 				CBAED3A41948A4EF00769D68 /* JBParallaxCell.m in Sources */,
 				CB594AD3194D715E0062413B /* MGFooterView.m in Sources */,
 				CB2D4BC1194E21BB002CF419 /* SearchViewController.m in Sources */,
@@ -3025,6 +3014,7 @@
 				CBAED39F1948A4EF00769D68 /* FHSTwitterEngine.m in Sources */,
 				CBAED3661948A4EF00769D68 /* UIViewController+ECSlidingViewController.m in Sources */,
 				CBAED3E01948A63B00769D68 /* ContentViewController.m in Sources */,
+				E3268B7A1AA513C6004FA763 /* RightSideViewController.m in Sources */,
 				CB4221D9194B0BC500528013 /* StoreViewController.m in Sources */,
 				CB2D4BB9194DEC3D002CF419 /* RatingViewController.m in Sources */,
 				CB820A99194F27E8000E64DB /* MGButton.m in Sources */,
@@ -3084,14 +3074,6 @@
 				CBAED2651948A49900769D68 /* en */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		E3ADDAF91AA2DE0600C4A642 /* Tonite.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E3ADDAFA1AA2DE0600C4A642 /* Base */,
-			);
-			name = Tonite.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

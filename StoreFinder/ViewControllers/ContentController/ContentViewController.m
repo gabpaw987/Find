@@ -22,6 +22,7 @@
 @synthesize slider;
 @synthesize listViewNews;
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -93,6 +94,10 @@
                                                                 action:@selector(didClickBarButtonMenu:)];
     self.navigationItem.leftBarButtonItem = itemMenu;
     
+    UIBarButtonItem* itemLoginMenu = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed: ICON_REGISTER] style:UIBarButtonItemStylePlain target:self action:@selector(didClickProfileMenuButton:)];
+    
+    self.navigationItem.rightBarButtonItem = itemLoginMenu;
+    
     if(SHOW_ADS_MAIN_VIEW) {
         [MGUtilities createAdAtY:self.view.frame.size.height - AD_BANNER_HEIGHT
                   viewController:self
@@ -111,13 +116,31 @@
     }
 }
 
--(void)didClickBarButtonMenu:(id)sender {
-    
+-(void) didClickProfileMenuButton: (id) sender{
     AppDelegate* delegate = [AppDelegate instance];
     [delegate.sideViewController updateUI];
     
+
+   [self.slidingViewController anchorTopViewToLeftAnimated:YES];
+    
+   // UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardSideProfile"];
+   // [self.navigationController pushViewController:vc animated:YES];
+    
+    
+    
+    
+    
+
+}
+
+-(void)didClickBarButtonMenu:(id)sender {
+     AppDelegate* delegate = [AppDelegate instance];
+        [delegate.sideViewController updateUI];
+    
     
     [self.slidingViewController anchorTopViewToRightAnimated:YES];
+
+    
 }
 
 
@@ -301,5 +324,6 @@
 -(void)MGListView:(MGListView *)listView scrollViewDidScroll:(UIScrollView *)scrollView {
     
 }
+
 
 @end
