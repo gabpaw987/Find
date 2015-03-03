@@ -377,6 +377,10 @@
 
 
 -(IBAction)didClickCancelLogin:(id)sender {
+    
+    AppDelegate* delegate = [AppDelegate instance];
+    [delegate.rightMenuController updateUI];
+    //[self.slidingViewController resetTopViewAnimated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

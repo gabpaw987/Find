@@ -13,5 +13,5 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *userProfilePicture;
 
--(void) updateUI;   
+-(void) updateUI;
 @end

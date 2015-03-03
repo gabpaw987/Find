@@ -39,18 +39,7 @@
     tableViewSide.delegate = self;
     tableViewSide.dataSource = self;
     
-    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
-    
-    int x = self.view.frame.size.width - ANCHOR_LEFT_PEEK - 1;
-    gradientLayer.frame = CGRectMake(x, 0, 2, self.view.frame.size.height);
-    gradientLayer.colors = [NSArray arrayWithObjects:
-                            (id)THEME_BLACK_TINT_COLOR.CGColor,
-                            (id)[UIColor clearColor].CGColor,
-                            nil];
-    gradientLayer.startPoint = CGPointMake(-2, 0.5);
-    gradientLayer.endPoint = CGPointMake(1, 0.5);
-    [self.view.layer addSublayer:gradientLayer];
-    
+ 
     self.categories =
     @[
         @"HOUSE",

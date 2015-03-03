@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "AppDelegate.h"
 
 @interface ProfileViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     UIImage* _imgThumb;
@@ -285,7 +286,8 @@
 }
 
 -(IBAction)didClickButtonCancel:(id)sender {
-    
+    AppDelegate* delegate = [AppDelegate instance];
+    [delegate.rightMenuController updateUI];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

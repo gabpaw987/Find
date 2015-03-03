@@ -117,14 +117,10 @@
 }
 
 -(void) didClickProfileMenuButton: (id) sender{
-    AppDelegate* delegate = [AppDelegate instance];
-    [delegate.sideViewController updateUI];
+    //AppDelegate* delegate = [AppDelegate instance];
+   // [delegate.rightMenuController updateUI];
     
-
    [self.slidingViewController anchorTopViewToLeftAnimated:YES];
-    
-   // UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardSideProfile"];
-   // [self.navigationController pushViewController:vc animated:YES];
     
     
     

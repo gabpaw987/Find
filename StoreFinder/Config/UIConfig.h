@@ -113,6 +113,7 @@
 
 #define MAP_STARRED_SELECTED @"star_fave_selected.png"
 
+#define BUTTON_CLOSE @"ic_close.png"
 
 
 

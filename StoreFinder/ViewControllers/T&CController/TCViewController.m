@@ -68,7 +68,7 @@
     inset.bottom = NAV_BAR_OFFSET_DEFAULT;
     scrollViewMain.scrollIndicatorInsets = inset;
 
-    UIBarButtonItem* itemMenu = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:BUTTON_MENU]
+    UIBarButtonItem* itemMenu = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:BUTTON_CLOSE]
                                                                  style:UIBarButtonItemStylePlain
                                                                 target:self
                                                                 action:@selector(didClickBarButtonMenu:)];
@@ -78,9 +78,11 @@
 -(void)didClickBarButtonMenu:(id)sender {
     
     AppDelegate* delegate = [AppDelegate instance];
-    [delegate.sideViewController updateUI];
+    [delegate.rightMenuController updateUI];
     
-    [self.slidingViewController anchorTopViewToRightAnimated:YES];
+    UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardContent"];
+    [self.navigationController pushViewController:vc animated:YES];
+
 }
 
 

@@ -25,7 +25,7 @@
                         <segue destination="0Vi-Jf-1f8" kind="push" identifier="segueAboutUs" id="bhw-mn-9zb"/>
                         <segue destination="qR5-87-zGu" kind="relationship" relationship="rootViewController" id="MFO-sE-VG4"/>
                         <segue destination="QFo-IK-QiI" kind="push" identifier="PushToMyEvents" id="Aki-zB-TOf"/>
-                        <segue destination="1bT-gg-fUp" kind="modal" identifier="segueSideProfile" id="EVH-d9-P0i"/>
+                        <segue destination="1bT-gg-fUp" kind="modal" identifier="pushRightSideView" id="VTi-G9-wcB"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQd-gy-V0S" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -137,24 +137,46 @@
         <!--Right Side View Controller-->
         <scene sceneID="iYs-c9-zfQ">
             <objects>
-                <viewController storyboardIdentifier="storyboardRightSide" id="1bT-gg-fUp" customClass="RightSideViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3bu-os-IzP">
+                <viewController storyboardIdentifier="storyboardRightSide" wantsFullScreenLayout="YES" id="1bT-gg-fUp" customClass="RightSideViewController" sceneMemberID="viewController">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="3bu-os-IzP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="side_bar_header.png" id="4CS-Tf-YRq">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="187"/>
+                                <rect key="frame" x="73" y="0.0" width="276" height="163"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_thumb_placeholder@3x.png" id="daa-no-cKf">
-                                <rect key="frame" x="115" y="57" width="91" height="92"/>
+                                <rect key="frame" x="181" y="72" width="60" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header_logo.png" id="aUF-XG-dJg">
+                                <rect key="frame" x="148" y="38" width="115" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <tableView contentMode="scaleToFill" bounces="NO" indicatorStyle="white" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LBc-BD-T4i">
+                                <rect key="frame" x="105" y="221" width="276" height="333"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RightSideViewCell" id="AWr-fd-UG8">
+                                        <rect key="frame" x="0.0" y="0.0" width="212" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AWr-fd-UG8" id="lcq-Bn-SWp">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
+                        <outlet property="tableSideView" destination="LBc-BD-T4i" id="eeq-Yi-L0P"/>
                         <outlet property="userProfilePicture" destination="daa-no-cKf" id="T5l-aA-r5w"/>
                     </connections>
                 </viewController>
@@ -162,10 +184,10 @@
             </objects>
             <point key="canvasLocation" x="1492" y="2118"/>
         </scene>
-        <!--TC View Controller-->
+        <!--View Controller-->
         <scene sceneID="6BM-xs-yQx">
             <objects>
-                <viewController storyboardIdentifier="storyboardTermsConditions" title="TC View Controller" id="raW-xK-DWZ" customClass="TCViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="storyboardTC" id="raW-xK-DWZ" customClass="TCViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="efh-CT-WTV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
