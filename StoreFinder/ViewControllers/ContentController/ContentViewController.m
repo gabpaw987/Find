@@ -117,8 +117,8 @@
 }
 
 -(void) didClickProfileMenuButton: (id) sender{
-    //AppDelegate* delegate = [AppDelegate instance];
-   // [delegate.rightMenuController updateUI];
+    AppDelegate* delegate = [AppDelegate instance];
+    [delegate.rightMenuController updateUI];
     
    [self.slidingViewController anchorTopViewToLeftAnimated:YES];
     

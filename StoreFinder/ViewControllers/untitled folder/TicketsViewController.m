@@ -8,7 +8,7 @@
 
 #import "TicketsViewController.h"
 #import "AppDelegate.h"
-#import "QRCodeViewController.h"
+
 
 @interface TicketsViewController() 
 
@@ -71,12 +71,12 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [_myTickets count];
 }
-
+/*
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     QRCodeViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardQRcode"];
     vc.ticketID = [_myTickets objectAtIndex:indexPath.row] ;
     [self.navigationController pushViewController:vc animated:YES];
 }
-
+*/
 
 @end

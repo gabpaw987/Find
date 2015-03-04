@@ -380,8 +380,9 @@
     
     AppDelegate* delegate = [AppDelegate instance];
     [delegate.rightMenuController updateUI];
-    //[self.slidingViewController resetTopViewAnimated:YES];
+  
     [self dismissViewControllerAnimated:YES completion:nil];
+    [self.slidingViewController anchorTopViewToLeftAnimated:YES];
 }
 
 
@@ -501,7 +502,13 @@
                 [self.view setUserInteractionEnabled:YES];
                 barButtonCancel.enabled = YES;
                 
+                
+                AppDelegate* delegate = [AppDelegate instance];
+                [delegate.rightMenuController updateUI];
+                
                 [self dismissViewControllerAnimated:YES completion:nil];
+                [self.slidingViewController anchorTopViewToLeftAnimated:YES];
+
             }
             
         }
@@ -719,7 +726,12 @@
 -(void)delaySocial:(id)sender {
     
     
+    AppDelegate* delegate = [AppDelegate instance];
+    [delegate.rightMenuController updateUI];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
+    [self.slidingViewController anchorTopViewToLeftAnimated:YES];
+    
 }
 
 -(void) startSyncPhoto:(MBProgressHUD*)hud {

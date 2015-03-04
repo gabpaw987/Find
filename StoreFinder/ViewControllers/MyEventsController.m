@@ -74,6 +74,7 @@
     AppDelegate* delegate = [AppDelegate instance];
     [delegate.sideViewController updateUI];
     
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     [self.slidingViewController anchorTopViewToRightAnimated:YES];
 }
 

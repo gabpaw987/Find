@@ -283,7 +283,12 @@
                 [hud removeFromSuperview];
                 [self.view setUserInteractionEnabled:YES];
                 barButtonCancel.enabled = YES;
+                
+                AppDelegate* delegate = [AppDelegate instance];
+                [delegate.rightMenuController updateUI];
+                
                 [self dismissViewControllerAnimated:YES completion:nil];
+                [self.slidingViewController anchorTopViewToLeftAnimated:YES];
                 
                 
             }
@@ -316,7 +321,12 @@
 }
 
 -(IBAction)didClickCancelLogin:(id)sender {
+    
+    AppDelegate* delegate = [AppDelegate instance];
+    [delegate.rightMenuController updateUI];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
+    [self.slidingViewController anchorTopViewToLeftAnimated:YES];
 }
 
 -(void)didClickLoginToFacebook:(id)sender {
@@ -492,8 +502,11 @@
 
 -(void)delaySocial:(id)sender {
     
+    AppDelegate* delegate = [AppDelegate instance];
+    [delegate.rightMenuController updateUI];
     
     [self dismissViewControllerAnimated:YES completion:nil];
+    [self.slidingViewController anchorTopViewToLeftAnimated:YES];
 }
 
 -(void)didClickLoginToTwitter:(id)sender {

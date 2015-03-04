@@ -475,7 +475,6 @@
 		E3268B7A1AA513C6004FA763 /* RightSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3268B791AA513C6004FA763 /* RightSideViewController.m */; };
 		E39C05691A96A0E800BDFFE7 /* MyEventsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E39C05681A96A0E800BDFFE7 /* MyEventsController.m */; };
 		E3EA95571A96F2C6000066E8 /* TicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EA95561A96F2C6000066E8 /* TicketsViewController.m */; };
-		E3EA955B1A97407F000066E8 /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EA955A1A97407F000066E8 /* QRCodeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1077,8 +1076,6 @@
 		E39C05681A96A0E800BDFFE7 /* MyEventsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEventsController.m; sourceTree = "<group>"; };
 		E3EA95551A96F2C6000066E8 /* TicketsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TicketsViewController.h; path = "untitled folder/TicketsViewController.h"; sourceTree = "<group>"; };
 		E3EA95561A96F2C6000066E8 /* TicketsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TicketsViewController.m; path = "untitled folder/TicketsViewController.m"; sourceTree = "<group>"; };
-		E3EA95591A97407F000066E8 /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRCodeViewController.h; path = "untitled folder 2/QRCodeViewController.h"; sourceTree = "<group>"; };
-		E3EA955A1A97407F000066E8 /* QRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QRCodeViewController.m; path = "untitled folder 2/QRCodeViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1804,7 +1801,6 @@
 			isa = PBXGroup;
 			children = (
 				E3268B771AA51371004FA763 /* RightSideViewController */,
-				E3EA955C1A974094000066E8 /* QRCodeController */,
 				E3EA95581A96F2DF000066E8 /* TicketsViewController */,
 				E39C056A1A96A0EE00BDFFE7 /* MyEventsController */,
 				CB820ADE194F7C69000E64DB /* AboutUsController */,
@@ -2486,15 +2482,6 @@
 			name = TicketsViewController;
 			sourceTree = "<group>";
 		};
-		E3EA955C1A974094000066E8 /* QRCodeController */ = {
-			isa = PBXGroup;
-			children = (
-				E3EA95591A97407F000066E8 /* QRCodeViewController.h */,
-				E3EA955A1A97407F000066E8 /* QRCodeViewController.m */,
-			);
-			name = QRCodeController;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2969,7 +2956,6 @@
 				CB3B8E2E194A1E1A00574652 /* Favorite.m in Sources */,
 				CBAED3BC1948A4EF00769D68 /* Reachability.m in Sources */,
 				CBAED3931948A4EF00769D68 /* AFHTTPClient.m in Sources */,
-				E3EA955B1A97407F000066E8 /* QRCodeViewController.m in Sources */,
 				CBAED2611948A43B00769D68 /* AppDelegate.m in Sources */,
 				CBAED4071948E18400769D68 /* NSString+HTML.m in Sources */,
 				CB820A9D194F7793000E64DB /* LoginViewController.m in Sources */,

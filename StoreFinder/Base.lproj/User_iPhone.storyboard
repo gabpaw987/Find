@@ -130,33 +130,6 @@
             </objects>
             <point key="canvasLocation" x="-799" y="2613"/>
         </scene>
-        <!--Code View Controller-->
-        <scene sceneID="NeW-5U-iLu">
-            <objects>
-                <viewController storyboardIdentifier="storyboardQRcode" id="X2I-et-6z2" customClass="QRCodeViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Qjv-28-3P0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SQY-QJ-j3E">
-                                <rect key="frame" x="43" y="235" width="233" height="97"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="highlightedColor" cocoaTouchSystemColor="lightTextColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="cxF-i8-cuS"/>
-                    <connections>
-                        <outlet property="QRTicket" destination="SQY-QJ-j3E" id="LBz-gv-3BL"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RSh-bw-I7a" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-154" y="2693"/>
-        </scene>
         <!--Register View Controller-->
         <scene sceneID="1oz-3V-0wO">
             <objects>

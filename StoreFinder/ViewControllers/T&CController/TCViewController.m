@@ -81,8 +81,9 @@
     [delegate.rightMenuController updateUI];
     
     UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardContent"];
-    [self.navigationController pushViewController:vc animated:YES];
-
+    [self.slidingViewController anchorTopViewToLeftAnimated:YES];
+    [self.navigationController setViewControllers:[NSArray arrayWithObject:vc]];
+    [self.slidingViewController resetTopViewAnimated:NO];
 }
 
 

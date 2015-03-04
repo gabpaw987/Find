@@ -94,10 +94,11 @@
     AppDelegate* delegate = [AppDelegate instance];
     [delegate.rightMenuController updateUI];
     
-    UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardContent"];
-    [self.navigationController pushViewController:vc animated:YES];
+  UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardContent"];
 
-  //[self.slidingViewController resetTopViewAnimated:YES];
+    [self.slidingViewController anchorTopViewToLeftAnimated:YES];
+    [self.navigationController setViewControllers:[NSArray arrayWithObject: vc]];
+    [self.slidingViewController resetTopViewAnimated:YES];
 }
 
 -(void)didClickEmailButton:(id)sender {

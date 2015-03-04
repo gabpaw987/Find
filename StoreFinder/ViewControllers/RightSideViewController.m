@@ -12,7 +12,7 @@
 @interface RightSideViewController ()<UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 @property (nonatomic, retain) UserSession* user;
 @property (nonatomic, retain) NSArray* titles;
-@property (nonatomic, retain) NSString* title1;
+@property (nonatomic, retain) NSArray* subtitles;
 
 @end
 
@@ -27,11 +27,11 @@
     // Do any additional setup after loading the view.
     
    self.user = [UserAccessSession getUserSession];
-    self.title1 = @"Create An Account";
-    
-    if( self.user != nil && self.user.coverPhotoUrl != nil) {
-        [self setImage:self.user.coverPhotoUrl imageView:userProfilePicture withBorder:YES isThumb:YES];
-        self.title1 = @"My Account";
+    self.subtitles = @[ @"Create An Account",@"Sign In" ];
+    [self setImage:self.user.thumbPhotoUrl imageView:userProfilePicture withBorder:YES isThumb:YES];
+   
+    if( self.user != nil) {
+        self.subtitles = @[@"My Account", @"Sign Out"];
     }
     
     self.view.backgroundColor = SIDE_VIEW_BG_COLOR;
@@ -44,7 +44,7 @@
     CAGradientLayer *gradientLayer = [CAGradientLayer layer];
     
     int x = self.view.frame.size.width -ANCHOR_RIGHT_PEEK-1;
-    gradientLayer.frame = CGRectMake(-x, 0, x, self.view.frame.size.height);
+    gradientLayer.frame = CGRectMake(0, 0, x, self.view.frame.size.height);
     gradientLayer.colors = [NSArray arrayWithObjects:
                             (id)THEME_BLACK_TINT_COLOR.CGColor,
                             (id)[UIColor clearColor].CGColor,
@@ -57,7 +57,7 @@
     self.titles =@[
                   @"Settings",
                   @"About Tonite",
-                  @"Terms and Condition", self.title1  ];
+                  @"Terms and Condition" ];
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
     tapGesture.numberOfTapsRequired = 1;
     tapGesture.cancelsTouchesInView = NO; //So the user can still interact with controls in the modal view
@@ -120,13 +120,16 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [ self.titles count];
+    return ([ self.titles count]+ [self.subtitles count]);
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
    UITableViewCell* cell = [[UITableViewCell alloc ]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RightSideViewCell"];
-
-    cell.textLabel.text = self.titles[indexPath.row];
+    NSInteger index = indexPath.row ;
+    if(index < [self.titles count])
+        cell.textLabel.text = self.titles[index];
+    else
+        cell.textLabel.text = self.subtitles[(index- [self.titles count])];
     return cell;
 }
 
@@ -151,7 +154,9 @@
     //self.slidingViewController.topViewController.view.layer.transform = CATransform3DMakeScale(1, 1, 1);
     
     if (indexPath.row == 0) {
+        //PUSH NOTIFICATION SETTINGS
         
+        //OTHER SETTINGS??
     }
     if(indexPath.row == 1){
         UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardAboutUs"];
@@ -177,6 +182,27 @@
         AppDelegate* delegate = [AppDelegate instance];
         [[delegate.window rootViewController] presentViewController:vc animated:YES completion:nil];
         [self.slidingViewController resetTopViewAnimated:YES];
+    }
+    if(indexPath.row == 4){
+        if(self.user ==nil){
+            UIStoryboard* story = [UIStoryboard storyboardWithName:@"User_iPhone" bundle:nil];
+            UIViewController* vc = [story instantiateViewControllerWithIdentifier: @"storyboardLogin"];
+            vc.modalPresentationStyle = UIModalPresentationFullScreen;
+            vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            
+            AppDelegate* delegate = [AppDelegate instance];
+            [[delegate.window rootViewController] presentViewController:vc animated:YES completion:nil];
+            [self.slidingViewController resetTopViewAnimated:YES];
+        }
+        else{
+            
+            [UserAccessSession clearAllSession];
+            [[FHSTwitterEngine sharedEngine] clearAccessToken];
+            [FBSession.activeSession closeAndClearTokenInformation];
+            [FBSession.activeSession close];
+            [FBSession setActiveSession:nil];
+            [self.slidingViewController resetTopViewAnimated:YES];
+        }
     }
 }
 
@@ -230,6 +256,16 @@
 }
 
 -(void) updateUI{
+    
+    self.user = [UserAccessSession getUserSession];
+    
+    [self setImage:self.user.thumbPhotoUrl imageView:userProfilePicture withBorder:YES isThumb:YES];
+    if( self.user != nil) {
+        self.subtitles = @[@"My Account", @"Sign Out"];
+    }
+    else{
+        self.subtitles = @[ @"Create An Account",@"Sign In" ];
+    }
     [tableSideView reloadData];
 
 }
