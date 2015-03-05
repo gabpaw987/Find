@@ -8,6 +8,7 @@
 
 #import "SideViewController.h"
 #import "AppDelegate.h"
+#import "StoreViewController.h"
 
 @interface SideViewController ()
 
@@ -39,7 +40,10 @@
     tableViewSide.delegate = self;
     tableViewSide.dataSource = self;
     
- 
+ //********************************************
+  //  self.categories = [CoreDataController getCategories];
+    
+    
     self.categories =
     @[
         @"HOUSE",
@@ -162,6 +166,8 @@
     NSString* title = self.categories[indexPath.row];
     [cell.labelTitle setText:title];
     
+    //Set Category Backgroud**************************
+    
     
     return cell;
 }
@@ -173,6 +179,17 @@
     // You normally wouldn't need to do anything like this, but we're changing transitions
     // dynamically so everything needs to start in a consistent state.
     self.slidingViewController.topViewController.view.layer.transform = CATransform3DMakeScale(1, 1, 1);
+    
+    //***********************************************************
+    /*Once category_id is set up for events instead of using if cases:
+     
+    StoreViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardStore"];
+    vc.storeCategory = self.categories[indexPath.row ]; //Or should index 0 be for HOME screen?
+    [self showViewController:vc];
+    [self.slidingViewController resetTopViewAnimated:YES];
+    */
+
+    
     
     if (indexPath.row == 0) {
         UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardContent"];
