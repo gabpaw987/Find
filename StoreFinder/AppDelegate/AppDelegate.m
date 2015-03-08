@@ -65,9 +65,10 @@
     self.slidingViewController.underRightViewController = rightMenuController;
     
     self.slidingViewController.anchorRightPeekAmount  = 0.0;
-    self.slidingViewController.anchorLeftPeekAmount = 70.0;
+    self.slidingViewController.anchorLeftPeekAmount = 80.0;
+    
     //self.slidingViewController.anchorRightRevealAmount = 350.0;
-    self.slidingViewController.anchorLeftRevealAmount = ANCHOR_RIGHT_PEEK; //276.0
+    //self.slidingViewController.anchorLeftRevealAmount = ANCHOR_RIGHT_PEEK; //276.0
     
     
     self.window.rootViewController = self.slidingViewController;

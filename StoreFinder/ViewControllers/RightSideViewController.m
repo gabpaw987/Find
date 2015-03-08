@@ -39,22 +39,26 @@
     tableSideView.delegate = self;
     tableSideView.dataSource = self;
     
+  //  self.view.layer.bounds = CG
+    
+    [self.view bringSubviewToFront:self.view];
     
     //DARKEN OUTSIDE MENU SCREEN
     CAGradientLayer *gradientLayer = [CAGradientLayer layer];
     
-    int x = self.view.frame.size.width -ANCHOR_RIGHT_PEEK-1;
-    gradientLayer.frame = CGRectMake(0, 0, x, self.view.frame.size.height);
+    int x = self.view.frame.size.width -76;
+    gradientLayer.frame = CGRectMake(0, 0, 76.0, self.view.frame.size.height);
     gradientLayer.colors = [NSArray arrayWithObjects:
                             (id)THEME_BLACK_TINT_COLOR.CGColor,
                             (id)[UIColor clearColor].CGColor,
                             nil];
-   
-    gradientLayer.startPoint = CGPointMake(-2,0.5);
-    gradientLayer.endPoint = CGPointMake(1,0.5);
+    
+    gradientLayer.startPoint = CGPointMake(0.4,0.0);
+    gradientLayer.endPoint = CGPointMake(0.0,0.5);
     [self.view.layer addSublayer:gradientLayer];
     
-    self.titles =@[
+    
+        self.titles =@[
                   @"Settings",
                   @"About Tonite",
                   @"Terms and Condition" ];
