@@ -11,6 +11,7 @@
 #import "NewsDetailViewController.h"
 #import "DetailViewController.h"
 
+
 @interface ContentViewController () <MGSliderDelegate, MGListViewDelegate>
 
 @property (nonatomic, retain) NSArray* arrayFeatured;
@@ -19,7 +20,7 @@
 
 @implementation ContentViewController
 
-@synthesize slider;
+//@synthesize slider;
 @synthesize listViewNews;
 
 
@@ -32,20 +33,27 @@
     return self;
 }
 
+
 -(void)viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:animated];
-    
+    for( RightSideViewController* vc in self.childViewControllers){
+        [vc reloadInputViews];
+        
+    }
+    /*
     if(slider != nil)
         [slider resumeAnimation];
+     */
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
     
     [super viewWillDisappear:animated];
-    
+   /*
     if(slider != nil)
         [slider stopAnimation];
+    */
 }
 
 - (void)viewDidLoad
@@ -62,28 +70,31 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    slider.nibName = @"SliderView";
-    slider.delegate = self;
+    //slider.nibName = @"SliderView";
+    //slider.delegate = self;
     
     BOOL screen = IS_IPHONE_6_PLUS_AND_ABOVE;
     
     if(screen) {
+        /*
         CGRect frame = slider.frame;
         frame.size.width = self.view.frame.size.width;
         frame.size.height = 230;
         slider.frame = frame;
-        
-        frame = listViewNews.frame;
-        frame.origin.y = slider.frame.origin.y + slider.frame.size.height;
-        frame.size.height = self.view.frame.size.height - slider.frame.size.height-64;
+        */
+        CGRect frame = listViewNews.frame;
+        frame.origin.y =66;
+        //slider.frame.origin.y + slider.frame.size.height;
+        frame.size.height = self.view.frame.size.height-66;
+        //- slider.frame.size.height-64;
         listViewNews.frame = frame;
     }
     
     listViewNews.delegate = self;
     
-    listViewNews.cellHeight = screen ? 240 : 180;
+    listViewNews.cellHeight = screen ? 280 : 270;
     
-    [listViewNews registerNibName:@"NewsCell" cellIndentifier:@"NewsCell"];
+    [listViewNews registerNibName:@"SliderCell" cellIndentifier:@"SliderCell"];
     [listViewNews baseInit];
     
     [self beginParsing];
@@ -97,48 +108,90 @@
     UIBarButtonItem* itemLoginMenu = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed: ICON_REGISTER] style:UIBarButtonItemStylePlain target:self action:@selector(didClickProfileMenuButton:)];
     
     self.navigationItem.rightBarButtonItem = itemLoginMenu;
+
     
-    if(SHOW_ADS_MAIN_VIEW) {
-        [MGUtilities createAdAtY:self.view.frame.size.height - AD_BANNER_HEIGHT
-                  viewController:self
-                         bgColor:AD_BG_COLOR];
-        
-        UIEdgeInsets inset = listViewNews.tableView.contentInset;
-        inset.bottom = ADV_VIEW_OFFSET;
-        listViewNews.tableView.contentInset = inset;
-        
-        inset = listViewNews.tableView.scrollIndicatorInsets;
-        inset.bottom = ADV_VIEW_OFFSET;
-        listViewNews.tableView.scrollIndicatorInsets = inset;
-        
-        NSLog(@"%@", NSStringFromCGRect(listViewNews.tableView.frame));
-        
+    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
+    swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
+    swipeGesture.cancelsTouchesInView = YES; //So the user can still interact with controls in the modal view
+    
+    [self.slidingViewController.view addGestureRecognizer:swipeGesture];
+    
+    
+}
+
+
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    return YES;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    return YES;
+}
+
+- (void)handleSwipeGesture:(UISwipeGestureRecognizer *)sender{
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        for(RightSideViewController* vc in self.childViewControllers){
+                [vc willMoveToParentViewController:nil];
+                [vc.view removeFromSuperview];
+                [vc removeFromParentViewController];
+        }
     }
 }
 
--(void) didClickProfileMenuButton: (id) sender{
-    AppDelegate* delegate = [AppDelegate instance];
-    [delegate.rightMenuController updateUI];
-    
-   [self.slidingViewController anchorTopViewToLeftAnimated:YES];
-    
-    
-    
-    
-    
 
+
+
+
+
+
+
+-(void) didClickProfileMenuButton: (id) sender{
+    if(self.childViewControllers.count  == 0){
+          RightSideViewController * right = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardRightSide"];
+        
+        [self addChildViewController:right];
+        [right didMoveToParentViewController:self];
+        [self.view addSubview:right.view];
+    }
+    else{
+        for( RightSideViewController* vc in self.childViewControllers){
+            [vc willMoveToParentViewController:nil];
+        [vc.view removeFromSuperview];
+        [vc removeFromParentViewController];
+        }
+        
+        }
+    
+  
+   // [UIView transitionWithView:self.view duration:2.0 options:UIViewAnimationOptionCurveLinear animations:^{
+      
+    //}completion:nil];
+    //    [self.view addSubview: right.view];
+   
+        
+    
+   // [right didMoveToParentViewController:self];
+  
+    
 }
+
 
 -(void)didClickBarButtonMenu:(id)sender {
      AppDelegate* delegate = [AppDelegate instance];
         [delegate.sideViewController updateUI];
-    
-    
+    for( RightSideViewController* vc in self.childViewControllers){
+        [vc willMoveToParentViewController:nil];
+        [vc.view removeFromSuperview];
+        [vc removeFromParentViewController];
+    }
+
     [self.slidingViewController anchorTopViewToRightAnimated:YES];
-
-    
 }
-
 
 
 - (void)didReceiveMemoryWarning
@@ -146,6 +199,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation
@@ -189,39 +243,45 @@
 -(void) setData {
     
     self.arrayFeatured = [CoreDataController getFeaturedStores];
+    Store * event = self.arrayFeatured[3];
+    self.arrayFeatured  = [CoreDataController getStorePhotosByStoreId:event.store_id];
+   /*
     slider.numberOfItems = self.arrayFeatured.count;
-    
+    slider.imageArray = self.arrayFeatured;
     [slider setNeedsReLayoutWithViewSize:CGSizeMake(self.view.frame.size.width, slider.frame.size.height)];
-    [slider startAnimationWithDuration:4.0f];
+    */
+    listViewNews.arrayData  = self.arrayFeatured;
+    //[NSMutableArray arrayWithArray:[CoreDataController getFeaturedStores]];
+  //  [slider startAnimationWithDuration:3.0f];
 //    [slider showPageControl:YES];
-    
-    listViewNews.arrayData = [NSMutableArray arrayWithArray:[CoreDataController getNews]];
+ 
+ //   listViewNews.arrayData = [NSMutableArray arrayWithArray:[CoreDataController getNews]];
     
 }
-
+/*
 -(void)MGSlider:(MGSlider *)slider didCreateSliderView:(MGRawView *)rawView atIndex:(int)index {
     
-    Store* store = self.arrayFeatured[index];
-    Photo* p = [CoreDataController getStorePhotoByStoreId:store.store_id];
+    Photo*p = self.arrayFeatured[index];
+   // Photo* p = [CoreDataController getStorePhotoByStoreId:store.store_id];
     
-    rawView.label1.backgroundColor = [BLACK_TEXT_COLOR colorWithAlphaComponent:0.66];
+ /*   rawView.label1.backgroundColor = [BLACK_TEXT_COLOR colorWithAlphaComponent:0.66];
     
     rawView.labelTitle.textColor = WHITE_TEXT_COLOR;
     rawView.labelSubtitle.textColor = WHITE_TEXT_COLOR;
     
-    rawView.labelTitle.text = store.store_name;
+   rawView.labelTitle.text = store.store_name;
     rawView.labelSubtitle.text = store.store_address;
+    */
+    //if(p != nil)
+   //     [self setImage:p.photo_url imageView:rawView.imgViewPhoto];
     
-    if(p != nil)
-        [self setImage:p.photo_url imageView:rawView.imgViewPhoto];
-    
-    rawView.buttonGo.object = store;
-    [rawView.buttonGo addTarget:self
+ //   rawView.buttonGo.object = store;
+  /*  [rawView.buttonGo addTarget:self
                          action:@selector(didClickButtonGo:)
                forControlEvents:UIControlEventTouchUpInside];
 
 }
-
+*/
 -(void)didClickButtonGo:(id)sender {
     
     MGButton* button = (MGButton*)sender;
@@ -229,7 +289,7 @@
     vc.store = button.object;
     [self.navigationController pushViewController:vc animated:YES];
 }
-
+/*
 -(void)MGSlider:(MGSlider *)slider didSelectSliderView:(MGRawView *)rawView atIndex:(int)index {
     
 }
@@ -237,7 +297,7 @@
 -(void)MGSlider:(MGSlider *)slider didPageControlClicked:(UIButton *)button atIndex:(int)index {
     
 }
-
+*/
 -(void)setImage:(NSString*)imageUrl imageView:(UIImageView*)imgView {
     
     NSURL* url = [NSURL URLWithString:imageUrl];
@@ -271,18 +331,21 @@
 }
 
 -(void) MGListView:(MGListView *)_listView didSelectCell:(MGListCell *)cell indexPath:(NSIndexPath *)indexPath {
+    /*
+    Store* event= [listViewNews.arrayData objectAtIndex:indexPath.row];
     
-    News* news = [listViewNews.arrayData objectAtIndex:indexPath.row];
-    
-    NewsDetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardNewsDetail"];
-    vc.strUrl = news.news_url;
+    DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardDetail"];
+    //vc.strUrl = news.news_url;
+    vc.store = event;
     [self.navigationController pushViewController:vc animated:YES];
+     */
 }
 
 -(UITableViewCell*)MGListView:(MGListView *)listView1 didCreateCell:(MGListCell *)cell indexPath:(NSIndexPath *)indexPath {
     
     if(cell != nil) {
-        News* news = [listViewNews.arrayData objectAtIndex:indexPath.row];
+      /*  Store* event = [listViewNews.arrayData objectAtIndex:indexPath.row];
+        NSLog( @"%@" , event.store_name);
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.selectedColor = THEME_ORANGE_COLOR;
         cell.unSelectedColor = THEME_ORANGE_COLOR;
@@ -290,10 +353,10 @@
         cell.labelDetails.backgroundColor = [BLACK_TEXT_COLOR colorWithAlphaComponent:0.66];
         
         [cell setBackgroundColor:[UIColor clearColor]];
-        [cell.labelTitle setText:news.news_title];
-        [cell.labelSubtitle setText:news.news_content];
+        [cell.labelTitle setText:event.store_name   ];
+        [cell.labelSubtitle setText: event.store_address];
         
-        double createdAt = [news.created_at doubleValue];
+        double createdAt = [event.created_at doubleValue];
         NSDate *date = [NSDate dateWithTimeIntervalSince1970:createdAt];
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -306,16 +369,30 @@
         if(news.photo_url != nil)
             [self setImage:news.photo_url imageView:cell.imgViewThumb];
         else
-            [self setImage:nil imageView:cell.imgViewThumb];
+         
         
         [MGUtilities createBorders:cell.imgViewThumb
                        borderColor:THEME_BLACK_TINT_COLOR
                        shadowColor:[UIColor clearColor]
                        borderWidth:CELL_BORDER_WIDTH];
+         
+        NSArray* photos  =[ CoreDataController getStorePhotosByStoreId:event.store_id];
+    */
+        cell.slideShow.numberOfItems = [self.arrayFeatured count];
+    
+        cell.slideShow.imageArray = self.arrayFeatured;
+        [cell.slideShow setNibName: @"SliderView"];
+        [cell.slideShow setNeedsReLayoutWithViewSize:CGSizeMake(listViewNews.frame.size.width, cell.frame.size.height)];
+        if(indexPath.row %2 == 0)
+            [cell.slideShow startAnimationWithDuration:2.5f];
+        else
+            [cell.slideShow startAnimationWithDuration:3.5f];
     }
     
     return cell;
 }
+
+
 
 -(void)MGListView:(MGListView *)listView scrollViewDidScroll:(UIScrollView *)scrollView {
     

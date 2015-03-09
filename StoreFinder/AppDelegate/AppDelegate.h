@@ -34,8 +34,7 @@
 @property (strong, retain) id <LocationDelegate> locationDelegate;
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, strong) RightSideViewController*
-    rightMenuController;
+@property (nonatomic, strong) RightSideViewController*    rightMenuController;
 @property (nonatomic, strong) ContentViewController* contentViewController;
 @property (nonatomic, strong) SideViewController* sideViewController;
 

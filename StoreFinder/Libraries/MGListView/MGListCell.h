@@ -3,8 +3,11 @@
 #import <UIKit/UIKit.h>
 #import "MGTopLeftLabel.h"
 #import "RateView.h"
+#import "MGSlider.h"
 
 @interface MGListCell : UITableViewCell
+
+@property (strong, nonatomic) IBOutlet MGSlider *slideShow;
 
 @property (nonatomic, retain) IBOutlet UILabel* labelTitle;
 @property (nonatomic, retain) IBOutlet UILabel* labelSubtitle;

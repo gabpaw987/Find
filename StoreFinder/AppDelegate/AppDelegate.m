@@ -62,7 +62,7 @@
     
     self.slidingViewController.underLeftViewController  = sideViewController;
     
-    self.slidingViewController.underRightViewController = rightMenuController;
+self.slidingViewController.underRightViewController = rightMenuController;
     
     self.slidingViewController.anchorRightPeekAmount  = 0.0;
     self.slidingViewController.anchorLeftPeekAmount = 80.0;

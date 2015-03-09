@@ -471,6 +471,8 @@
 		CBF66C61194D9B95003CC75F /* star_half@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBF66C5B194D9B95003CC75F /* star_half@2x.png */; };
 		CBFEC954194CC0BC00A64FEC /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBFEC953194CC0BC00A64FEC /* ReviewCell.xib */; };
 		E3268B7A1AA513C6004FA763 /* RightSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3268B791AA513C6004FA763 /* RightSideViewController.m */; };
+		E39283F61AACE7190075EC8D /* SliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E39283F51AACE7190075EC8D /* SliderCell.xib */; };
+		E39283FF1AAD07E50075EC8D /* SliderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E39283FE1AAD07E50075EC8D /* SliderViewCell.m */; };
 		E39C05691A96A0E800BDFFE7 /* MyEventsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E39C05681A96A0E800BDFFE7 /* MyEventsController.m */; };
 		E3EA95571A96F2C6000066E8 /* TicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EA95561A96F2C6000066E8 /* TicketsViewController.m */; };
 /* End PBXBuildFile section */
@@ -1068,6 +1070,9 @@
 		CBFEC953194CC0BC00A64FEC /* ReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
 		E3268B781AA513C6004FA763 /* RightSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightSideViewController.h; sourceTree = "<group>"; };
 		E3268B791AA513C6004FA763 /* RightSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightSideViewController.m; sourceTree = "<group>"; };
+		E39283F51AACE7190075EC8D /* SliderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderCell.xib; sourceTree = "<group>"; };
+		E39283FD1AAD07E50075EC8D /* SliderViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SliderViewCell.h; sourceTree = "<group>"; };
+		E39283FE1AAD07E50075EC8D /* SliderViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SliderViewCell.m; sourceTree = "<group>"; };
 		E39C05671A96A0E800BDFFE7 /* MyEventsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEventsController.h; sourceTree = "<group>"; };
 		E39C05681A96A0E800BDFFE7 /* MyEventsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEventsController.m; sourceTree = "<group>"; };
 		E3EA95551A96F2C6000066E8 /* TicketsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TicketsViewController.h; path = "untitled folder/TicketsViewController.h"; sourceTree = "<group>"; };
@@ -1826,6 +1831,7 @@
 			children = (
 				CB820A9E194F783D000E64DB /* AboutUsView.xib */,
 				CB3B8E1E1949FC6800574652 /* CategoryCell.xib */,
+				E39283F51AACE7190075EC8D /* SliderCell.xib */,
 				CB42218B194AEC2300528013 /* DetailCell.xib */,
 				CB3B8E27194A06A100574652 /* FeaturedCell.xib */,
 				CB2627AE1950CE050024C15A /* FooterView.xib */,
@@ -2461,6 +2467,8 @@
 		E39C056A1A96A0EE00BDFFE7 /* MyEventsController */ = {
 			isa = PBXGroup;
 			children = (
+				E39283FD1AAD07E50075EC8D /* SliderViewCell.h */,
+				E39283FE1AAD07E50075EC8D /* SliderViewCell.m */,
 				E39C05671A96A0E800BDFFE7 /* MyEventsController.h */,
 				E39C05681A96A0E800BDFFE7 /* MyEventsController.m */,
 			);
@@ -2690,6 +2698,7 @@
 				CB48DD6619D44E630039C26B /* ic_check@3x.png in Resources */,
 				CB422135194AD85000528013 /* ic_map_nearby.png in Resources */,
 				CB48DCF019D444370039C26B /* button_share_twitter@3x.png in Resources */,
+				E39283F61AACE7190075EC8D /* SliderCell.xib in Resources */,
 				CB7DFB541951726C007FC9B9 /* ic_web_back.png in Resources */,
 				CB2627C61950D67F0024C15A /* button_sms.png in Resources */,
 				CB48DD6B19D44E630039C26B /* ic_map@3x.png in Resources */,
@@ -2921,6 +2930,7 @@
 				CBAED4221948E9EC00769D68 /* DataParser.m in Sources */,
 				CB820AEE194F81E1000E64DB /* MGProfileView.m in Sources */,
 				CBAED3631948A4EF00769D68 /* ECSlidingInteractiveTransition.m in Sources */,
+				E39283FF1AAD07E50075EC8D /* SliderViewCell.m in Sources */,
 				CBE78817194B735D0010B76E /* UILabel+DynamicHeight.m in Sources */,
 				CBAED3721948A4EF00769D68 /* UIImage+TagResize.m in Sources */,
 				CB7DFBDF19521982007FC9B9 /* NewReviewViewController.m in Sources */,

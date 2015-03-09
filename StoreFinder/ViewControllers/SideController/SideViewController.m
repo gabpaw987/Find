@@ -46,12 +46,15 @@
     
     self.categories =
     @[
-        @"HOUSE",
-        @"CLUB",
-        @"MUSIC",
-        @"FEATURED",
-        @"DINE",
-        @"MY EVENTS"
+        @"HOME(testing)",
+        @"UCLA",
+        @"NIGHTLIFE",
+        @"SPORTS",
+        @"FOOD",
+        @"MUSIC, COMEDY, ARTS",
+        @"MOVIES",
+        @"411",
+        @"thegiveback"
       ];
 
     buttonMenuClose.tag = kMenuAnimationClosed;
@@ -61,12 +64,13 @@
     tapGesture.cancelsTouchesInView = NO; //So the user can still interact with controls in the modal view
     
     [self.slidingViewController.view addGestureRecognizer:tapGesture];
-    
+    /*
     UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
-    swipeGesture.direction = UISwipeGestureRecognizerDirectionLeft;
+    swipeGesture.direction = UISwipeGestureRecognizerDirectionDown;
     swipeGesture.cancelsTouchesInView = YES; //So the user can still interact with controls in the modal view
-    
     [self.slidingViewController.view addGestureRecognizer:swipeGesture];
+    */
+   
 }
 
 - (void)didReceiveMemoryWarning
@@ -128,8 +132,9 @@
     [navController setViewControllers:[NSArray arrayWithObject:viewController] animated:YES];
 }
 
+
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     BOOL screen = IS_IPHONE_6_PLUS_AND_ABOVE;
     int height = screen ? 200 : 240;
     
@@ -234,12 +239,6 @@
         [self.slidingViewController resetTopViewAnimated:YES];
     }
  
-    if(indexPath.row == 6) {
-        UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardMyEvents"];
-        [self showViewController:viewController];
-        
-        [self.slidingViewController resetTopViewAnimated:YES];
-    }
 }
 
 
@@ -247,6 +246,7 @@
 
     [tableViewSide reloadData];
 }
+
 
 
 /*

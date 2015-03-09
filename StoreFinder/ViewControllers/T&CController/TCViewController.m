@@ -27,6 +27,12 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+
+    [MGUIAppearance enhanceNavBarController:self.navigationController
+                               barTintColor:WHITE_TEXT_COLOR
+                                  tintColor:WHITE_TEXT_COLOR
+                             titleTextColor:WHITE_TEXT_COLOR];
+    
     
     self.navigationItem.titleView = [MGUIAppearance createLogo:HEADER_LOGO];
     
@@ -67,8 +73,8 @@
     inset = scrollViewMain.scrollIndicatorInsets;
     inset.bottom = NAV_BAR_OFFSET_DEFAULT;
     scrollViewMain.scrollIndicatorInsets = inset;
-
-    UIBarButtonItem* itemMenu = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:BUTTON_CLOSE]
+    
+    UIBarButtonItem* itemMenu = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed: BUTTON_CLOSE]
                                                                  style:UIBarButtonItemStylePlain
                                                                 target:self
                                                                 action:@selector(didClickBarButtonMenu:)];
@@ -77,14 +83,11 @@
 
 -(void)didClickBarButtonMenu:(id)sender {
     
-    AppDelegate* delegate = [AppDelegate instance];
-    [delegate.rightMenuController updateUI];
-    
-    UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardContent"];
-    [self.slidingViewController anchorTopViewToLeftAnimated:YES];
-    [self.navigationController setViewControllers:[NSArray arrayWithObject:vc]];
-    [self.slidingViewController resetTopViewAnimated:NO];
+    [self dismissViewControllerAnimated:YES completion:nil];
+
 }
+
+
 
 
 - (void)didReceiveMemoryWarning

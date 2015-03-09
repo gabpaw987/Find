@@ -16,8 +16,8 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gmN-k1-D0w" customClass="MGButton">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="270"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -30,20 +30,6 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="K6L-RU-ftM">
-                    <rect key="frame" x="10" y="135" width="290" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="17"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yg3-sB-mwi">
-                    <rect key="frame" x="10" y="155" width="290" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
@@ -52,9 +38,8 @@
                 <outlet property="buttonGo" destination="gmN-k1-D0w" id="cbT-Fo-Uxw"/>
                 <outlet property="imgViewPhoto" destination="7gA-fF-S4F" id="Dk3-li-HVE"/>
                 <outlet property="label1" destination="j8A-ry-e00" id="Ual-Pd-eOc"/>
-                <outlet property="labelSubtitle" destination="yg3-sB-mwi" id="0up-JF-R53"/>
-                <outlet property="labelTitle" destination="K6L-RU-ftM" id="mV2-63-8OZ"/>
             </connections>
+            <point key="canvasLocation" x="197" y="308"/>
         </view>
     </objects>
     <resources>

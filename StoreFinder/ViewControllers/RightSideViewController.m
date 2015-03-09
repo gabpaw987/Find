@@ -26,6 +26,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
+    
    self.user = [UserAccessSession getUserSession];
     self.subtitles = @[ @"Create An Account",@"Sign In" ];
     [self setImage:self.user.thumbPhotoUrl imageView:userProfilePicture withBorder:YES isThumb:YES];
@@ -34,7 +36,9 @@
         self.subtitles = @[@"My Account", @"Sign Out"];
     }
     
-    self.view.backgroundColor = SIDE_VIEW_BG_COLOR;
+  
+    
+    [self.view setBackgroundColor:[UIColor clearColor]];
     
     tableSideView.delegate = self;
     tableSideView.dataSource = self;
@@ -46,15 +50,15 @@
     //DARKEN OUTSIDE MENU SCREEN
     CAGradientLayer *gradientLayer = [CAGradientLayer layer];
     
-    int x = self.view.frame.size.width -76;
-    gradientLayer.frame = CGRectMake(0, 0, 76.0, self.view.frame.size.height);
+    
+    gradientLayer.frame = CGRectMake(0, 0, 80.0, self.view.frame.size.height);
     gradientLayer.colors = [NSArray arrayWithObjects:
                             (id)THEME_BLACK_TINT_COLOR.CGColor,
                             (id)[UIColor clearColor].CGColor,
                             nil];
     
-    gradientLayer.startPoint = CGPointMake(0.4,0.0);
-    gradientLayer.endPoint = CGPointMake(0.0,0.5);
+    gradientLayer.startPoint = CGPointMake(0.5,0.0);
+    gradientLayer.endPoint = CGPointMake(0.0,0.6);
     [self.view.layer addSublayer:gradientLayer];
     
     
@@ -62,17 +66,7 @@
                   @"Settings",
                   @"About Tonite",
                   @"Terms and Condition" ];
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
-    tapGesture.numberOfTapsRequired = 1;
-    tapGesture.cancelsTouchesInView = NO; //So the user can still interact with controls in the modal view
-    
-    [self.slidingViewController.view addGestureRecognizer:tapGesture];
-    
-    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
-    swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
-    swipeGesture.cancelsTouchesInView = YES; //So the user can still interact with controls in the modal view
-    
-    [self.slidingViewController.view addGestureRecognizer:swipeGesture];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,39 +75,6 @@
 }
 
 
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
-    return YES;
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    return YES;
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    return YES;
-}
-
-- (void)handleSwipeGesture:(UISwipeGestureRecognizer *)sender {
-    if (sender.state == UIGestureRecognizerStateEnded) {
-        [self.slidingViewController resetTopViewAnimated:YES];
-    }
-}
-
-- (void)handleTapGesture:(UITapGestureRecognizer *)sender {
-    if (sender.state == UIGestureRecognizerStateEnded) {
-        UIView* view = sender.view;
-        CGPoint loc = [sender locationInView:view];
-        UIView* subview = [view hitTest:loc withEvent:nil];
-        //NSLog(NSStringFromClass([subview class]));
-        
-        if (![NSStringFromClass([subview class]) isEqualToString:@"UITableViewCellContentView"] &&
-            [subview class] != [UIView class] &&
-            [subview class] != [UINavigationItem class] &&
-            subview != self.view) {
-            [self.slidingViewController resetTopViewAnimated:YES];
-        }
-    }
-}
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -156,6 +117,9 @@
     // You normally wouldn't need to do anything like this, but we're changing transitions
     // dynamically so everything needs to start in a consistent state.
     //self.slidingViewController.topViewController.view.layer.transform = CATransform3DMakeScale(1, 1, 1);
+  
+    UIStoryboard* story = [UIStoryboard storyboardWithName:@"User_iPhone" bundle:nil];
+
     
     if (indexPath.row == 0) {
         //PUSH NOTIFICATION SETTINGS
@@ -163,19 +127,33 @@
         //OTHER SETTINGS??
     }
     if(indexPath.row == 1){
-        UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardAboutUs"];
-    [self showViewController:vc];
-    [self.slidingViewController resetTopViewAnimated:YES];
+    UIViewController* vc = [story instantiateViewControllerWithIdentifier:@"storyboardAboutUs"];
+        vc.modalPresentationStyle = UIModalPresentationFullScreen;
+        vc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        
+        AppDelegate* delegate = [AppDelegate instance];
+        [[delegate.window rootViewController] presentViewController:vc animated:YES completion:nil];
+        [self.slidingViewController resetTopViewAnimated:YES];
+   // [self showViewController:vc];
+    //[self.slidingViewController resetTopViewAnimated:YES];
         
     }
     if(indexPath.row == 2){
-        UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardTC"];
-        [self showViewController:vc ];
+       UIViewController* vc = [story instantiateViewControllerWithIdentifier:@"storyboardTC"];
+        vc.modalPresentationStyle = UIModalPresentationFullScreen;
+        vc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        
+        AppDelegate* delegate = [AppDelegate instance];
+        [[delegate.window rootViewController] presentViewController:vc animated:YES completion:nil];
         [self.slidingViewController resetTopViewAnimated:YES];
+        
+        //[self.navigationController presentViewController:vc animated:YES completion:nil];
+        // [self showViewController:vc ];
+       // [self.slidingViewController resetTopViewAnimated:YES];
         
     }
     if(indexPath.row == 3){
-        UIStoryboard* story = [UIStoryboard storyboardWithName:@"User_iPhone" bundle:nil];
+      //  UIStoryboard* story = [UIStoryboard storyboardWithName:@"User_iPhone" bundle:nil];
           NSString* nextView = @"storyboardRegister";
         if(self.user!= nil)
             nextView = @"storyboardProfile";
@@ -189,7 +167,7 @@
     }
     if(indexPath.row == 4){
         if(self.user ==nil){
-            UIStoryboard* story = [UIStoryboard storyboardWithName:@"User_iPhone" bundle:nil];
+         //   UIStoryboard* story = [UIStoryboard storyboardWithName:@"User_iPhone" bundle:nil];
             UIViewController* vc = [story instantiateViewControllerWithIdentifier: @"storyboardLogin"];
             vc.modalPresentationStyle = UIModalPresentationFullScreen;
             vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -205,21 +183,33 @@
             [FBSession.activeSession closeAndClearTokenInformation];
             [FBSession.activeSession close];
             [FBSession setActiveSession:nil];
-            [self.slidingViewController resetTopViewAnimated:YES];
+            //[self.slidingViewController removeFromParentViewController];
+            
         }
     }
 }
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    /*
+    //Make sure your segue name in storyboard is the same as this line
+        if ([[segue identifier] isEqualToString:@"modalTC"])
+        {
+            // Get reference to the destination view controller
+            UIViewController* vc = [segue destinationViewController];
+            
+            // Pass any objects to the view controller here, like...
+            
+        }
+    */
 }
-*/
+
 
 -(void)setImage:(NSString*)imageUrl imageView:(UIImageView*)imgView withBorder:(BOOL)border isThumb:(BOOL)isThumb{
     
@@ -259,7 +249,7 @@
     }];
 }
 
--(void) updateUI{
+-(void) reloadInputViews {
     
     self.user = [UserAccessSession getUserSession];
     

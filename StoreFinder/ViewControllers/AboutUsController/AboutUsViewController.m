@@ -91,14 +91,15 @@
 
 -(void)didClickBarButtonMenu:(id)sender {
     
-    AppDelegate* delegate = [AppDelegate instance];
-    [delegate.rightMenuController updateUI];
+   // AppDelegate* delegate = [AppDelegate instance];
+    //[delegate.rightMenuController updateUI];
     
-  UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardContent"];
+    [self dismissViewControllerAnimated:YES completion:nil];
+//  UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardContent"];
 
-    [self.slidingViewController anchorTopViewToLeftAnimated:YES];
-    [self.navigationController setViewControllers:[NSArray arrayWithObject: vc]];
-    [self.slidingViewController resetTopViewAnimated:YES];
+    //[self.slidingViewController anchorTopViewToLeftAnimated:YES];
+  //  [self.navigationController setViewControllers:[NSArray arrayWithObject: vc]];
+  //  [self.slidingViewController resetTopViewAnimated:YES];
 }
 
 -(void)didClickEmailButton:(id)sender {

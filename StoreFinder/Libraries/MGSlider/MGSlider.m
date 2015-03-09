@@ -9,9 +9,10 @@
 @synthesize scrollView;
 @synthesize nibName;
 @synthesize delegate = _delegate;
-@synthesize pageControl = _pageControl;
-@synthesize selectedImageName;
-@synthesize unselectedImageName;
+//@synthesize pageControl = _pageControl;
+//@synthesize selectedImageName;
+//@synthesize unselectedImageName;
+
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -34,9 +35,9 @@
 
 - (void)baseInit {
     _numberOfItems = 0;
-    _pageControl = nil;
-    selectedImageName = nil;
-    unselectedImageName = nil;
+   // _pageControl = nil;
+  //  selectedImageName = nil;
+   // unselectedImageName = nil;
     _willShowPageControl = NO;
 }
 
@@ -45,7 +46,7 @@
     
     //    [self setNeedsReLayout];
 }
-
+/*
 -(void) createPageControl {
     CGRect rect = self.frame;
     rect.size.height = 5;
@@ -70,7 +71,7 @@
         button.frame = rect;
         button.tag = x;
         
-        [button addTarget:self action:@selector(pageControlClicked:) forControlEvents:UIControlEventTouchUpInside];
+       // [button addTarget:self action:@selector(pageControlClicked:) forControlEvents:UIControlEventTouchUpInside];
         
         if(x == 0)
             [button setBackgroundImage:imageUp forState:UIControlStateNormal];
@@ -91,9 +92,10 @@
 }
 
 -(void)pageControlClicked:(id)sender {
-    UIButton* button = (UIButton*)sender;
-    [self.delegate MGSlider:self didPageControlClicked:button atIndex:(int)button.tag];
+ //   UIButton* button = (UIButton*)sender;
+ //   [self.delegate MGSlider:self didPageControlClicked:button atIndex:(int)button.tag];
 }
+ 
 
 -(void) showPageControl:(BOOL)showing {
     [_pageControl removeFromSuperview];
@@ -104,10 +106,10 @@
         [self addSubview:_pageControl];
     }
 }
-
+*/
 -(void) setNeedsReLayoutWithViewSize:(CGSize)viewSize {
-//    for(UIView* view in self.subviews)
-//        [view removeFromSuperview];
+ for(UIView* view in self.subviews)
+       [view removeFromSuperview];
     
     if(_scrollingTimer != nil)
        [_scrollingTimer invalidate];
@@ -126,17 +128,25 @@
     int posX = 0;
     for(int x = 0; x < _numberOfItems; x++) {
         MGRawView* sliderView = [[MGRawView alloc] initWithNibName:nibName];
-        [scrollView addSubview:sliderView];
-        
+       
         CGRect frameSlider = sliderView.frame;
         frameSlider.origin.x = posX;
         frameSlider.origin.y = 0;
         frameSlider.size.height = viewSize.height;
         frameSlider.size.width = viewSize.width;
         [sliderView setFrame:frameSlider];
+        [scrollView addSubview:sliderView];
         
+        Photo* p = self.imageArray[x];
+        [self setImage:p.photo_url imageView:sliderView.imgViewPhoto];
+       
+        sliderView.imgViewPhoto.clipsToBounds = YES;
+        /* rawView.buttonGo.object = store;
+        [rawView.buttonGo addTarget:self
+                             action:@selector(didClickButtonGo:)
+                   forControlEvents:UIControlEventTouchUpInside];*/
+       // [self.delegate MGSlider:self didCreateSliderView:sliderView atIndex:x];
         posX += sliderView.frame.size.width;
-        [self.delegate MGSlider:self didCreateSliderView:sliderView atIndex:x];
     }
     
     scrollView.showsHorizontalScrollIndicator = NO;
@@ -147,10 +157,11 @@
     if(_scrollViewIsNil)
         [self addSubview:scrollView];
     
-    _currentIndex = 0;
-    
+  //  _currentIndex = 0;
+    /*
     if(_numberOfItems <= SLIDER_DOT_COUNT && _willShowPageControl)
         [self createPageControl];
+     */
 }
 
 -(void)buttonSelected:(id)sender {
@@ -161,7 +172,7 @@
             continue;
         
         if (view.buttonCustom.tag == selectedButton.tag) {
-            [self.delegate MGSlider:self didSelectSliderView:view atIndex:(int)view.tag];
+//            [self.delegate MGSlider:self didSelectSliderView:view atIndex:(int)view.tag];
             break;
         }
     }
@@ -187,26 +198,29 @@
     CGRect rect = CGRectZero;
 
     if( nextPage < _numberOfItems ) {
-        rect = CGRectMake(nextPage*self.frame.size.width, 0, scrollView.frame.size.width, scrollView.frame.size.height);
+        rect = CGRectMake(nextPage*scrollView.frame.size.width, 0, scrollView.frame.size.width, scrollView.frame.size.height);
         [scrollView scrollRectToVisible:rect animated:YES];
-        
+      /*
         if(_willShowPageControl)
-            [self setPage:nextPage];
+            [self setPage:nextP
+       */
     }
     else {
         rect = CGRectMake(0, 0, scrollView.frame.size.width, scrollView.frame.size.height);
         [scrollView scrollRectToVisible:rect animated:YES];
-        
+      /*
         if(_willShowPageControl)
             [self setPage:0];
+       */
     }
 }
-
+/*
 -(void) setPage:(int)index {
     
     UIImage* imageUp = [UIImage imageNamed:unselectedImageName];
     UIImage* imageDown = [UIImage imageNamed:selectedImageName];
-    
+    NSLog ( @"this is the selected image  %@", selectedImageName);
+    NSLog (@"this is the unselectedimage  %@", unselectedImageName);
     for(int x = 0; x < _pageControl.subviews.count; x++) {
         UIButton* button = [_pageControl.subviews objectAtIndex:x];
         [button setBackgroundImage:imageDown forState:UIControlStateNormal];
@@ -217,7 +231,7 @@
         }
     }
 }
-
+*/
 -(void)stopAnimation {
     _willAnimate = NO;
 }
@@ -225,5 +239,38 @@
 -(void)resumeAnimation {
     _willAnimate = YES;
 }
+
+-(void)setImage:(NSString*)imageUrl imageView:(UIImageView*)imgView {
+    
+    NSURL* url = [NSURL URLWithString:imageUrl];
+    NSURLRequest* urlRequest = [NSURLRequest requestWithURL:url];
+    
+    __weak typeof(imgView ) weakImgRef = imgView;
+    UIImage* imgPlaceholder = [UIImage imageNamed:SLIDER_PLACEHOLDER];
+    
+    [imgView setImageWithURLRequest:urlRequest
+                   placeholderImage:imgPlaceholder
+                            success:^(NSURLRequest* request, NSHTTPURLResponse* response, UIImage* image) {
+                                
+                                CGSize size = weakImgRef.frame.size;
+                                
+                                if([MGUtilities isRetinaDisplay]) {
+                                    size.height *= 2;
+                                    size.width *= 2;
+                                }
+                                
+                                if(IS_IPHONE_6_PLUS_AND_ABOVE) {
+                                    size.height *= 3;
+                                    size.width *= 3;
+                                }
+                                
+                                UIImage* croppedImage = [image imageByScalingAndCroppingForSize:size];
+                                weakImgRef.image = croppedImage;
+                                
+                            } failure:^(NSURLRequest* request, NSHTTPURLResponse* response, NSError* error) {
+                                
+                            }];
+}
+
 
 @end
