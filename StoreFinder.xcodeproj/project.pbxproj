@@ -421,7 +421,6 @@
 		CBAED3AD1948A4EF00769D68 /* MGParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAED3331948A4EF00769D68 /* MGParser.m */; };
 		CBAED3AE1948A4EF00769D68 /* MGRawScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAED3361948A4EF00769D68 /* MGRawScrollView.m */; };
 		CBAED3AF1948A4EF00769D68 /* MGSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAED3391948A4EF00769D68 /* MGSlider.m */; };
-		CBAED3B01948A4EF00769D68 /* MGSliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBAED33A1948A4EF00769D68 /* MGSliderView.xib */; };
 		CBAED3B11948A4EF00769D68 /* MGTopLeftLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAED33D1948A4EF00769D68 /* MGTopLeftLabel.m */; };
 		CBAED3B21948A4EF00769D68 /* NMRangeSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAED3401948A4EF00769D68 /* NMRangeSlider.m */; };
 		CBAED3B31948A4EF00769D68 /* NSStringExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAED3431948A4EF00769D68 /* NSStringExtras.m */; };
@@ -995,7 +994,6 @@
 		CBAED3361948A4EF00769D68 /* MGRawScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGRawScrollView.m; sourceTree = "<group>"; };
 		CBAED3381948A4EF00769D68 /* MGSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSlider.h; sourceTree = "<group>"; };
 		CBAED3391948A4EF00769D68 /* MGSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSlider.m; sourceTree = "<group>"; };
-		CBAED33A1948A4EF00769D68 /* MGSliderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MGSliderView.xib; sourceTree = "<group>"; };
 		CBAED33C1948A4EF00769D68 /* MGTopLeftLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTopLeftLabel.h; sourceTree = "<group>"; };
 		CBAED33D1948A4EF00769D68 /* MGTopLeftLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGTopLeftLabel.m; sourceTree = "<group>"; };
 		CBAED33F1948A4EF00769D68 /* NMRangeSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMRangeSlider.h; sourceTree = "<group>"; };
@@ -2189,7 +2187,6 @@
 			children = (
 				CBAED3381948A4EF00769D68 /* MGSlider.h */,
 				CBAED3391948A4EF00769D68 /* MGSlider.m */,
-				CBAED33A1948A4EF00769D68 /* MGSliderView.xib */,
 			);
 			path = MGSlider;
 			sourceTree = "<group>";
@@ -2709,7 +2706,6 @@
 				CB7DFB6D195195FF007FC9B9 /* star_new_rating_fill@2x.png in Resources */,
 				CBAED3841948A4EF00769D68 /* MGMapView.xib in Resources */,
 				CB820AD0194F78A3000E64DB /* textbox_fullname.png in Resources */,
-				CBAED3B01948A4EF00769D68 /* MGSliderView.xib in Resources */,
 				CB7DFB5A1951731D007FC9B9 /* ic_web_refresh.png in Resources */,
 				CB48DD2E19D444660039C26B /* side_bar_list_header_bg@3x.png in Resources */,
 				CB48DD0A19D444460039C26B /* line_divider@3x.png in Resources */,
