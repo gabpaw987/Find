@@ -49,16 +49,13 @@
     
     //DARKEN OUTSIDE MENU SCREEN
     CAGradientLayer *gradientLayer = [CAGradientLayer layer];
-    
-    
     gradientLayer.frame = CGRectMake(0, 0, 80.0, self.view.frame.size.height);
     gradientLayer.colors = [NSArray arrayWithObjects:
                             (id)THEME_BLACK_TINT_COLOR.CGColor,
                             (id)[UIColor clearColor].CGColor,
                             nil];
-    
-    gradientLayer.startPoint = CGPointMake(0.5,0.0);
-    gradientLayer.endPoint = CGPointMake(0.0,0.6);
+    gradientLayer.startPoint = CGPointMake(0.4,0.0);
+    gradientLayer.endPoint = CGPointMake(0.0,0.9);
     [self.view.layer addSublayer:gradientLayer];
     
     
@@ -66,8 +63,9 @@
                   @"Settings",
                   @"About Tonite",
                   @"Terms and Condition" ];
-
 }
+    
+   
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

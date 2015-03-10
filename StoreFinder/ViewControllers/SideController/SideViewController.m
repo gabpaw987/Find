@@ -58,19 +58,19 @@
       ];
 
     buttonMenuClose.tag = kMenuAnimationClosed;
-    
+   /*
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
     tapGesture.numberOfTapsRequired = 1;
     tapGesture.cancelsTouchesInView = NO; //So the user can still interact with controls in the modal view
     
     [self.slidingViewController.view addGestureRecognizer:tapGesture];
-    /*
+    
     UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
     swipeGesture.direction = UISwipeGestureRecognizerDirectionDown;
     swipeGesture.cancelsTouchesInView = YES; //So the user can still interact with controls in the modal view
     [self.slidingViewController.view addGestureRecognizer:swipeGesture];
-    */
-   
+  */  
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,7 +84,7 @@
     [self.slidingViewController resetTopViewAnimated:YES];
     
 }
-
+/*
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
     return YES;
 }
@@ -118,7 +118,7 @@
         }
     }
 }
-
+*/
 - (void) showViewController:(UIViewController*)viewController {
     
     UINavigationController* navController = (UINavigationController*)[self.slidingViewController topViewController];

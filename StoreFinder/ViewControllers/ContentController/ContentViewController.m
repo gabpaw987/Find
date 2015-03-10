@@ -108,17 +108,34 @@
     UIBarButtonItem* itemLoginMenu = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed: ICON_REGISTER] style:UIBarButtonItemStylePlain target:self action:@selector(didClickProfileMenuButton:)];
     
     self.navigationItem.rightBarButtonItem = itemLoginMenu;
-
-    
     UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
     swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
     swipeGesture.cancelsTouchesInView = YES; //So the user can still interact with controls in the modal view
     
     [self.slidingViewController.view addGestureRecognizer:swipeGesture];
     
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+    tapGesture.numberOfTapsRequired = 1;
+    tapGesture.cancelsTouchesInView = NO; //So the user can still interact with controls in the modal view
     
+    [self.view addGestureRecognizer:tapGesture];
 }
 
+
+- (void)handleTapGesture:(UITapGestureRecognizer *)sender {
+       if (sender.state == UIGestureRecognizerStateEnded) {
+     UIView* view = sender.view;
+     CGPoint loc = [sender locationInView:view];
+     if(loc.x < 80 && ([self class] ==[ContentViewController class])){
+         for(RightSideViewController* vc in self.childViewControllers){
+             [ vc willMoveToParentViewController:nil];
+             [ vc.view removeFromSuperview];
+             [ vc removeFromParentViewController];
+         }
+
+        }
+     }
+}
 
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
@@ -133,18 +150,19 @@
     return YES;
 }
 
+
+
+
+
 - (void)handleSwipeGesture:(UISwipeGestureRecognizer *)sender{
     if (sender.state == UIGestureRecognizerStateEnded) {
         for(RightSideViewController* vc in self.childViewControllers){
-                [vc willMoveToParentViewController:nil];
-                [vc.view removeFromSuperview];
-                [vc removeFromParentViewController];
+            [ vc willMoveToParentViewController:nil];
+            [ vc.view removeFromSuperview];
+            [ vc removeFromParentViewController];
         }
     }
 }
-
-
-
 
 
 
@@ -160,7 +178,8 @@
     }
     else{
         for( RightSideViewController* vc in self.childViewControllers){
-            [vc willMoveToParentViewController:nil];
+    
+        [vc willMoveToParentViewController:nil];
         [vc.view removeFromSuperview];
         [vc removeFromParentViewController];
         }
@@ -182,8 +201,8 @@
 
 
 -(void)didClickBarButtonMenu:(id)sender {
-     AppDelegate* delegate = [AppDelegate instance];
-        [delegate.sideViewController updateUI];
+    // AppDelegate* delegate = [AppDelegate instance];
+      //  [delegate.sideViewController updateUI];
     for( RightSideViewController* vc in self.childViewControllers){
         [vc willMoveToParentViewController:nil];
         [vc.view removeFromSuperview];
@@ -264,7 +283,7 @@
     Photo*p = self.arrayFeatured[index];
    // Photo* p = [CoreDataController getStorePhotoByStoreId:store.store_id];
     
- /*   rawView.label1.backgroundColor = [BLACK_TEXT_COLOR colorWithAlphaComponent:0.66];
+    rawView.label1.backgroundColor = [BLACK_TEXT_COLOR colorWithAlphaComponent:0.66];
     
     rawView.labelTitle.textColor = WHITE_TEXT_COLOR;
     rawView.labelSubtitle.textColor = WHITE_TEXT_COLOR;
