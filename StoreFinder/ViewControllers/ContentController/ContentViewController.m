@@ -272,6 +272,9 @@
     if(cell == nil){
         cell = [[MGListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FeaturedCell"];
     }
+    else{
+        for(UIView* view in cell.subviews)
+            [view removeFromSuperview];
         Store* event = [listViewNews.arrayData objectAtIndex:indexPath.row];
   
         [cell setBackgroundColor:[UIColor clearColor]];
@@ -285,7 +288,11 @@
         NSInteger randomNumber = arc4random() % 9;
         float x = (float) (randomNumber/ 9) + 2;
         [cell.slideShow startAnimationWithDuration:x];
-    
+        [cell addSubview: cell.slideShow.scrollView];
+        [cell addSubview: cell.labelTitle];
+        [cell addSubview: cell.labelSubtitle];
+        
+    }
     return cell;
 }
 
