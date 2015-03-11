@@ -27,6 +27,10 @@
     // Do any additional setup after loading the view.
     
     
+    userProfilePicture.layer.cornerRadius = 10.0f;
+    userProfilePicture.layer.borderWidth = 3.0f;
+    
+    userProfilePicture.layer.borderColor = [UIColor whiteColor].CGColor;
     
    self.user = [UserAccessSession getUserSession];
     self.subtitles = @[ @"Create An Account",@"Sign In" ];
@@ -45,11 +49,11 @@
     
   //  self.view.layer.bounds = CG
     
-    [self.view bringSubviewToFront:self.view];
+   // [self.view bringSubviewToFront:self.view];
     
     //DARKEN OUTSIDE MENU SCREEN
     CAGradientLayer *gradientLayer = [CAGradientLayer layer];
-    gradientLayer.frame = CGRectMake(0, 0, 80.0, self.view.frame.size.height);
+    gradientLayer.frame = CGRectMake(0, 0, ANCHOR_LEFT_PEEK, self.view.frame.size.height);
     gradientLayer.colors = [NSArray arrayWithObjects:
                             (id)THEME_BLACK_TINT_COLOR.CGColor,
                             (id)[UIColor clearColor].CGColor,

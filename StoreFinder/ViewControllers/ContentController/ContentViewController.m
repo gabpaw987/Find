@@ -14,8 +14,6 @@
 
 @interface ContentViewController () <MGSliderDelegate, MGListViewDelegate>
 
-@property (nonatomic, retain) NSArray* arrayFeatured;
-
 @end
 
 @implementation ContentViewController
@@ -157,6 +155,8 @@
 
 
 -(void)didClickBarButtonMenu:(id)sender {
+    AppDelegate* delegate = [AppDelegate instance];
+    [delegate.sideViewController updateUI];
     for( RightSideViewController* vc in self.childViewControllers){
         [vc willMoveToParentViewController:nil];
         [vc.view removeFromSuperview];
@@ -213,7 +213,6 @@
 
 -(void) setData {
     
-    self.arrayFeatured = [CoreDataController getFeaturedStores];
   listViewNews.arrayData = [NSMutableArray arrayWithArray:[CoreDataController getFeaturedStores]];
     
 }
@@ -270,8 +269,9 @@
 }
 
 -(UITableViewCell*)MGListView:(MGListView *)listView1 didCreateCell:(MGListCell *)cell indexPath:(NSIndexPath *)indexPath {
-    
-    if(cell != nil) {
+    if(cell == nil){
+        cell = [[MGListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FeaturedCell"];
+    }
         Store* event = [listViewNews.arrayData objectAtIndex:indexPath.row];
   
         [cell setBackgroundColor:[UIColor clearColor]];
@@ -285,7 +285,7 @@
         NSInteger randomNumber = arc4random() % 9;
         float x = (float) (randomNumber/ 9) + 2;
         [cell.slideShow startAnimationWithDuration:x];
-    }
+    
     return cell;
 }
 

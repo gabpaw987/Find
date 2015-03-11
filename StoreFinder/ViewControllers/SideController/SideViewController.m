@@ -224,14 +224,14 @@
         
         [self.slidingViewController resetTopViewAnimated:YES];
     }
-    
+    /*
     if(indexPath.row == 4) {
         UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardSearch"];
         [self showViewController:viewController];
         
         [self.slidingViewController resetTopViewAnimated:YES];
     }
-
+*/
     if(indexPath.row == 5) {
         UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardNews"];
         [self showViewController:viewController];
