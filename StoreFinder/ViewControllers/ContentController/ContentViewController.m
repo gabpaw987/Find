@@ -66,8 +66,9 @@
     
     listViewNews.delegate = self;
     listViewNews.cellHeight = screen ? 300 : 305;
-    
-    [listViewNews registerNibName:@"NewsCell" cellIndentifier:@"SliderCell"];
+
+
+    [listViewNews registerNibName:@"SliderCell" cellIndentifier:@"SliderCell"];
     [listViewNews baseInit];
     
     [self beginParsing];
@@ -99,7 +100,7 @@
        if (sender.state == UIGestureRecognizerStateEnded) {
      UIView* view = sender.view;
      CGPoint loc = [sender locationInView:view];
-    //    UIView* subview = [view hitTest:loc withEvent:nil];
+  //  UIView* subview = [view hitTest:loc withEvent:nil];
    //        NSLog(NSStringFromClass([subview class]));
      if(loc.x < 80 && ([self class] ==[ContentViewController class])){
          for(RightSideViewController* vc in self.childViewControllers){
@@ -107,8 +108,8 @@
              [ vc.view removeFromSuperview];
              [ vc removeFromParentViewController];
          }
-        }
      }
+       }
 }
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
@@ -140,6 +141,7 @@
 -(void) didClickProfileMenuButton: (id) sender{
     if(self.childViewControllers.count  == 0){
         RightSideViewController * right = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardRightSide"];
+       
         [self addChildViewController:right];
         [right didMoveToParentViewController:self];
         [self.view addSubview:right.view];
@@ -270,29 +272,89 @@
 
 -(UITableViewCell*)MGListView:(MGListView *)listView1 didCreateCell:(MGListCell *)cell indexPath:(NSIndexPath *)indexPath {
     if(cell == nil){
-        cell = [[MGListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FeaturedCell"];
+        cell = [[MGListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SliderCell"];
     }
-    else{
+    
         for(UIView* view in cell.subviews)
             [view removeFromSuperview];
+        
         Store* event = [listViewNews.arrayData objectAtIndex:indexPath.row];
-  
-        [cell setBackgroundColor:[UIColor clearColor]];
-        [cell.labelTitle setText:event.store_name   ];
-        [cell.labelSubtitle setText: event.store_address];
-
-  
+        [cell.slideShow setImageArray:[CoreDataController getStorePhotosByStoreId:event.store_id] ];
+        [cell.slideShow setNumberOfItems:[cell.slideShow.imageArray count]];
+        
+        CGRect frame = cell.frame;
+        frame.size.width = self.view.frame.size.width;
+        frame.size.height = listViewNews.cellHeight;
+    
+        if(cell.slideShow.numberOfItems == 0){
+          
+            //DEFAULT VIEW???
+        }
+        else{
+            
+        
         cell.slideShow.event  = event;
         [cell.slideShow setNibName: @"SliderView"];
-        [cell.slideShow setNeedsReLayoutWithViewSize:CGSizeMake(self.view.frame.size.width, cell.frame.size.height)];
+        [cell.slideShow setNeedsReLayoutWithViewSize:frame.size];
         NSInteger randomNumber = arc4random() % 9;
         float x = (float) (randomNumber/ 9) + 2;
         [cell.slideShow startAnimationWithDuration:x];
         [cell addSubview: cell.slideShow.scrollView];
+        
+    
+        }
+         
+        /*
+    
+        CAGradientLayer* grad = [CAGradientLayer layer];
+        [grad setFrame: CGRectMake(0.0, listViewNews.cellHeight -80, self.view.frame.size.width, 80)];
+        grad.colors = [NSArray arrayWithObjects:
+                       (id) [UIColor clearColor].CGColor,
+                       (id)[UIColor whiteColor].CGColor,
+                       nil];
+        grad.startPoint = CGPointMake(0.0, 0.0);
+        grad.endPoint = CGPointMake(0.0,1.0);
+        [cellView.layer addSublayer:grad];
+    
+    
+         
+        NSIndexPath *firstRow = [indexPathsForVisibleRows objectAtIndex:0];
+        if ([firstRow section] == 0 && [firstRow row] == 0)
+        {
+            UIView *cell = [self cellForRowAtIndexPath:firstRow];
+            if (!topShadow)
+            {
+                topShadow = [[self shadowAsInverse:YES] retain];
+                [cell.layer insertSublayer:topShadow atIndex:0];
+            }
+            else if ([cell.layer.sublayers indexOfObjectIdenticalTo:topShadow] != 0)
+            {
+                [cell.layer insertSublayer:topShadow atIndex:0];
+            }
+            
+            CGRect shadowFrame = topShadow.frame;
+            shadowFrame.size.width = cell.frame.size.width;
+            shadowFrame.origin.y = -SHADOW_INVERSE_HEIGHT;
+            topShadow.frame = shadowFrame;
+        }
+        else
+        {
+            // Remove the shadow if it isn't visible
+            [topShadow removeFromSuperlayer];
+            [topShadow release];
+            topShadow = nil;
+        }
+         
+         */
+        
+        
+        [cell.labelTitle setText:event.store_name   ];
+        [cell.labelSubtitle setText: event.store_address];
         [cell addSubview: cell.labelTitle];
         [cell addSubview: cell.labelSubtitle];
-        
-    }
+        [cell setUserInteractionEnabled:NO];
+    
+
     return cell;
 }
 

@@ -29,13 +29,7 @@
 }
 
 -(void) setNeedsReLayoutWithViewSize:(CGSize)viewSize {
-    self.imageArray = [CoreDataController getStorePhotosByStoreId:event.store_id] ;
-    self.numberOfItems = [self.imageArray count];
-    if(self.numberOfItems == 0){
-        _willAnimate = NO;
-        //DEFAULT VIEW???
-        return;
-    }
+
     _willAnimate = YES;
     for(UIView* view in self.subviews)
         [view removeFromSuperview];
@@ -53,6 +47,8 @@
     int posX = 0;
     for(int x = 0; x < _numberOfItems; x++) {
         UIImageView* sliderView = [[UIImageView alloc] initWithFrame:CGRectMake(posX, 0.0, viewSize.width, viewSize.height)];
+        Photo*p = self.imageArray[x];
+        [self setImage:p.photo_url imageView: sliderView];
         [scrollView addSubview:sliderView];
         posX += viewSize.width;
     }
@@ -63,13 +59,8 @@
     scrollView.bounces = NO;
     scrollView.frame = CGRectMake(0.0, 0.0, viewSize.width, viewSize.height);
     scrollView.contentSize = CGSizeMake(posX, scrollView.frame.size.height);
-    [self addSubview:scrollView];
+   // [self addSubview:scrollView];
     
-    UIImageView* vc =  scrollView.subviews[0] ;
-    Photo* p = self.imageArray[0];
-    [self setImage:p.photo_url imageView:vc];
-    NSLog(@"%f, %f", vc.frame.size.width, vc.frame.size.height);
-    //vc.frame = CGRectMake(0.0, 0.0, viewSize.width, viewSize.height);
 }
 
 
@@ -98,10 +89,7 @@
     CGFloat contentOffset = scrollView.contentOffset.x;
     int nextPage = (int)(contentOffset/scrollView.frame.size.width) + 1;
     CGRect rect = CGRectZero;
-    if(currentIndex == nextPage && nextPage < _numberOfItems){
-        [self didCreateSliderViewAtIndex: nextPage];
-         currentIndex ++;
-    }
+   
     if( nextPage == _numberOfItems ) {
            rect = CGRectMake(0, 0, scrollView.frame.size.width, scrollView.frame.size.height);
         [scrollView scrollRectToVisible:rect animated:YES];

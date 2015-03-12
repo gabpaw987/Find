@@ -14,6 +14,7 @@
 @property (nonatomic, retain) NSTimer * scrollingTimer;
 @property (nonatomic, strong) NSArray * imageArray;
 @property BOOL willAnimate;
+@property (nonatomic, strong) Store* event;
 
 
 -(void) startAnimationWithDuration:(float)duration;

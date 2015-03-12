@@ -12,7 +12,7 @@
 
 @implementation SliderViewCell
 @synthesize scrollView;
-
+@synthesize event;
 
 
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -60,7 +60,7 @@
         scrollView.pagingEnabled = YES;
         scrollView.bounces = NO;
         scrollView.contentSize = CGSizeMake(posX, scrollView.frame.size.height);
-    return;
+      return;
 }
 
 -(void)setImage:(NSString*)imageUrl imageView:(UIImageView*)imgView {

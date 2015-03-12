@@ -32,22 +32,11 @@
     
     userProfilePicture.layer.borderColor = [UIColor whiteColor].CGColor;
     
-   self.user = [UserAccessSession getUserSession];
-    self.subtitles = @[ @"Create An Account",@"Sign In" ];
-    [self setImage:self.user.thumbPhotoUrl imageView:userProfilePicture withBorder:YES isThumb:YES];
-   
-    if( self.user != nil) {
-        self.subtitles = @[@"My Account", @"Sign Out"];
-    }
-    
-  
-    
-    [self.view setBackgroundColor:[UIColor clearColor]];
+       [self.view setBackgroundColor:[UIColor clearColor]];
     
     tableSideView.delegate = self;
     tableSideView.dataSource = self;
-    
-  //  self.view.layer.bounds = CG
+    //  self.view.layer.bounds = CG
     
    // [self.view bringSubviewToFront:self.view];
     
@@ -62,11 +51,36 @@
     gradientLayer.endPoint = CGPointMake(0.0,0.9);
     [self.view.layer addSublayer:gradientLayer];
     
-    
-        self.titles =@[
+    int x = self.view.frame.size.width - ANCHOR_LEFT_PEEK;
+    CAGradientLayer * whitegradient = [CAGradientLayer layer];
+    whitegradient.frame = CGRectMake(ANCHOR_LEFT_PEEK, 0.0, x, 240);
+    whitegradient.colors = [NSArray arrayWithObjects:
+                            (id) [UIColor blackColor].CGColor,
+                            (id) [UIColor grayColor].CGColor,
+                            (id)[UIColor clearColor].CGColor,
+                            nil];
+    whitegradient.startPoint = CGPointZero;
+    whitegradient.endPoint = CGPointMake(0.0, 1.0);
+    [self.view.layer addSublayer:whitegradient];
+
+    int y = x/2;
+    //ANCHOR_LEFT_PEEK = 85
+    userProfilePicture = [[UIImageView alloc] initWithFrame:CGRectMake( y + 50 , 190, 70, 80)];
+    self.titles =@[
                   @"Settings",
                   @"About Tonite",
                   @"Terms and Condition" ];
+    self.user = [UserAccessSession getUserSession];
+    self.subtitles = @[ @"Create An Account",@"Sign In" ];
+    [self setImage:self.user.thumbPhotoUrl imageView:userProfilePicture withBorder:YES isThumb:YES];
+    [self.view addSubview:userProfilePicture    ];
+
+    if( self.user != nil) {
+        self.subtitles = @[@"My Account", @"Sign Out"];
+    }
+    
+
+    
 }
     
    
@@ -185,8 +199,11 @@
             [FBSession.activeSession closeAndClearTokenInformation];
             [FBSession.activeSession close];
             [FBSession setActiveSession:nil];
-            //[self.slidingViewController removeFromParentViewController];
-            
+         
+                [ self willMoveToParentViewController:nil];
+                [ self.view removeFromSuperview];
+                [ self removeFromParentViewController];
+      
         }
     }
 }

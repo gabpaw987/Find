@@ -114,12 +114,8 @@
                                 <rect key="frame" x="85" y="0.0" width="250" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="side_bar_header.png" id="4CS-Tf-YRq">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                    </imageView>
                                     <tableView contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" indicatorStyle="white" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="40" sectionFooterHeight="22" id="LBc-BD-T4i">
-                                        <rect key="frame" x="0.0" y="253" width="250" height="350"/>
+                                        <rect key="frame" x="0.0" y="280" width="250" height="350"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -135,10 +131,6 @@
                                         </prototypes>
                                         <sections/>
                                     </tableView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_thumb_placeholder@3x.png" id="daa-no-cKf">
-                                        <rect key="frame" x="91" y="108" width="69" height="80"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -153,7 +145,6 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="tableSideView" destination="LBc-BD-T4i" id="eeq-Yi-L0P"/>
-                        <outlet property="userProfilePicture" destination="daa-no-cKf" id="T5l-aA-r5w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VW2-8T-WgF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -801,7 +792,6 @@
         <image name="ic_web_forward.png" width="27" height="27"/>
         <image name="ic_web_refresh.png" width="27" height="27"/>
         <image name="nav_bar.png" width="320" height="64"/>
-        <image name="profile_thumb_placeholder@3x.png" width="300" height="300"/>
         <image name="side_bar_header.png" width="320" height="64"/>
         <image name="side_bar_list_bg.png" width="320" height="50"/>
     </resources>
