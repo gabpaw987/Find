@@ -28,10 +28,10 @@
 #define BANNER_UNIT_ID @"ca-app-pub-2715300260198944/9530294111"
 
 // Your email that you wish that users on your app will contact you.
-#define ABOUT_US_EMAIL @"mangasaurgames@gmail.com"
+#define ABOUT_US_EMAIL @"admin@tableservicetonite.com"
 
 // Change this url depending on the name of your web hosting.
-#define BASE_URL @"http://mangasaurgames.com/apps/storefinder-v1.6.5/"
+#define BASE_URL @"http://www.tableservicetonite.com/storefinder/"
 
 // AdMob background color
 #define AD_BG_COLOR [UIColor clearColor]
