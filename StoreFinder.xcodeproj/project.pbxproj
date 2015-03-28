@@ -478,7 +478,6 @@
 		E3A1F4AD1AC732D800926B2C /* sports.png in Resources */ = {isa = PBXBuildFile; fileRef = E3A1F4A31AC732D800926B2C /* sports.png */; };
 		E3A1F4AE1AC732D800926B2C /* the411.png in Resources */ = {isa = PBXBuildFile; fileRef = E3A1F4A41AC732D800926B2C /* the411.png */; };
 		E3A1F4AF1AC732D800926B2C /* thegiveback.png in Resources */ = {isa = PBXBuildFile; fileRef = E3A1F4A51AC732D800926B2C /* thegiveback.png */; };
-		E3A1F4B01AC732D800926B2C /* ucla.png in Resources */ = {isa = PBXBuildFile; fileRef = E3A1F4A61AC732D800926B2C /* ucla.png */; };
 		E3A1F4B11AC732D800926B2C /* ucla2.png in Resources */ = {isa = PBXBuildFile; fileRef = E3A1F4A71AC732D800926B2C /* ucla2.png */; };
 		E3A1F4B91AC7342700926B2C /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = E3A1F4B31AC7342700926B2C /* heart.png */; };
 		E3A1F4BA1AC7342700926B2C /* home152.png in Resources */ = {isa = PBXBuildFile; fileRef = E3A1F4B41AC7342700926B2C /* home152.png */; };
@@ -1088,7 +1087,6 @@
 		E3A1F4A31AC732D800926B2C /* sports.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sports.png; path = StoreFinder/Resources/tonite_images/sports.png; sourceTree = SOURCE_ROOT; };
 		E3A1F4A41AC732D800926B2C /* the411.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = the411.png; path = StoreFinder/Resources/tonite_images/the411.png; sourceTree = SOURCE_ROOT; };
 		E3A1F4A51AC732D800926B2C /* thegiveback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = thegiveback.png; path = StoreFinder/Resources/tonite_images/thegiveback.png; sourceTree = SOURCE_ROOT; };
-		E3A1F4A61AC732D800926B2C /* ucla.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ucla.png; path = StoreFinder/Resources/tonite_images/ucla.png; sourceTree = SOURCE_ROOT; };
 		E3A1F4A71AC732D800926B2C /* ucla2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ucla2.png; path = StoreFinder/Resources/tonite_images/ucla2.png; sourceTree = SOURCE_ROOT; };
 		E3A1F4B31AC7342700926B2C /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
 		E3A1F4B41AC7342700926B2C /* home152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home152.png; sourceTree = "<group>"; };
@@ -2494,7 +2492,6 @@
 				E3A1F4A31AC732D800926B2C /* sports.png */,
 				E3A1F4A41AC732D800926B2C /* the411.png */,
 				E3A1F4A51AC732D800926B2C /* thegiveback.png */,
-				E3A1F4A61AC732D800926B2C /* ucla.png */,
 				E3A1F4A71AC732D800926B2C /* ucla2.png */,
 			);
 			name = tonite_images;
@@ -2620,7 +2617,6 @@
 				CBFEC954194CC0BC00A64FEC /* ReviewCell.xib in Resources */,
 				CB7DFB991951DDF9007FC9B9 /* Icon-60.png in Resources */,
 				CB7DFBAF1952044F007FC9B9 /* list_store_placeholder.png in Resources */,
-				E3A1F4B01AC732D800926B2C /* ucla.png in Resources */,
 				CB48D56D1A2C40A4008A04BE /* Default-736.png in Resources */,
 				CB48DD7819D44E630039C26B /* ic_web_refresh@3x.png in Resources */,
 				CB48DD6F19D44E630039C26B /* ic_news@3x.png in Resources */,
