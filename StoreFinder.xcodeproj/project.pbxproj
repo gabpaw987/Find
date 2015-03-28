@@ -470,6 +470,22 @@
 		E3268B7A1AA513C6004FA763 /* RightSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3268B791AA513C6004FA763 /* RightSideViewController.m */; };
 		E39283F61AACE7190075EC8D /* SliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E39283F51AACE7190075EC8D /* SliderCell.xib */; };
 		E39C05691A96A0E800BDFFE7 /* MyEventsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E39C05681A96A0E800BDFFE7 /* MyEventsController.m */; };
+		E3A1F4A81AC732D800926B2C /* artsCulture.png in Resources */ = {isa = PBXBuildFile; fileRef = E3A1F49E1AC732D800926B2C /* artsCulture.png */; };
+		E3A1F4A91AC732D800926B2C /* Avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = E3A1F49F1AC732D800926B2C /* Avatar.png */; };
+		E3A1F4AA1AC732D800926B2C /* dine.png in Resources */ = {isa = PBXBuildFile; fileRef = E3A1F4A01AC732D800926B2C /* dine.png */; };
+		E3A1F4AB1AC732D800926B2C /* elReyTheatre.png in Resources */ = {isa = PBXBuildFile; fileRef = E3A1F4A11AC732D800926B2C /* elReyTheatre.png */; };
+		E3A1F4AC1AC732D800926B2C /* nightlife.png in Resources */ = {isa = PBXBuildFile; fileRef = E3A1F4A21AC732D800926B2C /* nightlife.png */; };
+		E3A1F4AD1AC732D800926B2C /* sports.png in Resources */ = {isa = PBXBuildFile; fileRef = E3A1F4A31AC732D800926B2C /* sports.png */; };
+		E3A1F4AE1AC732D800926B2C /* the411.png in Resources */ = {isa = PBXBuildFile; fileRef = E3A1F4A41AC732D800926B2C /* the411.png */; };
+		E3A1F4AF1AC732D800926B2C /* thegiveback.png in Resources */ = {isa = PBXBuildFile; fileRef = E3A1F4A51AC732D800926B2C /* thegiveback.png */; };
+		E3A1F4B01AC732D800926B2C /* ucla.png in Resources */ = {isa = PBXBuildFile; fileRef = E3A1F4A61AC732D800926B2C /* ucla.png */; };
+		E3A1F4B11AC732D800926B2C /* ucla2.png in Resources */ = {isa = PBXBuildFile; fileRef = E3A1F4A71AC732D800926B2C /* ucla2.png */; };
+		E3A1F4B91AC7342700926B2C /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = E3A1F4B31AC7342700926B2C /* heart.png */; };
+		E3A1F4BA1AC7342700926B2C /* home152.png in Resources */ = {isa = PBXBuildFile; fileRef = E3A1F4B41AC7342700926B2C /* home152.png */; };
+		E3A1F4BB1AC7342700926B2C /* home153.png in Resources */ = {isa = PBXBuildFile; fileRef = E3A1F4B51AC7342700926B2C /* home153.png */; };
+		E3A1F4BC1AC7342700926B2C /* house158.png in Resources */ = {isa = PBXBuildFile; fileRef = E3A1F4B61AC7342700926B2C /* house158.png */; };
+		E3A1F4BD1AC7342700926B2C /* Location.png in Resources */ = {isa = PBXBuildFile; fileRef = E3A1F4B71AC7342700926B2C /* Location.png */; };
+		E3A1F4BE1AC7342700926B2C /* user160.png in Resources */ = {isa = PBXBuildFile; fileRef = E3A1F4B81AC7342700926B2C /* user160.png */; };
 		E3EA95571A96F2C6000066E8 /* TicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EA95561A96F2C6000066E8 /* TicketsViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -1064,6 +1080,22 @@
 		E39283F51AACE7190075EC8D /* SliderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderCell.xib; sourceTree = "<group>"; };
 		E39C05671A96A0E800BDFFE7 /* MyEventsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEventsController.h; sourceTree = "<group>"; };
 		E39C05681A96A0E800BDFFE7 /* MyEventsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEventsController.m; sourceTree = "<group>"; };
+		E3A1F49E1AC732D800926B2C /* artsCulture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = artsCulture.png; path = StoreFinder/Resources/tonite_images/artsCulture.png; sourceTree = SOURCE_ROOT; };
+		E3A1F49F1AC732D800926B2C /* Avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Avatar.png; path = StoreFinder/Resources/tonite_images/Avatar.png; sourceTree = SOURCE_ROOT; };
+		E3A1F4A01AC732D800926B2C /* dine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dine.png; path = StoreFinder/Resources/tonite_images/dine.png; sourceTree = SOURCE_ROOT; };
+		E3A1F4A11AC732D800926B2C /* elReyTheatre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = elReyTheatre.png; path = StoreFinder/Resources/tonite_images/elReyTheatre.png; sourceTree = SOURCE_ROOT; };
+		E3A1F4A21AC732D800926B2C /* nightlife.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nightlife.png; path = StoreFinder/Resources/tonite_images/nightlife.png; sourceTree = SOURCE_ROOT; };
+		E3A1F4A31AC732D800926B2C /* sports.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sports.png; path = StoreFinder/Resources/tonite_images/sports.png; sourceTree = SOURCE_ROOT; };
+		E3A1F4A41AC732D800926B2C /* the411.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = the411.png; path = StoreFinder/Resources/tonite_images/the411.png; sourceTree = SOURCE_ROOT; };
+		E3A1F4A51AC732D800926B2C /* thegiveback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = thegiveback.png; path = StoreFinder/Resources/tonite_images/thegiveback.png; sourceTree = SOURCE_ROOT; };
+		E3A1F4A61AC732D800926B2C /* ucla.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ucla.png; path = StoreFinder/Resources/tonite_images/ucla.png; sourceTree = SOURCE_ROOT; };
+		E3A1F4A71AC732D800926B2C /* ucla2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ucla2.png; path = StoreFinder/Resources/tonite_images/ucla2.png; sourceTree = SOURCE_ROOT; };
+		E3A1F4B31AC7342700926B2C /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
+		E3A1F4B41AC7342700926B2C /* home152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home152.png; sourceTree = "<group>"; };
+		E3A1F4B51AC7342700926B2C /* home153.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home153.png; sourceTree = "<group>"; };
+		E3A1F4B61AC7342700926B2C /* house158.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = house158.png; sourceTree = "<group>"; };
+		E3A1F4B71AC7342700926B2C /* Location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Location.png; sourceTree = "<group>"; };
+		E3A1F4B81AC7342700926B2C /* user160.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user160.png; sourceTree = "<group>"; };
 		E3EA95551A96F2C6000066E8 /* TicketsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TicketsViewController.h; path = "untitled folder/TicketsViewController.h"; sourceTree = "<group>"; };
 		E3EA95561A96F2C6000066E8 /* TicketsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TicketsViewController.m; path = "untitled folder/TicketsViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1757,6 +1789,8 @@
 		CBAED25B1948A40F00769D68 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E3A1F4B21AC7342700926B2C /* 1x */,
+				E3A1F49D1AC732D800926B2C /* tonite_images */,
 				CB820AD9194F7C47000E64DB /* AboutUs */,
 				CB7DFBEB19522AC2007FC9B9 /* Blur */,
 				CB820AA4194F788D000E64DB /* Buttons */,
@@ -2449,6 +2483,38 @@
 			name = MyEventsController;
 			sourceTree = "<group>";
 		};
+		E3A1F49D1AC732D800926B2C /* tonite_images */ = {
+			isa = PBXGroup;
+			children = (
+				E3A1F49E1AC732D800926B2C /* artsCulture.png */,
+				E3A1F49F1AC732D800926B2C /* Avatar.png */,
+				E3A1F4A01AC732D800926B2C /* dine.png */,
+				E3A1F4A11AC732D800926B2C /* elReyTheatre.png */,
+				E3A1F4A21AC732D800926B2C /* nightlife.png */,
+				E3A1F4A31AC732D800926B2C /* sports.png */,
+				E3A1F4A41AC732D800926B2C /* the411.png */,
+				E3A1F4A51AC732D800926B2C /* thegiveback.png */,
+				E3A1F4A61AC732D800926B2C /* ucla.png */,
+				E3A1F4A71AC732D800926B2C /* ucla2.png */,
+			);
+			name = tonite_images;
+			path = StoreFinder/Resources/tonite_images;
+			sourceTree = SOURCE_ROOT;
+		};
+		E3A1F4B21AC7342700926B2C /* 1x */ = {
+			isa = PBXGroup;
+			children = (
+				E3A1F4B31AC7342700926B2C /* heart.png */,
+				E3A1F4B41AC7342700926B2C /* home152.png */,
+				E3A1F4B51AC7342700926B2C /* home153.png */,
+				E3A1F4B61AC7342700926B2C /* house158.png */,
+				E3A1F4B71AC7342700926B2C /* Location.png */,
+				E3A1F4B81AC7342700926B2C /* user160.png */,
+			);
+			name = 1x;
+			path = Detail/1x;
+			sourceTree = "<group>";
+		};
 		E3EA95581A96F2DF000066E8 /* TicketsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2554,6 +2620,7 @@
 				CBFEC954194CC0BC00A64FEC /* ReviewCell.xib in Resources */,
 				CB7DFB991951DDF9007FC9B9 /* Icon-60.png in Resources */,
 				CB7DFBAF1952044F007FC9B9 /* list_store_placeholder.png in Resources */,
+				E3A1F4B01AC732D800926B2C /* ucla.png in Resources */,
 				CB48D56D1A2C40A4008A04BE /* Default-736.png in Resources */,
 				CB48DD7819D44E630039C26B /* ic_web_refresh@3x.png in Resources */,
 				CB48DD6F19D44E630039C26B /* ic_news@3x.png in Resources */,
@@ -2574,11 +2641,13 @@
 				CB26276D19508DA60024C15A /* ic_login.png in Resources */,
 				CB48DD2119D444580039C26B /* ic_map_route@3x.png in Resources */,
 				CB26276A19508DA60024C15A /* ic_about@2x.png in Resources */,
+				E3A1F4AE1AC732D800926B2C /* the411.png in Resources */,
 				CB3B8E28194A06A100574652 /* FeaturedCell.xib in Resources */,
 				CB48D56C1A2C40A4008A04BE /* Default-667h@2x.png in Resources */,
 				CB2627C11950D67F0024C15A /* button_call@2x.png in Resources */,
 				CB7DFBBB1952074A007FC9B9 /* map_info_placeholder.png in Resources */,
 				CBAED3EE1948A78C00769D68 /* nav_bar.png in Resources */,
+				E3A1F4B11AC732D800926B2C /* ucla2.png in Resources */,
 				CB7DFBC41952088E007FC9B9 /* profile_thumb_placeholder@2x.png in Resources */,
 				CB7DFB7419519B91007FC9B9 /* textbox_search_normal.png in Resources */,
 				CB26277319508DA60024C15A /* ic_register.png in Resources */,
@@ -2589,6 +2658,7 @@
 				CB26276B19508DA60024C15A /* ic_featured.png in Resources */,
 				CB422139194AD85000528013 /* ic_map_route.png in Resources */,
 				CB48DD3D19D4446B0039C26B /* star_half@3x.png in Resources */,
+				E3A1F4BD1AC7342700926B2C /* Location.png in Resources */,
 				CB422143194AD85000528013 /* map_info_shadow.png in Resources */,
 				CB26274A19507C030024C15A /* side_bar_list_header_bg@2x.png in Resources */,
 				CB48DD1D19D444580039C26B /* ic_map_draw@3x.png in Resources */,
@@ -2614,6 +2684,7 @@
 				CB48DD4819D444700039C26B /* textbox_email@3x.png in Resources */,
 				CB820ACE194F78A3000E64DB /* textbox_email.png in Resources */,
 				CB7DFBB01952044F007FC9B9 /* list_store_placeholder@2x.png in Resources */,
+				E3A1F4A91AC732D800926B2C /* Avatar.png in Resources */,
 				CB48DD0419D444460039C26B /* ic_detail_sms@3x.png in Resources */,
 				CB7DFBEE19522AC2007FC9B9 /* blur_weather.png in Resources */,
 				CB26277F195093E00024C15A /* list_category_bg@2x.png in Resources */,
@@ -2668,6 +2739,8 @@
 				CB4221C3194B01BB00528013 /* line_divider_shadow_up@2x.png in Resources */,
 				CB26274919507C030024C15A /* side_bar_list_header_bg.png in Resources */,
 				CB48DD4C19D444700039C26B /* textbox_search_normal@3x.png in Resources */,
+				E3A1F4BA1AC7342700926B2C /* home152.png in Resources */,
+				E3A1F4AD1AC732D800926B2C /* sports.png in Resources */,
 				CB48DD0019D444460039C26B /* divider_black@3x.png in Resources */,
 				CB48DD6619D44E630039C26B /* ic_check@3x.png in Resources */,
 				CB422135194AD85000528013 /* ic_map_nearby.png in Resources */,
@@ -2700,6 +2773,7 @@
 				CB4221B4194B01BB00528013 /* divider.png in Resources */,
 				CB48DD2219D444580039C26B /* map_info_shadow@3x.png in Resources */,
 				CB7DFB871951A5EE007FC9B9 /* bg_slider_track.png in Resources */,
+				E3A1F4BE1AC7342700926B2C /* user160.png in Resources */,
 				CB7DFB6F195195FF007FC9B9 /* star_new_rating_half@2x.png in Resources */,
 				CB48DD1219D444530039C26B /* list_divider@3x.png in Resources */,
 				CB7DFBBF195207BC007FC9B9 /* profile_placeholder.png in Resources */,
@@ -2713,11 +2787,13 @@
 				CB48DD7619D44E630039C26B /* ic_web_back@3x.png in Resources */,
 				CB48DD2C19D444660039C26B /* side_bar_list_bg_selected@3x.png in Resources */,
 				CB4221C5194B01BB00528013 /* list_arrow@2x.png in Resources */,
+				E3A1F4AB1AC732D800926B2C /* elReyTheatre.png in Resources */,
 				CB262752195082600024C15A /* ic_home@2x.png in Resources */,
 				CB48DD3F19D4446B0039C26B /* star_new_rating_fill@3x.png in Resources */,
 				CB48DD1F19D444580039C26B /* ic_map_nearby@3x.png in Resources */,
 				CB48DD4E19D444700039C26B /* textbox_username@3x.png in Resources */,
 				CB7DFB6319517961007FC9B9 /* ic_check@2x.png in Resources */,
+				E3A1F4BC1AC7342700926B2C /* house158.png in Resources */,
 				CBF66C60194D9B95003CC75F /* star_half.png in Resources */,
 				CB2627C51950D67F0024C15A /* button_facebook@2x.png in Resources */,
 				CB7DFB571951726C007FC9B9 /* ic_web_forward@2x.png in Resources */,
@@ -2727,6 +2803,7 @@
 				CB2627CB1950D67F0024C15A /* button_web@2x.png in Resources */,
 				CB7DFB7719519B91007FC9B9 /* textbox_search_selected@2x.png in Resources */,
 				CBF66C5E194D9B95003CC75F /* star_fill.png in Resources */,
+				E3A1F4BB1AC7342700926B2C /* home153.png in Resources */,
 				CB26278E1950AB8B0024C15A /* star_fave_normal.png in Resources */,
 				CB48DD0719D444460039C26B /* line_divider_pad@3x.png in Resources */,
 				CB26277419508DA60024C15A /* ic_register@2x.png in Resources */,
@@ -2746,17 +2823,21 @@
 				CB48DD4919D444700039C26B /* textbox_fullname@3x.png in Resources */,
 				CBAED3711948A4EF00769D68 /* MGListView.xib in Resources */,
 				CB48DD6919D44E630039C26B /* ic_home@3x.png in Resources */,
+				E3A1F4B91AC7342700926B2C /* heart.png in Resources */,
 				CB7199521959B2FD001DB700 /* ReviewLoadMoreCell.xib in Resources */,
 				CB26276E19508DA60024C15A /* ic_login@2x.png in Resources */,
 				CB7DFBD8195216BB007FC9B9 /* Default.png in Resources */,
 				CB820AA2194F783D000E64DB /* LoginView.xib in Resources */,
 				CB2627AF1950CE050024C15A /* FooterView.xib in Resources */,
 				CB48DD0219D444460039C26B /* ic_detail_call@3x.png in Resources */,
+				E3A1F4AF1AC732D800926B2C /* thegiveback.png in Resources */,
 				CB820AF0194F8229000E64DB /* ProfileView.xib in Resources */,
 				CB48DD8519D452030039C26B /* image_viewer_placeholder@3x.png in Resources */,
+				E3A1F4A81AC732D800926B2C /* artsCulture.png in Resources */,
 				CB48DD2019D444580039C26B /* ic_map_refresh@3x.png in Resources */,
 				CB7DFBC0195207BC007FC9B9 /* profile_placeholder@2x.png in Resources */,
 				CB48DD1C19D444580039C26B /* ic_map_arrow@3x.png in Resources */,
+				E3A1F4AC1AC732D800926B2C /* nightlife.png in Resources */,
 				CB4221B6194B01BB00528013 /* divider_black.png in Resources */,
 				CB4221BD194B01BB00528013 /* line_divider@2x.png in Resources */,
 				CB7DFBD6195216BB007FC9B9 /* Default-568h.png in Resources */,
@@ -2843,6 +2924,7 @@
 				CB7DFB831951A5EE007FC9B9 /* bg_slider_handle.png in Resources */,
 				CB3B8E23194A009200574652 /* ic_menu@2x.png in Resources */,
 				CB48DD6519D44E630039C26B /* ic_categories@3x.png in Resources */,
+				E3A1F4AA1AC732D800926B2C /* dine.png in Resources */,
 				CB2627561950895D0024C15A /* ic_categories@2x.png in Resources */,
 				CB48DD3819D4446B0039C26B /* star_empty@3x.png in Resources */,
 				CB2627941950ACE40024C15A /* star_fave_map_normal.png in Resources */,

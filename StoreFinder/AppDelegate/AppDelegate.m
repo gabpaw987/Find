@@ -42,11 +42,11 @@
     // Override point for customization after application launch.
     
     // Override point for customization after application launch.
-    [MGUIAppearance enhanceNavBarAppearance:NAV_BAR_BG];
+//    [MGUIAppearance enhanceNavBarAppearance:NAV_BAR_BG];
     
-    [MGUIAppearance enhanceBarButtonAppearance:WHITE_TINT_COLOR];
+    [MGUIAppearance enhanceBarButtonAppearance:BLACK_TEXT_COLOR];
     
-    [MGUIAppearance enhanceToolbarAppearance:NAV_BAR_BG];
+  //  [MGUIAppearance enhanceToolbarAppearance:NAV_BAR_BG];
     
     if (DOES_SUPPORT_IOS7) {
         [application setStatusBarStyle:UIStatusBarStyleLightContent];

@@ -13,7 +13,7 @@
 @interface SideViewController ()
 
 @property (nonatomic, retain) NSArray* categories;
-
+@property (nonatomic, retain) NSArray* backgroundImages;
 @end
 
 @implementation SideViewController
@@ -35,26 +35,34 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = SIDE_VIEW_BG_COLOR;
+    self.view.backgroundColor = [UIColor whiteColor];
         
     tableViewSide.delegate = self;
     tableViewSide.dataSource = self;
     
  //********************************************
-  //  self.categories = [CoreDataController getCategories];
-    
     
     self.categories =
     @[
-        @"HOME(testing)",
         @"UCLA",
         @"NIGHTLIFE",
         @"SPORTS",
         @"FOOD",
-        @"MUSIC, COMEDY, ARTS",
-        @"MOVIES",
-        @"411",
-        @"thegiveback"
+        @"CULTURE",
+        @"MOVIES & FILM",
+        @"THE 411",
+        @"#thegiveback"
+      ];
+    self.backgroundImages =
+    @[
+      @"ucla2.jpg",
+      @"nightlife.png",
+      @"sports.png",
+      @"dine.png",
+      @"artsCulture.png",
+      @"elReyTheatre.png",
+      @"the411.png",
+      @"thegiveback.png"
       ];
 
     buttonMenuClose.tag = kMenuAnimationClosed;
@@ -164,15 +172,13 @@
     cell.selectedColor = WHITE_TEXT_COLOR;
     cell.unSelectedColor = WHITE_TEXT_COLOR;
     
-    cell.selectedImage = [UIImage imageNamed:SIDE_BAR_CELL_SELECTED];
-    cell.unselectedImage = [UIImage imageNamed:SIDE_BAR_CELL_NORMAL];
+    cell.unselectedImage = [UIImage imageNamed:self.backgroundImages[indexPath.row]];
+    cell.selectedImage = [UIImage imageNamed:SIDE_BAR_CELL_NORMAL];
     
     
     NSString* title = self.categories[indexPath.row];
     [cell.labelTitle setText:title];
-    
-    //Set Category Backgroud**************************
-    
+
     
     return cell;
 }
