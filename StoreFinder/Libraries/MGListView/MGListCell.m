@@ -63,6 +63,8 @@
 @synthesize lblNonSelectorTitle;
 
 
+@synthesize slideShow;
+
 
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {

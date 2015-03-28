@@ -15,4 +15,5 @@
 
 @property (nonatomic, retain) IBOutlet MGRawScrollView* scrollViewMain;
 
+
 @end

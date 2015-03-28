@@ -88,7 +88,6 @@
 		CB3B8E111949A56300574652 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3B8E101949A56300574652 /* News.m */; };
 		CB3B8E131949D7B100574652 /* SliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB3B8E121949D7B100574652 /* SliderView.xib */; };
 		CB3B8E151949DBBF00574652 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB3B8E141949DBBF00574652 /* NewsCell.xib */; };
-		CB3B8E1D1949E6C800574652 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3B8E1C1949E6C800574652 /* CategoryViewController.m */; };
 		CB3B8E1F1949FC6800574652 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB3B8E1E1949FC6800574652 /* CategoryCell.xib */; };
 		CB3B8E22194A009200574652 /* ic_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = CB3B8E20194A009200574652 /* ic_menu.png */; };
 		CB3B8E23194A009200574652 /* ic_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB3B8E21194A009200574652 /* ic_menu@2x.png */; };
@@ -328,7 +327,6 @@
 		CB7DFBEF19522AC2007FC9B9 /* blur_weather@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB7DFBED19522AC2007FC9B9 /* blur_weather@2x.png */; };
 		CB7DFBF619523964007FC9B9 /* ic_weather.png in Resources */ = {isa = PBXBuildFile; fileRef = CB7DFBF419523964007FC9B9 /* ic_weather.png */; };
 		CB7DFBF719523964007FC9B9 /* ic_weather@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB7DFBF519523964007FC9B9 /* ic_weather@2x.png */; };
-		CB820A8E194EC78C000E64DB /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB820A8D194EC78C000E64DB /* SearchResultViewController.m */; };
 		CB820A90194EC80E000E64DB /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB820A8F194EC80E000E64DB /* SearchResultCell.xib */; };
 		CB820A93194ED75C000E64DB /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB820A92194ED75C000E64DB /* NewsDetailViewController.m */; };
 		CB820A99194F27E8000E64DB /* MGButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CB820A98194F27E8000E64DB /* MGButton.m */; };
@@ -421,7 +419,6 @@
 		CBAED3AD1948A4EF00769D68 /* MGParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAED3331948A4EF00769D68 /* MGParser.m */; };
 		CBAED3AE1948A4EF00769D68 /* MGRawScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAED3361948A4EF00769D68 /* MGRawScrollView.m */; };
 		CBAED3AF1948A4EF00769D68 /* MGSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAED3391948A4EF00769D68 /* MGSlider.m */; };
-		CBAED3B01948A4EF00769D68 /* MGSliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBAED33A1948A4EF00769D68 /* MGSliderView.xib */; };
 		CBAED3B11948A4EF00769D68 /* MGTopLeftLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAED33D1948A4EF00769D68 /* MGTopLeftLabel.m */; };
 		CBAED3B21948A4EF00769D68 /* NMRangeSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAED3401948A4EF00769D68 /* NMRangeSlider.m */; };
 		CBAED3B31948A4EF00769D68 /* NSStringExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAED3431948A4EF00769D68 /* NSStringExtras.m */; };
@@ -471,6 +468,7 @@
 		CBF66C61194D9B95003CC75F /* star_half@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBF66C5B194D9B95003CC75F /* star_half@2x.png */; };
 		CBFEC954194CC0BC00A64FEC /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBFEC953194CC0BC00A64FEC /* ReviewCell.xib */; };
 		E3268B7A1AA513C6004FA763 /* RightSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3268B791AA513C6004FA763 /* RightSideViewController.m */; };
+		E39283F61AACE7190075EC8D /* SliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E39283F51AACE7190075EC8D /* SliderCell.xib */; };
 		E39C05691A96A0E800BDFFE7 /* MyEventsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E39C05681A96A0E800BDFFE7 /* MyEventsController.m */; };
 		E3EA95571A96F2C6000066E8 /* TicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EA95561A96F2C6000066E8 /* TicketsViewController.m */; };
 /* End PBXBuildFile section */
@@ -564,8 +562,6 @@
 		CB3B8E101949A56300574652 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
 		CB3B8E121949D7B100574652 /* SliderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderView.xib; sourceTree = "<group>"; };
 		CB3B8E141949DBBF00574652 /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
-		CB3B8E1B1949E6C800574652 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
-		CB3B8E1C1949E6C800574652 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
 		CB3B8E1E1949FC6800574652 /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		CB3B8E20194A009200574652 /* ic_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_menu.png; sourceTree = "<group>"; };
 		CB3B8E21194A009200574652 /* ic_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_menu@2x.png"; sourceTree = "<group>"; };
@@ -818,8 +814,6 @@
 		CB7DFBED19522AC2007FC9B9 /* blur_weather@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blur_weather@2x.png"; sourceTree = "<group>"; };
 		CB7DFBF419523964007FC9B9 /* ic_weather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_weather.png; sourceTree = "<group>"; };
 		CB7DFBF519523964007FC9B9 /* ic_weather@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_weather@2x.png"; sourceTree = "<group>"; };
-		CB820A8C194EC78C000E64DB /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
-		CB820A8D194EC78C000E64DB /* SearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
 		CB820A8F194EC80E000E64DB /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		CB820A91194ED75C000E64DB /* NewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailViewController.h; sourceTree = "<group>"; };
 		CB820A92194ED75C000E64DB /* NewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailViewController.m; sourceTree = "<group>"; };
@@ -993,7 +987,6 @@
 		CBAED3361948A4EF00769D68 /* MGRawScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGRawScrollView.m; sourceTree = "<group>"; };
 		CBAED3381948A4EF00769D68 /* MGSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSlider.h; sourceTree = "<group>"; };
 		CBAED3391948A4EF00769D68 /* MGSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSlider.m; sourceTree = "<group>"; };
-		CBAED33A1948A4EF00769D68 /* MGSliderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MGSliderView.xib; sourceTree = "<group>"; };
 		CBAED33C1948A4EF00769D68 /* MGTopLeftLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTopLeftLabel.h; sourceTree = "<group>"; };
 		CBAED33D1948A4EF00769D68 /* MGTopLeftLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGTopLeftLabel.m; sourceTree = "<group>"; };
 		CBAED33F1948A4EF00769D68 /* NMRangeSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMRangeSlider.h; sourceTree = "<group>"; };
@@ -1068,6 +1061,7 @@
 		CBFEC953194CC0BC00A64FEC /* ReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
 		E3268B781AA513C6004FA763 /* RightSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightSideViewController.h; sourceTree = "<group>"; };
 		E3268B791AA513C6004FA763 /* RightSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightSideViewController.m; sourceTree = "<group>"; };
+		E39283F51AACE7190075EC8D /* SliderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderCell.xib; sourceTree = "<group>"; };
 		E39C05671A96A0E800BDFFE7 /* MyEventsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEventsController.h; sourceTree = "<group>"; };
 		E39C05681A96A0E800BDFFE7 /* MyEventsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEventsController.m; sourceTree = "<group>"; };
 		E3EA95551A96F2C6000066E8 /* TicketsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TicketsViewController.h; path = "untitled folder/TicketsViewController.h"; sourceTree = "<group>"; };
@@ -1170,15 +1164,6 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
-		CB3B8E161949E6BA00574652 /* CategoryController */ = {
-			isa = PBXGroup;
-			children = (
-				CB3B8E1B1949E6C800574652 /* CategoryViewController.h */,
-				CB3B8E1C1949E6C800574652 /* CategoryViewController.m */,
-			);
-			path = CategoryController;
-			sourceTree = "<group>";
-		};
 		CB3B8E171949E6BA00574652 /* FeaturedController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1213,8 +1198,6 @@
 			children = (
 				CB2D4BBF194E21BB002CF419 /* SearchViewController.h */,
 				CB2D4BC0194E21BB002CF419 /* SearchViewController.m */,
-				CB820A8C194EC78C000E64DB /* SearchResultViewController.h */,
-				CB820A8D194EC78C000E64DB /* SearchResultViewController.m */,
 			);
 			path = SearchController;
 			sourceTree = "<group>";
@@ -1796,27 +1779,26 @@
 		CBAED25C1948A40F00769D68 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E3268B771AA51371004FA763 /* RightSideViewController */,
-				E3EA95581A96F2DF000066E8 /* TicketsViewController */,
-				E39C056A1A96A0EE00BDFFE7 /* MyEventsController */,
-				CB820ADE194F7C69000E64DB /* AboutUsController */,
-				CB3B8E161949E6BA00574652 /* CategoryController */,
 				CBAED3D71948A63B00769D68 /* ContentController */,
+				CB7DFBE119521999007FC9B9 /* SideController */,
+				E3268B771AA51371004FA763 /* RightSideViewController */,
+				CB820ADE194F7C69000E64DB /* AboutUsController */,
+				CB820A9A194F7793000E64DB /* LoginController */,
+				CB7DFBE5195224DF007FC9B9 /* RegisterController */,
+				CB820AE8194F815B000E64DB /* ProfileController */,
+				CB820AE1194F7C69000E64DB /* T&CController */,
+				E39C056A1A96A0EE00BDFFE7 /* MyEventsController */,
 				CB422149194ADDAB00528013 /* DetailController */,
 				CB820AF1194F9D34000E64DB /* FavoritesController */,
 				CB3B8E171949E6BA00574652 /* FeaturedController */,
 				CB42218D194B005400528013 /* ImageController */,
-				CB820A9A194F7793000E64DB /* LoginController */,
+				E3EA95581A96F2DF000066E8 /* TicketsViewController */,
 				CB3B8E181949E6BA00574652 /* MapController */,
 				CB3B8E191949E6BA00574652 /* NewsController */,
-				CB820AE8194F815B000E64DB /* ProfileController */,
 				CB2D4BB6194DEC32002CF419 /* RatingController */,
-				CB7DFBE5195224DF007FC9B9 /* RegisterController */,
 				CB7DFBDA19521982007FC9B9 /* ReviewController */,
 				CB3B8E1A1949E6BA00574652 /* SearchController */,
-				CB7DFBE119521999007FC9B9 /* SideController */,
 				CB4221D6194B0BC500528013 /* StoreController */,
-				CB820AE1194F7C69000E64DB /* T&CController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1826,6 +1808,7 @@
 			children = (
 				CB820A9E194F783D000E64DB /* AboutUsView.xib */,
 				CB3B8E1E1949FC6800574652 /* CategoryCell.xib */,
+				E39283F51AACE7190075EC8D /* SliderCell.xib */,
 				CB42218B194AEC2300528013 /* DetailCell.xib */,
 				CB3B8E27194A06A100574652 /* FeaturedCell.xib */,
 				CB2627AE1950CE050024C15A /* FooterView.xib */,
@@ -2183,7 +2166,6 @@
 			children = (
 				CBAED3381948A4EF00769D68 /* MGSlider.h */,
 				CBAED3391948A4EF00769D68 /* MGSlider.m */,
-				CBAED33A1948A4EF00769D68 /* MGSliderView.xib */,
 			);
 			path = MGSlider;
 			sourceTree = "<group>";
@@ -2690,6 +2672,7 @@
 				CB48DD6619D44E630039C26B /* ic_check@3x.png in Resources */,
 				CB422135194AD85000528013 /* ic_map_nearby.png in Resources */,
 				CB48DCF019D444370039C26B /* button_share_twitter@3x.png in Resources */,
+				E39283F61AACE7190075EC8D /* SliderCell.xib in Resources */,
 				CB7DFB541951726C007FC9B9 /* ic_web_back.png in Resources */,
 				CB2627C61950D67F0024C15A /* button_sms.png in Resources */,
 				CB48DD6B19D44E630039C26B /* ic_map@3x.png in Resources */,
@@ -2700,7 +2683,6 @@
 				CB7DFB6D195195FF007FC9B9 /* star_new_rating_fill@2x.png in Resources */,
 				CBAED3841948A4EF00769D68 /* MGMapView.xib in Resources */,
 				CB820AD0194F78A3000E64DB /* textbox_fullname.png in Resources */,
-				CBAED3B01948A4EF00769D68 /* MGSliderView.xib in Resources */,
 				CB7DFB5A1951731D007FC9B9 /* ic_web_refresh.png in Resources */,
 				CB48DD2E19D444660039C26B /* side_bar_list_header_bg@3x.png in Resources */,
 				CB48DD0A19D444460039C26B /* line_divider@3x.png in Resources */,
@@ -2880,7 +2862,6 @@
 				CBAED3971948A4EF00769D68 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				CBAED3691948A4EF00769D68 /* METransitions.m in Sources */,
 				CBAED3B11948A4EF00769D68 /* MGTopLeftLabel.m in Sources */,
-				CB3B8E1D1949E6C800574652 /* CategoryViewController.m in Sources */,
 				E3EA95571A96F2C6000066E8 /* TicketsViewController.m in Sources */,
 				CBAED3A21948A4EF00769D68 /* MGTextField.m in Sources */,
 				CBAED3AA1948A4EF00769D68 /* MGImageViewer.m in Sources */,
@@ -2968,7 +2949,6 @@
 				CBAED3B71948A4EF00769D68 /* RateView.m in Sources */,
 				CBAED2291948A1DD00769D68 /* main.m in Sources */,
 				CB2D4BBC194E0715002CF419 /* NewsViewController.m in Sources */,
-				CB820A8E194EC78C000E64DB /* SearchResultViewController.m in Sources */,
 				CB7DFBE419521999007FC9B9 /* SideViewController.m in Sources */,
 				CBAED3851948A4EF00769D68 /* MGRawView.m in Sources */,
 				CBAED3A61948A4EF00769D68 /* TBXML.m in Sources */,

@@ -10,7 +10,7 @@
 #import "DetailViewController.h"
 #import "AppDelegate.h"
 
-@interface MyEventsController() <MGListViewDelegate >
+@interface MyEventsController() <MGListViewDelegate, MGSliderDelegate>
 
 
 @end
@@ -56,7 +56,7 @@
     BOOL screen = IS_IPHONE_6_PLUS_AND_ABOVE;
     listViewMain.cellHeight = screen ? 300 : 250;
     
-    [listViewMain registerNibName:@"FeaturedCell" cellIndentifier:@"FeaturedCell"];
+    [listViewMain registerNibName:@"SliderCell" cellIndentifier:@"SliderCell"];
     [listViewMain baseInit];
     
     
@@ -112,7 +112,7 @@
 
 -(void) performParsing {
     
-    listViewMain.arrayData = [NSMutableArray arrayWithArray:[CoreDataController getAllStores]];
+    listViewMain.arrayData = [NSMutableArray arrayWithArray:[CoreDataController getFeaturedStores]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -136,8 +136,17 @@
     if(cell != nil) {
         Store* store = [listViewMain.arrayData objectAtIndex:indexPath.row];
         NSArray* arrayPhotos = [CoreDataController getStorePhotosByStoreId:store.store_id];
-       
-        Favorite* fave = [CoreDataController getFavoriteByStoreId:store.store_id];
+        if([arrayPhotos count]){
+        cell.slideShow.delegate = self;
+        cell.slideShow.numberOfItems = [arrayPhotos count];
+        cell.slideShow.nibName = @"SliderView";
+        [cell.slideShow setNeedsReLayoutWithViewSize:CGSizeMake(cell.frame.size.width, cell.frame.size.height)];
+        [cell.slideShow startAnimationWithDuration:3.0f];
+        cell.slideShow.imageArray = arrayPhotos;
+            [cell.imgViewThumb bringSubviewToFront:cell.slideShow];
+        }
+        
+      /*  Favorite* fave = [CoreDataController getFavoriteByStoreId:store.store_id];
         
         cell.imgViewFave.hidden = NO;
         
@@ -184,11 +193,43 @@
             info = LOCALIZED(@"NO_RATING");
         
         cell.labelExtraInfo.text = info;
+       */
     }
     
     return cell;
 }
 
+
+-(void)MGSlider:(MGSlider *)slider didCreateSliderView:(MGRawView *)rawView atIndex:(int)index {
+    
+    Photo*p = slider.imageArray[index];
+    // Photo* p = [CoreDataController getStorePhotoByStoreId:store.store_id];
+    
+    /*   rawView.label1.backgroundColor = [BLACK_TEXT_COLOR colorWithAlphaComponent:0.66];
+     
+     rawView.labelTitle.textColor = WHITE_TEXT_COLOR;
+     rawView.labelSubtitle.textColor = WHITE_TEXT_COLOR;
+     
+     //    rawView.labelTitle.text = store.store_name;
+     //    rawView.labelSubtitle.text = store.store_address;
+     */
+    if(p != nil)
+        [self setImage:p.photo_url imageView:rawView.imgViewPhoto];
+    
+    //   rawView.buttonGo.object = store;
+    [rawView.buttonGo addTarget:self
+                         action:@selector(didClickButtonGo:)
+               forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+-(void)didClickButtonGo:(id)sender {
+    
+    MGButton* button = (MGButton*)sender;
+    DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardDetail"];
+    vc.store = button.object;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 -(void)MGListView:(MGListView *)listView scrollViewDidScroll:(UIScrollView *)scrollView {
     

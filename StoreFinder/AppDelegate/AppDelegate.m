@@ -22,7 +22,7 @@
 
 @synthesize sideViewController;
 @synthesize contentViewController;
-@synthesize rightMenuController;
+//@synthesize rightMenuController;
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -56,18 +56,19 @@
     UINavigationController* navController = [storyboard instantiateViewControllerWithIdentifier:@"storyboardNavigation"];
     
     sideViewController = [storyboard instantiateViewControllerWithIdentifier:@"storyboardSideView"];
-    rightMenuController = [storyboard instantiateViewControllerWithIdentifier:@"storyboardRightSide"];
+   // rightMenuController = [storyboard instantiateViewControllerWithIdentifier:@"storyboardRightSide"];
     
     self.slidingViewController = [ECSlidingViewController slidingWithTopViewController:navController];
     
     self.slidingViewController.underLeftViewController  = sideViewController;
     
-    self.slidingViewController.underRightViewController = rightMenuController;
+//self.slidingViewController.underRightViewController = rightMenuController;
     
     self.slidingViewController.anchorRightPeekAmount  = 0.0;
-    self.slidingViewController.anchorLeftPeekAmount = 70.0;
+    self.slidingViewController.anchorLeftPeekAmount = ANCHOR_LEFT_PEEK;
+    
     //self.slidingViewController.anchorRightRevealAmount = 350.0;
-    self.slidingViewController.anchorLeftRevealAmount = ANCHOR_RIGHT_PEEK; //276.0
+    //self.slidingViewController.anchorLeftRevealAmount = ANCHOR_RIGHT_PEEK; //276.0
     
     
     self.window.rootViewController = self.slidingViewController;

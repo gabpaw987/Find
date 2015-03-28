@@ -378,11 +378,8 @@
 
 -(IBAction)didClickCancelLogin:(id)sender {
     
-    AppDelegate* delegate = [AppDelegate instance];
-    [delegate.rightMenuController updateUI];
-  
     [self dismissViewControllerAnimated:YES completion:nil];
-    [self.slidingViewController anchorTopViewToLeftAnimated:YES];
+  
 }
 
 
@@ -502,12 +499,8 @@
                 [self.view setUserInteractionEnabled:YES];
                 barButtonCancel.enabled = YES;
                 
-                
-                AppDelegate* delegate = [AppDelegate instance];
-                [delegate.rightMenuController updateUI];
-                
                 [self dismissViewControllerAnimated:YES completion:nil];
-                [self.slidingViewController anchorTopViewToLeftAnimated:YES];
+                
 
             }
             
@@ -725,12 +718,9 @@
 
 -(void)delaySocial:(id)sender {
     
-    
-    AppDelegate* delegate = [AppDelegate instance];
-    [delegate.rightMenuController updateUI];
-    
+   
     [self dismissViewControllerAnimated:YES completion:nil];
-    [self.slidingViewController anchorTopViewToLeftAnimated:YES];
+    
     
 }
 
@@ -805,7 +795,7 @@
             
             [hud removeFromSuperview];
             [self.view setUserInteractionEnabled:YES];
-            [self dismissViewControllerAnimated:YES completion:nil];
+           
         }
         else {
             [MGUtilities showAlertTitle:LOCALIZED(@"UNSYNC_CONNECTION_ERROR")

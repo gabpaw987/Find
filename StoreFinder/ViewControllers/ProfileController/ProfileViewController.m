@@ -282,20 +282,13 @@
     [FBSession.activeSession close];
     [FBSession setActiveSession:nil];
     
-    
-    AppDelegate* delegate = [AppDelegate instance];
-    [delegate.rightMenuController updateUI];
-    
     [self dismissViewControllerAnimated:YES completion:nil];
-    [self.slidingViewController anchorTopViewToLeftAnimated:YES];}
+}
 
 -(IBAction)didClickButtonCancel:(id)sender {
     
-    AppDelegate* delegate = [AppDelegate instance];
-    [delegate.rightMenuController updateUI];
-    
     [self dismissViewControllerAnimated:YES completion:nil];
-    [self.slidingViewController anchorTopViewToLeftAnimated:YES];}
+}
 
 -(void)didClickThumbButton:(id)sender {
     
@@ -493,11 +486,9 @@
                     [self.view setUserInteractionEnabled:YES];
                     barButtonCancel.enabled = YES;
                     
-                    AppDelegate* delegate = [AppDelegate instance];
-                    [delegate.rightMenuController updateUI];
-                    
+                   
                     [self dismissViewControllerAnimated:YES completion:nil];
-                    [self.slidingViewController anchorTopViewToLeftAnimated:YES];
+                    
 
                 }
             }
