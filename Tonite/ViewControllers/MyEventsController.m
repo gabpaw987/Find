@@ -113,6 +113,7 @@
 -(void) performParsing {
     
     listViewMain.arrayData = [NSMutableArray arrayWithArray:[CoreDataController getAllEvents]];
+    NSArray* x = [CoreDataController getAllVenues];
 }
 
 - (void)didReceiveMemoryWarning

@@ -15,6 +15,7 @@
         <attribute name="lon" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone_no" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="updated_at" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="venue_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="MainCategory" representedClassName="MainCategory" syncable="YES">
@@ -82,13 +83,13 @@
         <attribute name="venue_url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="VenueCategory" positionX="-18" positionY="144" width="128" height="118"/>
-        <element name="Ticket" positionX="-27" positionY="135" width="128" height="148"/>
+        <element name="Event" positionX="-54" positionY="36" width="128" height="285"/>
+        <element name="MainCategory" positionX="-36" positionY="144" width="128" height="118"/>
         <element name="Photo" positionX="-63" positionY="-18" width="128" height="135"/>
         <element name="TextEntry" positionX="-18" positionY="153" width="128" height="133"/>
-        <element name="Event" positionX="-54" positionY="36" width="128" height="268"/>
-        <element name="MainCategory" positionX="-36" positionY="144" width="128" height="118"/>
-        <element name="Video" positionX="-27" positionY="135" width="128" height="133"/>
+        <element name="Ticket" positionX="-27" positionY="135" width="128" height="148"/>
         <element name="Venue" positionX="-18" positionY="135" width="128" height="268"/>
+        <element name="VenueCategory" positionX="-18" positionY="144" width="128" height="118"/>
+        <element name="Video" positionX="-27" positionY="135" width="128" height="133"/>
     </elements>
 </model>

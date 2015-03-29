@@ -55,6 +55,18 @@
             
             [array addObject:event];
         }
+        
+        dictEntry = [dict objectForKey:@"venues"];
+        for(NSDictionary* dictCat in dictEntry) {
+            
+            NSString* className = NSStringFromClass([Venue class]);
+            NSEntityDescription *entity = [NSEntityDescription entityForName:className inManagedObjectContext:context];
+            Venue* venue = (Venue*)[[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
+            
+            [venue safeSetValuesForKeysWithDictionary:dictCat];
+            
+            [array addObject:venue];
+        }
     }
     
     return array;
@@ -125,6 +137,7 @@
             [CoreDataController deleteAllObjects:@"Event"];
             [CoreDataController deleteAllObjects:@"MainCategory"];
             [CoreDataController deleteAllObjects:@"Photo"];
+            [CoreDataController deleteAllObjects:@"Venue"];
             
             arrayData = [DataParser parseEventFromURLFormatJSON:DATA_JSON_URL];
             if(arrayData != nil && arrayData.count > 0) {

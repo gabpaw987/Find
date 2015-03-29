@@ -15,9 +15,12 @@
 +(NSArray*)getEventPhotosByEventId:(NSString*)eventId;
 +(NSArray*)getCategories;
 +(NSArray*) getAllEvents;
++(NSArray*) getAllEventsUncompleted;
++(NSArray*) getAllVenues;
 +(NSArray*) getEventByCategoryId:(NSString*)categoryId;
 +(Event*) getEventByEventId:(NSString*)eventId;
 +(MainCategory*) getCategoryByCategory:(NSString*)category;
++(Venue*) getVenueByVenueId:(NSString*)venue;
 +(NSArray*) getCategoryNames;
 +(MainCategory*) getCategoryByCategoryId:(NSString*)categoryId;
 
