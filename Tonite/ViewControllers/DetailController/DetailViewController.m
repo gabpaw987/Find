@@ -46,12 +46,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.titleView = [MGUIAppearance createLogo:HEADER_LOGO];
-    self.view.backgroundColor = THEME_BLACK_TINT_COLOR;
+    self.view.backgroundColor = [UIColor whiteColor];
     
-    [MGUIAppearance enhanceNavBarController:self.navigationController
-                               barTintColor:WHITE_TEXT_COLOR
-                                  tintColor:WHITE_TEXT_COLOR
-                             titleTextColor:WHITE_TEXT_COLOR];
+    
+    CGFloat buttonHeight = self.view.frame.size.height - 60;
+    CGRect rect = CGRectMake(0, buttonHeight, self.view.frame.size.width, 60);
+    UIButton* buyButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [buyButton setFrame:rect];
+    [buyButton setTitle:@"BUY" forState:UIControlStateNormal];
+    [buyButton setTitle:@"BUY" forState:UIControlStateSelected];
+    [buyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+    [buyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [buyButton setBackgroundColor:[UIColor grayColor]];
+    [buyButton addTarget:self action:@selector(didClickBuyButton) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview: buyButton];
     
     
     _footerView = [[MGFooterView alloc] initWithNibName:@"FooterView"];
@@ -193,6 +201,23 @@
 {
     return 1;
 }
+
+-(void) didClickBuyButton{
+    //*********** GO TO PURCHASING ******************//
+   //can delete below
+    if(_arrayPhotos == nil || _arrayPhotos.count == 0)
+        return;
+    
+    ImageViewerController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"segueImageViewer"];
+    vc.imageArray = _arrayPhotos;
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
+    vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:vc animated:YES completion:nil];
+    
+    
+    
+}
+
 
 -(void)didClickButtonPhotos:(id)sender {
     
