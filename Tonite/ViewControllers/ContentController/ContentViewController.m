@@ -241,7 +241,8 @@
     
     Event* event = [listViewEvents.arrayData objectAtIndex:indexPath.row];
     
-    EventViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardEvent"];
+    DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardDetail"];
+    vc.event = event;
     
     [self.navigationController pushViewController:vc animated:YES];
 }

@@ -21,7 +21,6 @@
                         <segue destination="qR5-87-zGu" kind="relationship" relationship="rootViewController" id="MFO-sE-VG4"/>
                         <segue destination="QFo-IK-QiI" kind="push" identifier="PushToMyEvents" id="Aki-zB-TOf"/>
                         <segue destination="1bT-gg-fUp" kind="modal" identifier="pushRightSideView" id="VTi-G9-wcB"/>
-                        <segue destination="p0P-iB-OV1" kind="push" id="HQ7-8g-KUD"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQd-gy-V0S" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -201,33 +200,6 @@
             </objects>
             <point key="canvasLocation" x="1831" y="3794"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="y9S-V3-pE1">
-            <objects>
-                <tableViewController storyboardIdentifier="storyboardTickets" id="p0P-iB-OV1" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zdo-oV-hfP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="hmS-ot-StE">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hmS-ot-StE" id="idb-qo-Rnb">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="p0P-iB-OV1" id="YX0-rz-VwC"/>
-                            <outlet property="delegate" destination="p0P-iB-OV1" id="lWb-xU-Vr0"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="ogf-5g-Yx8"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gMZ-0V-Gj9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1378" y="4206"/>
-        </scene>
         <!--About Us View Controller-->
         <scene sceneID="24I-uS-mJK">
             <objects>
@@ -370,64 +342,6 @@
             </objects>
             <point key="canvasLocation" x="8223" y="1515"/>
         </scene>
-        <!--Search View Controller-->
-        <scene sceneID="2nZ-gX-07h">
-            <objects>
-                <viewController storyboardIdentifier="storyboardSearch" id="cAI-tB-c5D" customClass="SearchViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="h7H-QZ-YEd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" delaysContentTouches="NO" id="E1S-Da-c8Y" customClass="MGRawScrollView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="9Un-6l-hDX">
-                        <barButtonItem key="backBarButtonItem" title=" " id="ciT-Ys-fAq"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="scrollViewMain" destination="E1S-Da-c8Y" id="ShJ-MH-YaS"/>
-                        <segue destination="6Ah-Aq-z1K" kind="push" identifier="segueSearchResult" id="vpv-cV-fCa"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CFr-Mp-8mq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6253" y="3159"/>
-        </scene>
-        <!--Search Result View Controller-->
-        <scene sceneID="IbV-mm-gyp">
-            <objects>
-                <viewController storyboardIdentifier="storyboardSearchResult" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6Ah-Aq-z1K" customClass="SearchResultViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ht0-Ln-QcR" customClass="MGListView">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="IUg-Sp-CSg">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="tableView" destination="IUg-Sp-CSg" id="Gpq-cs-fof"/>
-                        </connections>
-                    </view>
-                    <navigationItem key="navigationItem" id="8jg-kN-QCg">
-                        <barButtonItem key="backBarButtonItem" title=" " id="Ozh-Pp-yJo"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="listViewMain" destination="ht0-Ln-QcR" id="lfH-ti-1QG"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EZY-P9-YPG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6826" y="3159"/>
-        </scene>
         <!--Image Viewer Controller-->
         <scene sceneID="PHL-H0-ssV">
             <objects>
@@ -479,7 +393,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="U2Y-u2-451">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="508"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
