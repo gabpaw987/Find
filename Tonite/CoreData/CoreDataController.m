@@ -129,7 +129,7 @@
     NSError *error;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     [fetchRequest setReturnsObjectsAsFaults:NO];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Category" inManagedObjectContext:context];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"MainCategory" inManagedObjectContext:context];
     
     
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category" ascending:YES];
@@ -168,7 +168,7 @@
     NSError *error;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     [fetchRequest setReturnsObjectsAsFaults:NO];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Category" inManagedObjectContext:context];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"MainCategory" inManagedObjectContext:context];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"category = %@", category];
     [fetchRequest setPredicate:predicate];
@@ -187,7 +187,7 @@
     NSError *error;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     [fetchRequest setReturnsObjectsAsFaults:NO];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Category" inManagedObjectContext:context];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"MainCategory" inManagedObjectContext:context];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"category_id = %@", categoryId];
     [fetchRequest setPredicate:predicate];
@@ -206,7 +206,7 @@
     NSError *error;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     [fetchRequest setReturnsObjectsAsFaults:NO];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Category" inManagedObjectContext:context];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"MainCategory" inManagedObjectContext:context];
     
     
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category" ascending:YES];
