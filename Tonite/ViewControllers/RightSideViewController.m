@@ -57,7 +57,9 @@
     self.titles =@[
                   @"Settings",
                   @"About Tonite",
-                  @"Terms and Condition" ];
+                  @"Terms and Condition",
+                  @"My Tickets"
+                  ];
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
     tapGesture.numberOfTapsRequired = 1;
     tapGesture.cancelsTouchesInView = NO; //So the user can still interact with controls in the modal view
@@ -171,6 +173,11 @@
         
     }
     if(indexPath.row == 3){
+        UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardTickets"];
+        [self showViewController:vc];
+        [self.slidingViewController resetTopViewAnimated:YES];
+    }
+    if(indexPath.row == 4){
         UIStoryboard* story = [UIStoryboard storyboardWithName:@"User_iPhone" bundle:nil];
           NSString* nextView = @"storyboardRegister";
         if(self.user!= nil)
@@ -183,7 +190,10 @@
         [[delegate.window rootViewController] presentViewController:vc animated:YES completion:nil];
         [self.slidingViewController resetTopViewAnimated:YES];
     }
-    if(indexPath.row == 4){
+    
+    
+  
+    if(indexPath.row == 5){
         if(self.user ==nil){
             UIStoryboard* story = [UIStoryboard storyboardWithName:@"User_iPhone" bundle:nil];
             UIViewController* vc = [story instantiateViewControllerWithIdentifier: @"storyboardLogin"];
