@@ -20,6 +20,7 @@
 */
 +(void)fetchServerData;
 //+(void)fetchNewsData;
++(void)fetchTicketData;
 +(void)fetchCategoryData;
 
 @end

@@ -82,6 +82,12 @@
 #define CATEGORY_JSON_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"rest/categories.php"]
 
 // DO NOT EDIT THIS
+#define VENUECATEGORY_JSON_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"rest/venue_categories.php"]
+
+// DO NOT EDIT THIS
+#define TICKET_JSON_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"rest/tickets.php"]
+
+// DO NOT EDIT THIS
 #define DATA_JSON_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"rest/data.php"]
 
 // DO NOT EDIT THIS
