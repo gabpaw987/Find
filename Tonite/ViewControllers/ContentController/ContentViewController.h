@@ -1,10 +1,3 @@
-//
-//  ContentViewController.h
-//  ItemFinder
-//
-//
-//  Copyright (c) 2014 Mangasaur Games. All rights reserved.
-//
 
 #import <UIKit/UIKit.h>
 
@@ -12,6 +5,5 @@
 
 
 @property (nonatomic, retain) IBOutlet MGListView* listViewEvents;
-@property (nonatomic, retain) IBOutlet MGSlider* slider;
 
 @end
