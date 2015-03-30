@@ -187,7 +187,7 @@
     }
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"db_data.sqlite"];
-    //[[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
+    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]; //this is the "reset" button
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];

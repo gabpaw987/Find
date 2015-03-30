@@ -126,8 +126,8 @@
 
 -(void) MGListView:(MGListView *)_listView didSelectCell:(MGListCell *)cell indexPath:(NSIndexPath *)indexPath {
     [cell.imgViewThumb stopAnimating];
-    DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardDetail"];
-    vc.event = listViewMain.arrayData[indexPath.row];
+    DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardQR"];
+    //vc.event = listViewMain.arrayData[indexPath.row];  //I believe this is my issue
     [self.navigationController pushViewController:vc animated:YES];
     
 }
