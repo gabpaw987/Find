@@ -1,16 +1,12 @@
-//
-//  StoreViewController.h
-//  StoreFinder
-//
-//  
-//  Copyright (c) 2014 Mangasaur Games. All rights reserved.
-//
+
 
 #import <UIKit/UIKit.h>
 
-@interface EventViewController : UIViewController
+@interface EventViewController : UIViewController <MGSliderDelegate, MGListViewDelegate>
 
-@property (nonatomic, retain) IBOutlet MGListView* listViewMain;
-@property (nonatomic, retain) IBOutlet MainCategory* mainCategory;
+
+@property (retain, nonatomic) IBOutlet MGListView *listViewMain;
+
+@property (nonatomic,retain) NSString* mainCategoryId;
 
 @end

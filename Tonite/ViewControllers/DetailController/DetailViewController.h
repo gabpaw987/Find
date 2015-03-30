@@ -12,5 +12,6 @@
 
 @property (nonatomic, retain) IBOutlet MGListView* tableViewMain;
 @property (nonatomic, retain) Event* event;
+@property (nonatomic, retain) Venue* venue;
 
 @end

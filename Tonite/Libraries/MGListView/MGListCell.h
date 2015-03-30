@@ -3,13 +3,18 @@
 #import <UIKit/UIKit.h>
 #import "MGTopLeftLabel.h"
 #import "RateView.h"
+#import "MGSlider.h"
 
 @interface MGListCell : UITableViewCell
+
+
+@property (retain, nonatomic) IBOutlet MGSlider *slideShow;
 
 @property (nonatomic, retain) IBOutlet UILabel* labelTitle;
 @property (nonatomic, retain) IBOutlet UILabel* labelSubtitle;
 
 @property (nonatomic, retain) IBOutlet MGTopLeftLabel* topLeftLabelSubtitle;
+
 
 @property (nonatomic, retain) IBOutlet UILabel* labelDescription;
 @property (nonatomic, retain) IBOutlet UILabel* labelInfo;
@@ -43,8 +48,8 @@
 @property (nonatomic, retain) IBOutlet UILabel* labelStatus;
 @property (nonatomic, retain) IBOutlet UILabel* labelDateAdded;
 @property (nonatomic, retain) IBOutlet UILabel* labelAddress;
-@property (nonatomic, retain) IBOutlet UILabel* labelDesc;
-@property (nonatomic, retain) IBOutlet UILabel* labelDistance;
+@property (nonatomic, retain) IBOutlet UILabel* labelVenue;
+@property (nonatomic, retain) IBOutlet UILabel* labelVenueDescription;
 
 @property (nonatomic, retain) IBOutlet UILabel* labelDateAddedVal;
 @property (nonatomic, retain) IBOutlet MGTopLeftLabel* topLeftLabelAddressVal;
@@ -63,6 +68,9 @@
 @property (nonatomic, retain) IBOutlet UILabel* lblNonSelectorTitle;
 
 @property (nonatomic, retain) IBOutlet RateView* ratingView;
+
+
+@property (strong, nonatomic) IBOutlet UIButton *routeButton;
 
 
 @end

@@ -11,15 +11,14 @@
 #import "ImageViewerController.h"
 #import "ZoomAnimationController.h"
 
-@interface DetailViewController () <MGListViewDelegate, UIViewControllerTransitioningDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, MGMapViewDelegate> {
+@interface DetailViewController () <MGListViewDelegate, UIViewControllerTransitioningDelegate, MGMapViewDelegate> {
     
     MGHeaderView* _headerView;
     MGFooterView* _footerView;
-    
+ 
     NSArray* _arrayPhotos;
     float _headerHeight;
-    BOOL _canRate;
-    NSArray* _arrayIcons;
+    BOOL _isFave;
     BOOL _isLoadedView;
 }
 
@@ -31,12 +30,15 @@
 
 @synthesize tableViewMain;
 @synthesize event;
+@synthesize venue;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        venue = nil;
+        _isFave = NO;
     }
     return self;
 }
@@ -45,82 +47,42 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.titleView = [MGUIAppearance createLogo:HEADER_LOGO];
-    self.view.backgroundColor = [UIColor whiteColor];
+   
     
+    //***** No Navigation Bar just back buton//
     
-    CGFloat buttonHeight = self.view.frame.size.height - 60;
-    CGRect rect = CGRectMake(0, buttonHeight, self.view.frame.size.width, 60);
-    UIButton* buyButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [buyButton setFrame:rect];
-    [buyButton setTitle:@"BUY" forState:UIControlStateNormal];
-    [buyButton setTitle:@"BUY" forState:UIControlStateSelected];
-    [buyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-    [buyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [buyButton setBackgroundColor:[UIColor grayColor]];
-    [buyButton addTarget:self action:@selector(didClickBuyButton) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview: buyButton];
+   [self.navigationController setNavigationBarHidden:YES animated:NO];
+   
+    UIButton* itemMenu =[[UIButton alloc] initWithFrame:CGRectMake(20.0, 35.0, 30.0, 27.5)];
+    [itemMenu addTarget:self action:@selector(didClickBackButton) forControlEvents:UIControlEventTouchUpInside  ];
+    [itemMenu setBackgroundImage:[UIImage imageNamed: BUTTON_BACK] forState: UIControlStateNormal   ];
+    [itemMenu setBackgroundImage:[UIImage imageNamed: BUTTON_BACK] forState:UIControlStateSelected];
+    [self.view addSubview:itemMenu];
     
-    
-    _footerView = [[MGFooterView alloc] initWithNibName:@"FooterView"];
-    [_footerView.buttonTwitter setTitle:LOCALIZED(@"SHARE") forState:UIControlStateNormal];
-    [_footerView.buttonTwitter setTitle:LOCALIZED(@"SHARE") forState:UIControlStateSelected];
-    [_footerView.buttonTwitter setTitleColor:WHITE_TEXT_COLOR forState:UIControlStateNormal];
-    [_footerView.buttonTwitter setTitleColor:WHITE_TEXT_COLOR forState:UIControlStateSelected];
-    
-    
-    [_footerView.buttonFacebook setTitle:LOCALIZED(@"SHARE") forState:UIControlStateNormal];
-    [_footerView.buttonFacebook setTitle:LOCALIZED(@"SHARE") forState:UIControlStateSelected];
-    [_footerView.buttonFacebook setTitleColor:WHITE_TEXT_COLOR forState:UIControlStateNormal];
-    [_footerView.buttonFacebook setTitleColor:WHITE_TEXT_COLOR forState:UIControlStateSelected];
-    
-    [_footerView.buttonFacebook addTarget:self
-                                   action:@selector(didClickButtonFacebook:)
-                         forControlEvents:UIControlEventTouchUpInside];
-    
-    [_footerView.buttonTwitter addTarget:self
-                                  action:@selector(didClickButtonTwitter:)
-                        forControlEvents:UIControlEventTouchUpInside];
-    
-    [_footerView.buttonCall addTarget:self
-                                  action:@selector(didClickButtonCall:)
-                        forControlEvents:UIControlEventTouchUpInside];
-    
-    [_footerView.buttonEmail addTarget:self
-                                  action:@selector(didClickButtonEmail:)
-                        forControlEvents:UIControlEventTouchUpInside];
-    
-    [_footerView.buttonRoute addTarget:self
-                                  action:@selector(didClickButtonRoute:)
-                        forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    _footerView.buttonWebsite.enabled = NO;
-    if(event.website != nil && event.website.length > 0)
-        _footerView.buttonWebsite.enabled = YES;
-    
-    _footerView.buttonEmail.enabled = NO;
-    if(event.email != nil && event.email.length > 0)
-        _footerView.buttonEmail.enabled = YES;
-    
-    _footerView.buttonWebsite.enabled = NO;
-    if(event.website != nil && event.website.length > 0)
-        _footerView.buttonWebsite.enabled = YES;
-    
+    venue = [CoreDataController getVenueByVenueId: event.venue_id];
+
     _headerView = [[MGHeaderView alloc] initWithNibName:@"HeaderView"];
-    
+    if(!venue){
+        [_headerView.labelSubtitle setText: [event.event_address stringByDecodingHTMLEntities]];
+    }
+    else{
+        [_headerView.labelSubtitle setText:[venue.venue_name stringByDecodingHTMLEntities]];
+    }
+
     _headerView.imgViewPhoto.contentMode = UIViewContentModeScaleAspectFill;
     _headerView.imgViewPhoto.clipsToBounds = YES;
     _headerView.label1.backgroundColor = [BLACK_TEXT_COLOR colorWithAlphaComponent:0.66];
-    
-    _headerView.labelTitle.textColor = THEME_ORANGE_COLOR;
+    _headerView.labelTitle.textColor = WHITE_TEXT_COLOR;
     _headerView.labelSubtitle.textColor = WHITE_TEXT_COLOR;
-    
     _headerView.labelTitle.text = [event.event_name stringByDecodingHTMLEntities];
-    _headerView.labelSubtitle.text = [event.event_address stringByDecodingHTMLEntities];
     
     _arrayPhotos = [CoreDataController getEventPhotosByEventId:event.event_id];
     
+     [_headerView.buttonFave addTarget:self
+                                 action:@selector(didClickButtonFave)
+                forControlEvents:UIControlEventTouchUpInside];
+    
+
     [_headerView.buttonPhotos addTarget:self
                                  action:@selector(didClickButtonPhotos:)
                        forControlEvents:UIControlEventTouchUpInside];
@@ -135,8 +97,45 @@
         [self setImage:p.photo_url imageView:_headerView.imgViewPhoto];
     
     
-    _arrayIcons = @[ICON_DETAIL_EMAIL, ICON_DETAIL_SMS, ICON_DETAIL_CALL, ICON_DETAIL_WEBSITE];
+    //******* Static "BUY" Button
+    self.view.backgroundColor = [UIColor whiteColor];
+    CGFloat buttonHeight = self.view.frame.size.height - 60;
+    CGRect rect = CGRectMake(0, buttonHeight, self.view.frame.size.width, 60);
+    UIButton* buyButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [buyButton setFrame:rect];
+    [buyButton setTitle:@"GET TICKETS" forState:UIControlStateNormal];
+    [buyButton setTitle:@"GET TICKETS" forState:UIControlStateSelected];
+    [buyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+    [buyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [buyButton setBackgroundColor:[UIColor grayColor]];
+    [buyButton addTarget:self action:@selector(didClickBuyButton) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview: buyButton];
     
+    
+    
+    //*** Twitter and Facebook buttons in Footer//
+    _footerView = [[MGFooterView alloc] initWithNibName:@"FooterView"];
+    [_footerView.buttonTwitter setTitle:LOCALIZED(@"SHARE") forState:UIControlStateNormal];
+    [_footerView.buttonTwitter setTitle:LOCALIZED(@"SHARE") forState:UIControlStateSelected];
+    [_footerView.buttonTwitter setTitleColor:WHITE_TEXT_COLOR forState:UIControlStateNormal];
+    [_footerView.buttonTwitter setTitleColor:WHITE_TEXT_COLOR forState:UIControlStateSelected];
+    
+    [_footerView.buttonFacebook setTitle:LOCALIZED(@"SHARE") forState:UIControlStateNormal];
+    [_footerView.buttonFacebook setTitle:LOCALIZED(@"SHARE") forState:UIControlStateSelected];
+    [_footerView.buttonFacebook setTitleColor:WHITE_TEXT_COLOR forState:UIControlStateNormal];
+    [_footerView.buttonFacebook setTitleColor:WHITE_TEXT_COLOR forState:UIControlStateSelected];
+    [_footerView.buttonFacebook addTarget:self
+                                   action:@selector(didClickButtonFacebook:)
+                         forControlEvents:UIControlEventTouchUpInside];
+    
+    [_footerView.buttonTwitter addTarget:self
+                                  action:@selector(didClickButtonTwitter:)
+                        forControlEvents:UIControlEventTouchUpInside];
+   
+    
+    
+
+   
     
     tableViewMain.delegate = self;
     [tableViewMain registerNibName:@"DetailCell" cellIndentifier:@"DetailCell"];
@@ -149,8 +148,25 @@
     [tableViewMain reloadData];
     [tableViewMain tableView].delaysContentTouches = NO;
     
+    [self checkFave];
+
     _isLoadedView = NO;
 }
+
+-(void) didClickButtonFave{
+    _isFave = YES;
+    [self checkFave];
+}
+
+-(void)checkFave {
+    
+   // Favorite* fave = [CoreDataController getFavoriteByStoreId:store.store_id];
+    if(_isFave != NO)
+        [_headerView.buttonFave setBackgroundImage:[UIImage imageNamed:STARRED_IMG] forState:UIControlStateNormal];
+    else
+        [_headerView.buttonFave setBackgroundImage:[UIImage imageNamed:LIKE_IMG] forState:UIControlStateNormal];
+}
+
 
 
 - (void)didReceiveMemoryWarning
@@ -210,12 +226,17 @@
     
     ImageViewerController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"segueImageViewer"];
     vc.imageArray = _arrayPhotos;
+    
+    
     vc.modalPresentationStyle = UIModalPresentationFullScreen;
     vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:vc animated:YES completion:nil];
     
     
-    
+}
+
+-(void) didClickBackButton{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -223,7 +244,6 @@
     
     if(_arrayPhotos == nil || _arrayPhotos.count == 0)
         return;
-    
     ImageViewerController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"segueImageViewer"];
     vc.imageArray = _arrayPhotos;
     vc.modalPresentationStyle = UIModalPresentationFullScreen;
@@ -233,29 +253,34 @@
 }
 
 -(void) MGListView:(MGListView *)_listView didSelectCell:(MGListCell *)cell indexPath:(NSIndexPath *)indexPath {
-    
 }
 
 -(UITableViewCell*)MGListView:(MGListView *)listView1 didCreateCell:(MGListCell *)cell indexPath:(NSIndexPath *)indexPath {
     
     if(cell != nil) {
-        
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.selectedColor = WHITE_TEXT_COLOR;
         cell.unSelectedColor = WHITE_TEXT_COLOR;
         cell.labelDescription.textColor = THEME_BLACK_TINT_COLOR;
         cell.backgroundColor = [UIColor clearColor];
         
-        if(indexPath.row < _arrayIcons.count)
-            [cell.imgViewPic setImage:[UIImage imageNamed:_arrayIcons[indexPath.row]]];
-        
-        cell.labelDescription.textColor = WHITE_TEXT_COLOR;
+        cell.labelDescription.textColor = THEME_BLACK_TINT_COLOR ;
         [cell.labelDescription setText:[event.event_desc stringByDecodingHTMLEntities]];
         
+        [cell.labelVenueDescription setTextColor: THEME_BLACK_TINT_COLOR];
+        [cell.labelVenue setTextColor:THEME_BLACK_TINT_COLOR];
+        if(venue){
+        [cell.labelVenue setText:[venue.venue_name stringByDecodingHTMLEntities ]];
+        [cell.labelVenueDescription setText:venue.venue_desc ];
+        }
+        else{
+        [cell.labelVenue setText:[event.event_address stringByDecodingHTMLEntities ]];
+        [cell.labelVenueDescription setText:@"Description about the Venue" ];
+        }
         CGSize size = [cell.labelDescription sizeOfMultiLineLabel];
         CGRect frame = cell.labelDescription.frame;
         cell.labelDescription.frame = frame;
-        
+       
         float totalHeightLabel = size.height + frame.origin.y + (18);
         
         if(totalHeightLabel > cell.frame.size.height) {
@@ -279,12 +304,18 @@
         cell.mapViewCell.mapView.scrollEnabled = NO;
         
         
+       [cell.routeButton addTarget:self
+                      action:@selector(didClickButtonRoute:)
+                    forControlEvents:UIControlEventTouchUpInside];
+    
+        
+
+        
         CLLocationCoordinate2D coords = CLLocationCoordinate2DMake([event.lat doubleValue], [event.lon doubleValue]);
         
         if(CLLocationCoordinate2DIsValid(coords)) {
             MGMapAnnotation* ann = [[MGMapAnnotation alloc] initWithCoordinate:coords
-                                                                          name:event.event_name
-                                                                   description:event.event_address];
+                                                                          name:venue.venue_name                                                                   description:event.event_address];
             ann.object = event;
             
             [cell.mapViewCell setMapData:[NSMutableArray arrayWithObjects:ann, nil] ];
@@ -307,7 +338,6 @@
         imgRect.size.height = _headerHeight + yPos;
         _headerView.imgViewPhoto.frame = imgRect;
     }
-    
 }
 
 -(CGFloat)MGListView:(MGListView *)listView cell:(MGListCell*)cell heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -319,7 +349,7 @@
         return size.height + (CELL_CONTENT_MARGIN * 2);
     }
     
-    [cell.labelDescription setText:[event.event_desc stringByDecodingHTMLEntities]];
+    [cell.labelDescription setText:event.event_desc];
     CGSize size = [cell.labelDescription sizeOfMultiLineLabel];
     CGRect frame = cell.labelDescription.frame;
     CGRect cellFrame = cell.frame;
@@ -375,18 +405,6 @@
 }
 
 
--(void)didClickButtonCall:(id)sender {
-    
-    if(event.phone_no == nil || [event.phone_no length] == 0 ) {
-        
-        [MGUtilities showAlertTitle:LOCALIZED(@"CONTACT_NO_SERVICE_ERROR")
-                            message:LOCALIZED(@"CONTACT_NO_SERVICE_ERROR_MSG")];
-        return;
-    }
-    
-    NSString* trim = [MGUtilities removeDelimetersInPhoneNo:event.phone_no];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", trim] ]];
-}
 
 -(void)didClickButtonFacebook:(id)sender {
     
@@ -439,86 +457,21 @@
     
 }
 
--(void)didClickButtonEmail:(id)sender {
-    
-    if(event.email == nil || [event.email length] == 0 ) {
-        [MGUtilities showAlertTitle:LOCALIZED(@"EMAIL_ERROR")
-                            message:LOCALIZED(@"EMAIL_ERROR_MSG")];
-        return;
-    }
-    
-    if ([MFMailComposeViewController canSendMail]) {
-        
-        // set the sendTo address
-        NSMutableArray *recipients = [[NSMutableArray alloc] initWithCapacity:1];
-        [recipients addObject:event.email];
-        
-        MFMailComposeViewController* mailController = [[MFMailComposeViewController alloc] init];
-        mailController.mailComposeDelegate = self;
-        
-        [mailController setSubject:LOCALIZED(@"EMAIL_SUBJECT")];
-        
-        NSString* formattedBody = [NSString stringWithFormat:@"%@", LOCALIZED(@"EMAIL_BODY")];
-        
-        [mailController setMessageBody:formattedBody isHTML:NO];
-        [mailController setToRecipients:recipients];
-        
-        if(DOES_SUPPORT_IOS7) {
-            NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
-                                        WHITE_TEXT_COLOR, NSForegroundColorAttributeName, nil];
-            
-            [[mailController navigationBar] setTitleTextAttributes:attributes];
-            [[mailController navigationBar ] setTintColor:[UIColor whiteColor]];
-            
-        }
-        
-        [self.view.window.rootViewController presentViewController:mailController animated:YES completion:^{
-            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-        }];
-    }
-    else {
-        [MGUtilities showAlertTitle:LOCALIZED(@"EMAIL_SERVICE_ERROR")
-                            message:LOCALIZED(@"EMAIL_SERVICE_ERROR_MSG")];
-    }
-}
-
-- (void)mailComposeController:(MFMailComposeViewController*)controller
-          didFinishWithResult:(MFMailComposeResult)result
-                        error:(NSError*)error {
-    
-	[self becomeFirstResponder];
-	[controller dismissViewControllerAnimated:YES completion:nil];
-}
-
--(void)messageComposeViewController:(MFMessageComposeViewController *)controller
-                didFinishWithResult:(MessageComposeResult)result {
-    
-    [self becomeFirstResponder];
-    [controller dismissViewControllerAnimated:YES completion:nil];
-}
 
 
 #pragma mark - MAP Delegate
 
 -(void) MGMapView:(MGMapView*)mapView didSelectMapAnnotation:(MGMapAnnotation*)mapAnnotation {
-    
-}
 
--(void) MGMapView:(MGMapView*)mapView didAccessoryTapped:(MGMapAnnotation*)mapAnnotation {
+}
+-(void) MGMapView:(MGMapView *)mapView didAccessoryTapped:(MGMapAnnotation *)mapAnnotation    {
     
 }
 
 -(void) MGMapView:(MGMapView*)mapView didCreateMKPinAnnotationView:(MKPinAnnotationView*)mKPinAnnotationView viewForAnnotation:(id<MKAnnotation>)annotation {
     
-//    UIImageView *imageView = [[UIImageView alloc] init];
-//    UIImage* imageAnnotation = [UIImage imageNamed:MAP_ARROW_RIGHT];
-//    [imageView setImage:imageAnnotation];
-    
     mKPinAnnotationView.image = [UIImage imageNamed:MAP_PIN];
-    
-//    imageView.frame = CGRectMake (0, 0, imageAnnotation.size.width, imageAnnotation.size.height);
-//    mKPinAnnotationView.rightCalloutAccessoryView = imageView;
-    
+    mKPinAnnotationView.frame = CGRectMake(0, 0, 20.0, 22.0);
     
 }
 

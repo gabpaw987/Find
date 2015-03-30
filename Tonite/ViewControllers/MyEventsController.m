@@ -32,8 +32,9 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [self.navigationController setNavigationBarHidden:NO];
     [super viewDidAppear:animated];
-  
+    
 }
 
 
@@ -41,10 +42,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.navigationItem.titleView = [MGUIAppearance createLogo:HEADER_LOGO];
-    self.view.backgroundColor = BG_VIEW_COLOR;
-    
+            // Do any additional setup after loading the view.
+   
     [MGUIAppearance enhanceNavBarController:self.navigationController
                                barTintColor:WHITE_TEXT_COLOR
                                   tintColor:WHITE_TEXT_COLOR
@@ -65,7 +64,7 @@
                                                                 target:self
                                                                 action:@selector(didClickBarButtonMenu:)];
     self.navigationItem.leftBarButtonItem = itemMenu;
-        
+    
     [self beginParsing];
 }
 
@@ -113,7 +112,7 @@
 -(void) performParsing {
     
     listViewMain.arrayData = [NSMutableArray arrayWithArray:[CoreDataController getAllEvents]];
-    NSArray* x = [CoreDataController getAllVenues];
+  //  NSArray* x = [CoreDataController getAllVenues];
 }
 
 - (void)didReceiveMemoryWarning

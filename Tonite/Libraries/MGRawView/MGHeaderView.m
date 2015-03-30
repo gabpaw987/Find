@@ -11,8 +11,13 @@
 @implementation MGHeaderView
 
 @synthesize ratingView;
-@synthesize buttonRate;
+@synthesize buttonFave;
 @synthesize imgViewFeatured;
+@synthesize labelVenueName;
+@synthesize labelEventName;
+@synthesize labelPrice;
+
+
 
 - (id)initWithFrame:(CGRect)frame
 {

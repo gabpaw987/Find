@@ -36,13 +36,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = SIDE_VIEW_BG_COLOR;
-        
+    
     tableViewSide.delegate = self;
     tableViewSide.dataSource = self;
-    
- //********************************************
-  //  self.categories = [CoreDataController getCategories];
-    
+
     
     self.categories =
     @[
@@ -143,10 +140,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    BOOL screen = IS_IPHONE_6_PLUS_AND_ABOVE;
-    int height = screen ? 200 : 240;
-    
-    return height;
+   return tableViewSide.frame.size.height/3;
 }
 
 
@@ -198,58 +192,40 @@
     [self showViewController:vc];
     [self.slidingViewController resetTopViewAnimated:YES];
     */
+    
+    //******* in case others are testing on my events page for now *********//
+    /*if(indexPath.row == 0){
+        if([self.navigationController.topViewController isKindOfClass:[ContentViewController class]]){
+            [self.slidingViewController resetTopViewAnimated:YES];
+        }
+       // UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardContent"];
+        //[self showViewController:viewController];
+        [self.slidingViewController resetTopViewAnimated:YES];
+    }
+    */
+    if(indexPath.row < 8){
+         UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardMyEvents"];
+        [self showViewController:viewController];
+        
+        [self.slidingViewController resetTopViewAnimated:YES];
 
-    
-    
-    if (indexPath.row == 0) {
-        UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardContent"];
-        [self showViewController:viewController];
-        
-        [self.slidingViewController resetTopViewAnimated:YES];
     }
-
-    if (indexPath.row == 1) {
-   
-        UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardMyEvents"];
-        [self showViewController:viewController];
+    /*
+    if( indexPath.row < 8){
+       EventViewController * vc = [self.storyboard
+                instantiateViewControllerWithIdentifier:@"storyboardEvent"];
         
+        vc.mainCategoryId = [NSString stringWithFormat:@"%lu",indexPath.row];
+       // [self.navigationController pushViewController:vc animated:YES];
+        [self showViewController: vc];
         [self.slidingViewController resetTopViewAnimated:YES];
+         
     }
     
-    if(indexPath.row == 2) {
-        UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardFeatured"];
-        [self showViewController:viewController];
-        
-        [self.slidingViewController resetTopViewAnimated:YES];
+    else{
+        return;
     }
-    
-    if(indexPath.row == 3) {
-        UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardMap"];
-        [self showViewController:viewController];
-        
-        [self.slidingViewController resetTopViewAnimated:YES];
-    }
-    
-    if(indexPath.row == 4) {
-        UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardSearch"];
-        [self showViewController:viewController];
-        
-        [self.slidingViewController resetTopViewAnimated:YES];
-    }
-
-    if(indexPath.row == 5) {
-        UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardNews"];
-        [self showViewController:viewController];
-        
-        [self.slidingViewController resetTopViewAnimated:YES];
-    }
- 
-    if(indexPath.row == 6) {
-        UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardMyEvents"];
-        [self showViewController:viewController];
-        
-        [self.slidingViewController resetTopViewAnimated:YES];
-    }
+     */
 }
 
 

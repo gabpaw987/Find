@@ -9,7 +9,7 @@
 #ifndef StoreFinder_UIConfig_h
 #define StoreFinder_UIConfig_h
 
-#define NAV_BAR_BG @"nav_bar.png"
+#define NAV_BAR_BG @"navbar.png"
 
 #define REVIEW_DATE_TEXT_COLOR [UIColor colorWithRed:167.0/255.0 green:167.0/255.0 blue:167.0/255.0 alpha:1.0]
 
@@ -25,7 +25,7 @@
 
 #define BLACK_TEXT_COLOR [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0]
 
-#define BG_VIEW_COLOR [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:247.0/255.0 alpha:1.0]
+#define BG_VIEW_COLOR [UIColor colorWithRed:250.0/255.0 green:250.0/255.0 blue:250.0/255.0 alpha:1.0]
 
 #define SIDE_VIEW_BG_COLOR [UIColor colorWithRed:106.0/255.0 green:106.0/255.0 blue:97.0/255.0 alpha:1.0]
 
@@ -34,36 +34,8 @@
 
 #define ICON_HOME @"ic_home.png"
 
-#define ICON_CATEGORIES @"ic_categories.png"
-
-#define ICON_STARRED @"ic_starred.png"
-
-#define ICON_FEATURED @"ic_featured.png"
-
-#define ICON_SEARCH @"ic_search.png"
-
-#define ICON_ABOUT_US @"ic_about.png"
-
-#define ICON_LOGIN @"ic_login.png"
-
 #define ICON_REGISTER @"ic_register.png"
 
-#define ICON_TERMS_CONDITIONS @"ic_tc.png"
-
-#define ICON_MAP @"ic_map.png"
-
-#define ICON_PROFILE @"ic_register.png"
-
-#define ICON_MY_EVENTS @"ic_news.png"
-
-#define ICON_MY_TICKETS @"ic_settings.png"
-
-// can we remove these icons
-#define ICON_ANIMATION @"ic_settings.png"
-
-#define ICON_NEWS @"ic_news.png"
-
-#define ICON_WEATHER @"ic_weather.png"
 
 
 
@@ -107,7 +79,7 @@
 
 #define STARRED_IMG @"star_fave_selected.png"
 
-#define UNSTAR_IMG @"star_fave_map_normal.png"
+#define LIKE_IMG @"Heart.png"
 
 #define MAP_STARRED_NORMAL @"star_fave_map_normal.png"
 
@@ -115,7 +87,7 @@
 
 #define BUTTON_CLOSE @"ic_close.png"
 
-
+#define BUTTON_BACK @"ic_web_back.png"
 
 
 
@@ -152,10 +124,9 @@
 #define NEW_RATING_STAR_FILL @"star_new_rating_fill.png"
 
 
-#define SIDE_BAR_CELL_SELECTED @"side_bar_list_bg_selected.png"
 #define SIDE_BAR_CELL_NORMAL @"side_bar_list_bg.png"
 
-#define MAP_PIN @"map_pin_orange.png"
+#define MAP_PIN @"Location.png"
 
 #define SLIDER_TRACK_IMAGE @"bg_slider_track.png"
 #define SLIDER_FILL_IMAGE @"bg_slider_fill.png"

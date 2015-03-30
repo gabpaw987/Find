@@ -4,6 +4,7 @@
 
 @implementation MGListCell
 
+@synthesize slideShow;
 
 @synthesize labelTitle;
 @synthesize labelSubtitle;
@@ -41,7 +42,7 @@
 @synthesize labelStatus;
 @synthesize labelDateAdded;
 @synthesize labelAddress;
-@synthesize labelDesc;
+@synthesize labelVenue;
 
 @synthesize labelDateAddedVal;
 @synthesize topLeftLabelAddressVal;
@@ -54,7 +55,7 @@
 @synthesize labelHeader3;
 @synthesize labelHeader4;
 @synthesize imgViewFave;
-@synthesize labelDistance;
+@synthesize labelVenueDescription;
 
 @synthesize ratingView;
 
@@ -91,4 +92,6 @@
     }
 }
 
+- (IBAction)routeButton:(UIButton *)sender {
+}
 @end
