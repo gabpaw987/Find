@@ -37,7 +37,7 @@
     
 }
 
-+(NSArray*) getEventByCategoryId:(NSString*)categoryId {
++(NSArray*) getEventsByCategoryId:(NSString*)categoryId {
     
     AppDelegate* delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     NSManagedObjectContext* context = delegate.managedObjectContext;
@@ -50,7 +50,7 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"category_id = %@", categoryId];
     [fetchRequest setPredicate:predicate];
     
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"Event_name" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"event_name" ascending:YES];
     [fetchRequest setSortDescriptors:@[sortDescriptor]];
     
     [fetchRequest setEntity:entity];

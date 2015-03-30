@@ -202,7 +202,7 @@
 
 -(void) setData {
     
-    listViewMain.arrayData = [NSMutableArray arrayWithArray:[CoreDataController getEventByCategoryId:mainCategoryId]];
+    listViewMain.arrayData = [NSMutableArray arrayWithArray:[CoreDataController getEventsByCategoryId:mainCategoryId]];
     
 }
 

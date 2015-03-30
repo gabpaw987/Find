@@ -24,7 +24,7 @@
 +(NSArray*) getAllEventsUncompleted;
 +(NSArray*) getAllVenues;
 
-+(NSArray*) getEventByCategoryId:(NSString*)categoryId;
++(NSArray*) getEventsByCategoryId:(NSString*)categoryId;
 +(Event*) getEventByEventId:(NSString*)eventId;
 +(MainCategory*) getCategoryByCategory:(NSString*)category;
 +(VenueCategory*) getVenueCategoryByVenueCategory:(NSString*)venueCategory;
