@@ -125,8 +125,8 @@
 
 -(void) MGListView:(MGListView *)_listView didSelectCell:(MGListCell *)cell indexPath:(NSIndexPath *)indexPath {
     [cell.imgViewThumb stopAnimating];
-    DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardDetail"];
-    vc.event = listViewMain.arrayData[indexPath.row];
+    DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardQR"];
+    //vc.event = listViewMain.arrayData[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
     
 }

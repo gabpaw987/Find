@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1465C5711ACA1D3500A1E9F5 /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1465C5701ACA1D3500A1E9F5 /* QRViewController.m */; };
+		144718B61ACA22DF00888989 /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 144718B51ACA22DF00888989 /* QRViewController.m */; };
 		562FD4231AC060BE00F6DD9C /* VenueCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 562FD4221AC060BE00F6DD9C /* VenueCategory.m */; };
 		562FD4251AC06CC400F6DD9C /* Video.h in Resources */ = {isa = PBXBuildFile; fileRef = 562FD4241AC06CC400F6DD9C /* Video.h */; };
 		562FD4271AC06CDE00F6DD9C /* TextEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 562FD4261AC06CDE00F6DD9C /* TextEntry.m */; };
@@ -411,8 +411,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1465C5701ACA1D3500A1E9F5 /* QRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRViewController.m; sourceTree = "<group>"; };
-		1465C5721ACA1D5200A1E9F5 /* QRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRViewController.h; sourceTree = "<group>"; };
+		144718B51ACA22DF00888989 /* QRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRViewController.m; sourceTree = "<group>"; };
+		144718B71ACA22F000888989 /* QRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRViewController.h; sourceTree = "<group>"; };
 		562FD4201AC0605200F6DD9C /* VenueCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VenueCategory.h; sourceTree = "<group>"; };
 		562FD4221AC060BE00F6DD9C /* VenueCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueCategory.m; sourceTree = "<group>"; };
 		562FD4241AC06CC400F6DD9C /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
@@ -970,8 +970,8 @@
 		1465C56F1ACA1CFD00A1E9F5 /* QRController */ = {
 			isa = PBXGroup;
 			children = (
-				1465C5701ACA1D3500A1E9F5 /* QRViewController.m */,
-				1465C5721ACA1D5200A1E9F5 /* QRViewController.h */,
+				144718B51ACA22DF00888989 /* QRViewController.m */,
+				144718B71ACA22F000888989 /* QRViewController.h */,
 			);
 			name = QRController;
 			sourceTree = "<group>";
@@ -2598,7 +2598,7 @@
 				CB820AEE194F81E1000E64DB /* MGProfileView.m in Sources */,
 				CBAED3631948A4EF00769D68 /* ECSlidingInteractiveTransition.m in Sources */,
 				CBE78817194B735D0010B76E /* UILabel+DynamicHeight.m in Sources */,
-				1465C5711ACA1D3500A1E9F5 /* QRViewController.m in Sources */,
+				144718B61ACA22DF00888989 /* QRViewController.m in Sources */,
 				CBAED3721948A4EF00769D68 /* UIImage+TagResize.m in Sources */,
 				CB11959D194D7B4000217D57 /* ZoomAnimationController.m in Sources */,
 				CBAED3BB1948A4EF00769D68 /* MBProgressHUD.m in Sources */,
