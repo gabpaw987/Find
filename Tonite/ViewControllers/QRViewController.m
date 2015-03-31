@@ -18,6 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    [self.navigationController setNavigationBarHidden:NO];
+    
     //random string to translate to QR code
     NSString * inputString = [[NSProcessInfo processInfo] globallyUniqueString];
     

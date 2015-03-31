@@ -32,9 +32,9 @@
 
 #define CELL_BORDER_WIDTH 4.0f
 
-#define ICON_HOME @"ic_home.png"
+#define ICON_HOME @"home152.png"
 
-#define ICON_REGISTER @"ic_register.png"
+#define ICON_USER @"user160.png"
 
 
 

@@ -44,16 +44,13 @@
     // Override point for customization after application launch.
     [MGUIAppearance enhanceNavBarAppearance:NAV_BAR_BG];
     
-    [MGUIAppearance enhanceBarButtonAppearance:WHITE_TINT_COLOR];
-    
-    [MGUIAppearance enhanceToolbarAppearance:NAV_BAR_BG];
     
     if (DOES_SUPPORT_IOS7) {
         [application setStatusBarStyle:UIStatusBarStyleLightContent];
     }
     
     UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-    UINavigationController* navController = [storyboard instantiateViewControllerWithIdentifier:@"storyboardNavigation"];
+    UINavigationController* navController = [storyboard instantiateViewControllerWithIdentifier:@"storyboardNav"];
     
     sideViewController = [storyboard instantiateViewControllerWithIdentifier:@"storyboardSideView"];
     rightMenuController = [storyboard instantiateViewControllerWithIdentifier:@"storyboardRightSide"];

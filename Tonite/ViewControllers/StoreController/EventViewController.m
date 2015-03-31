@@ -22,23 +22,22 @@
 }
 
 
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    for( RightSideViewController* vc in self.childViewControllers){
-        [vc reloadInputViews];
-    }
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
 }
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor grayColor];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     BOOL screen = IS_IPHONE_6_PLUS_AND_ABOVE;
     if(screen) {
@@ -125,34 +124,7 @@
 
 
 
--(void) didClickProfileMenuButton: (id) sender{
-    if(self.childViewControllers.count  == 0){
-        RightSideViewController * right = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardRightSide"];
-        
-        [self addChildViewController:right];
-        [right didMoveToParentViewController:self];
-        [self.view addSubview:right.view];
-    }
-    else{
-        for( RightSideViewController* vc in self.childViewControllers){
-            [vc willMoveToParentViewController:nil];
-            [vc.view removeFromSuperview];
-            [vc removeFromParentViewController];
-        }
-    }
-}
 
-
--(void)didClickBarButtonMenu:(id)sender {
-    AppDelegate* delegate = [AppDelegate instance];
-    [delegate.sideViewController updateUI];
-    for( RightSideViewController* vc in self.childViewControllers){
-        [vc willMoveToParentViewController:nil];
-        [vc.view removeFromSuperview];
-        [vc removeFromParentViewController];
-    }
-    [self.slidingViewController anchorTopViewToRightAnimated:YES];
-}
 
 
 - (void)didReceiveMemoryWarning

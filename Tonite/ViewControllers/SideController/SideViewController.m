@@ -19,7 +19,6 @@
 @implementation SideViewController
 
 @synthesize tableViewSide;
-@synthesize buttonMenuClose;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,13 +29,16 @@
     return self;
 }
 
+-(void) viewWillAppear:(BOOL)animated {
+    [self reloadInputViews];
+    [self.tabBarController.navigationController setNavigationBarHidden:NO];
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = SIDE_VIEW_BG_COLOR;
-    
     tableViewSide.delegate = self;
     tableViewSide.dataSource = self;
 
@@ -64,8 +66,6 @@
       @"the411.png",
       @"thegiveback.png"];
 
-    buttonMenuClose.tag = kMenuAnimationClosed;
-    
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
     tapGesture.numberOfTapsRequired = 1;
     tapGesture.cancelsTouchesInView = NO; //So the user can still interact with controls in the modal view
@@ -85,11 +85,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)didClickButtonMenu:(id)sender {
-
-    [self.slidingViewController resetTopViewAnimated:YES];
-    
-}
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
     return YES;
@@ -125,37 +120,21 @@
     }
 }
 
-- (void) showViewController:(UIViewController*)viewController {
-    
-    UINavigationController* navController = (UINavigationController*)[self.slidingViewController topViewController];
-    [navController popToRootViewControllerAnimated:NO];
-    
-    UIViewController* currentViewController = [[navController viewControllers] objectAtIndex:0];
-    
-    if([currentViewController isKindOfClass:[viewController class]])
-        return;
-    
-    [navController setViewControllers:[NSArray arrayWithObject:viewController] animated:YES];
-}
+
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
    return tableViewSide.frame.size.height/3;
 }
 
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
         return [self.categories count];
 }
-
-
 
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -183,53 +162,18 @@
     // You normally wouldn't need to do anything like this, but we're changing transitions
     // dynamically so everything needs to start in a consistent state.
     self.slidingViewController.topViewController.view.layer.transform = CATransform3DMakeScale(1, 1, 1);
-    
-    //***********************************************************
-    /*Once category_id is set up for events instead of using if cases:
-     
-    StoreViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardStore"];
-    vc.storeCategory = self.categories[indexPath.row ]; //Or should index 0 be for HOME screen?
-    [self showViewController:vc];
-    [self.slidingViewController resetTopViewAnimated:YES];
-    */
-    
-    //******* in case others are testing on my events page for now *********//
-    /*if(indexPath.row == 0){
-        if([self.navigationController.topViewController isKindOfClass:[ContentViewController class]]){
-            [self.slidingViewController resetTopViewAnimated:YES];
-        }
-       // UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardContent"];
-        //[self showViewController:viewController];
-        [self.slidingViewController resetTopViewAnimated:YES];
-    }
-    */
-    if(indexPath.row < 8){
-         UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardMyEvents"];
-        [self showViewController:viewController];
-        
-        [self.slidingViewController resetTopViewAnimated:YES];
 
-    }
-    /*
-    if( indexPath.row < 8){
-       EventViewController * vc = [self.storyboard
-                instantiateViewControllerWithIdentifier:@"storyboardEvent"];
-        
-        vc.mainCategoryId = [NSString stringWithFormat:@"%lu",indexPath.row];
-       // [self.navigationController pushViewController:vc animated:YES];
-        [self showViewController: vc];
-        [self.slidingViewController resetTopViewAnimated:YES];
-         
-    }
     
-    else{
-        return;
+
+    if(indexPath.row < 8){
+        [self.tabBarController.viewControllers[2] viewWillAppear:YES];
+        [self.tabBarController setSelectedIndex:2];
+        
     }
-     */
 }
 
 
--(void)updateUI {
+-(void)reloadInputViews     {
 
     [tableViewSide reloadData];
 }

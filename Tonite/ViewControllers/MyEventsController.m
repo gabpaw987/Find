@@ -9,6 +9,7 @@
 #import "MyEventsController.h"
 #import "DetailViewController.h"
 #import "AppDelegate.h"
+#import "LBHamburgerButton.h"
 
 @interface MyEventsController() <MGListViewDelegate >
 
@@ -30,52 +31,41 @@
     return self;
 }
 
+-(void) viewWillAppear:(BOOL)animated   {
+    [self.navigationController setNavigationBarHidden:YES];
+    [self.tabBarController.navigationController setNavigationBarHidden:NO];
+    [self beginParsing];
+    
+
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self.navigationController setNavigationBarHidden:NO];
     [super viewDidAppear:animated];
     
 }
 
 
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-            // Do any additional setup after loading the view.
-   
-    [MGUIAppearance enhanceNavBarController:self.navigationController
-                               barTintColor:WHITE_TEXT_COLOR
-                                  tintColor:WHITE_TEXT_COLOR
-                             titleTextColor:WHITE_TEXT_COLOR];
+    // Do any additional setup after loading the view.
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
     listViewMain.delegate = self;
-    
-    
     BOOL screen = IS_IPHONE_6_PLUS_AND_ABOVE;
     listViewMain.cellHeight = screen ? 300 : 250;
     
     [listViewMain registerNibName:@"FeaturedCell" cellIndentifier:@"FeaturedCell"];
     [listViewMain baseInit];
+
     
-    
-    UIBarButtonItem* itemMenu = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:BUTTON_MENU]
-                                                                 style:UIBarButtonItemStylePlain
-                                                                target:self
-                                                                action:@selector(didClickBarButtonMenu:)];
-    self.navigationItem.leftBarButtonItem = itemMenu;
-    
-    [self beginParsing];
+
 }
 
--(void)didClickBarButtonMenu:(id)sender {
-    
-    AppDelegate* delegate = [AppDelegate instance];
-    [delegate.sideViewController updateUI];
-    
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-    [self.slidingViewController anchorTopViewToRightAnimated:YES];
-}
+
 
 -(void)beginParsing {
     
@@ -125,8 +115,8 @@
 
 -(void) MGListView:(MGListView *)_listView didSelectCell:(MGListCell *)cell indexPath:(NSIndexPath *)indexPath {
     [cell.imgViewThumb stopAnimating];
-    DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardQR"];
-    //vc.event = listViewMain.arrayData[indexPath.row];
+    DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardDetail"];
+    vc.event = listViewMain.arrayData[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
     
 }

@@ -43,6 +43,20 @@
     return self;
 }
 
+-(void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.tabBarController.navigationController setNavigationBarHidden:YES];
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -77,8 +91,7 @@
     _headerView.labelTitle.text = [event.event_name stringByDecodingHTMLEntities];
     
     _arrayPhotos = [CoreDataController getEventPhotosByEventId:event.event_id];
-    
-     [_headerView.buttonFave addTarget:self
+    [_headerView.buttonFave addTarget:self
                                  action:@selector(didClickButtonFave)
                 forControlEvents:UIControlEventTouchUpInside];
     
@@ -220,18 +233,10 @@
 
 -(void) didClickBuyButton{
     //*********** GO TO PURCHASING ******************//
-   //can delete below
-    if(_arrayPhotos == nil || _arrayPhotos.count == 0)
-        return;
-    
-    ImageViewerController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"segueImageViewer"];
-    vc.imageArray = _arrayPhotos;
-    
-    
-    vc.modalPresentationStyle = UIModalPresentationFullScreen;
-    vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:vc animated:YES completion:nil];
-    
+   
+    DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardQR"];
+    //vc.event = listViewMain.arrayData[indexPath.row];
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 

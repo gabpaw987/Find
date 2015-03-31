@@ -10,9 +10,7 @@
 
 @interface SideViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 
--(IBAction)didClickButtonMenu:(id)sender;
 @property(nonatomic, retain) IBOutlet UITableView* tableViewSide;
-@property(nonatomic, retain) IBOutlet UIButton* buttonMenuClose;
 
--(void) updateUI;
+-(void) reloadInputViews;
 @end

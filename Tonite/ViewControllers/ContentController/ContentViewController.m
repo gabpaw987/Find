@@ -23,12 +23,9 @@
 }
 
 
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO];
-    for( RightSideViewController* vc in self.childViewControllers){
-        [vc reloadInputViews];
-    }
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tabBarController.navigationController setNavigationBarHidden:NO];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -39,14 +36,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    self.view.backgroundColor = BG_VIEW_COLOR;
-    
-    [MGUIAppearance enhanceNavBarController:self.navigationController
-                               barTintColor:WHITE_TEXT_COLOR
-                                  tintColor:WHITE_TEXT_COLOR
-                             titleTextColor:WHITE_TEXT_COLOR];
-    
+
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     BOOL screen = IS_IPHONE_6_PLUS_AND_ABOVE;
@@ -67,15 +57,6 @@
     
     [self beginParsing];
     
-    UIBarButtonItem* itemMenu = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:BUTTON_MENU]
-                                                                 style:UIBarButtonItemStylePlain
-                                                                target:self
-                                                                action:@selector(didClickBarButtonMenu:)];
-    self.navigationItem.leftBarButtonItem = itemMenu;
-    
-    UIBarButtonItem* itemLoginMenu = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed: ICON_REGISTER] style:UIBarButtonItemStylePlain target:self action:@selector(didClickProfileMenuButton:)];
-    
-    self.navigationItem.rightBarButtonItem = itemLoginMenu;
     UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
     swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
     swipeGesture.cancelsTouchesInView = YES; //So the user can still interact with controls in the modal view
@@ -91,19 +72,7 @@
 
 
 - (void)handleTapGesture:(UITapGestureRecognizer *)sender {
-    if (sender.state == UIGestureRecognizerStateEnded) {
-        UIView* view = sender.view;
-        CGPoint loc = [sender locationInView:view];
-        //  UIView* subview = [view hitTest:loc withEvent:nil];
-        //        NSLog(NSStringFromClass([subview class]));
-        if(loc.x < 80 && ([self class] ==[ContentViewController class])){
-            for(RightSideViewController* vc in self.childViewControllers){
-                [ vc willMoveToParentViewController:nil];
-                [ vc.view removeFromSuperview];
-                [ vc removeFromParentViewController];
-            }
-        }
-    }
+  
 }
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
@@ -119,47 +88,12 @@
 }
 
 - (void)handleSwipeGesture:(UISwipeGestureRecognizer *)sender{
-    if (sender.state == UIGestureRecognizerStateEnded) {
-        for(RightSideViewController* vc in self.childViewControllers){
-            [ vc willMoveToParentViewController:nil];
-            [ vc.view removeFromSuperview];
-            [ vc removeFromParentViewController];
-        }
-    }
+ 
 }
 
 
 
 
-
--(void) didClickProfileMenuButton: (id) sender{
-    if(self.childViewControllers.count  == 0){
-        RightSideViewController * right = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardRightSide"];
-        
-        [self addChildViewController:right];
-        [right didMoveToParentViewController:self];
-        [self.view addSubview:right.view];
-    }
-    else{
-        for( RightSideViewController* vc in self.childViewControllers){
-            [vc willMoveToParentViewController:nil];
-            [vc.view removeFromSuperview];
-            [vc removeFromParentViewController];
-        }
-    }
-}
-
-
--(void)didClickBarButtonMenu:(id)sender {
-    AppDelegate* delegate = [AppDelegate instance];
-    [delegate.sideViewController updateUI];
-    for( RightSideViewController* vc in self.childViewControllers){
-        [vc willMoveToParentViewController:nil];
-        [vc.view removeFromSuperview];
-        [vc removeFromParentViewController];
-    }
-    [self.slidingViewController anchorTopViewToRightAnimated:YES];
-}
 
 
 - (void)didReceiveMemoryWarning
