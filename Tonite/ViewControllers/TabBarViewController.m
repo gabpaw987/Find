@@ -15,6 +15,7 @@
 
 @implementation TabBarViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -41,8 +42,6 @@
     [itemLoginMenu setTintColor:[UIColor blackColor]];
     itemLoginMenu.imageInsets = UIEdgeInsetsMake(18, 35, 18, 0);
     self.navigationItem.rightBarButtonItem = itemLoginMenu;
-    
-    
     
 }
 

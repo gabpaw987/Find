@@ -81,13 +81,11 @@
     if(selected) {
         imgViewSelectionBackground.image = selectedImage;
         imgViewArrow.image = selectedImageArrow;
-        labelTitle.textColor = selectedColor;
         imgViewIcon.image = selectedImageIcon;
     }
     else {
         imgViewSelectionBackground.image = unselectedImage;
         imgViewArrow.image = unselectedImageArrow;
-        labelTitle.textColor = unSelectedColor;
         imgViewIcon.image = unselectedImageIcon;
     }
 }

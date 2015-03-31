@@ -28,6 +28,12 @@
     [self.tabBarController.navigationController setNavigationBarHidden:NO];
 }
 
+
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+}
+
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
 }
@@ -36,21 +42,18 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
+  
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
+    [self.view setBackgroundColor:[UIColor grayColor]];
     BOOL screen = IS_IPHONE_6_PLUS_AND_ABOVE;
     if(screen) {
-        
         CGRect frame = listViewEvents.frame;
         frame.origin.y =65;
         frame.size.height = self.view.frame.size.height-65;
         listViewEvents.frame = frame;
     }
-    
     listViewEvents.delegate = self;
     listViewEvents.cellHeight = self.view.frame.size.height/2;
-    
     
     [listViewEvents registerNibName:@"SliderCell" cellIndentifier:@"SliderCell"];
     [listViewEvents baseInit];
@@ -142,13 +145,11 @@
 
 
 -(void) setData {
-    
     listViewEvents.arrayData = [NSMutableArray arrayWithArray:[CoreDataController getAllEvents]];
     
 }
 
 -(void)didClickButtonGo:(id)sender {
-    
     MGButton* button = (MGButton*)sender;
     DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardDetail"];
     vc.event = button.object;
@@ -156,7 +157,6 @@
 }
 
 -(void)setImage:(NSString*)imageUrl imageView:(UIImageView*)imgView {
-    
     NSURL* url = [NSURL URLWithString:imageUrl];
     NSURLRequest* urlRequest = [NSURLRequest requestWithURL:url];
     
@@ -190,9 +190,7 @@
 -(void) MGListView:(MGListView *)_listView didSelectCell:(MGListCell *)cell indexPath:(NSIndexPath *)indexPath {
     
     Event* event= [listViewEvents.arrayData objectAtIndex:indexPath.row];
-    
     DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardDetail"];
-    //vc.strUrl = news.news_url;
     vc.event = event;
     [self.navigationController pushViewController:vc animated:YES];
     
@@ -200,27 +198,20 @@
 
 -(UITableViewCell*)MGListView:(MGListView *)listView1 didCreateCell:(MGListCell *)cell indexPath:(NSIndexPath *)indexPath {
     if(cell == nil){
-        cell = [[MGListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SliderCell"];
-    }
+       cell = [[MGListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SliderCell"];
+        [cell setBackgroundColor:[UIColor grayColor]];
+   }
+        
     for(UIView* view in cell.subviews)
         [view removeFromSuperview];
-    //[cell setBackgroundColor:[UIColor clearColor]];
-    
     Event* event = [listViewEvents.arrayData objectAtIndex:indexPath.row];
-    
     [cell.slideShow setImageArray:[CoreDataController getEventPhotosByEventId:event.event_id] ];
     [cell.slideShow setNumberOfItems:[cell.slideShow.imageArray count]];
-    
+   
+    if([cell.slideShow.imageArray count] != 0){
     CGRect frame = cell.frame;
     frame.size.width = self.view.frame.size.width;
-    frame.size.height = listViewEvents.cellHeight;
-    
-    if([cell.slideShow.imageArray count] == 0){
-        //Default pic?
-    }
-    else{
-        
-    
+    frame.size.height = listViewEvents.cellHeight-2 ;
     cell.slideShow.event  = event;
     [cell.slideShow setNeedsReLayoutWithViewSize:frame.size];
     
@@ -232,17 +223,34 @@
     [cell addSubview:cell.slideShow.scrollView];
     }
     
-   // [cell setBackgroundView:cell.slideShow.scrollView];
+    [cell.buttonFave addTarget:self action:@selector(didSelectFave:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.buttonFave setBackgroundImage:[UIImage imageNamed:LIKE_IMG] forState:UIControlStateNormal];
     
-    [cell.labelTitle setText:event.event_name   ];
-    [cell.labelSubtitle setText: event.event_address];
-    [cell addSubview: cell.labelTitle];
-    [cell addSubview: cell.labelSubtitle];
+   // [cell.labelExtraInfo setText: event_price????];
+        cell.labelTitle.text =event.event_name;
+        cell.labelSubtitle.text=  event.event_address;
+        [cell addSubview: cell.fade ];
+        [cell addSubview:cell.labelTitle];
+        [cell addSubview:cell.labelSubtitle];
+        [cell addSubview:cell.labelExtraInfo];
+        [cell addSubview: cell.buttonFave];
+ 
     
- //   [cell.slideShow setDelegate: self];
-    [cell setUserInteractionEnabled:YES];
+  //  [cell setUserInteractionEnabled:YES];
     return cell;
 }
+
+-(void) didSelectFave:(id)sender{
+    UIButton* btn = (UIButton* ) sender;
+    if(btn.state == UIControlStateSelected){
+         [btn setBackgroundImage:[UIImage imageNamed:LIKE_IMG] forState:UIControlStateNormal];
+    }
+    else{
+    [btn setBackgroundImage:[UIImage imageNamed:STARRED_IMG] forState:UIControlStateNormal];
+       
+    }
+}
+
 
 
 -(void)MGListView:(MGListView *)listView scrollViewDidScroll:(UIScrollView *)scrollView {

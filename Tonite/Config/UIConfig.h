@@ -9,7 +9,6 @@
 #ifndef StoreFinder_UIConfig_h
 #define StoreFinder_UIConfig_h
 
-#define NAV_BAR_BG @"navbar.png"
 
 #define REVIEW_DATE_TEXT_COLOR [UIColor colorWithRed:167.0/255.0 green:167.0/255.0 blue:167.0/255.0 alpha:1.0]
 
@@ -36,16 +35,9 @@
 
 #define ICON_USER @"user160.png"
 
+#define NAV_BAR_BG @"navbar.png"
 
 
-
-#define ICON_DETAIL_EMAIL @"ic_detail_email.png"
-
-#define ICON_DETAIL_SMS @"ic_detail_sms.png"
-
-#define ICON_DETAIL_CALL @"ic_detail_call.png"
-
-#define ICON_DETAIL_WEBSITE @"ic_detail_website.png"
 
 
 #define SLIDER_PLACEHOLDER @"slider_placeholder.png"
@@ -69,13 +61,12 @@
 
 
 
-#define BUTTON_MENU @"ic_menu.png"
 
 #define BUTTON_NEW_REVIEW @"ic_menu_new_review.png"
 
 #define BUTTON_POST_REVIEW @"ic_menu_reviews.png"
 
-#define HEADER_LOGO @"header_logo.png"
+#define HEADER_LOGO @"TONITELOGO.png"
 
 #define STARRED_IMG @"star_fave_selected.png"
 
