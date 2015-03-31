@@ -65,7 +65,7 @@
     self.slidingViewController.anchorLeftPeekAmount =ANCHOR_LEFT_PEEK;
  //   self.slidingViewController.anchorRightRevealAmount = 200.0;
   //  self.slidingViewController.anchorLeftRevealAmount = ANCHOR_RIGHT_PEEK;
-    
+   // self.slidingViewController.anchorRightPeekAmount
     
     self.window.rootViewController = self.slidingViewController;
     

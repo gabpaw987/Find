@@ -35,6 +35,7 @@
     tableSideView.delegate = self;
     tableSideView.dataSource = self;
     [tableSideView setFrame:CGRectMake(ANCHOR_LEFT_PEEK , 250, self.view.frame.size.width - ANCHOR_LEFT_PEEK, self.view.frame.size.height)];
+    
     [tableSideView setBackgroundColor:[UIColor lightGrayColor]];
     /*DARKEN OUTSIDE MENU SCREEN
     CAGradientLayer *gradientLayer = [CAGradientLayer layer];
@@ -51,20 +52,17 @@
     [self.view.layer addSublayer:gradientLayer];
     */
     
-    
+    self.user = [UserAccessSession getUserSession];
     if( self.user != nil) {
-        self.subtitles = @[@"My Account", @"Sign Out"];
+        self.subtitles = @[ @"My Wallet"];
     }
-       self.user = [UserAccessSession getUserSession];
-    self.subtitles = @[ @"Create An Account",@"Sign In" ];
-
-   
-
+    else{
+    self.subtitles = @[ @"Sign Up" ];
+    }
     self.titles =@[
                   @"Settings",
                   @"About Tonite",
-                  @"Terms and Condition",
-                  @"My Tickets"
+                  @"Friends"
                   ];
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
@@ -104,7 +102,6 @@
 }
 
 - (void)handleTapGesture:(UITapGestureRecognizer *)sender {
-            [self.slidingViewController resetTopViewAnimated:YES];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -112,11 +109,11 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return ([ self.titles count]+ [self.subtitles count]);
+    return 4;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    MGListCell* cell =  [tableView dequeueReusableCellWithIdentifier:@"EntryCell"];
+    MGListCell* cell =  [tableView dequeueReusableCellWithIdentifier:@"RightSideViewCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
    
     [cell setBackgroundColor:[UIColor lightGrayColor]];
@@ -128,18 +125,6 @@
     return cell;
 }
 
-- (void) showViewController:(UIViewController*)viewController {
-    
-    UINavigationController* navController = (UINavigationController*)[self.slidingViewController topViewController];
-    [navController popToRootViewControllerAnimated:NO];
-    
-    UIViewController* currentViewController = [[navController viewControllers] objectAtIndex:0];
-    
-    if([currentViewController isKindOfClass:[viewController class]])
-        return;
-    
-    [navController setViewControllers:[NSArray arrayWithObject:viewController] animated:YES];
-}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -155,22 +140,11 @@
     }
     if(indexPath.row == 1){
         UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardAboutUs"];
-    [self showViewController:vc];
-    [self.slidingViewController resetTopViewAnimated:YES];
+        [self.navigationController pushViewController:vc animated:YES];
         
     }
+   
     if(indexPath.row == 2){
-        UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardTC"];
-        [self showViewController:vc ];
-        [self.slidingViewController resetTopViewAnimated:YES];
-        
-    }
-    if(indexPath.row == 3){
-        UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardTickets"];
-        [self showViewController:vc];
-        [self.slidingViewController resetTopViewAnimated:YES];
-    }
-    if(indexPath.row == 4){
         UIStoryboard* story = [UIStoryboard storyboardWithName:@"User_iPhone" bundle:nil];
           NSString* nextView = @"storyboardRegister";
         if(self.user!= nil)
@@ -183,10 +157,8 @@
         [[delegate.window rootViewController] presentViewController:vc animated:YES completion:nil];
         [self.slidingViewController resetTopViewAnimated:YES];
     }
-    
-    
-  
-    if(indexPath.row == 5){
+
+    if(indexPath.row == 3){
         if(self.user ==nil){
             UIStoryboard* story = [UIStoryboard storyboardWithName:@"User_iPhone" bundle:nil];
             UIViewController* vc = [story instantiateViewControllerWithIdentifier: @"storyboardLogin"];
@@ -264,10 +236,10 @@
     
     [self setImage:self.user.thumbPhotoUrl imageView:userProfilePicture withBorder:YES isThumb:YES];
     if( self.user != nil) {
-        self.subtitles = @[@"My Account", @"Sign Out"];
+        self.subtitles = @[@"My Wallet"];
     }
     else{
-        self.subtitles = @[ @"Create An Account",@"Sign In" ];
+        self.subtitles = @[@"Sign Up" ];
     }
     [tableSideView reloadData];
 
