@@ -245,6 +245,26 @@
     return fetchedObjects;
 }
 
++(NSArray*) getTicketTypes {
+    
+    AppDelegate* delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSManagedObjectContext* context = delegate.managedObjectContext;
+    
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    [fetchRequest setReturnsObjectsAsFaults:NO];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TicketType" inManagedObjectContext:context];
+    
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"ticket_type_id" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortDescriptor]];
+    
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    return fetchedObjects;
+}
+
 +(NSArray*) getVenueCategories {
     
     AppDelegate* delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -276,6 +296,64 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:context];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"event_id = %@", eventId];
+    [fetchRequest setPredicate:predicate];
+    
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    return fetchedObjects.count > 0 ? fetchedObjects[0] : nil;
+}
+
+
++(TicketType*) getTicketTypeByEventId:(NSString*)eventId {
+    
+    AppDelegate* delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSManagedObjectContext* context = delegate.managedObjectContext;
+    
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    [fetchRequest setReturnsObjectsAsFaults:NO];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TicketType" inManagedObjectContext:context];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"event_id = %@", eventId];
+    [fetchRequest setPredicate:predicate];
+    
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    return fetchedObjects.count > 0 ? fetchedObjects[0] : nil;
+}
+
++(Ticket*) getTicketByTicketTypeId:(NSString*)ticketTypeId {
+    
+    AppDelegate* delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSManagedObjectContext* context = delegate.managedObjectContext;
+    
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    [fetchRequest setReturnsObjectsAsFaults:NO];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Ticket" inManagedObjectContext:context];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ticket_type_id = %@", ticketTypeId];
+    [fetchRequest setPredicate:predicate];
+    
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    return fetchedObjects.count > 0 ? fetchedObjects[0] : nil;
+}
+
++(Ticket*) getTicketByUserId:(NSString*)userId {
+    
+    AppDelegate* delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSManagedObjectContext* context = delegate.managedObjectContext;
+    
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    [fetchRequest setReturnsObjectsAsFaults:NO];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Ticket" inManagedObjectContext:context];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"user_id = %@", userId];
     [fetchRequest setPredicate:predicate];
     
     [fetchRequest setEntity:entity];

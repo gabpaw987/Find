@@ -18,6 +18,7 @@
 
 +(NSArray*)getCategories;
 +(NSArray*)getVenueCategories;
++(NSArray*)getTicketTypes;
 
 +(NSArray*) getAllEvents;
 +(NSArray*) getAllTickets;
@@ -26,6 +27,9 @@
 
 +(NSArray*) getEventsByCategoryId:(NSString*)categoryId;
 +(Event*) getEventByEventId:(NSString*)eventId;
++(TicketType*) getTicketTypeByEventId:(NSString*)eventId;
++(Ticket*) getTicketByTicketTypeId:(NSString*)ticketTypeId;
++(Ticket*) getTicketByUserId:(NSString*)userId;
 +(MainCategory*) getCategoryByCategory:(NSString*)category;
 +(VenueCategory*) getVenueCategoryByVenueCategory:(NSString*)venueCategory;
 +(Venue*) getVenueByVenueId:(NSString*)venue;
