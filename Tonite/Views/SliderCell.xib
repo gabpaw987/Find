@@ -7,65 +7,76 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MGListCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+        <view contentMode="scaleToFill" id="0UR-1p-Jt4" customClass="MGListCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="311"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list_news_placeholder_210.png" id="oRR-u1-KfK">
-                    <rect key="frame" x="5" y="5" width="310" height="210"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="frb-a6-lMQ">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
-                <view contentMode="scaleToFill" id="X79-Q9-lFL" customClass="MGSlider">
-                    <rect key="frame" x="0.0" y="0.0" width="318" height="210"/>
+                <view contentMode="scaleToFill" id="AhF-cs-zNN" customClass="MGSlider">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <accessibility key="accessibilityConfiguration">
+                        <accessibilityTraits key="traits" none="YES" selected="YES"/>
+                        <bool key="isElement" value="YES"/>
+                    </accessibility>
                 </view>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RKz-bD-DUg">
-                    <rect key="frame" x="5" y="150" width="310" height="65"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="63m-Rx-Za4">
-                    <rect key="frame" x="239" y="15" width="76" height="23"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FADE.png" id="eaY-lm-8Fc">
+                    <rect key="frame" x="0.0" y="135" width="320" height="175"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EventName" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" id="bEi-jo-wLt">
+                    <rect key="frame" x="10" y="211.00000047603248" width="245" height="55"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yry-Nr-83N">
-                    <rect key="frame" x="12" y="155" width="295" height="21"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="I8v-NY-dhI">
+                    <rect key="frame" x="277" y="274" width="35" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor sum" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jCR-gl-S8m">
-                    <rect key="frame" x="12" y="175" width="295" height="36"/>
+                <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5X9-Sf-rLp">
+                    <rect key="frame" x="277" y="231" width="29" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <state key="normal" backgroundImage="heart.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venue Name" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kzd-58-Nzd">
+                    <rect key="frame" x="10" y="266.00000047603248" width="245" height="37"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="13"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="imgViewThumb" destination="oRR-u1-KfK" id="eT5-89-4Jj"/>
-                <outlet property="labelDetails" destination="63m-Rx-Za4" id="Lf0-Ab-rEo"/>
-                <outlet property="labelExtraInfo" destination="RKz-bD-DUg" id="G40-ve-Zxi"/>
-                <outlet property="labelSubtitle" destination="jCR-gl-S8m" id="w6U-yX-wrl"/>
-                <outlet property="labelTitle" destination="Yry-Nr-83N" id="EIr-62-oiR"/>
-                <outlet property="slideShow" destination="X79-Q9-lFL" id="QXa-tQ-xI7"/>
+                <outlet property="buttonFave" destination="5X9-Sf-rLp" id="Vj6-HQ-UkA"/>
+                <outlet property="fade" destination="eaY-lm-8Fc" id="neZ-JF-lj8"/>
+                <outlet property="imgViewPic" destination="frb-a6-lMQ" id="XXT-PP-fXU"/>
+                <outlet property="labelExtraInfo" destination="I8v-NY-dhI" id="5G6-gz-hdC"/>
+                <outlet property="labelSubtitle" destination="kzd-58-Nzd" id="eCC-FP-Iqu"/>
+                <outlet property="labelTitle" destination="bEi-jo-wLt" id="Xkm-qt-DEj"/>
+                <outlet property="slideShow" destination="AhF-cs-zNN" id="Z1M-Za-Yzm"/>
             </connections>
-            <point key="canvasLocation" x="201" y="288"/>
+            <point key="canvasLocation" x="272" y="324.5"/>
         </view>
     </objects>
     <resources>
-        <image name="list_news_placeholder_210.png" width="310" height="210"/>
+        <image name="FADE.png" width="1920" height="1050"/>
+        <image name="heart.png" width="64" height="64"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

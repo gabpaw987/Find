@@ -7,9 +7,9 @@
 @synthesize numberOfItems = _numberOfItems;
 @synthesize scrollView;
 @synthesize nibName;
-@synthesize delegate = _delegate;
 @synthesize event;
 @synthesize willAnimate = _willAnimate;
+@synthesize scrollWidth;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -28,7 +28,6 @@
 }
 
 -(void) setNeedsReLayoutWithViewSize:(CGSize)viewSize {
-    
     _willAnimate = YES;
     for(UIView* view in self.subviews)
         [view removeFromSuperview];
@@ -51,13 +50,12 @@
         [scrollView addSubview:sliderView];
         posX += viewSize.width;
     }
-    
-    currentIndex  = 1;
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.pagingEnabled = YES;
     scrollView.bounces = NO;
     scrollView.frame = CGRectMake(0.0, 0.0, viewSize.width, viewSize.height);
     scrollView.contentSize = CGSizeMake(posX, scrollView.frame.size.height);
+    scrollWidth = viewSize.width;
   
     
 }
@@ -85,16 +83,15 @@
 
 - (void)scrollingTimer {
     
-    CGFloat contentOffset = scrollView.contentOffset.x;
-    int nextPage = (int)(contentOffset/scrollView.frame.size.width) + 1;
+    int nextPage = (int)(scrollView.contentOffset.x/scrollWidth) + 1;
     CGRect rect = CGRectZero;
     
     if( nextPage == _numberOfItems ) {
-        rect = CGRectMake(0, 0, scrollView.frame.size.width, scrollView.frame.size.height);
+        rect = CGRectMake(0, 0, scrollWidth, scrollView.frame.size.height);
         [scrollView scrollRectToVisible:rect animated:YES];
     }
     else{
-        rect = CGRectMake(nextPage*scrollView.frame.size.width, 0, scrollView.frame.size.width, scrollView.frame.size.height);
+        rect = CGRectMake(nextPage*scrollWidth, 0, scrollWidth, scrollView.frame.size.height);
         [scrollView scrollRectToVisible:rect animated:YES];
     }
 }

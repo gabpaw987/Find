@@ -61,8 +61,6 @@
     [listViewMain registerNibName:@"FeaturedCell" cellIndentifier:@"FeaturedCell"];
     [listViewMain baseInit];
 
-    
-
 }
 
 

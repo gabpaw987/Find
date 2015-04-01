@@ -28,11 +28,13 @@
 @property (nonatomic, retain) IBOutlet UIImageView* imgViewSelectionBackground;
 @property (nonatomic, retain) IBOutlet UIImageView* imgViewFeatured;
 @property (nonatomic, retain) IBOutlet UIImageView* imgViewFave;
+@property (strong, nonatomic) IBOutlet UIButton *buttonFave;
 
 @property (nonatomic, retain) IBOutlet UIImageView* imgViewIcon;
 
 @property (nonatomic, retain) UIImage* selectedImage;
 @property (nonatomic, retain) UIImage* unselectedImage;
+@property (strong, nonatomic) IBOutlet UIImageView *fade;
 
 @property (nonatomic, retain) UIImage* selectedImageIcon;
 @property (nonatomic, retain) UIImage* unselectedImageIcon;

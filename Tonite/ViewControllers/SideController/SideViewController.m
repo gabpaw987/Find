@@ -166,7 +166,7 @@
     
 
     if(indexPath.row < 8){
-        [self.tabBarController.viewControllers[2] viewWillAppear:YES];
+       
         [self.tabBarController setSelectedIndex:2];
         
     }

@@ -145,15 +145,9 @@
                                   action:@selector(didClickButtonTwitter:)
                         forControlEvents:UIControlEventTouchUpInside];
    
-    
-    
-
-   
-    
     tableViewMain.delegate = self;
     [tableViewMain registerNibName:@"DetailCell" cellIndentifier:@"DetailCell"];
     [tableViewMain baseInit];
-    
     tableViewMain.tableView.tableHeaderView = _headerView;
     tableViewMain.tableView.tableFooterView = _footerView;
     tableViewMain.noOfItems = 1;
@@ -264,11 +258,6 @@
     
     if(cell != nil) {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.selectedColor = WHITE_TEXT_COLOR;
-        cell.unSelectedColor = WHITE_TEXT_COLOR;
-        cell.labelDescription.textColor = THEME_BLACK_TINT_COLOR;
-        cell.backgroundColor = [UIColor clearColor];
-        
         cell.labelDescription.textColor = THEME_BLACK_TINT_COLOR ;
         [cell.labelDescription setText:[event.event_desc stringByDecodingHTMLEntities]];
         
@@ -282,6 +271,8 @@
         [cell.labelVenue setText:[event.event_address stringByDecodingHTMLEntities ]];
         [cell.labelVenueDescription setText:@"Description about the Venue" ];
         }
+        
+        
         CGSize size = [cell.labelDescription sizeOfMultiLineLabel];
         CGRect frame = cell.labelDescription.frame;
         cell.labelDescription.frame = frame;
