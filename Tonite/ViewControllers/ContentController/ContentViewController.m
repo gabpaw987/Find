@@ -53,7 +53,7 @@
         listViewEvents.frame = frame;
     }
     listViewEvents.delegate = self;
-    listViewEvents.cellHeight = self.view.frame.size.height/2;
+    listViewEvents.cellHeight = (self.view.frame.size.height-65)/2;
     
     [listViewEvents registerNibName:@"SliderCell" cellIndentifier:@"SliderCell"];
     [listViewEvents baseInit];
@@ -205,9 +205,11 @@
     for(UIView* view in cell.subviews)
         [view removeFromSuperview];
     Event* event = [listViewEvents.arrayData objectAtIndex:indexPath.row];
+    Venue* venue = [CoreDataController getVenueByVenueId:event.venue_id];
     [cell.slideShow setImageArray:[CoreDataController getEventPhotosByEventId:event.event_id] ];
     [cell.slideShow setNumberOfItems:[cell.slideShow.imageArray count]];
-   
+    
+    
     if([cell.slideShow.imageArray count] != 0){
     CGRect frame = cell.frame;
     frame.size.width = self.view.frame.size.width;
@@ -226,15 +228,24 @@
     [cell.buttonFave addTarget:self action:@selector(didSelectFave:) forControlEvents:UIControlEventTouchUpInside];
     [cell.buttonFave setBackgroundImage:[UIImage imageNamed:LIKE_IMG] forState:UIControlStateNormal];
     
+    
    // [cell.labelExtraInfo setText: event_price????];
         cell.labelTitle.text =event.event_name;
-        cell.labelSubtitle.text=  event.event_address;
+        cell.labelSubtitle.text=  venue.venue_name;
+    if(event.event_name == venue.venue_name){
+        [cell.labelSubtitle setText:event.event_address];
+    }
+    NSString* date = [self formatDateWithStart:event.event_date_starttime withEndTime:event.event_endtime];
+        [cell.labelDetails setText:date];
+        [cell.labelSubtitle setClipsToBounds:YES];
         [cell addSubview: cell.fade ];
         [cell addSubview:cell.labelTitle];
         [cell addSubview:cell.labelSubtitle];
         [cell addSubview:cell.labelExtraInfo];
         [cell addSubview: cell.buttonFave];
- 
+        [cell addSubview: cell.divider];
+        [cell addSubview: cell.labelDetails];
+        [cell addSubview: cell.locationIcon];
     
   //  [cell setUserInteractionEnabled:YES];
     return cell;
@@ -251,6 +262,15 @@
     }
 }
 
+-(NSString*)formatDateWithStart:(NSString*)dateAndStart withEndTime:(NSString*)endTime{
+    NSCharacterSet *charc=[NSCharacterSet characterSetWithCharactersInString:@" "];
+
+    NSString* date = [dateAndStart stringByTrimmingCharactersInSet: charc];
+    NSString*start = [dateAndStart substringFromIndex:11];
+    NSString* entireDate= @"9PM to Midnight";
+    
+    return entireDate;
+}
 
 
 -(void)MGListView:(MGListView *)listView scrollViewDidScroll:(UIScrollView *)scrollView {

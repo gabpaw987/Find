@@ -36,6 +36,11 @@
 @property (nonatomic, retain) UIImage* unselectedImage;
 @property (strong, nonatomic) IBOutlet UIImageView *fade;
 
+@property (strong, nonatomic) IBOutlet UIImageView *divider;
+
+@property (strong, nonatomic) IBOutlet UIImageView *locationIcon;
+
+
 @property (nonatomic, retain) UIImage* selectedImageIcon;
 @property (nonatomic, retain) UIImage* unselectedImageIcon;
 

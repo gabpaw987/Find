@@ -111,7 +111,7 @@
     
     
     //******* Static "BUY" Button
-    self.view.backgroundColor = [UIColor whiteColor];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     CGFloat buttonHeight = self.view.frame.size.height - 60;
     CGRect rect = CGRectMake(0, buttonHeight, self.view.frame.size.width, 60);
     UIButton* buyButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -122,21 +122,13 @@
     [buyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [buyButton setBackgroundColor:[UIColor grayColor]];
     [buyButton addTarget:self action:@selector(didClickBuyButton) forControlEvents:UIControlEventTouchUpInside];
+    [buyButton setAlpha:0.85];
     [self.view addSubview: buyButton];
     
     
     
     //*** Twitter and Facebook buttons in Footer//
     _footerView = [[MGFooterView alloc] initWithNibName:@"FooterView"];
-    [_footerView.buttonTwitter setTitle:LOCALIZED(@"SHARE") forState:UIControlStateNormal];
-    [_footerView.buttonTwitter setTitle:LOCALIZED(@"SHARE") forState:UIControlStateSelected];
-    [_footerView.buttonTwitter setTitleColor:WHITE_TEXT_COLOR forState:UIControlStateNormal];
-    [_footerView.buttonTwitter setTitleColor:WHITE_TEXT_COLOR forState:UIControlStateSelected];
-    
-    [_footerView.buttonFacebook setTitle:LOCALIZED(@"SHARE") forState:UIControlStateNormal];
-    [_footerView.buttonFacebook setTitle:LOCALIZED(@"SHARE") forState:UIControlStateSelected];
-    [_footerView.buttonFacebook setTitleColor:WHITE_TEXT_COLOR forState:UIControlStateNormal];
-    [_footerView.buttonFacebook setTitleColor:WHITE_TEXT_COLOR forState:UIControlStateSelected];
     [_footerView.buttonFacebook addTarget:self
                                    action:@selector(didClickButtonFacebook:)
                          forControlEvents:UIControlEventTouchUpInside];

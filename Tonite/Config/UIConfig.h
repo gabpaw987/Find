@@ -24,7 +24,7 @@
 
 #define BLACK_TEXT_COLOR [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0]
 
-#define BG_VIEW_COLOR [UIColor colorWithRed:250.0/255.0 green:250.0/255.0 blue:250.0/255.0 alpha:1.0]
+#define BG_VIEW_COLOR [UIColor colorWithRed:180.0/255.0 green:180.0/255.0 blue:180.0/255.0 alpha:0.8]
 
 #define SIDE_VIEW_BG_COLOR [UIColor colorWithRed:106.0/255.0 green:106.0/255.0 blue:97.0/255.0 alpha:1.0]
 
