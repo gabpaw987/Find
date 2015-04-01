@@ -285,7 +285,7 @@
                 barButtonCancel.enabled = YES;
                 
                 AppDelegate* delegate = [AppDelegate instance];
-                [delegate.rightMenuController updateUI];
+                [delegate.rightMenuController reloadInputViews];
                 
                 [self dismissViewControllerAnimated:YES completion:nil];
                 [self.slidingViewController anchorTopViewToLeftAnimated:YES];
@@ -323,7 +323,7 @@
 -(IBAction)didClickCancelLogin:(id)sender {
     
     AppDelegate* delegate = [AppDelegate instance];
-    [delegate.rightMenuController updateUI];
+    [delegate.rightMenuController reloadInputViews];
     
     [self dismissViewControllerAnimated:YES completion:nil];
     [self.slidingViewController anchorTopViewToLeftAnimated:YES];
@@ -503,7 +503,7 @@
 -(void)delaySocial:(id)sender {
     
     AppDelegate* delegate = [AppDelegate instance];
-    [delegate.rightMenuController updateUI];
+    [delegate.rightMenuController reloadInputViews];
     
     [self dismissViewControllerAnimated:YES completion:nil];
     [self.slidingViewController anchorTopViewToLeftAnimated:YES];

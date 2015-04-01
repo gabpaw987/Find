@@ -66,7 +66,7 @@
 }
 
 -(void) didClickProfileMenuButton:(id) sender{
-    [self.slidingViewController anchorTopViewToLeftAnimated:YES];
+//    [self.delegate showProfileMenu];
 }
 
 -(void) reloadInputViews   {

@@ -90,10 +90,7 @@
 }
 
 -(void)didClickBarButtonMenu:(id)sender {
-    
-    AppDelegate* delegate = [AppDelegate instance];
-    [delegate.rightMenuController updateUI];
-    
+  
   UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardContent"];
 
     [self.slidingViewController anchorTopViewToLeftAnimated:YES];

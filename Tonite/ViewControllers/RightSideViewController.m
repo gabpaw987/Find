@@ -21,6 +21,10 @@
 @synthesize userProfilePicture;
 @synthesize tableSideView;
 
+-(void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self reloadInputViews];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -64,13 +68,13 @@
                   @"About Tonite",
                   @"Friends"
                   ];
-    
+    /*
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
     tapGesture.numberOfTapsRequired = 1;
     tapGesture.cancelsTouchesInView = NO; //So the user can still interact with controls in the modal view
     
     [self.slidingViewController.view addGestureRecognizer:tapGesture];
-    
+    */
     UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
     swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
     swipeGesture.cancelsTouchesInView = YES; //So the user can still interact with controls in the modal view
@@ -114,7 +118,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MGListCell* cell =  [tableView dequeueReusableCellWithIdentifier:@"RightSideViewCell"];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell setUserInteractionEnabled:YES];
    
     [cell setBackgroundColor:[UIColor lightGrayColor]];
     [cell.labelTitle setTextColor:[UIColor blackColor]];
@@ -137,10 +141,11 @@
         //PUSH NOTIFICATION SETTINGS
         
         //OTHER SETTINGS??
+        [self.slidingViewController resetTopViewAnimated:YES];
     }
     if(indexPath.row == 1){
-        UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardAboutUs"];
-        [self.navigationController pushViewController:vc animated:YES];
+     //   UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardAboutUs"];
+      //  [self.slidingnavigationController pushViewController:vc animated:YES];
         
     }
    
@@ -150,24 +155,22 @@
         if(self.user!= nil)
             nextView = @"storyboardProfile";
         UIViewController* vc = [story instantiateViewControllerWithIdentifier: nextView];
+        [self.navigationController pushViewController:vc animated:YES];
+        /*
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
         vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         
         AppDelegate* delegate = [AppDelegate instance];
         [[delegate.window rootViewController] presentViewController:vc animated:YES completion:nil];
         [self.slidingViewController resetTopViewAnimated:YES];
+         */
     }
 
     if(indexPath.row == 3){
         if(self.user ==nil){
             UIStoryboard* story = [UIStoryboard storyboardWithName:@"User_iPhone" bundle:nil];
             UIViewController* vc = [story instantiateViewControllerWithIdentifier: @"storyboardLogin"];
-            vc.modalPresentationStyle = UIModalPresentationFullScreen;
-            vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            
-            AppDelegate* delegate = [AppDelegate instance];
-            [[delegate.window rootViewController] presentViewController:vc animated:YES completion:nil];
-            [self.slidingViewController resetTopViewAnimated:YES];
+            [self.navigationController pushViewController:vc animated:YES];
         }
         else{
             
@@ -230,7 +233,7 @@
     }];
 }
 
--(void) updateUI{
+-(void) reloadInputViews{
     
     self.user = [UserAccessSession getUserSession];
     
