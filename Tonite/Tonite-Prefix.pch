@@ -54,6 +54,7 @@
     #import "Photo.h"
     #import "Event.h"
     #import "Video.h"
+    #import "TicketType.h"
     #import "Ticket.h"
     #import "TextEntry.h"
     #import "Venue.h"

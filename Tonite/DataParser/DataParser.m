@@ -144,6 +144,18 @@
             
             [array addObject:ticket];
         }
+        
+        /*dictEntry = [dict objectForKey:@"ticket_types"];
+        for(NSDictionary* dictCat in dictEntry) {
+            
+            NSString* className = NSStringFromClass([TicketType class]);
+            NSEntityDescription *entity = [NSEntityDescription entityForName:className inManagedObjectContext:context];
+            TicketType* ticketType = (TicketType*)[[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
+            
+            [ticketType safeSetValuesForKeysWithDictionary:dictCat];
+            
+            [array addObject:ticketType];
+        }*/
     }
     
     return array;
@@ -164,6 +176,7 @@
             [CoreDataController deleteAllObjects:@"Photo"];
             [CoreDataController deleteAllObjects:@"Venue"];
             [CoreDataController deleteAllObjects:@"Ticket"];
+            [CoreDataController deleteAllObjects:@"TicketType"];
             [CoreDataController deleteAllObjects:@"Video"];
             
             arrayData = [DataParser parseEventFromURLFormatJSON:DATA_JSON_URL];
