@@ -16,6 +16,7 @@
 		562FD4301AC073A200F6DD9C /* Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = 562FD42F1AC073A200F6DD9C /* Ticket.m */; };
 		56EC19B71ACB9BE90083858D /* TicketType.h in Resources */ = {isa = PBXBuildFile; fileRef = 56EC19B61ACB9BE80083858D /* TicketType.h */; };
 		56EC19B91ACB9C4A0083858D /* TicketType.m in Resources */ = {isa = PBXBuildFile; fileRef = 56EC19B81ACB9C4A0083858D /* TicketType.m */; };
+		56EC19BA1ACD1ED80083858D /* TicketType.m in Sources */ = {isa = PBXBuildFile; fileRef = 56EC19B81ACB9C4A0083858D /* TicketType.m */; };
 		CB11959D194D7B4000217D57 /* ZoomAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB11959B194D7B4000217D57 /* ZoomAnimationController.m */; };
 		CB26274519507C030024C15A /* side_bar_list_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = CB26273F19507C030024C15A /* side_bar_list_bg.png */; };
 		CB26274619507C030024C15A /* side_bar_list_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB26274019507C030024C15A /* side_bar_list_bg@2x.png */; };
@@ -2590,6 +2591,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56EC19BA1ACD1ED80083858D /* TicketType.m in Sources */,
 				CBAED3971948A4EF00769D68 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				CBAED3691948A4EF00769D68 /* METransitions.m in Sources */,
 				CBAED3B11948A4EF00769D68 /* MGTopLeftLabel.m in Sources */,
