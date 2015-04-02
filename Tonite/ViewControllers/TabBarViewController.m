@@ -24,6 +24,9 @@
     
     [self setSelectedIndex:0];
 
+    //TITLE LOGO NEEDED
+
+    
     [self.tabBar setFrame:CGRectMake(0, 0, self.view.frame.size.width, 40)];
     // Do any additional setup after loading the view.
     LBHamburgerButton* itemMenu = [[LBHamburgerButton alloc] initWithFrame:CGRectMake(0, 0, 0, 0)
@@ -66,7 +69,7 @@
 }
 
 -(void) didClickProfileMenuButton:(id) sender{
-    [self.slidingViewController anchorTopViewToLeftAnimated:YES];
+//    [self.delegate showProfileMenu];
 }
 
 -(void) reloadInputViews   {

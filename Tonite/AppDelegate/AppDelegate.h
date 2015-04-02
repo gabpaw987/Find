@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "ContentViewController.h"
-#import "SideViewController.h"
 #import "RightSideViewController.h"
 
 @class AppDelegate;
@@ -36,7 +35,7 @@
 @property (nonatomic, strong) RightSideViewController*
     rightMenuController;
 @property (nonatomic, strong) ContentViewController* contentViewController;
-@property (nonatomic, strong) SideViewController* sideViewController;
+
 
 
 +(AppDelegate*) instance;

@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PanelDelegate.h"
 
 @interface TabBarViewController : UITabBarController
+
+@property (nonatomic, assign) id<PanelDelegate> profileDelegate;
 
 -(void) reloadInputViews;
 @end

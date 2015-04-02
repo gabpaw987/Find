@@ -379,7 +379,7 @@
 -(IBAction)didClickCancelLogin:(id)sender {
     
     AppDelegate* delegate = [AppDelegate instance];
-    [delegate.rightMenuController updateUI];
+    [delegate.rightMenuController reloadInputViews];
   
     [self dismissViewControllerAnimated:YES completion:nil];
     [self.slidingViewController anchorTopViewToLeftAnimated:YES];
@@ -504,7 +504,7 @@
                 
                 
                 AppDelegate* delegate = [AppDelegate instance];
-                [delegate.rightMenuController updateUI];
+                [delegate.rightMenuController reloadInputViews];
                 
                 [self dismissViewControllerAnimated:YES completion:nil];
                 [self.slidingViewController anchorTopViewToLeftAnimated:YES];
@@ -727,7 +727,7 @@
     
     
     AppDelegate* delegate = [AppDelegate instance];
-    [delegate.rightMenuController updateUI];
+    [delegate.rightMenuController reloadInputViews];
     
     [self dismissViewControllerAnimated:YES completion:nil];
     [self.slidingViewController anchorTopViewToLeftAnimated:YES];

@@ -123,7 +123,7 @@
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-   return tableViewSide.frame.size.height/3;
+   return (tableViewSide.frame.size.height-65)/3;
 }
 
 

@@ -446,7 +446,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="U2Y-u2-451">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="508"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
@@ -456,9 +456,7 @@
                             <outlet property="tableView" destination="U2Y-u2-451" id="cdv-pf-uuS"/>
                         </connections>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title=" " id="tx8-kE-qkz"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableViewMain" destination="75K-6s-tvh" id="2pd-fh-FpE"/>

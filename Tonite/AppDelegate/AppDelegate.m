@@ -20,7 +20,6 @@
 
 @implementation AppDelegate
 
-@synthesize sideViewController;
 @synthesize contentViewController;
 @synthesize rightMenuController;
 
@@ -52,12 +51,12 @@
     UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     UINavigationController* navController = [storyboard instantiateViewControllerWithIdentifier:@"storyboardNav"];
     
-    sideViewController = [storyboard instantiateViewControllerWithIdentifier:@"storyboardSideView"];
+  //  sideViewController = [storyboard instantiateViewControllerWithIdentifier:@"storyboardSideView"];
     rightMenuController = [storyboard instantiateViewControllerWithIdentifier:@"storyboardRightSide"];
     
     self.slidingViewController = [ECSlidingViewController slidingWithTopViewController:navController];
     
-    self.slidingViewController.underLeftViewController  = sideViewController;
+   // self.slidingViewController.underLeftViewController  = sideViewController;
     
     self.slidingViewController.underRightViewController = rightMenuController;
     

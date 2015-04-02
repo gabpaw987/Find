@@ -932,6 +932,7 @@
 		E34C28491AC875EE00D7640A /* user160.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user160.png; sourceTree = "<group>"; };
 		E34C28501AC878AC00D7640A /* FADE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FADE.png; sourceTree = "<group>"; };
 		E34C28521AC878BB00D7640A /* slider-fade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider-fade.png"; sourceTree = "<group>"; };
+		E37840201ACB85FB008426EB /* PanelDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelDelegate.h; sourceTree = "<group>"; };
 		E39C05671A96A0E800BDFFE7 /* MyEventsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEventsController.h; sourceTree = "<group>"; };
 		E39C05681A96A0E800BDFFE7 /* MyEventsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEventsController.m; sourceTree = "<group>"; };
 		E3B871E91AC774FB009223D5 /* artsCulture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = artsCulture.png; sourceTree = "<group>"; };
@@ -1503,6 +1504,7 @@
 		CBAED25A1948A40F00769D68 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				E37840201ACB85FB008426EB /* PanelDelegate.h */,
 				E3216FBA1ACA4C3A00F23BBB /* LBHamburgerButton */,
 				CB344E8019787F7D000784DA /* CoreData */,
 				CBAED2D91948A4EE00769D68 /* AFNetworking */,
