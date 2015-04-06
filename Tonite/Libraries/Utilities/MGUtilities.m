@@ -230,11 +230,6 @@
     bannerView.frame = frame;
     
     GADRequest *request = [GADRequest request];
-    // Make the request for a test ad. Put in an identifier for
-    // the simulator as well as any devices you want to receive test ads.
-    
-    if(!REMOVE_TEST_ADS)
-        request.testDevices = TEST_ADS_ID;
     
     [bannerView loadRequest:request];
 }
