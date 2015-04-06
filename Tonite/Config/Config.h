@@ -91,37 +91,16 @@
 #define DATA_JSON_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"rest/data.php"]
 
 // DO NOT EDIT THIS
-#define DATA_NEWS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"rest/data_news.php"]
-
-// DO NOT EDIT THIS
 #define REGISTER_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"rest/register.php"]
 
 // DO NOT EDIT THISz
 #define USER_PHOTO_UPLOAD_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"rest/file_uploader_user_photo.php"]
 
 // DO NOT EDIT THIS
-#define REVIEWS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"rest/review_load_more.php"]
-
-// DO NOT EDIT THIS
-#define POST_REVIEW_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"rest/post_review.php"]
-
-// DO NOT EDIT THIS
-#define POST_RATING_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"rest/post_rating.php"]
-
-// DO NOT EDIT THIS
-#define GET_RATING_USER_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"rest/get_rating_user.php"]
-
-// DO NOT EDIT THIS
 #define LOGIN_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"rest/login.php"]
 
 // DO NOT EDIT THIS
 #define UPDATE_USER_PROFILE_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"rest/update_user_profile.php"]
-
-// DO NOT EDIT THIS
-#define WEATHER_URL @"http://api.openweathermap.org/data/2.5/weather?"
-
-// DO NOT EDIT THIS
-#define ICON_URL @"http://openweathermap.org/img/w/"
 
 // DO NOT EDIT THIS
 #define STATUS_SUCCESS @"-1"
@@ -146,21 +125,5 @@
 
 // DO NOT EDIT THIS
 #define ANCHOR_LEFT_PEEK 100.0
-
-// DO NOT EDIT THIS
-#define SEARCH_RADIUS_KILOMETERS 300
-
-// DO NOT EDIT THIS
-#define SEARCH_RADIUS_KILOMETERS_DEFAULT 50
-
-// DO NOT EDIT THIS
-#define SEARCH_RADIUS_KILOMETERS_MINIMUM 0
-
-// Adjust this if you want to display reviews at a
-// certain count and shows the View More Comments
-#define MAX_REVIEW_COUNT_PER_LISTING 5
-
-// Edit this to increase radius to show stores nearby
-#define MAX_RADIUS_NEARBY_IN_METERS 20000
 
 #endif
