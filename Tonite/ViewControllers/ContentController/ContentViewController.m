@@ -3,7 +3,8 @@
 #import "ContentViewController.h"
 #import "AppDelegate.h"
 #import "DetailViewController.h"
-
+#import "TabBarViewController.h"
+#import "LBHamburgerButton.h"
 
 @interface ContentViewController () <MGSliderDelegate, MGListViewDelegate>
 
@@ -25,33 +26,31 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.tabBarController.navigationController setNavigationBarHidden:NO];
+  //  [self.navigationController setNavigationBarHidden:YES];
 }
 
-
-
-- (void)viewDidAppear:(BOOL)animated{
+-(void) viewDidAppear:(BOOL)animated   {
     [super viewDidAppear:animated];
 }
 
--(void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
+-(void) viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
 }
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
   
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.view setBackgroundColor:[UIColor grayColor]];
-    BOOL screen = IS_IPHONE_6_PLUS_AND_ABOVE;
-    if(screen) {
-        CGRect frame = listViewEvents.frame;
-        frame.origin.y =65;
-        frame.size.height = self.view.frame.size.height-65;
-        listViewEvents.frame = frame;
-    }
+   // self.automaticallyAdjustsScrollViewInsets = NO;
+//    BOOL screen = IS_IPHONE_6_PLUS_AND_ABOVE;
+//    if(screen) {
+//        CGRect frame = listViewEvents.frame;
+//        frame.origin.y =65;
+//        frame.size.height = self.view.frame.size.height-65;
+//        listViewEvents.frame = frame;
+//    }
     listViewEvents.delegate = self;
     listViewEvents.cellHeight = (self.view.frame.size.height-65)/2;
     
@@ -60,11 +59,17 @@
     
     [self beginParsing];
     
-    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
-    swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
+    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleLeftSwipeGesture:)];
+    swipeGesture.direction = UISwipeGestureRecognizerDirectionLeft;
     swipeGesture.cancelsTouchesInView = YES; //So the user can still interact with controls in the modal view
     
     [self.slidingViewController.view addGestureRecognizer:swipeGesture];
+    
+    UISwipeGestureRecognizer *swipeRightGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleRightSwipeGesture:)];
+    swipeRightGesture.direction = UISwipeGestureRecognizerDirectionRight;
+    swipeRightGesture.cancelsTouchesInView = YES; //So the user can still interact with controls in the modal view
+    
+    [self.slidingViewController.view addGestureRecognizer:swipeRightGesture];
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
     tapGesture.numberOfTapsRequired = 1;
@@ -90,12 +95,25 @@
     return YES;
 }
 
-- (void)handleSwipeGesture:(UISwipeGestureRecognizer *)sender{
- 
+- (void)handleRightSwipeGesture:(UISwipeGestureRecognizer *)sender{
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        if(self.slidingViewController.currentTopViewPosition == ECSlidingViewControllerTopViewPositionAnchoredLeft){
+        [self.slidingViewController resetTopViewAnimated:YES    ];
+        }
+//        else{
+//            
+//            [self.tabBarController setSelectedIndex:1];
+//          
+//        }
+    }
+
 }
 
-
-
+-(void) handleLeftSwipeGesture:(UISwipeGestureRecognizer*) sender{
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        [self.slidingViewController anchorTopViewToLeftAnimated:YES onComplete:nil];
+    }
+}
 
 
 
@@ -223,6 +241,7 @@
     
     [cell.slideShow startAnimationWithDuration:2.5];
     [cell addSubview:cell.slideShow.scrollView];
+        //[cell.contentView addSubview:cell.slideShow];
     }
     
     [cell.buttonFave addTarget:self action:@selector(didSelectFave:) forControlEvents:UIControlEventTouchUpInside];
@@ -247,7 +266,7 @@
         [cell addSubview: cell.labelDetails];
         [cell addSubview: cell.locationIcon];
     
-  //  [cell setUserInteractionEnabled:YES];
+    [cell setUserInteractionEnabled:YES];
     return cell;
 }
 
@@ -274,6 +293,18 @@
 
 
 -(void)MGListView:(MGListView *)listView scrollViewDidScroll:(UIScrollView *)scrollView {
+    if([scrollView.panGestureRecognizer translationInView:self.view].y < 0)
+    {
+        
+        [self.tabBarController.navigationController setNavigationBarHidden:YES];
+      //  [self.navigationController setNavigationBarHidden:YES];
+    }
+    else if([scrollView.panGestureRecognizer translationInView:self.view].y > 0)
+    {
+        [self.tabBarController.navigationController setNavigationBarHidden:NO];
+      //  [self.navigationController setNavigationBarHidden:NO];
+    }
+
 }
 
 @end

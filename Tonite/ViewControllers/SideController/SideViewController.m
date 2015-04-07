@@ -9,6 +9,7 @@
 #import "SideViewController.h"
 #import "AppDelegate.h"
 #import "EventViewController.h"
+#import "MenuTableViewCell.h"
 
 @interface SideViewController ()
 
@@ -31,17 +32,20 @@
 
 -(void) viewWillAppear:(BOOL)animated {
     [self reloadInputViews];
-    [self.tabBarController.navigationController setNavigationBarHidden:NO];
+
+}
+
+-(void) viewWillDisappear:(BOOL)animated{
+    [self.slidingViewController resetTopViewAnimated:NO];
 }
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+  // Do any additional setup after loading the view.
     tableViewSide.delegate = self;
     tableViewSide.dataSource = self;
-
     
     self.categories =
     @[
@@ -66,17 +70,12 @@
       @"the411.png",
       @"thegiveback.png"];
 
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
-    tapGesture.numberOfTapsRequired = 1;
-    tapGesture.cancelsTouchesInView = NO; //So the user can still interact with controls in the modal view
-    
-    [self.slidingViewController.view addGestureRecognizer:tapGesture];
-    
+  
     UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
     swipeGesture.direction = UISwipeGestureRecognizerDirectionLeft;
     swipeGesture.cancelsTouchesInView = YES; //So the user can still interact with controls in the modal view
     
-    [self.slidingViewController.view addGestureRecognizer:swipeGesture];
+    [self.view addGestureRecognizer:swipeGesture];
 }
 
 - (void)didReceiveMemoryWarning
@@ -100,25 +99,11 @@
 
 - (void)handleSwipeGesture:(UISwipeGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateEnded) {
-        [self.slidingViewController resetTopViewAnimated:YES];
+//        [self.tabBarController reloadInputViews];
+//        [self.tabBarController setSelectedIndex:0];
     }
 }
 
-- (void)handleTapGesture:(UITapGestureRecognizer *)sender {
-    if (sender.state == UIGestureRecognizerStateEnded) {
-        UIView* view = sender.view;
-        CGPoint loc = [sender locationInView:view];
-        UIView* subview = [view hitTest:loc withEvent:nil];
-        //NSLog(NSStringFromClass([subview class]));
-
-        if (![NSStringFromClass([subview class]) isEqualToString:@"UITableViewCellContentView"] &&
-            [subview class] != [UIView class] &&
-            [subview class] != [UINavigationItem class] &&
-             subview != self.view) {
-            [self.slidingViewController resetTopViewAnimated:YES];
-        }
-    }
-}
 
 
 
@@ -138,19 +123,12 @@
 
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    MGListCell* cell =  [tableView dequeueReusableCellWithIdentifier:@"EntryCell"];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    cell.selectedColor = WHITE_TEXT_COLOR;
-    cell.unSelectedColor = WHITE_TEXT_COLOR;
-    
-    cell.unselectedImage = [UIImage imageNamed:self.backgroundImages[indexPath.row]];
-    cell.selectedImage = [UIImage imageNamed:SIDE_BAR_CELL_NORMAL];
-    
-    
-    NSString* title = self.categories[indexPath.row];
-    [cell.labelTitle setText:title];
+    MenuTableViewCell * cell =  [tableView dequeueReusableCellWithIdentifier:@"MenuCell"];
+    [cell setContentMode:UIViewContentModeScaleToFill];
+    [cell.imgBackground setImage: [UIImage imageNamed: self.backgroundImages[indexPath.row]]];
+    [cell setBackgroundColor:[UIColor blackColor]];
+    [cell.imgBackground setAlpha:.65];
+    [cell.labelTitle setText: self.categories[indexPath.row]];
     
     return cell;
 }
@@ -161,14 +139,13 @@
     // This undoes the Zoom Transition's scale because it affects the other transitions.
     // You normally wouldn't need to do anything like this, but we're changing transitions
     // dynamically so everything needs to start in a consistent state.
-    self.slidingViewController.topViewController.view.layer.transform = CATransform3DMakeScale(1, 1, 1);
+    //self.slidingViewController.topViewController.view.layer.transform = CATransform3DMakeScale(1, 1, 1);
 
-    
-
+  
     if(indexPath.row < 8){
-       
-        [self.tabBarController setSelectedIndex:2];
-        
+         EventViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardEvent"];
+        vc.mainCategoryId= [NSString stringWithFormat:@"%ld", (long)indexPath.row];
+        [self.tabBarController.navigationController pushViewController:vc animated:YES];
     }
 }
 
@@ -178,6 +155,30 @@
     [tableViewSide reloadData];
 }
 
+-(void) scrollViewWillBeginDecelerating:(UIScrollView *)scrollView  {
+    if([scrollView.panGestureRecognizer translationInView:self.view].y < 0)
+    {
+        [self.tabBarController.navigationController setNavigationBarHidden:YES];
+      //  [self.navigationController setNavigationBarHidden:YES];
+    }
+    else if([scrollView.panGestureRecognizer translationInView:self.view].y > 0)
+    {
+        [self.tabBarController.navigationController setNavigationBarHidden:NO];
+       // [self.navigationController setNavigationBarHidden:NO];
+    }
+
+}
+
+-(void) scrollViewDidScrollToTop:(UIScrollView *)scrollView{
+    if(scrollView.contentOffset.y == 0.0){
+        [self.tabBarController.navigationController setNavigationBarHidden:NO];
+        //[self.navigationController setNavigationBarHidden:NO];
+    }
+    else{
+        [self.tabBarController.navigationController setNavigationBarHidden:YES];
+       // [self.navigationController.navigationBar setHidden:YES];
+    }
+}
 
 /*
 #pragma mark - Navigation

@@ -294,7 +294,6 @@
 		CBAED2211948A1DD00769D68 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBAED2201948A1DD00769D68 /* UIKit.framework */; };
 		CBAED2271948A1DD00769D68 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CBAED2251948A1DD00769D68 /* InfoPlist.strings */; };
 		CBAED2291948A1DD00769D68 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAED2281948A1DD00769D68 /* main.m */; };
-		CBAED2301948A1DD00769D68 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBAED22E1948A1DD00769D68 /* Main_iPhone.storyboard */; };
 		CBAED2331948A1DD00769D68 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBAED2311948A1DD00769D68 /* Main_iPad.storyboard */; };
 		CBAED23B1948A1DD00769D68 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBAED23A1948A1DD00769D68 /* Images.xcassets */; };
 		CBAED2611948A43B00769D68 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAED2601948A43B00769D68 /* AppDelegate.m */; };
@@ -389,9 +388,13 @@
 		CBC8C37B1954BC8B00CEFCFB /* button_route@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBC8C3791954BC8B00CEFCFB /* button_route@2x.png */; };
 		CBE78817194B735D0010B76E /* UILabel+DynamicHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE78816194B735D0010B76E /* UILabel+DynamicHeight.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		CBFEC954194CC0BC00A64FEC /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBFEC953194CC0BC00A64FEC /* ReviewCell.xib */; };
+		E31FD7DD1AD461CE00789CB2 /* Gradient-OVERLAY.png in Resources */ = {isa = PBXBuildFile; fileRef = E31FD7DC1AD461CE00789CB2 /* Gradient-OVERLAY.png */; };
 		E3216FB51ACA45AA00F23BBB /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3216FB41ACA45AA00F23BBB /* TabBarViewController.m */; };
 		E3216FBC1ACA4D2100F23BBB /* HamburgerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E3216FBB1ACA4D2100F23BBB /* HamburgerButton.m */; };
 		E3268B7A1AA513C6004FA763 /* RightSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3268B791AA513C6004FA763 /* RightSideViewController.m */; };
+		E339573E1AD2FD9400A6D2AD /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E339573D1AD2FD9400A6D2AD /* MenuTableViewCell.m */; };
+		E33957401AD30DCB00A6D2AD /* TONITELOGO_new.png in Resources */ = {isa = PBXBuildFile; fileRef = E339573F1AD30DCB00A6D2AD /* TONITELOGO_new.png */; };
+		E33957431AD39BC900A6D2AD /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E33957411AD39BC900A6D2AD /* Main_iPhone.storyboard */; };
 		E34C28421AC8717C00D7640A /* navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = E34C28411AC8717C00D7640A /* navbar.png */; };
 		E34C284A1AC875EE00D7640A /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = E34C28441AC875EE00D7640A /* heart.png */; };
 		E34C284B1AC875EE00D7640A /* home152.png in Resources */ = {isa = PBXBuildFile; fileRef = E34C28451AC875EE00D7640A /* home152.png */; };
@@ -688,7 +691,7 @@
 		CB7DFBD4195216BB007FC9B9 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		CB7DFBD5195216BB007FC9B9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		CB7DFBE219521999007FC9B9 /* SideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideViewController.h; sourceTree = "<group>"; };
-		CB7DFBE319521999007FC9B9 /* SideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideViewController.m; sourceTree = "<group>"; };
+		CB7DFBE319521999007FC9B9 /* SideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = SideViewController.m; sourceTree = "<group>"; };
 		CB7DFBE6195224DF007FC9B9 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		CB7DFBE7195224DF007FC9B9 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		CB820A97194F27E8000E64DB /* MGButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGButton.h; sourceTree = "<group>"; };
@@ -730,7 +733,6 @@
 		CBAED2241948A1DD00769D68 /* Tonite-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tonite-Info.plist"; sourceTree = "<group>"; };
 		CBAED2261948A1DD00769D68 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CBAED2281948A1DD00769D68 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CBAED22F1948A1DD00769D68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		CBAED2321948A1DD00769D68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		CBAED23A1948A1DD00769D68 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Tonite/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		CBAED2411948A1DD00769D68 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -916,12 +918,17 @@
 		CBE78815194B735D0010B76E /* UILabel+DynamicHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+DynamicHeight.h"; sourceTree = "<group>"; };
 		CBE78816194B735D0010B76E /* UILabel+DynamicHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+DynamicHeight.m"; sourceTree = "<group>"; };
 		CBFEC953194CC0BC00A64FEC /* ReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
+		E31FD7DC1AD461CE00789CB2 /* Gradient-OVERLAY.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Gradient-OVERLAY.png"; path = "../../Views/Gradient-OVERLAY.png"; sourceTree = "<group>"; };
 		E3216FB31ACA45AA00F23BBB /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
-		E3216FB41ACA45AA00F23BBB /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		E3216FB41ACA45AA00F23BBB /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TabBarViewController.m; sourceTree = "<group>"; };
 		E3216FB91ACA4C3300F23BBB /* LBHamburgerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBHamburgerButton.h; sourceTree = "<group>"; };
 		E3216FBB1ACA4D2100F23BBB /* HamburgerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HamburgerButton.m; sourceTree = "<group>"; };
 		E3268B781AA513C6004FA763 /* RightSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightSideViewController.h; sourceTree = "<group>"; };
 		E3268B791AA513C6004FA763 /* RightSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightSideViewController.m; sourceTree = "<group>"; };
+		E339573C1AD2FD9400A6D2AD /* MenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewCell.h; sourceTree = "<group>"; };
+		E339573D1AD2FD9400A6D2AD /* MenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewCell.m; sourceTree = "<group>"; };
+		E339573F1AD30DCB00A6D2AD /* TONITELOGO_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TONITELOGO_new.png; sourceTree = "<group>"; };
+		E33957421AD39BC900A6D2AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Tonite/Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		E34C28411AC8717C00D7640A /* navbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbar.png; sourceTree = "<group>"; };
 		E34C28441AC875EE00D7640A /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
 		E34C28451AC875EE00D7640A /* home152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home152.png; sourceTree = "<group>"; };
@@ -1233,6 +1240,8 @@
 			children = (
 				CB7DFBE219521999007FC9B9 /* SideViewController.h */,
 				CB7DFBE319521999007FC9B9 /* SideViewController.m */,
+				E339573C1AD2FD9400A6D2AD /* MenuTableViewCell.h */,
+				E339573D1AD2FD9400A6D2AD /* MenuTableViewCell.m */,
 			);
 			path = SideController;
 			sourceTree = "<group>";
@@ -1626,7 +1635,7 @@
 		CBAED2671948A4A600769D68 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				CBAED22E1948A1DD00769D68 /* Main_iPhone.storyboard */,
+				E33957411AD39BC900A6D2AD /* Main_iPhone.storyboard */,
 				CBAED2311948A1DD00769D68 /* Main_iPad.storyboard */,
 			);
 			name = Storyboards;
@@ -2198,6 +2207,8 @@
 		E34C28431AC875EE00D7640A /* 1x */ = {
 			isa = PBXGroup;
 			children = (
+				E339573F1AD30DCB00A6D2AD /* TONITELOGO_new.png */,
+				E31FD7DC1AD461CE00789CB2 /* Gradient-OVERLAY.png */,
 				E34C28441AC875EE00D7640A /* heart.png */,
 				E34C28521AC878BB00D7640A /* slider-fade.png */,
 				E34C28501AC878AC00D7640A /* FADE.png */,
@@ -2298,6 +2309,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E33957401AD30DCB00A6D2AD /* TONITELOGO_new.png in Resources */,
 				CB48DD7019D44E630039C26B /* ic_register@3x.png in Resources */,
 				CB48DCEB19D444370039C26B /* button_login_large@3x.png in Resources */,
 				CB7DFB9D1951DDF9007FC9B9 /* Icon-Small-40.png in Resources */,
@@ -2373,6 +2385,7 @@
 				CB422134194AD85000528013 /* ic_map_location@2x.png in Resources */,
 				CB820ADD194F7C47000E64DB /* bg_header_aboutus@2x.png in Resources */,
 				CB7DFBB719520673007FC9B9 /* detail_image_placeholder.png in Resources */,
+				E31FD7DD1AD461CE00789CB2 /* Gradient-OVERLAY.png in Resources */,
 				CB7DFBC31952088E007FC9B9 /* profile_thumb_placeholder.png in Resources */,
 				CB820AA3194F783D000E64DB /* TCView.xib in Resources */,
 				CB42218C194AEC2300528013 /* DetailCell.xib in Resources */,
@@ -2406,7 +2419,6 @@
 				CB48DD1E19D444580039C26B /* ic_map_location@3x.png in Resources */,
 				CB422147194AD85000528013 /* image_viewer_placeholder.png in Resources */,
 				CB7DFBCB19520A1E007FC9B9 /* slider_placeholder.png in Resources */,
-				CBAED2301948A1DD00769D68 /* Main_iPhone.storyboard in Resources */,
 				CB7DFBD7195216BB007FC9B9 /* Default-568h@2x.png in Resources */,
 				CB2627D01950DF6F0024C15A /* button_share_facebook.png in Resources */,
 				CB2627C81950D67F0024C15A /* button_twitter.png in Resources */,
@@ -2540,6 +2552,7 @@
 				CB48DD4A19D444700039C26B /* textbox_password@3x.png in Resources */,
 				CB4F50E619542B4A002EB321 /* ic_settings@2x.png in Resources */,
 				CB48DCF219D444370039C26B /* button_twitter_large@3x.png in Resources */,
+				E33957431AD39BC900A6D2AD /* Main_iPhone.storyboard in Resources */,
 				CB4221B7194B01BB00528013 /* divider_black@2x.png in Resources */,
 				CB820ABB194F788D000E64DB /* button_facebook_large.png in Resources */,
 				CB422137194AD85000528013 /* ic_map_refresh.png in Resources */,
@@ -2608,6 +2621,7 @@
 				E3216FBC1ACA4D2100F23BBB /* HamburgerButton.m in Sources */,
 				E39C05691A96A0E800BDFFE7 /* MyEventsController.m in Sources */,
 				562FD4271AC06CDE00F6DD9C /* TextEntry.m in Sources */,
+				E339573E1AD2FD9400A6D2AD /* MenuTableViewCell.m in Sources */,
 				CBAED3BA1948A4EF00769D68 /* JSONKit.m in Sources */,
 				CB344E8319787F7D000784DA /* NSManageObject+Bindings.m in Sources */,
 				CBAED3A31948A4EF00769D68 /* MGUIAppearance.m in Sources */,
@@ -2707,15 +2721,6 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		CBAED22E1948A1DD00769D68 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CBAED22F1948A1DD00769D68 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			path = Tonite;
-			sourceTree = "<group>";
-		};
 		CBAED2311948A1DD00769D68 /* Main_iPad.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2739,6 +2744,14 @@
 				CBAED2651948A49900769D68 /* en */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		E33957411AD39BC900A6D2AD /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E33957421AD39BC900A6D2AD /* Base */,
+			);
+			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

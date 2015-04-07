@@ -21,12 +21,11 @@
 @synthesize labelFirstName;
 @synthesize labelLastName;
 @synthesize imgViewThumb;
-@synthesize imgViewCover;
 
 @synthesize buttonThumb;
-@synthesize buttonCover;
 @synthesize buttonRegister;
-
+@synthesize loginFacebook;
+@synthesize loginTwitter;
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];

@@ -24,7 +24,7 @@
 @implementation RegisterViewController
 
 @synthesize scrollViewRegister;
-@synthesize barButtonCancel;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,18 +35,16 @@
     return self;
 }
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = LOCALIZED(@"REGISTER");
-    [MGUIAppearance enhanceNavBarController:self.navigationController
-                               barTintColor:WHITE_TEXT_COLOR
-                                  tintColor:WHITE_TEXT_COLOR
-                             titleTextColor:WHITE_TEXT_COLOR];
-    
+  
     _registerView = [[MGRegisterView alloc] initWithNibName:@"RegisterView"];
     scrollViewRegister.frame = self.view.frame;
+    
     
     BOOL screen = IS_IPHONE_6_PLUS_AND_ABOVE;
     if(screen) {
@@ -57,7 +55,8 @@
     }
     
     scrollViewRegister.frame = self.view.frame;
-    
+    [scrollViewRegister setBackgroundColor:[UIColor whiteColor]];
+  //  [_registerView setBackgroundColor:[UIColor clearColor]];
     _registerView.textFieldUsername.delegate = self;
     _registerView.textFieldPassword.delegate = self;
     _registerView.textFieldFullName.delegate = self;
@@ -98,15 +97,10 @@
     [_registerView.buttonThumb addTarget:self
                                      action:@selector(didClickThumbButton:)
                            forControlEvents:UIControlEventTouchUpInside];
-    
-    [_registerView.buttonCover addTarget:self
-                                          action:@selector(didClickCoverButton:)
-                                forControlEvents:UIControlEventTouchUpInside];
-    
+ 
     
     [_registerView.buttonThumb setTitleColor:WHITE_TEXT_COLOR
                                    forState:UIControlStateNormal];
-    
     [_registerView.buttonThumb setTitleColor:WHITE_TEXT_COLOR
                                    forState:UIControlStateSelected];
     
@@ -115,32 +109,14 @@
     
     [_registerView.buttonThumb setTitle:LOCALIZED(@"CLICK_TO_ADD")
                               forState:UIControlStateSelected];
-    
-    
-    
-    [_registerView.buttonCover setTitleColor:WHITE_TEXT_COLOR
-                                   forState:UIControlStateNormal];
-    
-    [_registerView.buttonCover setTitleColor:WHITE_TEXT_COLOR
-                                   forState:UIControlStateSelected];
-    
-    [_registerView.buttonCover setTitle:LOCALIZED(@"CLICK_TO_ADD")
-                              forState:UIControlStateNormal];
-    
-    [_registerView.buttonCover setTitle:LOCALIZED(@"CLICK_TO_ADD")
-                              forState:UIControlStateSelected];
-    
-    
     
     [_registerView.buttonRegister setTitleColor:WHITE_TEXT_COLOR
                                     forState:UIControlStateNormal];
-    
     [_registerView.buttonRegister setTitleColor:WHITE_TEXT_COLOR
                                     forState:UIControlStateSelected];
     
     [_registerView.buttonRegister setTitle:LOCALIZED(@"REGISTER")
                                forState:UIControlStateNormal];
-    
     [_registerView.buttonRegister setTitle:LOCALIZED(@"REGISTER")
                                forState:UIControlStateSelected];
     
@@ -148,6 +124,37 @@
                    borderColor:THEME_MAIN_COLOR
                    shadowColor:[UIColor clearColor]
                    borderWidth:CELL_BORDER_WIDTH];
+    [_registerView.loginFacebook addTarget:self
+                            action:@selector(didClickLoginToFacebook:)
+                  forControlEvents:UIControlEventTouchUpInside];
+    [_registerView.loginFacebook setTitleColor:WHITE_TEXT_COLOR
+                              forState:UIControlStateNormal];
+    [_registerView.loginFacebook setTitleColor:WHITE_TEXT_COLOR
+                              forState:UIControlStateSelected];
+    [_registerView.loginFacebook setTitle:LOCALIZED(@"LOGIN_TO_FACEBOOK")
+                         forState:UIControlStateNormal];
+    [_registerView.loginFacebook setTitle:LOCALIZED(@"LOGIN_TO_FACEBOOK")
+                         forState:UIControlStateSelected];
+    
+    [_registerView.loginTwitter addTarget:self
+                                 action:@selector(didClickLoginToTwitter:)
+                       forControlEvents:UIControlEventTouchUpInside];
+    [_registerView.loginTwitter setTitleColor:WHITE_TEXT_COLOR
+                                   forState:UIControlStateNormal];
+    [_registerView.loginTwitter setTitleColor:WHITE_TEXT_COLOR
+                                   forState:UIControlStateSelected];
+    [_registerView.loginTwitter setTitle:LOCALIZED(@"LOGIN_TO_TWITTER")
+                              forState:UIControlStateNormal];
+    [_registerView.loginTwitter setTitle:LOCALIZED(@"LOGIN_TO_TWITTER")
+                              forState:UIControlStateSelected];
+    
+    UIButton* buttonCancel = [UIButton buttonWithType:UIButtonTypeCustom  ];
+    [buttonCancel addTarget:self action:@selector(didClickCancelLogin:) forControlEvents:UIControlEventTouchUpInside  ];
+    [buttonCancel setBackgroundColor:[UIColor blackColor]];
+    [buttonCancel setBackgroundImage: [UIImage imageNamed:BUTTON_CLOSE] forState:UIControlStateNormal];
+    [buttonCancel setBackgroundImage:[UIImage imageNamed:BUTTON_CLOSE ]forState:UIControlStateSelected];
+    [buttonCancel setFrame: CGRectMake(20, 20, 25, 25) ];
+    [self.view addSubview:buttonCancel];
 }
 
 - (void)didReceiveMemoryWarning
@@ -206,7 +213,7 @@
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
     
-    CGPoint point = _registerView.buttonCover.frame.origin;
+    CGPoint point = _registerView.frame.origin;
     
     if (textField == _registerView.textFieldFullName) {
         
@@ -287,11 +294,6 @@
     [self showPicker];
 }
 
--(void)didClickCoverButton:(id)sender {
-    
-    _isThumbSelected = NO;
-    [self showPicker];
-}
 
 -(void)showPicker {
     
@@ -344,10 +346,7 @@
             _imgThumb = imageToUse;
             [self displayImage:_registerView.imgViewThumb image:imageToUse];
         }
-        else {
-            _imgCover = imageToUse;
-            [self displayImage:_registerView.imgViewCover image:imageToUse];
-        }
+        
         
     }
     
@@ -372,21 +371,6 @@
     UIImage* croppedImage = [img imageByScalingAndCroppingForSize:size];
     imgView.image = croppedImage;
 }
-
-
-
-
--(IBAction)didClickCancelLogin:(id)sender {
-    
-    AppDelegate* delegate = [AppDelegate instance];
-    [delegate.rightMenuController reloadInputViews];
-  
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [self.slidingViewController anchorTopViewToLeftAnimated:YES];
-}
-
-
-
 
 
 
@@ -438,8 +422,7 @@
     
     [self.view addSubview:hud];
     [self.view setUserInteractionEnabled:NO];
-    barButtonCancel.enabled = NO;
-    
+   
     NSURL *url = [NSURL URLWithString:REGISTER_URL];
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
     
@@ -487,8 +470,7 @@
                     
                     [hud removeFromSuperview];
                     [self.view setUserInteractionEnabled:YES];
-                    barButtonCancel.enabled = YES;
-                    
+                  
                     [self performSelector:@selector(delaySocial:)
                                withObject:nil
                                afterDelay:0.5];
@@ -500,9 +482,7 @@
                 
                 [hud removeFromSuperview];
                 [self.view setUserInteractionEnabled:YES];
-                barButtonCancel.enabled = YES;
-                
-                
+              
                 AppDelegate* delegate = [AppDelegate instance];
                 [delegate.rightMenuController reloadInputViews];
                 
@@ -517,8 +497,7 @@
             
             [hud removeFromSuperview];
             [self.view setUserInteractionEnabled:YES];
-            barButtonCancel.enabled = YES;
-        }
+      }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -526,8 +505,7 @@
         
         [hud removeFromSuperview];
         [self.view setUserInteractionEnabled:YES];
-        barButtonCancel.enabled = YES;
-        
+      
         [MGUtilities showAlertTitle:LOCALIZED(@"NETWORK_ERROR")
                             message:LOCALIZED(@"SIGNUP_CONNECTING_ERROR")];
     }];
@@ -633,8 +611,7 @@
     
     [self.view addSubview:hud];
     [self.view setUserInteractionEnabled:NO];
-    barButtonCancel.enabled = NO;
-    
+ 
     NSURL *url = [NSURL URLWithString:REGISTER_URL];
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
     
@@ -692,8 +669,7 @@
                     
                     [hud removeFromSuperview];
                     [self.view setUserInteractionEnabled:YES];
-                    barButtonCancel.enabled = YES;
-                    
+                  
                     [self performSelector:@selector(delaySocial:)
                                withObject:nil
                                afterDelay:0.5];
@@ -704,7 +680,6 @@
             
             [hud removeFromSuperview];
             [self.view setUserInteractionEnabled:YES];
-            barButtonCancel.enabled = YES;
             
             [MGUtilities showAlertTitle:LOCALIZED(@"LOGIN_ERROR")
                                 message:[dictStatus valueForKey:@"status_text"]];
@@ -716,8 +691,7 @@
         
         [hud removeFromSuperview];
         [self.view setUserInteractionEnabled:YES];
-        barButtonCancel.enabled = YES;
-        
+     
         [MGUtilities showAlertTitle:LOCALIZED(@"NETWORK_ERROR")
                             message:LOCALIZED(@"SIGNUP_CONNECTING_ERROR")];
     }];
@@ -815,7 +789,6 @@
             
             [hud removeFromSuperview];
             [self.view setUserInteractionEnabled:YES];
-            barButtonCancel.enabled = YES;
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -829,13 +802,16 @@
         
         [hud removeFromSuperview];
         [self.view setUserInteractionEnabled:YES];
-        barButtonCancel.enabled = YES;
-        
+  
     }];
     [operation start];
 }
 
 
+-(void) didClickCancelLogin:(UIButton*) sender{
+  [self dismissViewControllerAnimated:YES completion:nil];
+   
+}
 
 
 

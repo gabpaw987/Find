@@ -66,14 +66,15 @@
 +(UIView*)createLogo:(NSString*)logoFileName {
     
     UIImage* image = [UIImage imageNamed:logoFileName];
-    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
-    
+    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 7.0, 90, 45)];
+    [view setClipsToBounds:YES];
+    [view setContentMode:UIViewContentModeScaleAspectFit];
     UIButton* btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = view.frame;
-    
+  
     [btn setBackgroundImage:image forState:UIControlStateNormal];
     [btn setBackgroundImage:image forState:UIControlStateSelected];
-    
+    [btn setUserInteractionEnabled:NO];
     [view setBackgroundColor:[UIColor  clearColor]];
     [view addSubview:btn];
     view.layer.zPosition = 9999;

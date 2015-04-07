@@ -16,8 +16,4 @@
 
 @property (nonatomic, retain) IBOutlet MGRawScrollView* scrollViewRegister;
 
-@property (nonatomic, retain) IBOutlet UIBarButtonItem* barButtonCancel;
-
--(IBAction)didClickCancelLogin:(id)sender;
-
 @end

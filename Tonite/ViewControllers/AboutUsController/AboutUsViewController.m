@@ -25,11 +25,8 @@
     return self;
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-    self.navigationItem.titleView = [MGUIAppearance createLogo:HEADER_LOGO];
-    
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [_aboutView removeFromSuperview];
     [scrollViewMain addSubview:_aboutView];
     scrollViewMain.contentSize = _aboutView.frame.size;
@@ -39,14 +36,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //    self.navigationItem.titleView = [MGUIAppearance createLogo:HEADER_LOGO];
+
+    
     self.view.backgroundColor = BG_VIEW_COLOR;
-    
-    [MGUIAppearance enhanceNavBarController:self.navigationController
-                               barTintColor:WHITE_TEXT_COLOR
-                                  tintColor:WHITE_TEXT_COLOR
-                             titleTextColor:WHITE_TEXT_COLOR];
-    
+
+   // scrollViewMain.frame = self.view.frame;
     _aboutView = [[MGRawView alloc] initWithFrame:scrollViewMain.frame nibName:@"AboutUsView"];
     
     BOOL screen = IS_IPHONE_6_PLUS_AND_ABOVE;
@@ -55,19 +49,13 @@
         frame.size.width = self.view.frame.size.width;
         _aboutView.frame = frame;
     }
-    
-    scrollViewMain.frame = self.view.frame;
-    
-    [_aboutView.label1 setText:LOCALIZED(@"ABOUT_US")];
+
     [_aboutView.label2 setText:LOCALIZED(@"ABOUT_US_DETAIL_1")];
-    [_aboutView.label3 setText:LOCALIZED(@"ABOUT_US_DETAIL_2")];
     
     [_aboutView.buttonEmail setTitle:LOCALIZED(@"CONTACT_US")
                             forState:UIControlStateNormal];
-    
     [_aboutView.buttonEmail setTitle:LOCALIZED(@"CONTACT_US")
                             forState:UIControlStateSelected];
-    
     [_aboutView.buttonEmail addTarget:self
                               action:@selector(didClickEmailButton:)
                     forControlEvents:UIControlEventTouchUpInside];
@@ -76,26 +64,24 @@
     inset.bottom = NAV_BAR_OFFSET_DEFAULT;
     inset.top = 0;
     scrollViewMain.contentInset = inset;
-    
-    inset = scrollViewMain.scrollIndicatorInsets;
-    inset.bottom = NAV_BAR_OFFSET_DEFAULT;
-    inset.top = 0;
-    scrollViewMain.scrollIndicatorInsets = inset;
 
-    UIBarButtonItem* itemMenu = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed: BUTTON_CLOSE]
-                                                                 style:UIBarButtonItemStylePlain
-                                                                target:self
-                                                                action:@selector(didClickBarButtonMenu:)];
-    self.navigationItem.leftBarButtonItem = itemMenu;
+    UIButton* itemMenu = [UIButton buttonWithType:UIButtonTypeCustom  ];
+    [itemMenu addTarget:self action:@selector(didClickBarButtonMenu:) forControlEvents:UIControlEventTouchUpInside  ];
+    [itemMenu setBackgroundImage: [UIImage imageNamed:BUTTON_CLOSE] forState:UIControlStateNormal];
+    [itemMenu setBackgroundImage:[UIImage imageNamed:BUTTON_CLOSE ]forState:UIControlStateSelected];
+    [itemMenu setFrame: CGRectMake(20, 20, 25, 25) ];
+    [self.view addSubview:itemMenu];
+
 }
 
 -(void)didClickBarButtonMenu:(id)sender {
-  
-  UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardContent"];
-
-    [self.slidingViewController anchorTopViewToLeftAnimated:YES];
-    [self.navigationController setViewControllers:[NSArray arrayWithObject: vc]];
-    [self.slidingViewController resetTopViewAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+//  UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardContent"];
+//
+//    [self.slidingViewController anchorTopViewToLeftAnimated:YES];
+//    [self.navigationController setViewControllers:[NSArray arrayWithObject: vc]];
+//    [self.slidingViewController resetTopViewAnimated:YES];
 }
 
 -(void)didClickEmailButton:(id)sender {

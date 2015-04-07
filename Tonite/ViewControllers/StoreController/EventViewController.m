@@ -3,9 +3,11 @@
 #import "EventViewController.h"
 #import "AppDelegate.h"
 #import "DetailViewController.h"
+#import "MGSlider.h"
 
 
-@interface EventViewController ()
+@interface EventViewController () <MGSliderDelegate, MGListViewDelegate>
+
 @end
 
 @implementation EventViewController
@@ -24,13 +26,18 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+   // [self.navigationController setNavigationBarHidden:YES];
+}
+
+
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
 }
-
-
 
 - (void)viewDidLoad
 {
@@ -38,34 +45,22 @@
     // Do any additional setup after loading the view.
     
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
+    [self.view setBackgroundColor:[UIColor grayColor]];
     BOOL screen = IS_IPHONE_6_PLUS_AND_ABOVE;
     if(screen) {
-        
         CGRect frame = listViewMain.frame;
-        frame.origin.y =65;
-        frame.size.height = self.view.frame.size.height-65;
+        frame.origin.y =64;
+        frame.size.height = self.view.frame.size.height-64;
         listViewMain.frame = frame;
     }
-    
     listViewMain.delegate = self;
-    listViewMain.cellHeight = self.view.frame.size.height/2;
-    
+    listViewMain.cellHeight = (self.view.frame.size.height-64)/2;
     
     [listViewMain registerNibName:@"SliderCell" cellIndentifier:@"SliderCell"];
     [listViewMain baseInit];
     
     [self beginParsing];
-    /*
-    UIBarButtonItem* itemMenu = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:BUTTON_MENU]
-                                                                 style:UIBarButtonItemStylePlain
-                                                                target:self
-                                                                action:@selector(didClickBarButtonMenu:)];
-    self.navigationItem.leftBarButtonItem = itemMenu;
     
-    UIBarButtonItem* itemLoginMenu = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed: ICON_REGISTER] style:UIBarButtonItemStylePlain target:self action:@selector(didClickProfileMenuButton:)];
-    
-    self.navigationItem.rightBarButtonItem = itemLoginMenu;
     UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
     swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
     swipeGesture.cancelsTouchesInView = YES; //So the user can still interact with controls in the modal view
@@ -77,25 +72,11 @@
     tapGesture.cancelsTouchesInView = NO; //So the user can still interact with controls in the modal view
     
     [self.view addGestureRecognizer:tapGesture];
-    */
-    
 }
 
 
 - (void)handleTapGesture:(UITapGestureRecognizer *)sender {
-    if (sender.state == UIGestureRecognizerStateEnded) {
-        UIView* view = sender.view;
-        CGPoint loc = [sender locationInView:view];
-        //  UIView* subview = [view hitTest:loc withEvent:nil];
-        //        NSLog(NSStringFromClass([subview class]));
-        if(loc.x < 80 && ([self class] ==[ContentViewController class])){
-            for(RightSideViewController* vc in self.childViewControllers){
-                [ vc willMoveToParentViewController:nil];
-                [ vc.view removeFromSuperview];
-                [ vc removeFromParentViewController];
-            }
-        }
-    }
+    
 }
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
@@ -111,16 +92,8 @@
 }
 
 - (void)handleSwipeGesture:(UISwipeGestureRecognizer *)sender{
-    if (sender.state == UIGestureRecognizerStateEnded) {
-        for(RightSideViewController* vc in self.childViewControllers){
-            [ vc willMoveToParentViewController:nil];
-            [ vc.view removeFromSuperview];
-            [ vc removeFromParentViewController];
-        }
-    }
+    
 }
-
-
 
 
 
@@ -173,13 +146,11 @@
 
 
 -(void) setData {
-    
-    listViewMain.arrayData = [NSMutableArray arrayWithArray:[CoreDataController getEventsByCategoryId:mainCategoryId]];
+    listViewMain.arrayData = [NSMutableArray arrayWithArray:[CoreDataController getAllEvents]];
     
 }
 
 -(void)didClickButtonGo:(id)sender {
-    
     MGButton* button = (MGButton*)sender;
     DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardDetail"];
     vc.event = button.object;
@@ -187,7 +158,6 @@
 }
 
 -(void)setImage:(NSString*)imageUrl imageView:(UIImageView*)imgView {
-    
     NSURL* url = [NSURL URLWithString:imageUrl];
     NSURLRequest* urlRequest = [NSURLRequest requestWithURL:url];
     
@@ -221,9 +191,7 @@
 -(void) MGListView:(MGListView *)_listView didSelectCell:(MGListCell *)cell indexPath:(NSIndexPath *)indexPath {
     
     Event* event= [listViewMain.arrayData objectAtIndex:indexPath.row];
-    
     DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardDetail"];
-    //vc.strUrl = news.news_url;
     vc.event = event;
     [self.navigationController pushViewController:vc animated:YES];
     
@@ -232,49 +200,78 @@
 -(UITableViewCell*)MGListView:(MGListView *)listView1 didCreateCell:(MGListCell *)cell indexPath:(NSIndexPath *)indexPath {
     if(cell == nil){
         cell = [[MGListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SliderCell"];
+        [cell setBackgroundColor:[UIColor grayColor]];
     }
     
     for(UIView* view in cell.subviews)
         [view removeFromSuperview];
-    
     Event* event = [listViewMain.arrayData objectAtIndex:indexPath.row];
+    Venue* venue = [CoreDataController getVenueByVenueId:event.venue_id];
     [cell.slideShow setImageArray:[CoreDataController getEventPhotosByEventId:event.event_id] ];
     [cell.slideShow setNumberOfItems:[cell.slideShow.imageArray count]];
     
-    CGRect frame = cell.frame;
-    frame.size.width = self.view.frame.size.width;
-    frame.size.height = listViewMain.cellHeight;
     
-    if(cell.slideShow.numberOfItems == 0){
-        
-        //DEFAULT VIEW???
-    }
-    else{
-        
-        
+    if([cell.slideShow.imageArray count] != 0){
+        CGRect frame = cell.frame;
+        frame.size.width = self.view.frame.size.width;
+        frame.size.height = listViewMain.cellHeight-2 ;
         cell.slideShow.event  = event;
-        [cell.slideShow setNibName: @"SliderView"];
         [cell.slideShow setNeedsReLayoutWithViewSize:frame.size];
-        NSInteger randomNumber = arc4random() % 9;
-        float x = (float) (randomNumber/ 9) + 2;
-        [cell.slideShow startAnimationWithDuration:x];
-        [cell addSubview: cell.slideShow.scrollView];
         
+        //*** Timing of the sliding photos **********//
+        // NSInteger randomNumber = arc4random() % 9;
+        //float x = (float) (randomNumber/ 9) + 2;
         
+        [cell.slideShow startAnimationWithDuration:2.5];
+        [cell addSubview:cell.slideShow.scrollView];
     }
     
+    [cell.buttonFave addTarget:self action:@selector(didSelectFave:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.buttonFave setBackgroundImage:[UIImage imageNamed:LIKE_IMG] forState:UIControlStateNormal];
     
     
-    [cell.labelTitle setText:event.event_name   ];
-    [cell.labelSubtitle setText: event.event_address];
-    [cell addSubview: cell.labelTitle];
-    [cell addSubview: cell.labelSubtitle];
-    [cell setUserInteractionEnabled:NO];
+    // [cell.labelExtraInfo setText: event_price????];
+    cell.labelTitle.text =event.event_name;
+    cell.labelSubtitle.text=  venue.venue_name;
+    if(event.event_name == venue.venue_name){
+        [cell.labelSubtitle setText:event.event_address];
+    }
+    NSString* date = [self formatDateWithStart:event.event_date_starttime withEndTime:event.event_endtime];
+    [cell.labelDetails setText:date];
+    [cell.labelSubtitle setClipsToBounds:YES];
+    [cell addSubview: cell.fade ];
+    [cell addSubview:cell.labelTitle];
+    [cell addSubview:cell.labelSubtitle];
+    [cell addSubview:cell.labelExtraInfo];
+    [cell addSubview: cell.buttonFave];
+    [cell addSubview: cell.divider];
+    [cell addSubview: cell.labelDetails];
+    [cell addSubview: cell.locationIcon];
     
-    
+    //  [cell setUserInteractionEnabled:YES];
     return cell;
 }
 
+-(void) didSelectFave:(id)sender{
+    UIButton* btn = (UIButton* ) sender;
+    if(btn.state == UIControlStateSelected){
+        [btn setBackgroundImage:[UIImage imageNamed:LIKE_IMG] forState:UIControlStateNormal];
+    }
+    else{
+        [btn setBackgroundImage:[UIImage imageNamed:STARRED_IMG] forState:UIControlStateNormal];
+        
+    }
+}
+
+-(NSString*)formatDateWithStart:(NSString*)dateAndStart withEndTime:(NSString*)endTime{
+    NSCharacterSet *charc=[NSCharacterSet characterSetWithCharactersInString:@" "];
+    
+    NSString* date = [dateAndStart stringByTrimmingCharactersInSet: charc];
+    NSString*start = [dateAndStart substringFromIndex:11];
+    NSString* entireDate= @"9PM to Midnight";
+    
+    return entireDate;
+}
 
 
 -(void)MGListView:(MGListView *)listView scrollViewDidScroll:(UIScrollView *)scrollView {

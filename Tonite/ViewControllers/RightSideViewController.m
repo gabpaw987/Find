@@ -32,13 +32,14 @@
 
     self.view.backgroundColor = SIDE_VIEW_BG_COLOR;
     [self setImage:self.user.thumbPhotoUrl imageView:userProfilePicture withBorder:YES isThumb:YES];
-    [userProfilePicture.layer setCornerRadius:35.0];
+    [userProfilePicture.layer setCornerRadius:40.0];
     [userProfilePicture setClipsToBounds:YES];
+    [userProfilePicture setCenter:CGPointMake((self.view.frame.size.width+ ANCHOR_LEFT_PEEK)/2, 125)];
 
     
     tableSideView.delegate = self;
     tableSideView.dataSource = self;
-    [tableSideView setFrame:CGRectMake(ANCHOR_LEFT_PEEK , 250, self.view.frame.size.width - ANCHOR_LEFT_PEEK, self.view.frame.size.height)];
+    [tableSideView setFrame:CGRectMake(ANCHOR_LEFT_PEEK , 200, self.view.frame.size.width - ANCHOR_LEFT_PEEK, self.view.frame.size.height)];
     
     [tableSideView setBackgroundColor:[UIColor lightGrayColor]];
     /*DARKEN OUTSIDE MENU SCREEN
@@ -79,7 +80,7 @@
     swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
     swipeGesture.cancelsTouchesInView = YES; //So the user can still interact with controls in the modal view
     
-    [self.slidingViewController.view addGestureRecognizer:swipeGesture];
+    [self.view addGestureRecognizer:swipeGesture];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -138,39 +139,35 @@
     //self.slidingViewController.topViewController.view.layer.transform = CATransform3DMakeScale(1, 1, 1);
     
     if (indexPath.row == 0) {
-        //PUSH NOTIFICATION SETTINGS
+        // SETTINGS
         
         //OTHER SETTINGS??
         [self.slidingViewController resetTopViewAnimated:YES];
     }
     if(indexPath.row == 1){
-     //   UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardAboutUs"];
-      //  [self.slidingnavigationController pushViewController:vc animated:YES];
-        
-    }
+        //ABOUT TONITE
+     //   [self.slidingViewController resetTopViewAnimated:YES];
+        UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardAboutUs"];
+        [self.slidingViewController presentViewController:vc animated:YES completion:nil];
+  }
    
     if(indexPath.row == 2){
-        UIStoryboard* story = [UIStoryboard storyboardWithName:@"User_iPhone" bundle:nil];
-          NSString* nextView = @"storyboardRegister";
-        if(self.user!= nil)
-            nextView = @"storyboardProfile";
-        UIViewController* vc = [story instantiateViewControllerWithIdentifier: nextView];
-        [self.navigationController pushViewController:vc animated:YES];
-        /*
-        vc.modalPresentationStyle = UIModalPresentationFullScreen;
-        vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        
-        AppDelegate* delegate = [AppDelegate instance];
-        [[delegate.window rootViewController] presentViewController:vc animated:YES completion:nil];
+        //FRIENDS
         [self.slidingViewController resetTopViewAnimated:YES];
-         */
+//        vc.modalPresentationStyle = UIModalPresentationFullScreen;
+//        vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//        
+//        AppDelegate* delegate = [AppDelegate instance];
+//        [[delegate.window rootViewController] presentViewController:vc animated:YES completion:nil];
+//        [self.slidingViewController resetTopViewAnimated:YES];
+        
     }
 
     if(indexPath.row == 3){
+        //SIGN UP OR MY WALLET
         if(self.user ==nil){
-            UIStoryboard* story = [UIStoryboard storyboardWithName:@"User_iPhone" bundle:nil];
-            UIViewController* vc = [story instantiateViewControllerWithIdentifier: @"storyboardLogin"];
-            [self.navigationController pushViewController:vc animated:YES];
+            UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier: @"storyboardRegister"];
+            [self.slidingViewController presentViewController:vc animated:YES completion:nil];
         }
         else{
             

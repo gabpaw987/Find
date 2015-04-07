@@ -16,7 +16,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <view contentMode="scaleToFill" id="AhF-cs-zNN" customClass="MGSlider">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="294"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="298"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <accessibility key="accessibilityConfiguration">
@@ -24,8 +24,8 @@
                         <bool key="isElement" value="YES"/>
                     </accessibility>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FADE.png" id="eaY-lm-8Fc">
-                    <rect key="frame" x="0.0" y="60" width="320" height="250"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gradient-OVERLAY.png" id="eaY-lm-8Fc">
+                    <rect key="frame" x="0.0" y="48" width="320" height="251"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EventName" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" id="bEi-jo-wLt">
@@ -94,7 +94,7 @@
         </view>
     </objects>
     <resources>
-        <image name="FADE.png" width="1920" height="1050"/>
+        <image name="Gradient-OVERLAY.png" width="320" height="320"/>
         <image name="Location.png" width="64" height="64"/>
         <image name="heart.png" width="64" height="64"/>
         <image name="navbar.png" width="647" height="68"/>

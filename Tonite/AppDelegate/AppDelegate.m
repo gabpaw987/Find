@@ -41,7 +41,7 @@
     // Override point for customization after application launch.
     
     // Override point for customization after application launch.
-    [MGUIAppearance enhanceNavBarAppearance:NAV_BAR_BG];
+   // [MGUIAppearance enhanceNavBarAppearance:NAV_BAR_BG];
     
     
     if (DOES_SUPPORT_IOS7) {
@@ -60,8 +60,8 @@
     
     self.slidingViewController.underRightViewController = rightMenuController;
     
-  
-    self.slidingViewController.anchorLeftPeekAmount =ANCHOR_LEFT_PEEK;
+   
+    self.slidingViewController.anchorLeftPeekAmount = ANCHOR_LEFT_PEEK;
  //   self.slidingViewController.anchorRightRevealAmount = 200.0;
   //  self.slidingViewController.anchorLeftRevealAmount = ANCHOR_RIGHT_PEEK;
    // self.slidingViewController.anchorRightPeekAmount

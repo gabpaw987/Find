@@ -25,8 +25,10 @@
 @property (nonatomic, retain) IBOutlet UIImageView* imgViewCover;
 
 @property (nonatomic, retain) IBOutlet UIButton* buttonThumb;
-@property (nonatomic, retain) IBOutlet UIButton* buttonCover;
+
 @property (nonatomic, retain) IBOutlet UIButton* buttonRegister;
 
+@property (strong, nonatomic) IBOutlet UIButton *loginFacebook;
+@property (strong, nonatomic) IBOutlet UIButton *loginTwitter;
 
 @end
