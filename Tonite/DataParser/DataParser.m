@@ -145,7 +145,7 @@
             [array addObject:ticket];
         }
         
-        /*dictEntry = [dict objectForKey:@"ticket_types"];
+        dictEntry = [dict objectForKey:@"ticket_types"];
         for(NSDictionary* dictCat in dictEntry) {
             
             NSString* className = NSStringFromClass([TicketType class]);
@@ -155,7 +155,7 @@
             [ticketType safeSetValuesForKeysWithDictionary:dictCat];
             
             [array addObject:ticketType];
-        }*/
+        }
     }
     
     return array;
