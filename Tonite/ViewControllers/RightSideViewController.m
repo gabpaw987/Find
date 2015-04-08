@@ -12,7 +12,6 @@
 @interface RightSideViewController ()<UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 @property (nonatomic, retain) UserSession* user;
 @property (nonatomic, retain) NSArray* titles;
-@property (nonatomic, retain) NSArray* subtitles;
 
 @end
 
@@ -56,18 +55,12 @@
     gradientLayer.endPoint = CGPointMake(1,0.5);
     [self.view.layer addSublayer:gradientLayer];
     */
-    
-    self.user = [UserAccessSession getUserSession];
-    if( self.user != nil) {
-        self.subtitles = @[ @"My Wallet"];
-    }
-    else{
-    self.subtitles = @[ @"Sign Up" ];
-    }
+ 
     self.titles =@[
                   @"Settings",
                   @"About Tonite",
-                  @"Friends"
+                  @"Friends",
+                  @"My Wallet"
                   ];
     /*
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
@@ -123,10 +116,7 @@
    
     [cell setBackgroundColor:[UIColor lightGrayColor]];
     [cell.labelTitle setTextColor:[UIColor blackColor]];
-    if(indexPath.row < [self.titles count])
-        cell.labelTitle.text = self.titles[indexPath.row];
-    else
-        cell.labelTitle.text = self.subtitles[(indexPath.row- [self.titles count])];
+    cell.labelTitle.text = self.titles[indexPath.row];
     return cell;
 }
 
@@ -164,19 +154,21 @@
     }
 
     if(indexPath.row == 3){
-        //SIGN UP OR MY WALLET
         if(self.user ==nil){
+            //REGISTER PAGE
             UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier: @"storyboardRegister"];
             [self.slidingViewController presentViewController:vc animated:YES completion:nil];
         }
         else{
+           //GO TO MY WALLET
             
-            [UserAccessSession clearAllSession];
-            [[FHSTwitterEngine sharedEngine] clearAccessToken];
-            [FBSession.activeSession closeAndClearTokenInformation];
-            [FBSession.activeSession close];
-            [FBSession setActiveSession:nil];
-            [self.slidingViewController resetTopViewAnimated:YES];
+//            SIGN OUT
+//            [UserAccessSession clearAllSession];
+//            [[FHSTwitterEngine sharedEngine] clearAccessToken];
+//            [FBSession.activeSession closeAndClearTokenInformation];
+//            [FBSession.activeSession close];
+//            [FBSession setActiveSession:nil];
+//            [self.slidingViewController resetTopViewAnimated:YES];
         }
     }
 }
@@ -235,12 +227,7 @@
     self.user = [UserAccessSession getUserSession];
     
     [self setImage:self.user.thumbPhotoUrl imageView:userProfilePicture withBorder:YES isThumb:YES];
-    if( self.user != nil) {
-        self.subtitles = @[@"My Wallet"];
-    }
-    else{
-        self.subtitles = @[@"Sign Up" ];
-    }
+ 
     [tableSideView reloadData];
 
 }
