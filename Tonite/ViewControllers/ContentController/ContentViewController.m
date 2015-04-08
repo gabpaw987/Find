@@ -26,7 +26,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-  //  [self.navigationController setNavigationBarHidden:YES];
+    [self.tabBarController.navigationController setNavigationBarHidden:NO];
 }
 
 -(void) viewDidAppear:(BOOL)animated   {
@@ -59,23 +59,19 @@
     
     [self beginParsing];
     
-    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleLeftSwipeGesture:)];
-    swipeGesture.direction = UISwipeGestureRecognizerDirectionLeft;
-    swipeGesture.cancelsTouchesInView = YES; //So the user can still interact with controls in the modal view
-    
-    [self.slidingViewController.view addGestureRecognizer:swipeGesture];
-    
-    UISwipeGestureRecognizer *swipeRightGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleRightSwipeGesture:)];
-    swipeRightGesture.direction = UISwipeGestureRecognizerDirectionRight;
-    swipeRightGesture.cancelsTouchesInView = YES; //So the user can still interact with controls in the modal view
-    
-    [self.slidingViewController.view addGestureRecognizer:swipeRightGesture];
-    
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
-    tapGesture.numberOfTapsRequired = 1;
-    tapGesture.cancelsTouchesInView = NO; //So the user can still interact with controls in the modal view
-    
-    [self.view addGestureRecognizer:tapGesture];
+//    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleLeftSwipeGesture:)];
+//    swipeGesture.direction = UISwipeGestureRecognizerDirectionLeft;
+//    swipeGesture.cancelsTouchesInView = NO; //So the user can still interact with controls in the modal view
+//    
+//    [self.slidingViewController.view addGestureRecognizer:swipeGesture];
+//    
+//    UISwipeGestureRecognizer *swipeRightGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleRightSwipeGesture:)];
+//    swipeRightGesture.direction = UISwipeGestureRecognizerDirectionRight;
+//    swipeRightGesture.cancelsTouchesInView = NO; //So the user can still interact with controls in the modal view
+//    
+//    [self.slidingViewController.view addGestureRecognizer:swipeRightGesture];
+//    
+//  
 }
 
 
@@ -97,9 +93,9 @@
 
 - (void)handleRightSwipeGesture:(UISwipeGestureRecognizer *)sender{
     if (sender.state == UIGestureRecognizerStateEnded) {
-        if(self.slidingViewController.currentTopViewPosition == ECSlidingViewControllerTopViewPositionAnchoredLeft){
-        [self.slidingViewController resetTopViewAnimated:YES    ];
-        }
+//        if(self.slidingViewController.currentTopViewPosition == ECSlidingViewControllerTopViewPositionAnchoredLeft){
+//        [self.slidingViewController resetTopViewAnimated:YES    ];
+//        }
 //        else{
 //            
 //            [self.tabBarController setSelectedIndex:1];
@@ -215,11 +211,8 @@
 }
 
 -(UITableViewCell*)MGListView:(MGListView *)listView1 didCreateCell:(MGListCell *)cell indexPath:(NSIndexPath *)indexPath {
-    if(cell == nil){
-       cell = [[MGListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SliderCell"];
-        [cell setBackgroundColor:[UIColor grayColor]];
-   }
-        
+
+    if(cell!= nil){
     for(UIView* view in cell.subviews)
         [view removeFromSuperview];
     Event* event = [listViewEvents.arrayData objectAtIndex:indexPath.row];
@@ -241,8 +234,8 @@
     
     [cell.slideShow startAnimationWithDuration:2.5];
     [cell addSubview:cell.slideShow.scrollView];
-        //[cell.contentView addSubview:cell.slideShow];
-    }
+    //[cell.contentView addSubview: cell.slideShow.scrollView];
+ }
     
     [cell.buttonFave addTarget:self action:@selector(didSelectFave:) forControlEvents:UIControlEventTouchUpInside];
     [cell.buttonFave setBackgroundImage:[UIImage imageNamed:LIKE_IMG] forState:UIControlStateNormal];
@@ -265,8 +258,8 @@
         [cell addSubview: cell.divider];
         [cell addSubview: cell.labelDetails];
         [cell addSubview: cell.locationIcon];
-    
-    [cell setUserInteractionEnabled:YES];
+        [cell setUserInteractionEnabled:YES];
+    }
     return cell;
 }
 
@@ -297,12 +290,10 @@
     {
         
         [self.tabBarController.navigationController setNavigationBarHidden:YES];
-      //  [self.navigationController setNavigationBarHidden:YES];
     }
     else if([scrollView.panGestureRecognizer translationInView:self.view].y > 0)
     {
         [self.tabBarController.navigationController setNavigationBarHidden:NO];
-      //  [self.navigationController setNavigationBarHidden:NO];
     }
 
 }

@@ -30,8 +30,10 @@
     return self;
 }
 
+
 -(void) viewWillAppear:(BOOL)animated {
     [self reloadInputViews];
+    [self.tabBarController.navigationController setNavigationBarHidden:NO];
 
 }
 

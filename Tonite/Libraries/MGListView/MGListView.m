@@ -115,10 +115,11 @@
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    MGListCell* cell;
+    MGListCell* cell = [tableView dequeueReusableCellWithIdentifier:_cellIdentifier];
     
-    if(!isCustomCell) {
-        cell = [tableView dequeueReusableCellWithIdentifier:_cellIdentifier];
+    if(!cell) {
+        cell =  [[MGListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:_cellIdentifier];
+    //[tableView dequeueReusableCellWithIdentifier:_cellIdentifier];
         
         [self.delegate MGListView:self didCreateCell:cell indexPath:indexPath];
         return cell;

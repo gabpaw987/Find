@@ -4,7 +4,7 @@
 #import "AppDelegate.h"
 #import "DetailViewController.h"
 #import "MGSlider.h"
-
+#import "LBHamburgerButton.h"
 
 @interface EventViewController () <MGSliderDelegate, MGListViewDelegate>
 
@@ -26,10 +26,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-   // [self.navigationController setNavigationBarHidden:YES];
 }
-
-
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -39,10 +36,31 @@
     [super viewWillDisappear:animated];
 }
 
+- (UIBarButtonItem *)backButton
+{
+    LBHamburgerButton* button = [[LBHamburgerButton alloc] initWithFrame:CGRectMake(0, 0, 0, 0)
+                                   
+                                                                 lineWidth:22
+                                                                lineHeight:10/6
+                                                               lineSpacing:5
+                                                                lineCenter:CGPointMake(10, 0)
+                                                                     color:[UIColor grayColor]];
+    [button setCenter:CGPointMake(120, 120)];
+    [button setBackgroundColor:[UIColor clearColor]];
+    [button addTarget:self action:@selector(didClickButtonGo:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *item= [[UIBarButtonItem alloc] initWithCustomView:button];
+    
+    return item;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationItem setTitle: [CoreDataController getCategoryByCategoryId:mainCategoryId].category];
+    
+    [self.navigationItem setLeftBarButtonItem: [self backButton]    ];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view setBackgroundColor:[UIColor grayColor]];
@@ -60,18 +78,18 @@
     [listViewMain baseInit];
     
     [self beginParsing];
-    
-    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
-    swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
-    swipeGesture.cancelsTouchesInView = YES; //So the user can still interact with controls in the modal view
-    
-    [self.slidingViewController.view addGestureRecognizer:swipeGesture];
-    
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
-    tapGesture.numberOfTapsRequired = 1;
-    tapGesture.cancelsTouchesInView = NO; //So the user can still interact with controls in the modal view
-    
-    [self.view addGestureRecognizer:tapGesture];
+//
+//    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
+//    swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
+//    swipeGesture.cancelsTouchesInView = YES; //So the user can still interact with controls in the modal view
+//    
+//    [self.slidingViewController.view addGestureRecognizer:swipeGesture];
+//    
+//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+//    tapGesture.numberOfTapsRequired = 1;
+//    tapGesture.cancelsTouchesInView = NO; //So the user can still interact with controls in the modal view
+//    
+//    [self.view addGestureRecognizer:tapGesture];
 }
 
 
@@ -126,8 +144,7 @@
     [self.view addSubview:hud];
     [self.view setUserInteractionEnabled:NO];
     [hud showAnimated:YES whileExecutingBlock:^{
-        
-        [self performParsing];
+            [self performParsing];
         
     } completionBlock:^{
         
@@ -136,8 +153,19 @@
         
         [self setData];
         [listViewMain reloadData];
+        
+        if(listViewMain.arrayData == nil || listViewMain.arrayData.count == 0) {
+            
+            UIColor* color = [[UIColor blackColor] colorWithAlphaComponent:0.70];
+            [MGUtilities showStatusNotifier:LOCALIZED(@"NO_RESULTS")
+                                  textColor:[UIColor whiteColor]
+                             viewController:self
+                                   duration:0.5f
+                                    bgColor:color
+                                        atY:64];
+
+    }
     }];
-    
 }
 
 -(void) performParsing {
@@ -146,15 +174,14 @@
 
 
 -(void) setData {
-    listViewMain.arrayData = [NSMutableArray arrayWithArray:[CoreDataController getAllEvents]];
+    listViewMain.arrayData = [NSMutableArray arrayWithArray:[CoreDataController getEventsByCategoryId:mainCategoryId    ]];
     
 }
 
 -(void)didClickButtonGo:(id)sender {
-    MGButton* button = (MGButton*)sender;
-    DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardDetail"];
-    vc.event = button.object;
-    [self.navigationController pushViewController:vc animated:YES];
+    LBHamburgerButton* btn = (LBHamburgerButton*)sender;
+    [btn switchState];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 -(void)setImage:(NSString*)imageUrl imageView:(UIImageView*)imgView {
@@ -198,11 +225,8 @@
 }
 
 -(UITableViewCell*)MGListView:(MGListView *)listView1 didCreateCell:(MGListCell *)cell indexPath:(NSIndexPath *)indexPath {
-    if(cell == nil){
-        cell = [[MGListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SliderCell"];
-        [cell setBackgroundColor:[UIColor grayColor]];
-    }
-    
+    if(cell !=nil){
+
     for(UIView* view in cell.subviews)
         [view removeFromSuperview];
     Event* event = [listViewMain.arrayData objectAtIndex:indexPath.row];
@@ -247,8 +271,7 @@
     [cell addSubview: cell.divider];
     [cell addSubview: cell.labelDetails];
     [cell addSubview: cell.locationIcon];
-    
-    //  [cell setUserInteractionEnabled:YES];
+    }
     return cell;
 }
 
@@ -275,6 +298,16 @@
 
 
 -(void)MGListView:(MGListView *)listView scrollViewDidScroll:(UIScrollView *)scrollView {
+    if([scrollView.panGestureRecognizer translationInView:self.view].y < 0)
+    {
+        [self.navigationController setNavigationBarHidden:YES];
+    }
+    else if([scrollView.panGestureRecognizer translationInView:self.view].y > 0)
+    {
+        [self.navigationController setNavigationBarHidden:NO];
+    }
+
+
 }
 
 @end

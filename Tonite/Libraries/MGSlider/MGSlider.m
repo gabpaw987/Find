@@ -56,10 +56,34 @@
     scrollView.frame = CGRectMake(0.0, 0.0, viewSize.width, viewSize.height);
     scrollView.contentSize = CGSizeMake(posX, scrollView.frame.size.height);
     scrollWidth = viewSize.width;
-  
-    
-}
+    [scrollView setUserInteractionEnabled:NO];
+//    UISwipeGestureRecognizer* swipeLeft = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeLeft:)];
+//    [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
+//    [scrollView addGestureRecognizer:swipeLeft];
+//    
+//    UISwipeGestureRecognizer* swipeRight = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeRight:)];
+//    [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
+//    [scrollView addGestureRecognizer:swipeRight];
+//
+//    
+    }
 
+//-(void) swipeRight:(UISwipeGestureRecognizer*) sender{
+//    [self scrollingTimer ];
+//}
+//
+//-(void) swipeLeft:(UISwipeGestureRecognizer*) sender{
+//    int nextPage = (int)(scrollView.contentOffset.x/scrollWidth) - 1;
+//    CGRect rect = CGRectZero;
+//    if( nextPage == 0 ) {
+//        rect = CGRectMake(scrollView.frame.size.width -scrollWidth, 0, scrollWidth, scrollView.frame.size.height);
+//        [scrollView scrollRectToVisible:rect animated:YES];
+//    }
+//    else{
+//        rect = CGRectMake(nextPage*scrollWidth, 0, scrollWidth, scrollView.frame.size.height);
+//        [scrollView scrollRectToVisible:rect animated:YES];
+//    }
+//}
 
 -(void) startAnimationWithDuration:(float)duration {
     if(!_willAnimate)
