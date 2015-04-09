@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		141E87FF1AD679E700767BD0 /* QRTicketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141E87FE1AD679E700767BD0 /* QRTicketViewController.m */; };
+		141E88041AD688F700767BD0 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 141E88021AD688F700767BD0 /* NSDate+Helper.m */; };
+		141E88051AD688F700767BD0 /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = 141E88031AD688F700767BD0 /* README.textile */; };
 		144718B61ACA22DF00888989 /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 144718B51ACA22DF00888989 /* QRViewController.m */; };
 		562FD4231AC060BE00F6DD9C /* VenueCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 562FD4221AC060BE00F6DD9C /* VenueCategory.m */; };
 		562FD4251AC06CC400F6DD9C /* Video.h in Resources */ = {isa = PBXBuildFile; fileRef = 562FD4241AC06CC400F6DD9C /* Video.h */; };
@@ -416,6 +419,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		141E87FD1AD679E700767BD0 /* QRTicketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRTicketViewController.h; sourceTree = "<group>"; };
+		141E87FE1AD679E700767BD0 /* QRTicketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRTicketViewController.m; sourceTree = "<group>"; };
+		141E88011AD688F700767BD0 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Helper.h"; path = "../../../../Downloads/nsdate-helper-master/NSDate+Helper.h"; sourceTree = "<group>"; };
+		141E88021AD688F700767BD0 /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Helper.m"; path = "../../../../Downloads/nsdate-helper-master/NSDate+Helper.m"; sourceTree = "<group>"; };
+		141E88031AD688F700767BD0 /* README.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.textile; path = "../../../../Downloads/nsdate-helper-master/README.textile"; sourceTree = "<group>"; };
 		144718B51ACA22DF00888989 /* QRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRViewController.m; sourceTree = "<group>"; };
 		144718B71ACA22F000888989 /* QRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRViewController.h; sourceTree = "<group>"; };
 		562FD4201AC0605200F6DD9C /* VenueCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VenueCategory.h; sourceTree = "<group>"; };
@@ -978,6 +986,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		141E87FC1AD6799C00767BD0 /* QRTicketController */ = {
+			isa = PBXGroup;
+			children = (
+				141E87FD1AD679E700767BD0 /* QRTicketViewController.h */,
+				141E87FE1AD679E700767BD0 /* QRTicketViewController.m */,
+			);
+			name = QRTicketController;
+			sourceTree = "<group>";
+		};
+		141E88001AD688DC00767BD0 /* NSDateHelper */ = {
+			isa = PBXGroup;
+			children = (
+				141E88011AD688F700767BD0 /* NSDate+Helper.h */,
+				141E88021AD688F700767BD0 /* NSDate+Helper.m */,
+				141E88031AD688F700767BD0 /* README.textile */,
+			);
+			name = NSDateHelper;
+			sourceTree = "<group>";
+		};
 		1465C56F1ACA1CFD00A1E9F5 /* QRController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1505,6 +1532,7 @@
 		CBAED25A1948A40F00769D68 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				141E88001AD688DC00767BD0 /* NSDateHelper */,
 				E3216FBA1ACA4C3A00F23BBB /* LBHamburgerButton */,
 				CB344E8019787F7D000784DA /* CoreData */,
 				CBAED2D91948A4EE00769D68 /* AFNetworking */,
@@ -1575,6 +1603,7 @@
 		CBAED25C1948A40F00769D68 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				141E87FC1AD6799C00767BD0 /* QRTicketController */,
 				1465C56F1ACA1CFD00A1E9F5 /* QRController */,
 				E3268B771AA51371004FA763 /* RightSideViewController */,
 				CB7DFBE119521999007FC9B9 /* SideController */,
@@ -2491,6 +2520,7 @@
 				CB26277519508DA60024C15A /* ic_search.png in Resources */,
 				CB7DFB6219517961007FC9B9 /* ic_check.png in Resources */,
 				CB48DD4919D444700039C26B /* textbox_fullname@3x.png in Resources */,
+				141E88051AD688F700767BD0 /* README.textile in Resources */,
 				CBAED3711948A4EF00769D68 /* MGListView.xib in Resources */,
 				CB48DD6919D44E630039C26B /* ic_home@3x.png in Resources */,
 				CB7199521959B2FD001DB700 /* ReviewLoadMoreCell.xib in Resources */,
@@ -2652,6 +2682,7 @@
 				562FD42A1AC06DFB00F6DD9C /* Video.m in Sources */,
 				CBAED3671948A4EF00769D68 /* MEDynamicTransition.m in Sources */,
 				CBAED3BC1948A4EF00769D68 /* Reachability.m in Sources */,
+				141E87FF1AD679E700767BD0 /* QRTicketViewController.m in Sources */,
 				CBAED3931948A4EF00769D68 /* AFHTTPClient.m in Sources */,
 				CBAED2611948A43B00769D68 /* AppDelegate.m in Sources */,
 				CBAED4071948E18400769D68 /* NSString+HTML.m in Sources */,
@@ -2666,6 +2697,7 @@
 				CBAED3611948A4EF00769D68 /* ECPercentDrivenInteractiveTransition.m in Sources */,
 				CBAED3A81948A4EF00769D68 /* TBXMLEx.m in Sources */,
 				CBAED3951948A4EF00769D68 /* AFImageRequestOperation.m in Sources */,
+				141E88041AD688F700767BD0 /* NSDate+Helper.m in Sources */,
 				CBAED3991948A4EF00769D68 /* AFURLConnectionOperation.m in Sources */,
 				CB7DFBE8195224DF007FC9B9 /* RegisterViewController.m in Sources */,
 				CBAED36F1948A4EF00769D68 /* MGListCell.m in Sources */,

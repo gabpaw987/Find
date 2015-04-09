@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "ImageViewerController.h"
 #import "ZoomAnimationController.h"
+#import "QRTicketViewController.h"
 
 @interface DetailViewController () <MGListViewDelegate, UIViewControllerTransitioningDelegate, MGMapViewDelegate> {
     
@@ -219,9 +220,14 @@
 
 -(void) didClickBuyButton{
     //*********** GO TO PURCHASING ******************//
-   
-    DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardQR"];
+
+    QRTicketViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardQRTicket"];
+    
+ //   DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardQRTicket"];
     //vc.event = listViewMain.arrayData[indexPath.row];
+    
+    vc.event = self.event;
+    
     [self.navigationController pushViewController:vc animated:YES];
     
 }
