@@ -225,11 +225,10 @@
 -(void) reloadInputViews{
     
     self.user = [UserAccessSession getUserSession];
-    
+    if(self.user){
     [self setImage:self.user.thumbPhotoUrl imageView:userProfilePicture withBorder:YES isThumb:YES];
+    }
  
-    [tableSideView reloadData];
-
 }
  
 @end
