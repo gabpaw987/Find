@@ -8,19 +8,21 @@
 
 #import "AppDelegate.h"
 #import "ECSlidingViewController.h"
+#import "ViewController.h"
+
 
 @interface AppDelegate () <FHSTwitterEngineAccessTokenDelegate, CLLocationManagerDelegate> {
     
     CLLocationManager* _myLocationManager;
 }
 
-@property (nonatomic, strong) ECSlidingViewController *slidingViewController;
+//@property (nonatomic, strong) ECSlidingViewController *slidingViewController;
 
 @end
 
 @implementation AppDelegate
 
-@synthesize contentViewController;
+//@synthesize contentViewController;
 @synthesize rightMenuController;
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -49,7 +51,7 @@
     }
     
     UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-    UINavigationController* navController = [storyboard instantiateViewControllerWithIdentifier:@"storyboardNav"];
+    UINavigationController* navController = [storyboard instantiateViewControllerWithIdentifier:@"storyboardMain"];
     
   //  sideViewController = [storyboard instantiateViewControllerWithIdentifier:@"storyboardSideView"];
     rightMenuController = [storyboard instantiateViewControllerWithIdentifier:@"storyboardRightSide"];
@@ -66,7 +68,10 @@
   //  self.slidingViewController.anchorLeftRevealAmount = ANCHOR_RIGHT_PEEK;
    // self.slidingViewController.anchorRightPeekAmount
     
-    self.window.rootViewController = self.slidingViewController;
+    UIViewController* launchView = [[ViewController alloc]init];
+    
+    
+    self.window.rootViewController = launchView;
     
     [self.window makeKeyAndVisible];
     

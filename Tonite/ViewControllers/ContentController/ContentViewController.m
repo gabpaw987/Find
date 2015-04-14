@@ -42,15 +42,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-  
-   // self.automaticallyAdjustsScrollViewInsets = NO;
-//    BOOL screen = IS_IPHONE_6_PLUS_AND_ABOVE;
-//    if(screen) {
-//        CGRect frame = listViewEvents.frame;
-//        frame.origin.y =65;
-//        frame.size.height = self.view.frame.size.height-65;
-//        listViewEvents.frame = frame;
-//    }
+
     listViewEvents.delegate = self;
     listViewEvents.cellHeight = (self.view.frame.size.height-65)/2;
     
@@ -70,8 +62,7 @@
 //    swipeRightGesture.cancelsTouchesInView = NO; //So the user can still interact with controls in the modal view
 //    
 //    [self.slidingViewController.view addGestureRecognizer:swipeRightGesture];
-//    
-//  
+  
 }
 
 
@@ -97,9 +88,7 @@
 //        [self.slidingViewController resetTopViewAnimated:YES    ];
 //        }
 //        else{
-//            
 //            [self.tabBarController setSelectedIndex:1];
-//          
 //        }
     }
 
@@ -219,7 +208,7 @@
     Venue* venue = [CoreDataController getVenueByVenueId:event.venue_id];
     [cell.slideShow setImageArray:[CoreDataController getEventPhotosByEventId:event.event_id] ];
     [cell.slideShow setNumberOfItems:[cell.slideShow.imageArray count]];
-    
+        NSLog(@"number of pictures %d", cell.slideShow.imageArray.count);
     
     if([cell.slideShow.imageArray count] != 0){
     CGRect frame = cell.frame;
