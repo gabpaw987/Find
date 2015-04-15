@@ -1585,7 +1585,10 @@
 			isa = PBXGroup;
 			children = (
 <<<<<<< HEAD
+<<<<<<< HEAD
 				E36E15071ADD9A3600E1A639 /* LaunchVideoViewController */,
+=======
+>>>>>>> parent of f2fde40... tickets respond to database fields now, and a date library has been added for displaying dates for the tickets. currently waiting on assets from Jason before I can advance more. need to implement my wallet still
 =======
 >>>>>>> parent of f2fde40... tickets respond to database fields now, and a date library has been added for displaying dates for the tickets. currently waiting on assets from Jason before I can advance more. need to implement my wallet still
 				1465C56F1ACA1CFD00A1E9F5 /* QRController */,

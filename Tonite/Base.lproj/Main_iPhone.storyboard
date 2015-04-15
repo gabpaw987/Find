@@ -76,7 +76,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 <color key="sectionIndexColor" patternImage="7AC973B8-103F-4F3A-AA66-20EDD0E59A4C" colorSpace="pattern"/>
+=======
+                                <color key="sectionIndexColor" patternImage="DCA1C397-FA61-48AB-9026-4D338DC3B1D7" colorSpace="pattern"/>
+>>>>>>> parent of f2fde40... tickets respond to database fields now, and a date library has been added for displaying dates for the tickets. currently waiting on assets from Jason before I can advance more. need to implement my wallet still
 =======
                                 <color key="sectionIndexColor" patternImage="DCA1C397-FA61-48AB-9026-4D338DC3B1D7" colorSpace="pattern"/>
 >>>>>>> parent of f2fde40... tickets respond to database fields now, and a date library has been added for displaying dates for the tickets. currently waiting on assets from Jason before I can advance more. need to implement my wallet still
@@ -91,7 +95,11 @@
                                             <subviews>
                                                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="side_bar_list_bg.png" id="83V-mi-Orw">
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                     <rect key="frame" x="0.0" y="0.0" width="324" height="66"/>
+=======
+                                                    <rect key="frame" x="0.0" y="0.0" width="324" height="68"/>
+>>>>>>> parent of f2fde40... tickets respond to database fields now, and a date library has been added for displaying dates for the tickets. currently waiting on assets from Jason before I can advance more. need to implement my wallet still
 =======
                                                     <rect key="frame" x="0.0" y="0.0" width="324" height="68"/>
 >>>>>>> parent of f2fde40... tickets respond to database fields now, and a date library has been added for displaying dates for the tickets. currently waiting on assets from Jason before I can advance more. need to implement my wallet still
@@ -471,7 +479,11 @@
     </scenes>
     <resources>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <image name="7AC973B8-103F-4F3A-AA66-20EDD0E59A4C" width="256" height="256">
+=======
+        <image name="DCA1C397-FA61-48AB-9026-4D338DC3B1D7" width="256" height="256">
+>>>>>>> parent of f2fde40... tickets respond to database fields now, and a date library has been added for displaying dates for the tickets. currently waiting on assets from Jason before I can advance more. need to implement my wallet still
 =======
         <image name="DCA1C397-FA61-48AB-9026-4D338DC3B1D7" width="256" height="256">
 >>>>>>> parent of f2fde40... tickets respond to database fields now, and a date library has been added for displaying dates for the tickets. currently waiting on assets from Jason before I can advance more. need to implement my wallet still
