@@ -70,7 +70,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexColor" patternImage="BA3FFCFE-8051-4101-9165-39318F696918" colorSpace="pattern"/>
+                                <color key="sectionIndexColor" patternImage="8B6163C9-B1E7-429D-84A6-0002DE9708D6" colorSpace="pattern"/>
                                 <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" id="mWx-NG-H0N" customClass="MenuTableViewCell">
@@ -81,11 +81,11 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="side_bar_list_bg.png" id="83V-mi-Orw">
-                                                    <rect key="frame" x="0.0" y="0.0" width="324" height="84"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="324" height="100"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" adjustsFontSizeToFit="NO" id="rWf-nA-uZV">
-                                                    <rect key="frame" x="-4" y="0.0" width="324" height="82"/>
+                                                    <rect key="frame" x="-4" y="0.0" width="324" height="98"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -323,7 +323,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="I2t-nG-e3k">
-                                <rect key="frame" x="60" y="128" width="200" height="200"/>
+                                <rect key="frame" x="60" y="128.00000572204584" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LjL-aE-VMi">
@@ -485,7 +485,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BA3FFCFE-8051-4101-9165-39318F696918" width="256" height="256">
+        <image name="8B6163C9-B1E7-429D-84A6-0002DE9708D6" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGTk9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEQcI
 ExQZHh8nKzIzNDw/QkhLVSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NW
