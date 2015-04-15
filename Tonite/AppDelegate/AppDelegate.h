@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ContentViewController.h"
+#import "ViewController.h"
 #import "RightSideViewController.h"
+#import "ECSlidingViewController.h"
 
 @class AppDelegate;
 
@@ -34,14 +35,13 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) RightSideViewController*
     rightMenuController;
-@property (nonatomic, strong) ContentViewController* contentViewController;
 
 
 
 +(AppDelegate*) instance;
 
 @property (nonatomic, strong) CLLocation* myLocation;
-
+@property (nonatomic, strong) ECSlidingViewController *slidingViewController;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;

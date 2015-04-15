@@ -250,9 +250,6 @@
         [cell addSubview:cell.slideShow.scrollView];
     }
     
-    [cell.buttonFave addTarget:self action:@selector(didSelectFave:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.buttonFave setBackgroundImage:[UIImage imageNamed:LIKE_IMG] forState:UIControlStateNormal];
-    
     
     // [cell.labelExtraInfo setText: event_price????];
     cell.labelTitle.text =event.event_name;
@@ -267,7 +264,6 @@
     [cell addSubview:cell.labelTitle];
     [cell addSubview:cell.labelSubtitle];
     [cell addSubview:cell.labelExtraInfo];
-    [cell addSubview: cell.buttonFave];
     [cell addSubview: cell.divider];
     [cell addSubview: cell.labelDetails];
     [cell addSubview: cell.locationIcon];
@@ -287,11 +283,7 @@
 }
 
 -(NSString*)formatDateWithStart:(NSString*)dateAndStart withEndTime:(NSString*)endTime{
-    NSCharacterSet *charc=[NSCharacterSet characterSetWithCharactersInString:@" "];
-    
-    NSString* date = [dateAndStart stringByTrimmingCharactersInSet: charc];
-    NSString*start = [dateAndStart substringFromIndex:11];
-    NSString* entireDate= @"9PM to Midnight";
+  NSString* entireDate= @"9PM to Midnight";
     
     return entireDate;
 }

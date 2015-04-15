@@ -66,7 +66,7 @@
 
 #define BUTTON_POST_REVIEW @"ic_menu_reviews.png"
 
-#define HEADER_LOGO @"TONITELOGO.png"
+#define TONITE_LOGO @"TONITELOGO_new.png"
 
 #define STARRED_IMG @"star_fave_selected.png"
 

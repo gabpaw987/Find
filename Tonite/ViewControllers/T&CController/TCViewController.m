@@ -28,7 +28,7 @@
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    self.navigationItem.titleView = [MGUIAppearance createLogo:HEADER_LOGO];
+    self.navigationItem.titleView = [MGUIAppearance createLogo:TONITE_LOGO];
     
     [_aboutView removeFromSuperview];
     [scrollViewMain addSubview:_aboutView];

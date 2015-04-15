@@ -37,7 +37,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.titleView = [MGUIAppearance createLogo:HEADER_LOGO];
+    self.navigationItem.titleView = [MGUIAppearance createLogo:TONITE_LOGO];
     self.view.backgroundColor = BG_VIEW_COLOR;
     
     [MGUIAppearance enhanceNavBarController:self.navigationController

@@ -404,6 +404,9 @@
 		E34C284F1AC875EE00D7640A /* user160.png in Resources */ = {isa = PBXBuildFile; fileRef = E34C28491AC875EE00D7640A /* user160.png */; };
 		E34C28511AC878AC00D7640A /* FADE.png in Resources */ = {isa = PBXBuildFile; fileRef = E34C28501AC878AC00D7640A /* FADE.png */; };
 		E34C28531AC878BB00D7640A /* slider-fade.png in Resources */ = {isa = PBXBuildFile; fileRef = E34C28521AC878BB00D7640A /* slider-fade.png */; };
+		E38921891ADDF5D500DB2B81 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38921871ADDF5D500DB2B81 /* ViewController.m */; };
+		E389218C1ADDF77000DB2B81 /* Yo.mov in Resources */ = {isa = PBXBuildFile; fileRef = E389218B1ADDF77000DB2B81 /* Yo.mov */; };
+		E389218E1ADDF78100DB2B81 /* rockwell-extra-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E389218D1ADDF78100DB2B81 /* rockwell-extra-bold.ttf */; };
 		E3B871F21AC774FB009223D5 /* artsCulture.png in Resources */ = {isa = PBXBuildFile; fileRef = E3B871E91AC774FB009223D5 /* artsCulture.png */; };
 		E3B871F31AC774FB009223D5 /* Avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = E3B871EA1AC774FB009223D5 /* Avatar.png */; };
 		E3B871F41AC774FB009223D5 /* dine.png in Resources */ = {isa = PBXBuildFile; fileRef = E3B871EB1AC774FB009223D5 /* dine.png */; };
@@ -939,6 +942,10 @@
 		E34C28491AC875EE00D7640A /* user160.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user160.png; sourceTree = "<group>"; };
 		E34C28501AC878AC00D7640A /* FADE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FADE.png; sourceTree = "<group>"; };
 		E34C28521AC878BB00D7640A /* slider-fade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider-fade.png"; sourceTree = "<group>"; };
+		E38921871ADDF5D500DB2B81 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E38921881ADDF5D500DB2B81 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E389218B1ADDF77000DB2B81 /* Yo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Yo.mov; sourceTree = "<group>"; };
+		E389218D1ADDF78100DB2B81 /* rockwell-extra-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rockwell-extra-bold.ttf"; sourceTree = "<group>"; };
 		E3B871E91AC774FB009223D5 /* artsCulture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = artsCulture.png; sourceTree = "<group>"; };
 		E3B871EA1AC774FB009223D5 /* Avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Avatar.png; sourceTree = "<group>"; };
 		E3B871EB1AC774FB009223D5 /* dine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dine.png; sourceTree = "<group>"; };
@@ -1582,6 +1589,8 @@
 		CBAED25B1948A40F00769D68 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E389218D1ADDF78100DB2B81 /* rockwell-extra-bold.ttf */,
+				E389218B1ADDF77000DB2B81 /* Yo.mov */,
 				E34C28431AC875EE00D7640A /* 1x */,
 				E3B871E81AC774FB009223D5 /* tonite_images */,
 				CB820AD9194F7C47000E64DB /* AboutUs */,
@@ -1603,6 +1612,7 @@
 		CBAED25C1948A40F00769D68 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E389218A1ADDF5DB00DB2B81 /* LaunchVideoController */,
 				141E87FC1AD6799C00767BD0 /* QRTicketController */,
 				1465C56F1ACA1CFD00A1E9F5 /* QRController */,
 				E3268B771AA51371004FA763 /* RightSideViewController */,
@@ -2240,6 +2250,15 @@
 			path = Tonite/Resources/1x;
 			sourceTree = SOURCE_ROOT;
 		};
+		E389218A1ADDF5DB00DB2B81 /* LaunchVideoController */ = {
+			isa = PBXGroup;
+			children = (
+				E38921881ADDF5D500DB2B81 /* ViewController.h */,
+				E38921871ADDF5D500DB2B81 /* ViewController.m */,
+			);
+			name = LaunchVideoController;
+			sourceTree = "<group>";
+		};
 		E3B871E81AC774FB009223D5 /* tonite_images */ = {
 			isa = PBXGroup;
 			children = (
@@ -2396,6 +2415,7 @@
 				E31FD7DD1AD461CE00789CB2 /* Gradient-OVERLAY.png in Resources */,
 				CB7DFBC31952088E007FC9B9 /* profile_thumb_placeholder.png in Resources */,
 				CB820AA3194F783D000E64DB /* TCView.xib in Resources */,
+				E389218C1ADDF77000DB2B81 /* Yo.mov in Resources */,
 				CB42218C194AEC2300528013 /* DetailCell.xib in Resources */,
 				CB7DFB561951726C007FC9B9 /* ic_web_forward.png in Resources */,
 				CBC8C37A1954BC8B00CEFCFB /* button_route.png in Resources */,
@@ -2577,6 +2597,7 @@
 				E34C28421AC8717C00D7640A /* navbar.png in Resources */,
 				CB7DFBA61951E812007FC9B9 /* button_blue@2x.png in Resources */,
 				CB2627C21950D67F0024C15A /* button_email.png in Resources */,
+				E389218E1ADDF78100DB2B81 /* rockwell-extra-bold.ttf in Resources */,
 				CB48DCEE19D444370039C26B /* button_search@3x.png in Resources */,
 				CB820AC3194F788D000E64DB /* button_twitter_large.png in Resources */,
 				CB4221BB194B01BB00528013 /* image_counter@2x.png in Resources */,
@@ -2697,6 +2718,7 @@
 				CBAED3611948A4EF00769D68 /* ECPercentDrivenInteractiveTransition.m in Sources */,
 				CBAED3A81948A4EF00769D68 /* TBXMLEx.m in Sources */,
 				CBAED3951948A4EF00769D68 /* AFImageRequestOperation.m in Sources */,
+				E38921891ADDF5D500DB2B81 /* ViewController.m in Sources */,
 				E3F2F51C1ADDF17C00F15B3D /* NSDate+Helper.m in Sources */,
 				CBAED3991948A4EF00769D68 /* AFURLConnectionOperation.m in Sources */,
 				CB7DFBE8195224DF007FC9B9 /* RegisterViewController.m in Sources */,
