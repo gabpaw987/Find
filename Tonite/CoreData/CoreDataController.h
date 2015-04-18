@@ -22,6 +22,7 @@
 
 +(NSArray*) getAllEvents;
 +(NSArray*) getAllTickets;
++(NSArray*) getAllTextEntries;
 +(NSArray*) getAllEventsUncompleted;
 +(NSArray*) getAllVenues;
 
@@ -37,5 +38,7 @@
 +(MainCategory*) getCategoryByCategoryId:(NSString*)categoryId;
 +(NSArray*) getVenueCategoryNames;
 +(VenueCategory*) getVenueCategoryByVenueCategoryId:(NSString*)venueCategoryId;
+
++(TextEntry*) getTextEntryByCategoryId:(NSString*)categoryId;
 
 @end

@@ -78,6 +78,25 @@
     return fetchedObjects;
 }
 
++(NSArray*) getAllTextEntries {
+    
+    AppDelegate* delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSManagedObjectContext* context = delegate.managedObjectContext;
+    
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    [fetchRequest setReturnsObjectsAsFaults:NO];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TextEntry" inManagedObjectContext:context];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"text_entry_id" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortDescriptor]];
+    
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    return fetchedObjects;
+}
+
 +(NSArray*) getAllEventsUncompleted {
     
     AppDelegate* delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -109,6 +128,7 @@
             NSString *name = [NSString stringWithUTF8String:property_getName(props[i])];
             NSString *venueName = [name stringByReplacingOccurrencesOfString:@"event_" withString:@"venue_"];
             venueName = [venueName stringByReplacingOccurrencesOfString:@"category_" withString:@"venue_category_"];
+            venueName = [venueName stringByReplacingOccurrencesOfString:@"event_capacity" withString:@"capacity"];
             if ([[event valueForKey:name] isEqualToString:@"-"] || [[event valueForKey:name] isEqualToString:@"-1"]) {
                 [event setValue:[[self getVenueByVenueId:[event venue_id]] valueForKey:venueName] forKey:name];
             }
@@ -505,6 +525,25 @@
         [array addObject:cat.category];
     
     return array;
+}
+
++(TextEntry*) getTextEntryByCategoryId:(NSString*)categoryId {
+    
+    AppDelegate* delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSManagedObjectContext* context = delegate.managedObjectContext;
+    
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    [fetchRequest setReturnsObjectsAsFaults:NO];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TextEntry" inManagedObjectContext:context];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"category_id = %@", categoryId];
+    [fetchRequest setPredicate:predicate];
+    
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    return fetchedObjects.count > 0 ? fetchedObjects[0] : nil;
 }
 
 

@@ -258,7 +258,7 @@
     cell.labelTitle.text =event.event_name;
     cell.labelSubtitle.text=  venue.venue_name;
     if(event.event_name == venue.venue_name){
-        [cell.labelSubtitle setText:event.event_address];
+        [cell.labelSubtitle setText:event.event_address1];
     }
     NSString* date = [self formatDateWithStart:event.event_date_starttime withEndTime:event.event_endtime];
     [cell.labelDetails setText:date];

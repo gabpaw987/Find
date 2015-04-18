@@ -20,8 +20,16 @@
 @property (nonatomic, retain) NSString * phone_no;
 @property (nonatomic, retain) NSString * lon;
 @property (nonatomic, retain) NSString * lat;
+@property (nonatomic, retain) NSString * event_capacity;
+@property (nonatomic, retain) NSString * event_tickets_male;
+@property (nonatomic, retain) NSString * event_tickets_female;
 @property (nonatomic, retain) NSString * event_desc;
-@property (nonatomic, retain) NSString * event_address;
+@property (nonatomic, retain) NSString * event_address1;
+@property (nonatomic, retain) NSString * event_address2;
+@property (nonatomic, retain) NSString * event_zip;
+@property (nonatomic, retain) NSString * event_city;
+@property (nonatomic, retain) NSString * event_state;
+@property (nonatomic, retain) NSString * event_country;
 @property (nonatomic, retain) NSString * event_date_starttime;
 @property (nonatomic, retain) NSString * event_endtime;
 @property (nonatomic, retain) NSString * event_name;

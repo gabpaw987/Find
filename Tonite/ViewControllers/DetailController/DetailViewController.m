@@ -77,7 +77,7 @@
 
     _headerView = [[MGHeaderView alloc] initWithNibName:@"HeaderView"];
     if(!venue){
-        [_headerView.labelSubtitle setText: [event.event_address stringByDecodingHTMLEntities]];
+        [_headerView.labelSubtitle setText: [event.event_address1 stringByDecodingHTMLEntities]];
     }
     else{
         [_headerView.labelSubtitle setText:[venue.venue_name stringByDecodingHTMLEntities]];
@@ -260,7 +260,7 @@
         [cell.labelVenueDescription setText:venue.venue_desc ];
         }
         else{
-        [cell.labelVenue setText:[event.event_address stringByDecodingHTMLEntities ]];
+        [cell.labelVenue setText:[event.event_address1 stringByDecodingHTMLEntities ]];
         [cell.labelVenueDescription setText:@"Description about the Venue" ];
         }
         
@@ -303,7 +303,7 @@
         
         if(CLLocationCoordinate2DIsValid(coords)) {
             MGMapAnnotation* ann = [[MGMapAnnotation alloc] initWithCoordinate:coords
-                                                                          name:venue.venue_name                                                                   description:event.event_address];
+                                                                          name:venue.venue_name                                                                   description:event.event_address1];
             ann.object = event;
             
             [cell.mapViewCell setMapData:[NSMutableArray arrayWithObjects:ann, nil] ];

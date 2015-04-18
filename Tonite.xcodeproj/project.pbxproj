@@ -14,6 +14,7 @@
 		562FD42A1AC06DFB00F6DD9C /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 562FD4291AC06DFB00F6DD9C /* Video.m */; };
 		562FD42D1AC0708F00F6DD9C /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 562FD42C1AC0708F00F6DD9C /* Venue.m */; };
 		562FD4301AC073A200F6DD9C /* Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = 562FD42F1AC073A200F6DD9C /* Ticket.m */; };
+		56D28FE91AE1F5F400A15B21 /* Friendship.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D28FE81AE1F5F400A15B21 /* Friendship.m */; };
 		56EC19B71ACB9BE90083858D /* TicketType.h in Resources */ = {isa = PBXBuildFile; fileRef = 56EC19B61ACB9BE80083858D /* TicketType.h */; };
 		56EC19B91ACB9C4A0083858D /* TicketType.m in Resources */ = {isa = PBXBuildFile; fileRef = 56EC19B81ACB9C4A0083858D /* TicketType.m */; };
 		56EC19BA1ACD1ED80083858D /* TicketType.m in Sources */ = {isa = PBXBuildFile; fileRef = 56EC19B81ACB9C4A0083858D /* TicketType.m */; };
@@ -430,6 +431,8 @@
 		562FD42F1AC073A200F6DD9C /* Ticket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ticket.m; sourceTree = "<group>"; };
 		562FD4311AC33ABA00F6DD9C /* Tonite-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tonite-Info.plist"; sourceTree = "<group>"; };
 		562FD4331AC33AD800F6DD9C /* Tonite-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tonite-Prefix.pch"; sourceTree = "<group>"; };
+		56D28FE71AE1F5AD00A15B21 /* Friendship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friendship.h; sourceTree = "<group>"; };
+		56D28FE81AE1F5F400A15B21 /* Friendship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friendship.m; sourceTree = "<group>"; };
 		56EC19B61ACB9BE80083858D /* TicketType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicketType.h; sourceTree = "<group>"; };
 		56EC19B81ACB9C4A0083858D /* TicketType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicketType.m; sourceTree = "<group>"; };
 		CB11959A194D7A2500217D57 /* MGAnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGAnimationController.h; sourceTree = "<group>"; };
@@ -2142,12 +2145,14 @@
 				CBAED41A1948E97C00769D68 /* Photo.h */,
 				562FD4241AC06CC400F6DD9C /* Video.h */,
 				562FD42E1AC0732300F6DD9C /* Ticket.h */,
+				56D28FE71AE1F5AD00A15B21 /* Friendship.h */,
 				56EC19B61ACB9BE80083858D /* TicketType.h */,
 				562FD4281AC06DB400F6DD9C /* TextEntry.h */,
 				CBAED41B1948E97C00769D68 /* Photo.m */,
 				562FD4261AC06CDE00F6DD9C /* TextEntry.m */,
 				562FD4291AC06DFB00F6DD9C /* Video.m */,
 				562FD42F1AC073A200F6DD9C /* Ticket.m */,
+				56D28FE81AE1F5F400A15B21 /* Friendship.m */,
 				56EC19B81ACB9C4A0083858D /* TicketType.m */,
 				CBAED4171948E97C00769D68 /* Event.h */,
 				562FD42B1AC06E5F00F6DD9C /* Venue.h */,
@@ -2610,6 +2615,7 @@
 				562FD4301AC073A200F6DD9C /* Ticket.m in Sources */,
 				CBAED41F1948E97C00769D68 /* MainCategory.m in Sources */,
 				CBAED40C1948E54000769D68 /* DataModel.xcdatamodeld in Sources */,
+				56D28FE91AE1F5F400A15B21 /* Friendship.m in Sources */,
 				CBAED3AF1948A4EF00769D68 /* MGSlider.m in Sources */,
 				562FD4231AC060BE00F6DD9C /* VenueCategory.m in Sources */,
 				CBAED3A91948A4EF00769D68 /* UIImage+ImageEffects.m in Sources */,

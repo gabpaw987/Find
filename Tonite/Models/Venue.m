@@ -21,7 +21,12 @@
 @dynamic lon;
 @dynamic lat;
 @dynamic venue_desc;
-@dynamic venue_address;
+@dynamic venue_address1;
+@dynamic venue_address2;
+@dynamic venue_zip;
+@dynamic venue_city;
+@dynamic venue_state;
+@dynamic venue_country;
 @dynamic venue_name;
 @dynamic updated_at;
 @dynamic created_at;
