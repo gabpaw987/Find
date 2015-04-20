@@ -7,7 +7,6 @@
 @synthesize numberOfItems = _numberOfItems;
 @synthesize scrollView;
 @synthesize nibName;
-@synthesize event;
 @synthesize willAnimate = _willAnimate;
 @synthesize scrollWidth;
 

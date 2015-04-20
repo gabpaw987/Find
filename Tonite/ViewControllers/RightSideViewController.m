@@ -8,6 +8,7 @@
 
 #import "RightSideViewController.h"
 #import "AppDelegate.h"
+#import "SettingsController.h"
 
 @interface RightSideViewController ()<UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 @property (nonatomic, retain) UserSession* user;
@@ -28,17 +29,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
+    CGFloat peekAmount = self.view.frame.size.width/4;
     self.view.backgroundColor = SIDE_VIEW_BG_COLOR;
     [self setImage:self.user.thumbPhotoUrl imageView:userProfilePicture withBorder:YES isThumb:YES];
     [userProfilePicture.layer setCornerRadius:40.0];
     [userProfilePicture setClipsToBounds:YES];
-    [userProfilePicture setCenter:CGPointMake((self.view.frame.size.width+ ANCHOR_LEFT_PEEK)/2, 125)];
+    [userProfilePicture setCenter:CGPointMake((self.view.frame.size.width+ peekAmount)/2, 125)];
 
     
     tableSideView.delegate = self;
     tableSideView.dataSource = self;
-    [tableSideView setFrame:CGRectMake(ANCHOR_LEFT_PEEK , 200, self.view.frame.size.width - ANCHOR_LEFT_PEEK, self.view.frame.size.height)];
+    [tableSideView setFrame:CGRectMake(peekAmount, 200, self.view.frame.size.width- peekAmount, self.view.frame.size.height)];
     
     [tableSideView setBackgroundColor:[UIColor lightGrayColor]];
     /*DARKEN OUTSIDE MENU SCREEN
@@ -132,7 +133,10 @@
         // SETTINGS
         
         //OTHER SETTINGS??
-        [self.slidingViewController resetTopViewAnimated:YES];
+        UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsNavigator"];
+        [self.slidingViewController presentViewController:vc animated:YES completion:nil];
+
+       // [self.slidingViewController resetTopViewAnimated:YES];
     }
     if(indexPath.row == 1){
         //ABOUT TONITE

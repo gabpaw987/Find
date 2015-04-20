@@ -27,7 +27,9 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tabBarController.navigationController setNavigationBarHidden:NO];
+  //  NSLog(@"Number of Events is .. %lu", (unsigned long)[self.listViewEvents.arrayData count]);
 }
+
 
 -(void) viewDidAppear:(BOOL)animated   {
     [super viewDidAppear:animated];
@@ -163,6 +165,8 @@
     
 }
 
+
+
 -(void)didClickButtonGo:(id)sender {
     MGButton* button = (MGButton*)sender;
     DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardDetail"];
@@ -215,7 +219,10 @@
     if(cell!= nil){
     for(UIView* view in cell.subviews)
         [view removeFromSuperview];
-    Event* event = [listViewEvents.arrayData objectAtIndex:indexPath.row];
+    Event* event = [self.listViewEvents.arrayData objectAtIndex:indexPath.row];
+        if(event){
+        NSLog(@"Event is  %@" , event);
+        }
     Venue* venue = [CoreDataController getVenueByVenueId:event.venue_id];
     [cell.slideShow setImageArray:[CoreDataController getEventPhotosByEventId:event.event_id] ];
     [cell.slideShow setNumberOfItems:[cell.slideShow.imageArray count]];
@@ -225,7 +232,6 @@
     CGRect frame = cell.frame;
     frame.size.width = self.view.frame.size.width;
     frame.size.height = listViewEvents.cellHeight-2 ;
-    cell.slideShow.event  = event;
     [cell.slideShow setNeedsReLayoutWithViewSize:frame.size];
     
     //*** Timing of the sliding photos **********//

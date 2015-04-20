@@ -36,8 +36,6 @@
 @property (nonatomic, strong) RightSideViewController*
     rightMenuController;
 
-
-
 +(AppDelegate*) instance;
 
 @property (nonatomic, strong) CLLocation* myLocation;

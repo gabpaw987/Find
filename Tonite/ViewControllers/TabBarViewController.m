@@ -34,9 +34,9 @@
     // Do any additional setup after loading the view.
     LBHamburgerButton* itemMenu = [[LBHamburgerButton alloc] initWithFrame:CGRectMake(0, 0, 0, 0)
                                    
-                                                lineWidth:22
-                                                                lineHeight:10/6
-                                                               lineSpacing:5
+                                                lineWidth:19
+                                                                lineHeight:7/6
+                                                               lineSpacing:4
                                                                 lineCenter:CGPointMake(10, 0)
                                                                      color:[UIColor grayColor]];
     [itemMenu setCenter:CGPointMake(120, 120)];
@@ -48,7 +48,7 @@
     UIBarButtonItem* itemLoginMenu = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed: ICON_USER]style:UIBarButtonItemStylePlain target:self action:@selector(didClickProfileMenuButton)];
     [itemLoginMenu setTintColor:[UIColor grayColor]];
    
-    itemLoginMenu.imageInsets = UIEdgeInsetsMake(22, 38, 18, 3);
+    itemLoginMenu.imageInsets = UIEdgeInsetsMake(22, 40, 20, 3); //top, left, bottom, right
     self.navigationItem.rightBarButtonItem = itemLoginMenu;
    
     
@@ -106,8 +106,6 @@
     else{
     [self.slidingViewController anchorTopViewToLeftAnimated:YES];
     }
-    
-   
 }
 
 -(void) reloadInputViews  {

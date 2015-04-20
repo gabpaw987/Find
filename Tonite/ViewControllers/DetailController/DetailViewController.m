@@ -344,6 +344,17 @@
     }
     
     [cell.labelDescription setText:event.event_desc];
+    
+    //UILabel *textLabel = [[UILabel alloc]initWithFrame:CGRectMake(5,10, self.view.frame.size.width-5,100)];
+   // [textLabel setTextAlignment: NSTextAlignmentJustified];
+    cell.labelDescription.numberOfLines = 0;
+    [cell.labelDescription setText:event.event_desc];
+    [cell.labelDescription sizeToFit];
+    
+//    [self.scrollText setContentSize:CGSizeMake(self.view.frame.size.width,textLabel.frame.size.height)];
+//    [self.scrollText addSubview:textLabel];
+//    
+    
     CGSize size = [cell.labelDescription sizeOfMultiLineLabel];
     CGRect frame = cell.labelDescription.frame;
     CGRect cellFrame = cell.frame;

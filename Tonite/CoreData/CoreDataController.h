@@ -33,7 +33,7 @@
 +(MainCategory*) getCategoryByCategory:(NSString*)category;
 +(VenueCategory*) getVenueCategoryByVenueCategory:(NSString*)venueCategory;
 +(Venue*) getVenueByVenueId:(NSString*)venue;
-+(NSArray*) getCategoryNames;
++(NSArray*) getCategoryDisplayInfo:(NSString*)info;
 +(MainCategory*) getCategoryByCategoryId:(NSString*)categoryId;
 +(NSArray*) getVenueCategoryNames;
 +(VenueCategory*) getVenueCategoryByVenueCategoryId:(NSString*)venueCategoryId;

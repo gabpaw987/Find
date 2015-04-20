@@ -9,6 +9,14 @@
 #ifndef Tonite_Config_h
 #define Tonite_Config_h
 
+#define ABOUT_PIC3 @"http://static1.squarespace.com/static/54eb8e46e4b08db9da8eed42/5516ef54e4b0ac8577abd83f/552776a6e4b05cd6d50cf865/1428649673207/tumblr_nei8kkrmmI1u1k0aco1_1280-2.jpg"
+#define ABOUT_PI2 @"http://static1.squarespace.com/static/54eb8e46e4b08db9da8eed42/5516ef54e4b0ac8577abd83f/55277504e4b055670069fcbc/1428649449499/E86A0891.jpg"
+#define ABOUT_PIC1 @"http://static1.squarespace.com/static/54eb8e46e4b08db9da8eed42/5516ef54e4b0ac8577abd83f/5527759ee4b0c85c2c9c3dd2/1428649444635/3977498042_b2553a2388_o.jpg"
+
+
+
+
+
 // Change this on your own consumer key
 #define TWITTER_CONSUMER_KEY @"15ooS5bXc3vSK3tmwEMC3Cbtv"
 

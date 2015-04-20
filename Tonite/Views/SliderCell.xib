@@ -4,19 +4,11 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <mutableArray key="rockwell-extra-bold.ttf">
-            <string>Rockwell-ExtraBold</string>
-            <string>Rockwell-ExtraBold</string>
-            <string>Rockwell-ExtraBold</string>
-            <string>Rockwell-ExtraBold</string>
-        </mutableArray>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="0UR-1p-Jt4" customClass="MGListCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="312"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="frb-a6-lMQ">
@@ -40,41 +32,41 @@
                     <rect key="frame" x="17" y="226" width="267" height="40"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" name="Rockwell-ExtraBold" family="Rockwell Extra Bold" pointSize="18"/>
+                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navbar.png" id="ns1-Rk-kiF">
-                    <rect key="frame" x="0.0" y="309" width="320" height="3"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Location.png" id="2Mj-Rc-9DQ">
                     <rect key="frame" x="10" y="261" width="15" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$35" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="I8v-NY-dhI">
-                    <rect key="frame" x="277" y="283" width="30" height="19"/>
+                    <rect key="frame" x="277" y="274" width="30" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <fontDescription key="fontDescription" name="Rockwell-ExtraBold" family="Rockwell Extra Bold" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Date and Time" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TJw-pY-xIa">
-                    <rect key="frame" x="17" y="282" width="226" height="21"/>
+                    <rect key="frame" x="17" y="277" width="226" height="21"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <fontDescription key="fontDescription" name="Rockwell-ExtraBold" family="Rockwell Extra Bold" pointSize="12"/>
+                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venue Name" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kzd-58-Nzd">
-                    <rect key="frame" x="31" y="261" width="276" height="21"/>
+                    <rect key="frame" x="31" y="261" width="212" height="21"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" name="Rockwell-ExtraBold" family="Rockwell Extra Bold" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navbar.png" id="ns1-Rk-kiF">
+                    <rect key="frame" x="0.0" y="297" width="320" height="3"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
@@ -90,7 +82,7 @@
                 <outlet property="locationIcon" destination="2Mj-Rc-9DQ" id="nFa-71-HaT"/>
                 <outlet property="slideShow" destination="AhF-cs-zNN" id="Z1M-Za-Yzm"/>
             </connections>
-            <point key="canvasLocation" x="272" y="325"/>
+            <point key="canvasLocation" x="272" y="319"/>
         </view>
     </objects>
     <resources>

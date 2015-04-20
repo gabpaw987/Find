@@ -24,7 +24,6 @@
 @property (nonatomic, retain) IBOutlet UIScrollView* scrollView;
 @property (nonatomic, copy) NSString* nibName;
 @property (nonatomic, retain) NSArray* imageArray;
-@property (nonatomic, retain) Event* event;
 @property (nonatomic) BOOL willAnimate;
 @property (nonatomic,assign) CGFloat scrollWidth;
 

@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface MenuTableViewCell : UITableViewCell
+
+@property (strong, nonatomic) IBOutlet UIImageView *divider;
 @property (strong, nonatomic) IBOutlet UIImageView *imgBackground;
 @property (strong, nonatomic) IBOutlet UILabel *labelTitle;
+@property (nonatomic, assign) CGFloat scale;
+
 
 @end

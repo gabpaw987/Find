@@ -267,7 +267,6 @@
 		CB7DFBE8195224DF007FC9B9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7DFBE7195224DF007FC9B9 /* RegisterViewController.m */; };
 		CB820A99194F27E8000E64DB /* MGButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CB820A98194F27E8000E64DB /* MGButton.m */; };
 		CB820A9D194F7793000E64DB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB820A9C194F7793000E64DB /* LoginViewController.m */; };
-		CB820AA1194F783D000E64DB /* AboutUsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB820A9E194F783D000E64DB /* AboutUsView.xib */; };
 		CB820AA3194F783D000E64DB /* TCView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB820AA0194F783D000E64DB /* TCView.xib */; };
 		CB820ABB194F788D000E64DB /* button_facebook_large.png in Resources */ = {isa = PBXBuildFile; fileRef = CB820AAB194F788D000E64DB /* button_facebook_large.png */; };
 		CB820ABC194F788D000E64DB /* button_facebook_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB820AAC194F788D000E64DB /* button_facebook_large@2x.png */; };
@@ -282,8 +281,6 @@
 		CB820AD4194F78A3000E64DB /* textbox_username.png in Resources */ = {isa = PBXBuildFile; fileRef = CB820ACC194F78A3000E64DB /* textbox_username.png */; };
 		CB820AD5194F78A3000E64DB /* textbox_username@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB820ACD194F78A3000E64DB /* textbox_username@2x.png */; };
 		CB820AD8194F78DD000E64DB /* MGLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB820AD7194F78DD000E64DB /* MGLoginView.m */; };
-		CB820ADC194F7C47000E64DB /* bg_header_aboutus.png in Resources */ = {isa = PBXBuildFile; fileRef = CB820ADA194F7C47000E64DB /* bg_header_aboutus.png */; };
-		CB820ADD194F7C47000E64DB /* bg_header_aboutus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB820ADB194F7C47000E64DB /* bg_header_aboutus@2x.png */; };
 		CB820AE4194F7C69000E64DB /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB820AE0194F7C69000E64DB /* AboutUsViewController.m */; };
 		CB820AE5194F7C69000E64DB /* TCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB820AE3194F7C69000E64DB /* TCViewController.m */; };
 		CB820AEB194F8167000E64DB /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB820AEA194F8167000E64DB /* ProfileViewController.m */; };
@@ -388,6 +385,10 @@
 		CBC8C37B1954BC8B00CEFCFB /* button_route@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBC8C3791954BC8B00CEFCFB /* button_route@2x.png */; };
 		CBE78817194B735D0010B76E /* UILabel+DynamicHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE78816194B735D0010B76E /* UILabel+DynamicHeight.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		CBFEC954194CC0BC00A64FEC /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBFEC953194CC0BC00A64FEC /* ReviewCell.xib */; };
+		E304C2FD1AE45E080061EE72 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E304C2FC1AE45E080061EE72 /* SettingsViewController.m */; };
+		E304C3001AE465E20061EE72 /* FAQTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E304C2FF1AE465E20061EE72 /* FAQTableViewController.m */; };
+		E304C3041AE468770061EE72 /* AboutMeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E304C3031AE468770061EE72 /* AboutMeTableViewController.m */; };
+		E304C3071AE468A20061EE72 /* PrivacyPolicyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E304C3061AE468A20061EE72 /* PrivacyPolicyViewController.m */; };
 		E31FD7DD1AD461CE00789CB2 /* Gradient-OVERLAY.png in Resources */ = {isa = PBXBuildFile; fileRef = E31FD7DC1AD461CE00789CB2 /* Gradient-OVERLAY.png */; };
 		E3216FB51ACA45AA00F23BBB /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3216FB41ACA45AA00F23BBB /* TabBarViewController.m */; };
 		E3216FBC1ACA4D2100F23BBB /* HamburgerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E3216FBB1ACA4D2100F23BBB /* HamburgerButton.m */; };
@@ -703,7 +704,6 @@
 		CB820A98194F27E8000E64DB /* MGButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGButton.m; sourceTree = "<group>"; };
 		CB820A9B194F7793000E64DB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CB820A9C194F7793000E64DB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		CB820A9E194F783D000E64DB /* AboutUsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUsView.xib; sourceTree = "<group>"; };
 		CB820AA0194F783D000E64DB /* TCView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCView.xib; sourceTree = "<group>"; };
 		CB820AAB194F788D000E64DB /* button_facebook_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_facebook_large.png; sourceTree = "<group>"; };
 		CB820AAC194F788D000E64DB /* button_facebook_large@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_facebook_large@2x.png"; sourceTree = "<group>"; };
@@ -719,8 +719,6 @@
 		CB820ACD194F78A3000E64DB /* textbox_username@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textbox_username@2x.png"; sourceTree = "<group>"; };
 		CB820AD6194F78DD000E64DB /* MGLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLoginView.h; sourceTree = "<group>"; };
 		CB820AD7194F78DD000E64DB /* MGLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGLoginView.m; sourceTree = "<group>"; };
-		CB820ADA194F7C47000E64DB /* bg_header_aboutus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_header_aboutus.png; sourceTree = "<group>"; };
-		CB820ADB194F7C47000E64DB /* bg_header_aboutus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_header_aboutus@2x.png"; sourceTree = "<group>"; };
 		CB820ADF194F7C69000E64DB /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
 		CB820AE0194F7C69000E64DB /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
 		CB820AE2194F7C69000E64DB /* TCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCViewController.h; sourceTree = "<group>"; };
@@ -922,6 +920,14 @@
 		CBE78815194B735D0010B76E /* UILabel+DynamicHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+DynamicHeight.h"; sourceTree = "<group>"; };
 		CBE78816194B735D0010B76E /* UILabel+DynamicHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+DynamicHeight.m"; sourceTree = "<group>"; };
 		CBFEC953194CC0BC00A64FEC /* ReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
+		E304C2FB1AE45E080061EE72 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		E304C2FC1AE45E080061EE72 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		E304C2FE1AE465E20061EE72 /* FAQTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAQTableViewController.h; sourceTree = "<group>"; };
+		E304C2FF1AE465E20061EE72 /* FAQTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAQTableViewController.m; sourceTree = "<group>"; };
+		E304C3021AE468770061EE72 /* AboutMeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutMeTableViewController.h; sourceTree = "<group>"; };
+		E304C3031AE468770061EE72 /* AboutMeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutMeTableViewController.m; sourceTree = "<group>"; };
+		E304C3051AE468A20061EE72 /* PrivacyPolicyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyPolicyViewController.h; sourceTree = "<group>"; };
+		E304C3061AE468A20061EE72 /* PrivacyPolicyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyPolicyViewController.m; sourceTree = "<group>"; };
 		E31FD7DC1AD461CE00789CB2 /* Gradient-OVERLAY.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Gradient-OVERLAY.png"; path = "../../Views/Gradient-OVERLAY.png"; sourceTree = "<group>"; };
 		E3216FB31ACA45AA00F23BBB /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		E3216FB41ACA45AA00F23BBB /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TabBarViewController.m; sourceTree = "<group>"; };
@@ -1383,8 +1389,6 @@
 		CB820AD9194F7C47000E64DB /* AboutUs */ = {
 			isa = PBXGroup;
 			children = (
-				CB820ADA194F7C47000E64DB /* bg_header_aboutus.png */,
-				CB820ADB194F7C47000E64DB /* bg_header_aboutus@2x.png */,
 			);
 			path = AboutUs;
 			sourceTree = "<group>";
@@ -1629,6 +1633,10 @@
 				CB820ADE194F7C69000E64DB /* AboutUsController */,
 				CB820AE1194F7C69000E64DB /* T&CController */,
 				E3216FB61ACA45AE00F23BBB /* TabBarViewController */,
+				E304C2F71AE459D40061EE72 /* SettingsViewController */,
+				E304C3011AE465E90061EE72 /* FAQViewController */,
+				E304C3081AE468C60061EE72 /* AboutMeViewController */,
+				E304C3091AE468D20061EE72 /* PrivacyPolicyViewController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1636,7 +1644,6 @@
 		CBAED25D1948A40F00769D68 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CB820A9E194F783D000E64DB /* AboutUsView.xib */,
 				CB42218B194AEC2300528013 /* DetailCell.xib */,
 				CB3B8E27194A06A100574652 /* FeaturedCell.xib */,
 				CB2627AE1950CE050024C15A /* FooterView.xib */,
@@ -2205,6 +2212,42 @@
 			path = "UILabel+DynamicHeight";
 			sourceTree = "<group>";
 		};
+		E304C2F71AE459D40061EE72 /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E304C2FB1AE45E080061EE72 /* SettingsViewController.h */,
+				E304C2FC1AE45E080061EE72 /* SettingsViewController.m */,
+			);
+			name = SettingsViewController;
+			sourceTree = "<group>";
+		};
+		E304C3011AE465E90061EE72 /* FAQViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E304C2FF1AE465E20061EE72 /* FAQTableViewController.m */,
+				E304C2FE1AE465E20061EE72 /* FAQTableViewController.h */,
+			);
+			name = FAQViewController;
+			sourceTree = "<group>";
+		};
+		E304C3081AE468C60061EE72 /* AboutMeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E304C3031AE468770061EE72 /* AboutMeTableViewController.m */,
+				E304C3021AE468770061EE72 /* AboutMeTableViewController.h */,
+			);
+			name = AboutMeViewController;
+			sourceTree = "<group>";
+		};
+		E304C3091AE468D20061EE72 /* PrivacyPolicyViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E304C3061AE468A20061EE72 /* PrivacyPolicyViewController.m */,
+				E304C3051AE468A20061EE72 /* PrivacyPolicyViewController.h */,
+			);
+			name = PrivacyPolicyViewController;
+			sourceTree = "<group>";
+		};
 		E3216FB61ACA45AE00F23BBB /* TabBarViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2410,7 +2453,6 @@
 				E34C284A1AC875EE00D7640A /* heart.png in Resources */,
 				CB48DD1D19D444580039C26B /* ic_map_draw@3x.png in Resources */,
 				CB422134194AD85000528013 /* ic_map_location@2x.png in Resources */,
-				CB820ADD194F7C47000E64DB /* bg_header_aboutus@2x.png in Resources */,
 				CB7DFBB719520673007FC9B9 /* detail_image_placeholder.png in Resources */,
 				E31FD7DD1AD461CE00789CB2 /* Gradient-OVERLAY.png in Resources */,
 				CB7DFBC31952088E007FC9B9 /* profile_thumb_placeholder.png in Resources */,
@@ -2521,7 +2563,6 @@
 				CB7DFB6319517961007FC9B9 /* ic_check@2x.png in Resources */,
 				CB2627C51950D67F0024C15A /* button_facebook@2x.png in Resources */,
 				CB7DFB571951726C007FC9B9 /* ic_web_forward@2x.png in Resources */,
-				CB820AA1194F783D000E64DB /* AboutUsView.xib in Resources */,
 				CB422133194AD85000528013 /* ic_map_location.png in Resources */,
 				CB2627D11950DF6F0024C15A /* button_share_facebook@2x.png in Resources */,
 				CB2627CB1950D67F0024C15A /* button_web@2x.png in Resources */,
@@ -2593,7 +2634,6 @@
 				CB2627CA1950D67F0024C15A /* button_web.png in Resources */,
 				CB48DD6719D44E630039C26B /* ic_close@3x.png in Resources */,
 				CB2627981950AE080024C15A /* ic_menu_reviews.png in Resources */,
-				CB820ADC194F7C47000E64DB /* bg_header_aboutus.png in Resources */,
 				E34C28421AC8717C00D7640A /* navbar.png in Resources */,
 				CB7DFBA61951E812007FC9B9 /* button_blue@2x.png in Resources */,
 				CB2627C21950D67F0024C15A /* button_email.png in Resources */,
@@ -2655,6 +2695,8 @@
 				CB344E8319787F7D000784DA /* NSManageObject+Bindings.m in Sources */,
 				CBAED3A31948A4EF00769D68 /* MGUIAppearance.m in Sources */,
 				CBAED3AB1948A4EF00769D68 /* MGMapRoute.m in Sources */,
+				E304C2FD1AE45E080061EE72 /* SettingsViewController.m in Sources */,
+				E304C3071AE468A20061EE72 /* PrivacyPolicyViewController.m in Sources */,
 				CB42218A194ADF4E00528013 /* MGHeaderView.m in Sources */,
 				E3216FB51ACA45AA00F23BBB /* TabBarViewController.m in Sources */,
 				CBAED3831948A4EF00769D68 /* MGMapView.m in Sources */,
@@ -2668,6 +2710,7 @@
 				CBAED3641948A4EF00769D68 /* ECSlidingSegue.m in Sources */,
 				CBAED3B21948A4EF00769D68 /* NMRangeSlider.m in Sources */,
 				CBAED41C1948E97C00769D68 /* Photo.m in Sources */,
+				E304C3041AE468770061EE72 /* AboutMeTableViewController.m in Sources */,
 				CBAED3B91948A4EF00769D68 /* UIPickerActionSheet.m in Sources */,
 				CBAED4051948E18400769D68 /* GTMNSString+HTML.m in Sources */,
 				CBAED3871948A4EF00769D68 /* SearchRawView.m in Sources */,
@@ -2707,6 +2750,7 @@
 				CBAED3931948A4EF00769D68 /* AFHTTPClient.m in Sources */,
 				CBAED2611948A43B00769D68 /* AppDelegate.m in Sources */,
 				CBAED4071948E18400769D68 /* NSString+HTML.m in Sources */,
+				E304C3001AE465E20061EE72 /* FAQTableViewController.m in Sources */,
 				CB820A9D194F7793000E64DB /* LoginViewController.m in Sources */,
 				CBAED3981948A4EF00769D68 /* AFPropertyListRequestOperation.m in Sources */,
 				CBAED4061948E18400769D68 /* NSDate+InternetDateTime.m in Sources */,
@@ -2864,8 +2908,6 @@
 		CBAED2521948A1DD00769D68 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Tonite/Libraries/FacebookSDK",
@@ -2895,8 +2937,6 @@
 		CBAED2531948A1DD00769D68 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Tonite/Libraries/FacebookSDK",

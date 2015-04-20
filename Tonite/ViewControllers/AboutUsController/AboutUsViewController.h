@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AboutUsViewController : UIViewController <MFMailComposeViewControllerDelegate> {
-    
-    MGRawView* _aboutView;
-}
+@interface AboutUsViewController : UIViewController <MFMailComposeViewControllerDelegate>
 
-@property (nonatomic, retain) IBOutlet MGRawScrollView* scrollViewMain;
+@property (strong, nonatomic) IBOutlet UILabel *labelDescription;
+- (IBAction)contactUs:(id)sender;
+@property (strong, nonatomic) IBOutlet UIImageView *toniteLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *divider;
+
+@property (strong, nonatomic) IBOutlet UILabel *aboutLabel;
+
+@property (strong, nonatomic) IBOutlet UIScrollView *slideShow;
+
 @end

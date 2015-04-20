@@ -9,28 +9,18 @@
 #import "AboutUsViewController.h"
 #import "AppDelegate.h"
 
-@interface AboutUsViewController ()
-
+@interface AboutUsViewController ()<UIScrollViewDelegate>
 @end
 
 @implementation AboutUsViewController
-@synthesize scrollViewMain;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [_aboutView removeFromSuperview];
-    [scrollViewMain addSubview:_aboutView];
-    scrollViewMain.contentSize = _aboutView.frame.size;
 }
+
+
+
 
 - (void)viewDidLoad
 {
@@ -38,53 +28,54 @@
     // Do any additional setup after loading the view.
 
     
-    self.view.backgroundColor = BG_VIEW_COLOR;
+    self.view.backgroundColor = [UIColor whiteColor];
+   
+    [self.labelDescription setText:NSLocalizedString(@"ABOUT_US_DETAIL", @"Hello there!")];
 
-   // scrollViewMain.frame = self.view.frame;
-    _aboutView = [[MGRawView alloc] initWithFrame:scrollViewMain.frame nibName:@"AboutUsView"];
+    NSArray* aboutUsPics = @[ABOUT_PIC1, ABOUT_PI2, ABOUT_PIC3 ];
     
-    BOOL screen = IS_IPHONE_6_PLUS_AND_ABOVE;
-    if(screen) {
-        CGRect frame = _aboutView.frame;
-        frame.size.width = self.view.frame.size.width;
-        _aboutView.frame = frame;
+    self.slideShow.delegate = self;
+    int posX = 0;
+    for(int x = 0; x < [aboutUsPics count]; x++) {
+        UIImageView* sliderView = [[UIImageView alloc] initWithFrame:
+        CGRectMake(posX, 0.0, self.view.frame.size.width, self.slideShow.frame.size.height)];
+        [self setImage:aboutUsPics[x] imageView: sliderView];
+        [self.slideShow addSubview:sliderView];
+        posX += self.view.frame.size.width;
     }
-
-    [_aboutView.label2 setText:LOCALIZED(@"ABOUT_US_DETAIL_1")];
-    
-    [_aboutView.buttonEmail setTitle:LOCALIZED(@"CONTACT_US")
-                            forState:UIControlStateNormal];
-    [_aboutView.buttonEmail setTitle:LOCALIZED(@"CONTACT_US")
-                            forState:UIControlStateSelected];
-    [_aboutView.buttonEmail addTarget:self
-                              action:@selector(didClickEmailButton:)
-                    forControlEvents:UIControlEventTouchUpInside];
-    
-    UIEdgeInsets inset = scrollViewMain.contentInset;
-    inset.bottom = NAV_BAR_OFFSET_DEFAULT;
-    inset.top = 0;
-    scrollViewMain.contentInset = inset;
-
+    self.slideShow.showsHorizontalScrollIndicator = NO;
+    self.slideShow.pagingEnabled = YES;
+    self.slideShow.bounces = NO;
+    self.slideShow.frame = CGRectMake(0.0, 0.0, self.view.frame.size.width, self.slideShow.frame.size.height);
+    self.slideShow.contentSize = CGSizeMake(posX, self.slideShow.frame.size.height);
+    [self.slideShow setUserInteractionEnabled:YES];
+    [self.divider setFrame:CGRectMake(0.0, self.slideShow.frame.size.height, self.view.frame.size.width, 5)];
+    [self.view addSubview: self.divider];
+    [self.toniteLabel setFrame:CGRectMake(60.0, self.divider.frame.origin.y+12.5, 75.0, 38.0)];
+    [self.view addSubview: self.toniteLabel];
+    [self.aboutLabel setFrame:CGRectMake(8.0, self.divider.frame.origin.y+15, 60.0, 30.0)];
+    [self.view addSubview: self.aboutLabel];
+ 
     UIButton* itemMenu = [UIButton buttonWithType:UIButtonTypeCustom  ];
     [itemMenu addTarget:self action:@selector(didClickBarButtonMenu:) forControlEvents:UIControlEventTouchUpInside  ];
     [itemMenu setBackgroundImage: [UIImage imageNamed:BUTTON_CLOSE] forState:UIControlStateNormal];
     [itemMenu setBackgroundImage:[UIImage imageNamed:BUTTON_CLOSE ]forState:UIControlStateSelected];
-    [itemMenu setFrame: CGRectMake(20, 20, 25, 25) ];
+    [itemMenu setFrame: CGRectMake(18, 20, 20, 20) ];
     [self.view addSubview:itemMenu];
-
 }
-
+                                              
 -(void)didClickBarButtonMenu:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
-    
+}
 //  UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardContent"];
 //
 //    [self.slidingViewController anchorTopViewToLeftAnimated:YES];
 //    [self.navigationController setViewControllers:[NSArray arrayWithObject: vc]];
 //    [self.slidingViewController resetTopViewAnimated:YES];
-}
 
--(void)didClickEmailButton:(id)sender {
+
+
+- (IBAction)contactUs:(id)sender    {
  
     if ([MFMailComposeViewController canSendMail]) {
         
@@ -119,6 +110,7 @@
     }
 }
 
+
 - (void)mailComposeController:(MFMailComposeViewController*)controller
           didFinishWithResult:(MFMailComposeResult)result
                         error:(NSError*)error {
@@ -143,5 +135,30 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+-(void)setImage:(NSString*)imageUrl imageView:(UIImageView*)imgView {
+    
+    NSURL* url = [NSURL URLWithString:imageUrl];
+    NSURLRequest* urlRequest = [NSURLRequest requestWithURL:url];
+    
+    __weak typeof(imgView ) weakImgRef = imgView;
+    UIImage* imgPlaceholder = [UIImage imageNamed:LIST_EVENT_PLACEHOLDER];
+    
+    [imgView setImageWithURLRequest:urlRequest
+                   placeholderImage:imgPlaceholder
+                            success:^(NSURLRequest* request, NSHTTPURLResponse* response, UIImage* image) {
+                                
+                                CGSize size = weakImgRef.frame.size;
+                                
+                                if([MGUtilities isRetinaDisplay]) {
+                                    size.height *= 2;
+                                    size.width *= 2;
+                                }
+                                
+                                UIImage* croppedImage = [image imageByScalingAndCroppingForSize:size];
+                                weakImgRef.image = croppedImage;
+                                
+                            } failure:^(NSURLRequest* request, NSHTTPURLResponse* response, NSError* error) {
+                                
+                            }];
+}
 @end

@@ -25,14 +25,14 @@
     return self;
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
+-(void)viewWillAppear:(BOOL)animated    {
+    [super viewWillAppear:animated];
+  [self.navigationController setNavigationBarHidden:YES];
     self.navigationItem.titleView = [MGUIAppearance createLogo:TONITE_LOGO];
     
-    [_aboutView removeFromSuperview];
-    [scrollViewMain addSubview:_aboutView];
-    scrollViewMain.contentSize = _aboutView.frame.size;
+    [_termsView removeFromSuperview];
+    [scrollViewMain addSubview:_termsView];
+    scrollViewMain.contentSize = _termsView.frame.size;
 }
 
 - (void)viewDidLoad
@@ -40,22 +40,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //    self.navigationItem.titleView = [MGUIAppearance createLogo:HEADER_LOGO];
-    self.view.backgroundColor = BG_VIEW_COLOR;
+
     
-    [MGUIAppearance enhanceNavBarController:self.navigationController
-                               barTintColor:WHITE_TEXT_COLOR
-                                  tintColor:WHITE_TEXT_COLOR
-                             titleTextColor:WHITE_TEXT_COLOR];
-    
-    _aboutView = [[MGRawView alloc] initWithFrame:scrollViewMain.frame nibName:@"TCView"];
+  
+    _termsView = [[MGRawView alloc] initWithFrame:scrollViewMain.frame nibName:@"TCView"];
     
 
     BOOL screen = IS_IPHONE_6_PLUS_AND_ABOVE;
     if(screen) {
-        CGRect frame = _aboutView.frame;
+        CGRect frame = _termsView.frame;
         frame.size.width = self.view.frame.size.width;
-        frame.size.height = self.view.frame.size.height;
-        _aboutView.frame = frame;
+    frame.size.height = self.view.frame.size.height;
+        _termsView.frame = frame;
     }
     
     scrollViewMain.frame = self.view.frame;
@@ -68,19 +64,6 @@
     inset.bottom = NAV_BAR_OFFSET_DEFAULT;
     scrollViewMain.scrollIndicatorInsets = inset;
 
-    UIBarButtonItem* itemMenu = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:BUTTON_CLOSE]
-                                                                 style:UIBarButtonItemStylePlain
-                                                                target:self
-                                                                action:@selector(didClickBarButtonMenu:)];
-    self.navigationItem.leftBarButtonItem = itemMenu;
-}
-
--(void)didClickBarButtonMenu:(id)sender {
-    
-    UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardContent"];
-    [self.slidingViewController anchorTopViewToLeftAnimated:YES];
-    [self.navigationController setViewControllers:[NSArray arrayWithObject:vc]];
-    [self.slidingViewController resetTopViewAnimated:NO];
 }
 
 

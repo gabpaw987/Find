@@ -260,7 +260,7 @@
 
 
 
-"ABOUT_US_DETAIL_1" = "DESCRIPTION HERE";
+"ABOUT_US_DETAIL" = "DESCRIPTION HERE";
 
 
 
@@ -297,3 +297,5 @@
 "Rate It!" = "Rate It!";
 
 "USER" = "User";
+
+

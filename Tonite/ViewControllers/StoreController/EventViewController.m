@@ -26,6 +26,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -39,10 +40,10 @@
 - (UIBarButtonItem *)backButton
 {
     LBHamburgerButton* button = [[LBHamburgerButton alloc] initWithFrame:CGRectMake(0, 0, 0, 0)
-                                   
-                                                                 lineWidth:22
-                                                                lineHeight:10/6
-                                                               lineSpacing:5
+
+                                                                 lineWidth:19
+                                                                lineHeight:7/6
+                                                               lineSpacing:4
                                                                 lineCenter:CGPointMake(10, 0)
                                                                      color:[UIColor grayColor]];
     [button setCenter:CGPointMake(120, 120)];
@@ -155,7 +156,7 @@
         [listViewMain reloadData];
         
         if(listViewMain.arrayData == nil || listViewMain.arrayData.count == 0) {
-            
+            [self.listViewMain setUserInteractionEnabled:NO];
             UIColor* color = [[UIColor blackColor] colorWithAlphaComponent:0.70];
             [MGUtilities showStatusNotifier:LOCALIZED(@"NO_RESULTS")
                                   textColor:[UIColor whiteColor]
@@ -239,7 +240,6 @@
         CGRect frame = cell.frame;
         frame.size.width = self.view.frame.size.width;
         frame.size.height = listViewMain.cellHeight-2 ;
-        cell.slideShow.event  = event;
         [cell.slideShow setNeedsReLayoutWithViewSize:frame.size];
         
         //*** Timing of the sliding photos **********//

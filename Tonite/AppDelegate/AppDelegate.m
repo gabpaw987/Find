@@ -20,7 +20,6 @@
 @implementation AppDelegate
 
 @synthesize rightMenuController;
-
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
@@ -36,12 +35,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    
-    // Override point for customization after application launch.
-   // [MGUIAppearance enhanceNavBarAppearance:NAV_BAR_BG];
-    
-    
+  
     if (DOES_SUPPORT_IOS7) {
         [application setStatusBarStyle:UIStatusBarStyleLightContent];
     }
@@ -57,17 +51,12 @@
     
    
     self.slidingViewController.anchorLeftPeekAmount = self.slidingViewController.view.frame.size.width/4;
- //   self.slidingViewController.anchorRightRevealAmount = 200.0;
-  //  self.slidingViewController.anchorLeftRevealAmount = ANCHOR_RIGHT_PEEK;
-   // self.slidingViewController.anchorRightPeekAmount
-    
+
     
     UIViewController* launchVid = [[ViewController alloc]init];
     
     self.window.rootViewController = launchVid;
-    
     [self.window makeKeyAndVisible];
-    
     [[FHSTwitterEngine sharedEngine] permanentlySetConsumerKey:TWITTER_CONSUMER_KEY
                                                      andSecret:TWITTER_CONSUMER_SECRET];
     

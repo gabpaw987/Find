@@ -225,26 +225,6 @@
     return fetchedObjects.count > 0 ? fetchedObjects[0] : nil;
 }
 
-+(NSArray*) getCategories {
-    
-    AppDelegate* delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    NSManagedObjectContext* context = delegate.managedObjectContext;
-    
-    NSError *error;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    [fetchRequest setReturnsObjectsAsFaults:NO];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"MainCategory" inManagedObjectContext:context];
-    
-    
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category" ascending:YES];
-    [fetchRequest setSortDescriptors:@[sortDescriptor]];
-    
-    [fetchRequest setEntity:entity];
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    
-    return fetchedObjects;
-}
-
 +(NSArray*) getTicketTypes {
     
     AppDelegate* delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -457,7 +437,8 @@
     return fetchedObjects.count > 0 ? fetchedObjects[0] : nil;
 }
 
-+(NSArray*) getCategoryNames {
+
++(NSArray*) getCategories {
     
     AppDelegate* delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     NSManagedObjectContext* context = delegate.managedObjectContext;
@@ -474,11 +455,36 @@
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     
+    return fetchedObjects;
+}
+
++(NSArray*) getCategoryDisplayInfo: (NSString*)info {
+    
+    AppDelegate* delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSManagedObjectContext* context = delegate.managedObjectContext;
+    
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    [fetchRequest setReturnsObjectsAsFaults:NO];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"MainCategory" inManagedObjectContext:context];
+    
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortDescriptor]];
+    
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
     NSMutableArray* array = [NSMutableArray new];
     
+    if([info isEqualToString:@"category_title"]){
     for(MainCategory* cat in fetchedObjects)
         [array addObject:cat.category];
-    
+    }
+    else if([info isEqualToString:@"category_icon"]){
+        for(MainCategory* cat in fetchedObjects)
+            [array addObject:cat.category_icon];
+    }
     return array;
 }
 

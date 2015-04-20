@@ -10,7 +10,7 @@
 
 @interface TCViewController : UIViewController {
     
-    MGRawView* _aboutView;
+    MGRawView* _termsView;
 }
 
 @property (nonatomic, retain) IBOutlet MGRawScrollView* scrollViewMain;
