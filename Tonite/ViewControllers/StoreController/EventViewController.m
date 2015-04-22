@@ -250,37 +250,28 @@
         [cell addSubview:cell.slideShow.scrollView];
     }
     
-    
-    // [cell.labelExtraInfo setText: event_price????];
+ //    [cell.labelExtraInfo setText: event_price????];
     cell.labelTitle.text =event.event_name;
     cell.labelSubtitle.text=  venue.venue_name;
     if(event.event_name == venue.venue_name){
-        [cell.labelSubtitle setText:event.event_address];
+      [cell.labelSubtitle setText:event.event_address];
     }
-    NSString* date = [self formatDateWithStart:event.event_date_starttime withEndTime:event.event_endtime];
-    [cell.labelDetails setText:date];
-    [cell.labelSubtitle setClipsToBounds:YES];
-    [cell addSubview: cell.fade ];
-    [cell addSubview:cell.labelTitle];
-    [cell addSubview:cell.labelSubtitle];
-    [cell addSubview:cell.labelExtraInfo];
-    [cell addSubview: cell.divider];
-    [cell addSubview: cell.labelDetails];
-    [cell addSubview: cell.locationIcon];
     }
+//    NSString* date = [self formatDateWithStart:event.event_date_starttime withEndTime:event.event_endtime];
+//    [cell.labelDetails setText:date];
+//    [cell.labelSubtitle setClipsToBounds:YES];
+//    [cell addSubview: cell.fade ];
+//    [cell addSubview:cell.labelTitle];
+//    [cell addSubview:cell.labelSubtitle];
+//    [cell addSubview:cell.labelExtraInfo];
+//    [cell addSubview: cell.divider];
+//    [cell addSubview: cell.labelDetails];
+//    [cell addSubview: cell.locationIcon];
+//    }
     return cell;
 }
 
--(void) didSelectFave:(id)sender{
-    UIButton* btn = (UIButton* ) sender;
-    if(btn.state == UIControlStateSelected){
-        [btn setBackgroundImage:[UIImage imageNamed:LIKE_IMG] forState:UIControlStateNormal];
-    }
-    else{
-        [btn setBackgroundImage:[UIImage imageNamed:STARRED_IMG] forState:UIControlStateNormal];
-        
-    }
-}
+
 
 -(NSString*)formatDateWithStart:(NSString*)dateAndStart withEndTime:(NSString*)endTime{
   NSString* entireDate= @"9PM to Midnight";

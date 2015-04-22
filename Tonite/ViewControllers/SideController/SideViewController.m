@@ -32,6 +32,7 @@
 }
 
 
+
 -(void) viewWillAppear:(BOOL)animated {
     [self reloadInputViews];
     [self.tabBarController.navigationController setNavigationBarHidden:NO];
@@ -148,6 +149,7 @@
 }
 
 
+
 -(void) scrollViewDidScrollToTop:(UIScrollView *)scrollView{
     if(scrollView.contentOffset.y == 0.0){
         [self.tabBarController.navigationController setNavigationBarHidden:NO];
@@ -162,63 +164,13 @@
 
 
 -(void) scrollViewDidScroll:(UIScrollView *)scrollView{
-//  NSArray* cells = self.tableViewSide.visibleCells;
-//    CGFloat scale;
-//    for( int i = 0; i <2; i++){
-//       
-//        MenuTableViewCell* view = cells[i];
-//        
-//        CGFloat offset = (float)((int)self.tableViewSide.contentOffset.y %(int) self.view.frame.size.height);
-//        scale = 1+(offset/self.view.frame.size.height);
-//       // scale = 1+(1-scale);
-////        if(offset == 0){
-////            scale = view.scale;
-////        }
-//       // scale = (offset) /300;
-//        
-////        if(offset < view.frame.size.height){
-////            scale = view.scale;
-////        }
-//        
-////        if(i ==([cells count]-1) ){
-////            CGFloat num = (self.tableViewSide.contentOffset.y- view.frame.origin.y);
-//            NSLog(@"offset .... %f", offset);
-////
-////            scale = view.scale;
-////        }
-//        //self.tableViewSide.frame.size.height)+.5;
-//        
-//                           //- view.frame.origin.y)/300;
-//      
-//        //NSLog(@" scale by ......%f", scale );
-//          if(scale < 1 ){
-//                NSLog(@"reached limit");
-//            continue;
-//            }
-//                   if([scrollView.panGestureRecognizer translationInView:self.view].y > 0 ){ //scrolled UP
-//        
-//            
-//            CGAffineTransform transform = CGAffineTransformMakeScale(scale, scale);
-//            view.imgBackground.transform = transform;
-//            
-//        }
-//        else{
-//            if(i == 0){
-//                scale = view.scale;
-//            }
-//           CGAffineTransform transform = CGAffineTransformMakeScale( scale, scale);
-//            view.imgBackground.transform = transform;
-//        }
-//        [view setScale: scale];
-//     
-//    }
-
     for(MenuTableViewCell *view in self.tableViewSide.visibleCells) {
         CGFloat yOffset = ((self.tableViewSide.contentOffset.y - view.frame.origin.y) /300) * 25;
         CGRect frame =view.imgBackground.bounds;
         CGRect offsetFrame = CGRectOffset(frame, 0, yOffset);
         view.imgBackground.frame = offsetFrame;
         }
+
     
 }
 

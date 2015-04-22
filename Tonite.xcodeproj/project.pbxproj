@@ -389,6 +389,8 @@
 		E304C3001AE465E20061EE72 /* FAQTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E304C2FF1AE465E20061EE72 /* FAQTableViewController.m */; };
 		E304C3041AE468770061EE72 /* AboutMeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E304C3031AE468770061EE72 /* AboutMeTableViewController.m */; };
 		E304C3071AE468A20061EE72 /* PrivacyPolicyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E304C3061AE468A20061EE72 /* PrivacyPolicyViewController.m */; };
+		E304C30B1AE49FE70061EE72 /* image1.PNG in Resources */ = {isa = PBXBuildFile; fileRef = E304C30A1AE49FE60061EE72 /* image1.PNG */; };
+		E304C30D1AE4A8D40061EE72 /* Gotham-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = E304C30C1AE4A8D40061EE72 /* Gotham-Book.otf */; };
 		E31FD7DD1AD461CE00789CB2 /* Gradient-OVERLAY.png in Resources */ = {isa = PBXBuildFile; fileRef = E31FD7DC1AD461CE00789CB2 /* Gradient-OVERLAY.png */; };
 		E3216FB51ACA45AA00F23BBB /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3216FB41ACA45AA00F23BBB /* TabBarViewController.m */; };
 		E3216FBC1ACA4D2100F23BBB /* HamburgerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E3216FBB1ACA4D2100F23BBB /* HamburgerButton.m */; };
@@ -928,6 +930,8 @@
 		E304C3031AE468770061EE72 /* AboutMeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutMeTableViewController.m; sourceTree = "<group>"; };
 		E304C3051AE468A20061EE72 /* PrivacyPolicyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyPolicyViewController.h; sourceTree = "<group>"; };
 		E304C3061AE468A20061EE72 /* PrivacyPolicyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyPolicyViewController.m; sourceTree = "<group>"; };
+		E304C30A1AE49FE60061EE72 /* image1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1.PNG; sourceTree = "<group>"; };
+		E304C30C1AE4A8D40061EE72 /* Gotham-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Book.otf"; sourceTree = "<group>"; };
 		E31FD7DC1AD461CE00789CB2 /* Gradient-OVERLAY.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Gradient-OVERLAY.png"; path = "../../Views/Gradient-OVERLAY.png"; sourceTree = "<group>"; };
 		E3216FB31ACA45AA00F23BBB /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		E3216FB41ACA45AA00F23BBB /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TabBarViewController.m; sourceTree = "<group>"; };
@@ -1593,6 +1597,7 @@
 		CBAED25B1948A40F00769D68 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E304C30C1AE4A8D40061EE72 /* Gotham-Book.otf */,
 				E389218D1ADDF78100DB2B81 /* rockwell-extra-bold.ttf */,
 				E389218B1ADDF77000DB2B81 /* Yo.mov */,
 				E34C28431AC875EE00D7640A /* 1x */,
@@ -2278,6 +2283,7 @@
 		E34C28431AC875EE00D7640A /* 1x */ = {
 			isa = PBXGroup;
 			children = (
+				E304C30A1AE49FE60061EE72 /* image1.PNG */,
 				E339573F1AD30DCB00A6D2AD /* TONITELOGO_new.png */,
 				E31FD7DC1AD461CE00789CB2 /* Gradient-OVERLAY.png */,
 				E34C28441AC875EE00D7640A /* heart.png */,
@@ -2408,6 +2414,7 @@
 				562FD4251AC06CC400F6DD9C /* Video.h in Resources */,
 				CBAED2641948A49900769D68 /* Localizable.strings in Resources */,
 				CB48DD2D19D444660039C26B /* side_bar_list_bg@3x.png in Resources */,
+				E304C30D1AE4A8D40061EE72 /* Gotham-Book.otf in Resources */,
 				CB2627AC1950CC770024C15A /* ic_detail_website.png in Resources */,
 				CB4221BF194B01BB00528013 /* line_divider_pad@2x.png in Resources */,
 				CB48DD7219D44E630039C26B /* ic_settings@3x.png in Resources */,
@@ -2601,6 +2608,7 @@
 				CB4221BD194B01BB00528013 /* line_divider@2x.png in Resources */,
 				CB7DFBD6195216BB007FC9B9 /* Default-568h.png in Resources */,
 				CB2627C91950D67F0024C15A /* button_twitter@2x.png in Resources */,
+				E304C30B1AE49FE70061EE72 /* image1.PNG in Resources */,
 				CB26274519507C030024C15A /* side_bar_list_bg.png in Resources */,
 				CB7DFB7B1951A0A7007FC9B9 /* button_search@2x.png in Resources */,
 				CB48DD0119D444460039C26B /* divider@3x.png in Resources */,

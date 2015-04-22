@@ -105,13 +105,21 @@
 
 
 - (void)scrollingTimer {
-    
+//    [UIView animateWithDuration:0.5
+//                          delay:1.0
+//                        options:UIViewAnimationOptionCurveEaseIn
+//                     animations:^{ Image.alpha = 1; }
+//                     completion:^(BOOL finished){}
+//     ];
     int nextPage = (int)(scrollView.contentOffset.x/scrollWidth) + 1;
     CGRect rect = CGRectZero;
     
     if( nextPage == _numberOfItems ) {
         rect = CGRectMake(0, 0, scrollWidth, scrollView.frame.size.height);
         [scrollView scrollRectToVisible:rect animated:YES];
+        [UIView animateWithDuration:5.0 animations:^{
+            scrollView.alpha = 1.0;
+        }];
     }
     else{
         rect = CGRectMake(nextPage*scrollWidth, 0, scrollWidth, scrollView.frame.size.height);
