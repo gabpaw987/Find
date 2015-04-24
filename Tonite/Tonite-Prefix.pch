@@ -40,7 +40,7 @@
     #import "MGRawView.h"
     #import "Config.h"
     #import "UIConfig.h"
-    #import "MGUIAppearance.h"
+    #import "ToniteNavigationBar.h"
     #import "MGListCell.h"
     #import "MGListView.h"
     #import "NSString+HTML.h"

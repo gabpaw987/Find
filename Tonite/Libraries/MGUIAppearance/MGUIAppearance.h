@@ -2,7 +2,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MGUIAppearance : NSObject
+@interface ToniteNavigationBar : NSObject
 
 +(void)enhanceNavBarAppearance:(NSString*)navBarFileName;
 

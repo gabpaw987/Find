@@ -27,9 +27,20 @@
     NSURL * weburl = [NSURL URLWithString:textURL];
     NSURLRequest* request = [NSURLRequest requestWithURL:weburl];
     [_webView loadRequest:request];
+    UIBarButtonItem* buttonCancel = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(didClickCancel)];
+    [self.navigationItem setLeftBarButtonItem:buttonCancel];
     
-
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+-(void) didClickCancel{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -47,17 +58,17 @@
         [self.navigationController setNavigationBarHidden:NO];
     }
 }
-
--(void) scrollViewDidScrollToTop:(UIScrollView *)scrollView{
-    if([scrollView.panGestureRecognizer translationInView:self.view].y < 0)
-    {
-        [self.navigationController setNavigationBarHidden:YES];
-    }
-    else if([scrollView.panGestureRecognizer translationInView:self.view].y > 0)
-    {
-        [self.navigationController setNavigationBarHidden:NO];
-    }
-}
+//
+//-(void) scrollViewDidScrollToTop:(UIScrollView *)scrollView{
+//    if([scrollView.panGestureRecognizer translationInView:self.view].y < 0)
+//    {
+//        [self.navigationController setNavigationBarHidden:YES];
+//    }
+//    else if([scrollView.panGestureRecognizer translationInView:self.view].y > 0)
+//    {
+//        [self.navigationController setNavigationBarHidden:NO];
+//    }
+//}
 
 /*
 #pragma mark - Navigation

@@ -1,8 +1,8 @@
 
 
-#import "MGUIAppearance.h"
+#import "ToniteNavigationBar.h"
 
-@implementation MGUIAppearance
+@implementation ToniteNavigationBar
 
 
 +(void)enhanceToolbarAppearance:(NSString*)toolBarFileName {

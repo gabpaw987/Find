@@ -114,8 +114,9 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MGListCell* cell =  [tableView dequeueReusableCellWithIdentifier:@"RightSideViewCell"];
     [cell setUserInteractionEnabled:YES];
-   
+    [cell.labelTitle setFont:[UIFont fontWithName:@"Avenir Light" size:13]];
     [cell setBackgroundColor:[UIColor lightGrayColor]];
+    [cell.labelTitle setFont:[UIFont fontWithName:@"Avenir Light" size:18.0]];
     [cell.labelTitle setTextColor:[UIColor blackColor]];
     cell.labelTitle.text = self.titles[indexPath.row];
     return cell;

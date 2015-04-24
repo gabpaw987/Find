@@ -4,22 +4,12 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <mutableArray key="rockwell-extra-bold.ttf">
-            <string>Rockwell-ExtraBold</string>
-            <string>Rockwell-ExtraBold</string>
-            <string>Rockwell-ExtraBold</string>
-            <string>Rockwell-ExtraBold</string>
-            <string>Rockwell-ExtraBold</string>
-            <string>Rockwell-ExtraBold</string>
-        </mutableArray>
-    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="mDQ-Au-N21">
             <objects>
                 <navigationController storyboardIdentifier="storyboardNav" hidesBottomBarWhenPushed="YES" id="6e9-1S-BTx" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yGn-Wr-Nnt">
+                    <navigationBar key="navigationBar" opaque="NO" alpha="0.74999999999999978" contentMode="scaleToFill" id="yGn-Wr-Nnt" customClass="ToniteNavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -66,7 +56,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQd-gy-V0S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-190" y="277"/>
+            <point key="canvasLocation" x="-54" y="273"/>
         </scene>
         <!--Side View Controller-->
         <scene sceneID="6Rg-ff-V3G">
@@ -80,7 +70,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexColor" patternImage="02DB58F7-79F7-46AA-93B0-296512F333FA" colorSpace="pattern"/>
+                                <color key="sectionIndexColor" patternImage="01CA43DB-2619-401D-9F5E-C2E9548DCCEC" colorSpace="pattern"/>
                                 <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" id="mWx-NG-H0N" customClass="MenuTableViewCell">
@@ -91,12 +81,12 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999964" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="gyX-Cb-wCH">
-                                                    <rect key="frame" x="-3" y="0.0" width="324" height="148"/>
+                                                    <rect key="frame" x="-3" y="0.0" width="324" height="168"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </imageView>
                                                 <label opaque="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" adjustsFontSizeToFit="NO" id="rWf-nA-uZV">
-                                                    <rect key="frame" x="-7" y="0.0" width="324" height="164"/>
+                                                    <rect key="frame" x="-7" y="0.0" width="324" height="184"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="26"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -104,7 +94,7 @@
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
                                                 <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.74999999999999978" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Glz-an-J6i">
-                                                    <rect key="frame" x="-3" y="120" width="320" height="8"/>
+                                                    <rect key="frame" x="-3" y="140" width="320" height="8"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </imageView>
@@ -115,6 +105,7 @@
                                             <outlet property="divider" destination="Glz-an-J6i" id="Wjl-iF-ee1"/>
                                             <outlet property="imgBackground" destination="gyX-Cb-wCH" id="ZKY-i8-QvA"/>
                                             <outlet property="labelTitle" destination="rWf-nA-uZV" id="Trv-0N-2Hd"/>
+                                            <segue destination="wgD-xh-uh2" kind="push" identifier="toCategoryPage" id="K3g-lj-xc3"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -125,7 +116,6 @@
                     <navigationItem key="navigationItem" id="iud-Sf-xFa"/>
                     <connections>
                         <outlet property="tableViewSide" destination="EQf-lw-gvo" id="56N-xb-iYE"/>
-                        <segue destination="wgD-xh-uh2" kind="push" identifier="pushEventView" id="CCj-vf-Gzk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hjV-02-4bg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -159,9 +149,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="k1f-Ug-6d2">
-                                                    <rect key="frame" x="22" y="0.0" width="254" height="44"/>
+                                                    <rect key="frame" x="24" y="-7" width="252" height="51"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -215,40 +205,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TONITELOGO_new.png" id="u19-Z1-vNi">
-                                <rect key="frame" x="58" y="280" width="85" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About " lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" id="Z45-Jx-dUU">
-                                <rect key="frame" x="16" y="278" width="62" height="43"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <fontDescription key="fontDescription" name="Rockwell-ExtraBold" family="Rockwell Extra Bold" pointSize="17"/>
-                                <color key="textColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description Here" lineBreakMode="characterWrap" numberOfLines="14" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V5U-Zd-GeG">
-                                <rect key="frame" x="25" y="329" width="269" height="121"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <fontDescription key="fontDescription" name="Rockwell-ExtraBold" family="Rockwell Extra Bold" pointSize="15"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6Z4-7R-d9Z">
-                                <rect key="frame" x="20" y="492" width="280" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
-                                <state key="normal" title="Contact Us" backgroundImage="button_blue.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="contactUs:" destination="0Vi-Jf-1f8" eventType="touchUpInside" id="Rig-M4-fuK"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider.png" id="CDD-to-g6Z">
-                                <rect key="frame" x="-1" y="265" width="320" height="5"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <scrollView clipsSubviews="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" bouncesZoom="NO" id="C9s-iu-2Xb">
+                            <scrollView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" id="C9s-iu-2Xb">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="270"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </scrollView>
@@ -257,11 +214,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="G1E-OQ-hnk"/>
                     <connections>
-                        <outlet property="aboutLabel" destination="Z45-Jx-dUU" id="J0g-Tu-Ufi"/>
-                        <outlet property="divider" destination="CDD-to-g6Z" id="w9B-hk-Bdf"/>
-                        <outlet property="labelDescription" destination="V5U-Zd-GeG" id="1w5-gI-dmP"/>
                         <outlet property="slideShow" destination="C9s-iu-2Xb" id="o8a-CH-niJ"/>
-                        <outlet property="toniteLabel" destination="u19-Z1-vNi" id="NKd-lw-Pu3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RSk-Bl-fLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -273,7 +226,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SettingsNavigator" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="yqW-rx-hI8" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationBar key="navigationBar" opaque="NO" alpha="0.69999999999999973" contentMode="top" id="zNv-jb-vis">
+                    <navigationBar key="navigationBar" opaque="NO" alpha="0.69999999999999973" contentMode="top" id="zNv-jb-vis" customClass="ToniteNavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </navigationBar>
@@ -306,14 +259,14 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Me" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RfG-OD-MKS">
                                                     <rect key="frame" x="33" y="0.0" width="141" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Rockwell-ExtraBold" family="Rockwell Extra Bold" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="tSa-m9-NUn" kind="push" identifier="ToAboutMe" id="MJH-kR-4Xl"/>
+                                            <segue destination="tSa-m9-NUn" kind="push" id="4AA-et-XRD"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -328,14 +281,14 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FAQs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="666-Ew-RjY">
                                                     <rect key="frame" x="31" y="0.0" width="112" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Rockwell-ExtraBold" family="Rockwell Extra Bold" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="y56-eK-x4A" kind="push" identifier="ToFAQs" id="v4x-oM-cd3"/>
+                                            <segue destination="Kyf-Us-8Lb" kind="modal" id="CbC-aK-qi6"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="m9q-Is-tne">
@@ -346,14 +299,14 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy Policy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qht-1n-tNm">
                                                     <rect key="frame" x="30" y="0.0" width="261" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Rockwell-ExtraBold" family="Rockwell Extra Bold" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="gpo-Wc-bWy" kind="push" identifier="ToPrivacy" id="TNb-TJ-P0v"/>
+                                            <segue destination="saO-tD-vgB" kind="modal" identifier="toPrivacyPolicy" id="Aic-gD-Ohm"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="g6p-uX-OKA">
@@ -364,14 +317,14 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms And Conditions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gwK-sA-277">
                                                     <rect key="frame" x="28" y="0.0" width="265" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Rockwell-ExtraBold" family="Rockwell Extra Bold" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="nwt-VU-DXL" kind="push" id="sIQ-Hf-FdI"/>
+                                            <segue destination="4ij-vq-plG" kind="modal" identifier="toTC" id="kOy-RZ-ua1"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -475,7 +428,24 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="soe-FY-xOf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1928" y="1842"/>
+            <point key="canvasLocation" x="2230" y="1809"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Qka-Hr-oZd">
+            <objects>
+                <navigationController id="saO-tD-vgB" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="aBj-KV-lhk"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pLK-eW-yHg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gpo-Wc-bWy" kind="relationship" relationship="rootViewController" id="c4a-vC-E9p"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xpv-YG-cNK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1789" y="3164"/>
         </scene>
         <!--Privacy Policy-->
         <scene sceneID="Oa8-9H-aBx">
@@ -500,7 +470,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7qN-JI-uLK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1928" y="3842"/>
+            <point key="canvasLocation" x="2224" y="3164"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sW6-RH-CLT">
+            <objects>
+                <navigationController id="4ij-vq-plG" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="T1F-Na-pOV"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FVR-D5-hu1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="nwt-VU-DXL" kind="relationship" relationship="rootViewController" id="pQ3-S6-dQ1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1w2-3d-6ZV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1789" y="3871"/>
         </scene>
         <!--Terms And Conditions-->
         <scene sceneID="5AN-5p-QOV">
@@ -518,7 +505,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zwl-Qr-JWJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1928" y="3196"/>
+            <point key="canvasLocation" x="2230" y="3871"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="W0Y-PO-5UE">
+            <objects>
+                <navigationController id="Kyf-Us-8Lb" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="mPQ-uY-LBR"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vi2-E6-8Ue">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="y56-eK-x4A" kind="relationship" relationship="rootViewController" id="Nfq-dg-oJJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="acg-of-myJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1789" y="2478"/>
         </scene>
         <!--FAQs-->
         <scene sceneID="Qqp-yt-XCZ">
@@ -546,7 +550,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NlU-0r-qig" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1928" y="2500"/>
+            <point key="canvasLocation" x="2230" y="2478"/>
         </scene>
         <!--Event View Controller-->
         <scene sceneID="6le-vZ-sUL">
@@ -568,9 +572,7 @@
                             <outlet property="tableView" destination="cb9-oW-TYa" id="bgq-7k-nmc"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="MbQ-iJ-bFh">
-                        <barButtonItem key="backBarButtonItem" title=" " id="HaR-n4-HzY"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="MbQ-iJ-bFh"/>
                     <connections>
                         <outlet property="listViewMain" destination="3Cg-2Y-yi1" id="tyD-9c-CIj"/>
                     </connections>
@@ -657,7 +659,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="I2t-nG-e3k">
-                                <rect key="frame" x="60" y="128.00000572204584" width="200" height="200"/>
+                                <rect key="frame" x="60" y="128" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LjL-aE-VMi">
@@ -796,7 +798,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oht-gA-qyv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="463" y="259"/>
+            <point key="canvasLocation" x="483" y="273"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="paI-jM-nhv">
@@ -819,7 +821,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="02DB58F7-79F7-46AA-93B0-296512F333FA" width="256" height="256">
+        <image name="01CA43DB-2619-401D-9F5E-C2E9548DCCEC" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGTk9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEQcI
 ExQZHh8nKzIzNDw/QkhLVSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NW
@@ -5265,9 +5267,6 @@ DyYABA8uAAQPMQAEDzYABA9FAAQPSQAED1AABA9YAAQPZQAED2oABA9sAAQPbgAED3MABA97AAQPfgAE
 D4MABA+LAAQPjgAED6AABA+jAAQPqAAAAAAAAAQBAAAAAAAAAFIAAAAAAAAAAAAAAAAABA+qA
 </mutableData>
         </image>
-        <image name="TONITELOGO_new.png" width="4000" height="2000"/>
-        <image name="button_blue.png" width="280" height="44"/>
-        <image name="divider.png" width="320" height="5"/>
         <image name="header_logo.png" width="134" height="30"/>
         <image name="ic_close.png" width="27" height="27"/>
         <image name="nav_bar.png" width="320" height="64"/>

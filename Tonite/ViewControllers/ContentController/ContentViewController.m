@@ -238,7 +238,7 @@
         // NSInteger randomNumber = arc4random() % 9;
         //float x = (float) (randomNumber/ 9) + 2;
     
-    [cell.slideShow startAnimationWithDuration:2.5];
+    [cell.slideShow startAnimationWithDuration:4.5];
     [cell addSubview:cell.slideShow.scrollView];
     //[cell.contentView addSubview: cell.slideShow.scrollView];
  }

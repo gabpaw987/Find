@@ -36,12 +36,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.titleView = [MGUIAppearance createLogo:TONITE_LOGO];
+    self.navigationItem.titleView = [ToniteNavigationBar createLogo:TONITE_LOGO];
     
    /* self.title = LOCALIZED(@"MY_TICKETS");
     self.view.backgroundColor = BG_VIEW_COLOR;
     
-    [MGUIAppearance enhanceNavBarController:self.navigationController
+    [ToniteNavigationBar enhanceNavBarController:self.navigationController
                                barTintColor:WHITE_TEXT_COLOR
                                   tintColor:WHITE_TEXT_COLOR
                              titleTextColor:WHITE_TEXT_COLOR];

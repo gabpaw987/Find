@@ -9,7 +9,7 @@
 #import "TCViewController.h"
 #import "AppDelegate.h"
 
-@interface TCViewController ()
+@interface TCViewController ()<UIScrollViewDelegate>
 
 @end
 
@@ -28,7 +28,7 @@
 -(void)viewWillAppear:(BOOL)animated    {
     [super viewWillAppear:animated];
   [self.navigationController setNavigationBarHidden:YES];
-    self.navigationItem.titleView = [MGUIAppearance createLogo:TONITE_LOGO];
+    self.navigationItem.titleView = [ToniteNavigationBar createLogo:TONITE_LOGO];
     
     [_termsView removeFromSuperview];
     [scrollViewMain addSubview:_termsView];
@@ -39,7 +39,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //    self.navigationItem.titleView = [MGUIAppearance createLogo:HEADER_LOGO];
+    //    self.navigationItem.titleView = [ToniteNavigationBar createLogo:HEADER_LOGO];
 
     
   
@@ -63,8 +63,20 @@
     inset = scrollViewMain.scrollIndicatorInsets;
     inset.bottom = NAV_BAR_OFFSET_DEFAULT;
     scrollViewMain.scrollIndicatorInsets = inset;
-
+    UIBarButtonItem* buttonCancel = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(didClickCancel)];
+    [self.navigationItem setLeftBarButtonItem:buttonCancel];
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+-(void) didClickCancel{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 
 - (void)didReceiveMemoryWarning
@@ -83,5 +95,17 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView   {
+    if([scrollView.panGestureRecognizer translationInView:self.view].y < 0)
+    {
+        [self.navigationController setNavigationBarHidden:YES];
+    }
+    else if([scrollView.panGestureRecognizer translationInView:self.view].y > 0)
+    {
+        [self.navigationController setNavigationBarHidden:NO];
+    }
+}
 
 @end

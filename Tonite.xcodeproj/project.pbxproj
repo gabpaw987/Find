@@ -337,7 +337,6 @@
 		CBAED3A01948A4EF00769D68 /* MGFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAED30D1948A4EF00769D68 /* MGFileManager.m */; };
 		CBAED3A11948A4EF00769D68 /* MGGalleryView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAED3101948A4EF00769D68 /* MGGalleryView.m */; };
 		CBAED3A21948A4EF00769D68 /* MGTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAED3131948A4EF00769D68 /* MGTextField.m */; };
-		CBAED3A31948A4EF00769D68 /* MGUIAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAED3161948A4EF00769D68 /* MGUIAppearance.m */; };
 		CBAED3A41948A4EF00769D68 /* JBParallaxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAED3191948A4EF00769D68 /* JBParallaxCell.m */; };
 		CBAED3A51948A4EF00769D68 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAED31C1948A4EF00769D68 /* NSDataAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CBAED3A61948A4EF00769D68 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAED31E1948A4EF00769D68 /* TBXML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -394,6 +393,10 @@
 		E31FD7DD1AD461CE00789CB2 /* Gradient-OVERLAY.png in Resources */ = {isa = PBXBuildFile; fileRef = E31FD7DC1AD461CE00789CB2 /* Gradient-OVERLAY.png */; };
 		E3216FB51ACA45AA00F23BBB /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3216FB41ACA45AA00F23BBB /* TabBarViewController.m */; };
 		E3216FBC1ACA4D2100F23BBB /* HamburgerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E3216FBB1ACA4D2100F23BBB /* HamburgerButton.m */; };
+		E32566B81AE994C9002BFC0C /* ToniteNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E32566B71AE994C9002BFC0C /* ToniteNavigationBar.m */; };
+		E32566BC1AE9AF9F002BFC0C /* aboutUs3.png in Resources */ = {isa = PBXBuildFile; fileRef = E32566B91AE9AF9F002BFC0C /* aboutUs3.png */; };
+		E32566BD1AE9AF9F002BFC0C /* aboutUs2.png in Resources */ = {isa = PBXBuildFile; fileRef = E32566BA1AE9AF9F002BFC0C /* aboutUs2.png */; };
+		E32566BE1AE9AF9F002BFC0C /* aboutUs1.png in Resources */ = {isa = PBXBuildFile; fileRef = E32566BB1AE9AF9F002BFC0C /* aboutUs1.png */; };
 		E3268B7A1AA513C6004FA763 /* RightSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3268B791AA513C6004FA763 /* RightSideViewController.m */; };
 		E339573E1AD2FD9400A6D2AD /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E339573D1AD2FD9400A6D2AD /* MenuTableViewCell.m */; };
 		E33957401AD30DCB00A6D2AD /* TONITELOGO_new.png in Resources */ = {isa = PBXBuildFile; fileRef = E339573F1AD30DCB00A6D2AD /* TONITELOGO_new.png */; };
@@ -839,8 +842,6 @@
 		CBAED3101948A4EF00769D68 /* MGGalleryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGGalleryView.m; sourceTree = "<group>"; };
 		CBAED3121948A4EF00769D68 /* MGTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTextField.h; sourceTree = "<group>"; };
 		CBAED3131948A4EF00769D68 /* MGTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGTextField.m; sourceTree = "<group>"; };
-		CBAED3151948A4EF00769D68 /* MGUIAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGUIAppearance.h; sourceTree = "<group>"; };
-		CBAED3161948A4EF00769D68 /* MGUIAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGUIAppearance.m; sourceTree = "<group>"; };
 		CBAED3181948A4EF00769D68 /* JBParallaxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBParallaxCell.h; sourceTree = "<group>"; };
 		CBAED3191948A4EF00769D68 /* JBParallaxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBParallaxCell.m; sourceTree = "<group>"; };
 		CBAED31B1948A4EF00769D68 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
@@ -937,6 +938,11 @@
 		E3216FB41ACA45AA00F23BBB /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TabBarViewController.m; sourceTree = "<group>"; };
 		E3216FB91ACA4C3300F23BBB /* LBHamburgerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBHamburgerButton.h; sourceTree = "<group>"; };
 		E3216FBB1ACA4D2100F23BBB /* HamburgerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HamburgerButton.m; sourceTree = "<group>"; };
+		E32566B61AE994C9002BFC0C /* ToniteNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToniteNavigationBar.h; sourceTree = "<group>"; };
+		E32566B71AE994C9002BFC0C /* ToniteNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToniteNavigationBar.m; sourceTree = "<group>"; };
+		E32566B91AE9AF9F002BFC0C /* aboutUs3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aboutUs3.png; sourceTree = "<group>"; };
+		E32566BA1AE9AF9F002BFC0C /* aboutUs2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aboutUs2.png; sourceTree = "<group>"; };
+		E32566BB1AE9AF9F002BFC0C /* aboutUs1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aboutUs1.png; sourceTree = "<group>"; };
 		E3268B781AA513C6004FA763 /* RightSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightSideViewController.h; sourceTree = "<group>"; };
 		E3268B791AA513C6004FA763 /* RightSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightSideViewController.m; sourceTree = "<group>"; };
 		E339573C1AD2FD9400A6D2AD /* MenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewCell.h; sourceTree = "<group>"; };
@@ -1393,6 +1399,9 @@
 		CB820AD9194F7C47000E64DB /* AboutUs */ = {
 			isa = PBXGroup;
 			children = (
+				E32566B91AE9AF9F002BFC0C /* aboutUs3.png */,
+				E32566BA1AE9AF9F002BFC0C /* aboutUs2.png */,
+				E32566BB1AE9AF9F002BFC0C /* aboutUs1.png */,
 			);
 			path = AboutUs;
 			sourceTree = "<group>";
@@ -1547,6 +1556,7 @@
 		CBAED25A1948A40F00769D68 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				E32566B51AE9947B002BFC0C /* ToniteNavigationBar */,
 				141E88001AD688DC00767BD0 /* NSDateHelper */,
 				E3216FBA1ACA4C3A00F23BBB /* LBHamburgerButton */,
 				CB344E8019787F7D000784DA /* CoreData */,
@@ -1573,7 +1583,6 @@
 				CBAED3371948A4EF00769D68 /* MGSlider */,
 				CBAED3111948A4EF00769D68 /* MGTextField */,
 				CBAED33B1948A4EF00769D68 /* MGTopLeftLabel */,
-				CBAED3141948A4EF00769D68 /* MGUIAppearance */,
 				CBAED3FC1948E18400769D68 /* MWFeedParser */,
 				CBAED33E1948A4EF00769D68 /* NMRangeSlider */,
 				CBAED3411948A4EF00769D68 /* NSString+Extras */,
@@ -1907,15 +1916,6 @@
 				CBAED3131948A4EF00769D68 /* MGTextField.m */,
 			);
 			path = MGTextField;
-			sourceTree = "<group>";
-		};
-		CBAED3141948A4EF00769D68 /* MGUIAppearance */ = {
-			isa = PBXGroup;
-			children = (
-				CBAED3151948A4EF00769D68 /* MGUIAppearance.h */,
-				CBAED3161948A4EF00769D68 /* MGUIAppearance.m */,
-			);
-			path = MGUIAppearance;
 			sourceTree = "<group>";
 		};
 		CBAED3171948A4EF00769D68 /* ParallaxCell */ = {
@@ -2271,6 +2271,15 @@
 			name = LBHamburgerButton;
 			sourceTree = "<group>";
 		};
+		E32566B51AE9947B002BFC0C /* ToniteNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				E32566B61AE994C9002BFC0C /* ToniteNavigationBar.h */,
+				E32566B71AE994C9002BFC0C /* ToniteNavigationBar.m */,
+			);
+			name = ToniteNavigationBar;
+			sourceTree = "<group>";
+		};
 		E3268B771AA51371004FA763 /* RightSideViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2456,6 +2465,7 @@
 				CB7DFB9E1951DDF9007FC9B9 /* Icon-Small-40@2x.png in Resources */,
 				CB422139194AD85000528013 /* ic_map_route.png in Resources */,
 				CB422143194AD85000528013 /* map_info_shadow.png in Resources */,
+				E32566BC1AE9AF9F002BFC0C /* aboutUs3.png in Resources */,
 				CB26274A19507C030024C15A /* side_bar_list_header_bg@2x.png in Resources */,
 				E34C284A1AC875EE00D7640A /* heart.png in Resources */,
 				CB48DD1D19D444580039C26B /* ic_map_draw@3x.png in Resources */,
@@ -2641,6 +2651,7 @@
 				CB2627A71950CC770024C15A /* ic_detail_call@2x.png in Resources */,
 				CB2627CA1950D67F0024C15A /* button_web.png in Resources */,
 				CB48DD6719D44E630039C26B /* ic_close@3x.png in Resources */,
+				E32566BE1AE9AF9F002BFC0C /* aboutUs1.png in Resources */,
 				CB2627981950AE080024C15A /* ic_menu_reviews.png in Resources */,
 				E34C28421AC8717C00D7640A /* navbar.png in Resources */,
 				CB7DFBA61951E812007FC9B9 /* button_blue@2x.png in Resources */,
@@ -2661,6 +2672,7 @@
 				CB4221C2194B01BB00528013 /* line_divider_shadow_up.png in Resources */,
 				CB48DCF319D444370039C26B /* button_twitter@3x.png in Resources */,
 				CB48DD8A19D452030039C26B /* profile_thumb_placeholder@3x.png in Resources */,
+				E32566BD1AE9AF9F002BFC0C /* aboutUs2.png in Resources */,
 				CB48DD4B19D444700039C26B /* textbox_profile@3x.png in Resources */,
 				CB820ACF194F78A3000E64DB /* textbox_email@2x.png in Resources */,
 				CB48DD2B19D444660039C26B /* side_bar_header@3x.png in Resources */,
@@ -2701,11 +2713,11 @@
 				E339573E1AD2FD9400A6D2AD /* MenuTableViewCell.m in Sources */,
 				CBAED3BA1948A4EF00769D68 /* JSONKit.m in Sources */,
 				CB344E8319787F7D000784DA /* NSManageObject+Bindings.m in Sources */,
-				CBAED3A31948A4EF00769D68 /* MGUIAppearance.m in Sources */,
 				CBAED3AB1948A4EF00769D68 /* MGMapRoute.m in Sources */,
 				E304C2FD1AE45E080061EE72 /* SettingsViewController.m in Sources */,
 				E304C3071AE468A20061EE72 /* PrivacyPolicyViewController.m in Sources */,
 				CB42218A194ADF4E00528013 /* MGHeaderView.m in Sources */,
+				E32566B81AE994C9002BFC0C /* ToniteNavigationBar.m in Sources */,
 				E3216FB51ACA45AA00F23BBB /* TabBarViewController.m in Sources */,
 				CBAED3831948A4EF00769D68 /* MGMapView.m in Sources */,
 				562FD4301AC073A200F6DD9C /* Ticket.m in Sources */,

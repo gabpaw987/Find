@@ -37,22 +37,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.titleView = [MGUIAppearance createLogo:TONITE_LOGO];
+    self.navigationItem.titleView = [ToniteNavigationBar createLogo:TONITE_LOGO];
     self.view.backgroundColor = BG_VIEW_COLOR;
-    
-    [MGUIAppearance enhanceNavBarController:self.navigationController
-                               barTintColor:WHITE_TEXT_COLOR
-                                  tintColor:WHITE_TEXT_COLOR
-                             titleTextColor:WHITE_TEXT_COLOR];
-    
+
     UserSession* userSession = [UserAccessSession getUserSession];
     
-    [MGUIAppearance enhanceNavBarController:self.navigationController
-                               barTintColor:WHITE_TEXT_COLOR
-                                  tintColor:WHITE_TEXT_COLOR
-                             titleTextColor:WHITE_TEXT_COLOR];
-    
-    _profileView = [[MGProfileView alloc] initWithFrame:scrollViewMain.frame nibName:@"ProfileView"];
+       _profileView = [[MGProfileView alloc] initWithFrame:scrollViewMain.frame nibName:@"ProfileView"];
     
     BOOL screen = IS_IPHONE_6_PLUS_AND_ABOVE;
     if(screen) {

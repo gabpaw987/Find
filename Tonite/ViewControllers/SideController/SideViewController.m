@@ -35,7 +35,7 @@
 
 -(void) viewWillAppear:(BOOL)animated {
     [self reloadInputViews];
-    [self.tabBarController.navigationController setNavigationBarHidden:NO];
+    [self.navigationController setNavigationBarHidden:YES];
 
 }
 
@@ -85,9 +85,7 @@
 
 - (void)handleSwipeGesture:(UISwipeGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateEnded) {
-//        [self.tabBarController reloadInputViews];
-//        [self.tabBarController setSelectedIndex:0];
-    }
+ }
 }
 
 
@@ -110,28 +108,25 @@
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MenuTableViewCell * cell =  [tableView dequeueReusableCellWithIdentifier:@"MenuCell"];
-//    if(cell == nil){
-//        cell = [[MenuTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MenuCell"];
-//    }
     [cell.imgBackground setImage:[UIImage imageNamed:self.backgroundImages[indexPath.row]]];
     [cell.labelTitle setText: self.categories[indexPath.row]];
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
-    // This undoes the Zoom Transition's scale because it affects the other transitions.
-    // You normally wouldn't need to do anything like this, but we're changing transitions
-    // dynamically so everything needs to start in a consistent state.
-    //self.slidingViewController.topViewController.view.layer.transform = CATransform3DMakeScale(1, 1, 1);
-  
-    if(indexPath.row < 8){
-         EventViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardEvent"];
-        vc.mainCategoryId= [NSString stringWithFormat:@"%ld", (long)indexPath.row];
-        [self.tabBarController.navigationController pushViewController:vc animated:YES];
-    }
-}
+//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    
+//    // This undoes the Zoom Transition's scale because it affects the other transitions.
+//    // You normally wouldn't need to do anything like this, but we're changing transitions
+//    // dynamically so everything needs to start in a consistent state.
+//    //self.slidingViewController.topViewController.view.layer.transform = CATransform3DMakeScale(1, 1, 1);
+//  
+//    if(indexPath.row < 8){
+//         EventViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardEvent"];
+//        vc.mainCategoryId= [NSString stringWithFormat:@"%ld", (long)indexPath.row];
+//        [self.tabBarController.navigationController pushViewController:vc animated:YES];
+//    }
+//}
 
 
 -(void)reloadInputViews     {
@@ -142,10 +137,10 @@
 -(void) scrollViewWillBeginDecelerating:(UIScrollView *)scrollView  {
     if([scrollView.panGestureRecognizer translationInView:self.view].y < 0){
         [self.tabBarController.navigationController setNavigationBarHidden:YES];
-    }
+       }
     else if([scrollView.panGestureRecognizer translationInView:self.view].y > 0){
         [self.tabBarController.navigationController setNavigationBarHidden:NO];
-    }
+     }
 }
 
 
@@ -175,7 +170,7 @@
 }
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -183,7 +178,11 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    NSIndexPath* index = [self.tableViewSide indexPathForSelectedRow]    ;
+    EventViewController* vc = segue.destinationViewController;
+    vc.mainCategoryId= [NSString stringWithFormat:@"%ld", (long)index.row];
+    
 }
-*/
+
 
 @end
