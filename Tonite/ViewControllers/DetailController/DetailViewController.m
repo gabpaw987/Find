@@ -19,7 +19,6 @@
  
     NSArray* _arrayPhotos;
     float _headerHeight;
-    BOOL _isFave;
     BOOL _isLoadedView;
 }
 
@@ -39,7 +38,6 @@
     if (self) {
         // Custom initialization
         venue = nil;
-        _isFave = NO;
     }
     return self;
 }
@@ -92,10 +90,7 @@
     _headerView.labelTitle.text = [event.event_name stringByDecodingHTMLEntities];
     
     _arrayPhotos = [CoreDataController getEventPhotosByEventId:event.event_id];
-    [_headerView.buttonFave addTarget:self
-                                 action:@selector(didClickButtonFave)
-                forControlEvents:UIControlEventTouchUpInside];
-    
+  
 
     [_headerView.buttonPhotos addTarget:self
                                  action:@selector(didClickButtonPhotos:)
@@ -147,25 +142,10 @@
     tableViewMain.cellHeight = 0;
     [tableViewMain reloadData];
     [tableViewMain tableView].delaysContentTouches = NO;
-    
-    [self checkFave];
 
     _isLoadedView = NO;
 }
 
--(void) didClickButtonFave{
-    _isFave = YES;
-    [self checkFave];
-}
-
--(void)checkFave {
-    
-   // Favorite* fave = [CoreDataController getFavoriteByStoreId:store.store_id];
-    if(_isFave != NO)
-        [_headerView.buttonFave setBackgroundImage:[UIImage imageNamed:STARRED_IMG] forState:UIControlStateNormal];
-    else
-        [_headerView.buttonFave setBackgroundImage:[UIImage imageNamed:LIKE_IMG] forState:UIControlStateNormal];
-}
 
 
 
@@ -192,7 +172,7 @@
     NSURLRequest* urlRequest = [NSURLRequest requestWithURL:url];
     
     __weak typeof(imgView ) weakImgRef = imgView;
-    UIImage* imgPlaceholder = [UIImage imageNamed:DETAIL_IMAGE_PLACEHOLDER];
+    UIImage* imgPlaceholder = [UIImage imageNamed:LIST_EVENT_PLACEHOLDER ];
     
     [imgView setImageWithURLRequest:urlRequest
                    placeholderImage:imgPlaceholder
@@ -256,11 +236,11 @@
     
     if(cell != nil) {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.labelDescription.textColor = THEME_BLACK_TINT_COLOR ;
+        cell.labelDescription.textColor =[UIColor blackColor] ;
         [cell.labelDescription setText:[event.event_desc stringByDecodingHTMLEntities]];
         
-        [cell.labelVenueDescription setTextColor: THEME_BLACK_TINT_COLOR];
-        [cell.labelVenue setTextColor:THEME_BLACK_TINT_COLOR];
+        [cell.labelVenueDescription setTextColor: [UIColor blackColor]];
+        [cell.labelVenue setTextColor:[UIColor blackColor]];
         if(venue){
         [cell.labelVenue setText:[venue.venue_name stringByDecodingHTMLEntities ]];
         [cell.labelVenueDescription setText:venue.venue_desc ];
@@ -340,7 +320,7 @@
         [cell.labelDescription setText:event.event_desc];
         CGSize size = [cell.labelDescription sizeOfMultiLineLabel];
         
-        return size.height + (CELL_CONTENT_MARGIN * 2);
+        return size.height + (10* 2);
     }
     
     [cell.labelDescription setText:event.event_desc];

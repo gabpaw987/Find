@@ -29,7 +29,7 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
    
-    NSArray* aboutUsPics = @[@"aboutUs1.png", @"aboutUs2.png", @"aboutUs3.png"];
+    NSArray* aboutUsPics = @[ABOUT_PIC1 , ABOUT_PIC2, ABOUT_PIC3];
     NSArray* aboutUsText = @[@"a better life, a better world - two taps away", @" three students with a vision ", @" better education "];
     self.slideShow.frame =  CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height/2 - 20);
     int posX = 0;
@@ -154,7 +154,7 @@
         
         if(DOES_SUPPORT_IOS7) {
             NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
-                                        WHITE_TEXT_COLOR, NSForegroundColorAttributeName, nil];
+                                        [UIColor whiteColor], NSForegroundColorAttributeName, nil];
             
             [[mailController navigationBar] setTitleTextAttributes:attributes];
             [[mailController navigationBar ] setTintColor:[UIColor whiteColor]];

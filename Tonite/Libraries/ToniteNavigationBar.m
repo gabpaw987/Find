@@ -19,7 +19,7 @@
 */
 - (CGSize)sizeThatFits:(CGSize)size {
     
-    CGSize newSize = CGSizeMake(self.frame.size.width, 28.0);
+    CGSize newSize = CGSizeMake(self.frame.size.width, 25.0);
     return newSize;
 }
 - (void)initialize {
@@ -33,7 +33,7 @@
 +(UIView*)createLogo:(NSString*)logoFileName {
     
     UIImage* image = [UIImage imageNamed:logoFileName];
-    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0.0, 4.0, 75, 38)];
+    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(-3.0, 4.0, 75, 38)];
     [view setClipsToBounds:YES];
     [view setContentMode:UIViewContentModeScaleAspectFit];
     UIButton* btn = [UIButton buttonWithType:UIButtonTypeCustom];

@@ -88,26 +88,28 @@
 //     ];
     int nextPage = (int)(scrollView.contentOffset.x/scrollWidth) + 1;
     CGRect rect = CGRectZero;
-    
+    if([self.imageArray count] > 1)
+        [scrollView setAlpha: 0.0];
     if( nextPage == _numberOfItems ) {
+       
         rect = CGRectMake(0, 0, scrollWidth, scrollView.frame.size.height);
-        
         [UIView transitionWithView:self.scrollView
                           duration:2.0f
                            options:UIViewAnimationOptionTransitionCrossDissolve
                         animations:^{
                             [scrollView scrollRectToVisible:rect animated:YES];
+                            [scrollView setAlpha:1.0];
                         } completion:nil];
         
     }
     else{
         rect = CGRectMake(nextPage*scrollWidth, 0, scrollWidth, scrollView.frame.size.height);
-       
         [UIView transitionWithView:self.scrollView
                           duration:2.0f
                            options:UIViewAnimationOptionTransitionCrossDissolve
                         animations:^{
                             [scrollView scrollRectToVisible:rect animated:YES];
+                            [scrollView setAlpha:1.0];
                         } completion:nil];
         
     }
@@ -125,6 +127,8 @@
 -(void)setImage:(NSString*)imageUrl imageView:(UIImageView*)imgView {
     
     NSURL* url = [NSURL URLWithString:imageUrl];
+//    [imgView setImageWithURL:url placeholderImage:[UIImage imageNamed:LIST_EVENT_PLACEHOLDER]];
+//   imgView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
     NSURLRequest* urlRequest = [NSURLRequest requestWithURL:url];
     
     __weak typeof(imgView ) weakImgRef = imgView;
@@ -145,8 +149,13 @@
                                 weakImgRef.image = croppedImage;
                                 
                             } failure:^(NSURLRequest* request, NSHTTPURLResponse* response, NSError* error) {
-                                
+                                NSLog(@"Failure to request photo");
                             }];
+    
+    
+
+    
+    
 }
 
 

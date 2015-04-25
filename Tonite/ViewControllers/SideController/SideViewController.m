@@ -166,7 +166,12 @@
         view.imgBackground.frame = offsetFrame;
         }
 
-    
+//    if(scrollView.contentOffset.y == 0.0){
+//        [self.tabBarController.navigationController setNavigationBarHidden:NO];
+//    }
+//    else{
+//        [self.tabBarController.navigationController setNavigationBarHidden:YES];
+//    }
 }
 
 

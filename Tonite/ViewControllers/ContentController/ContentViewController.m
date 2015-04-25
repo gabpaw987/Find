@@ -167,12 +167,6 @@
 
 
 
--(void)didClickButtonGo:(id)sender {
-    MGButton* button = (MGButton*)sender;
-    DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardDetail"];
-    vc.event = button.object;
-    [self.navigationController pushViewController:vc animated:YES];
-}
 
 -(void)setImage:(NSString*)imageUrl imageView:(UIImageView*)imgView {
     NSURL* url = [NSURL URLWithString:imageUrl];
@@ -220,28 +214,34 @@
     for(UIView* view in cell.subviews)
         [view removeFromSuperview];
     Event* event = [self.listViewEvents.arrayData objectAtIndex:indexPath.row];
-        if(event){
-        NSLog(@"Event is  %@" , event);
-        }
     Venue* venue = [CoreDataController getVenueByVenueId:event.venue_id];
-    [cell.slideShow setImageArray:[CoreDataController getEventPhotosByEventId:event.event_id] ];
+    NSArray* photos = [CoreDataController getEventPhotosByEventId:event.event_id ];
+    cell.slideShow.imageArray = photos;
     [cell.slideShow setNumberOfItems:[cell.slideShow.imageArray count]];
     
     
-    if([cell.slideShow.imageArray count] != 0){
-    CGRect frame = cell.frame;
-    frame.size.width = self.view.frame.size.width;
-    frame.size.height = listViewEvents.cellHeight-2 ;
-    [cell.slideShow setNeedsReLayoutWithViewSize:frame.size];
+        if([cell.slideShow.imageArray count] ==0){
+            cell.slideShow = nil;
+            Photo* p = photos[0];
+            UIImageView * image = [[UIImageView alloc]initWithFrame:cell.frame  ];
+            [self setImage:p.photo_url imageView:image];
+            [cell.contentView addSubview: image];
+            
+        }
+        else{
+            CGRect frame = cell.frame;
+            frame.size.width = self.view.frame.size.width;
+            frame.size.height = listViewEvents.cellHeight-2 ;
+            [cell.slideShow setNeedsReLayoutWithViewSize:frame.size];
     
     //*** Timing of the sliding photos **********//
         // NSInteger randomNumber = arc4random() % 9;
         //float x = (float) (randomNumber/ 9) + 2;
     
-    [cell.slideShow startAnimationWithDuration:4.5];
+    [cell.slideShow startAnimationWithDuration:3.0];
     [cell addSubview:cell.slideShow.scrollView];
     //[cell.contentView addSubview: cell.slideShow.scrollView];
- }
+        }
  
     
    // [cell.labelExtraInfo setText: event_price????];
@@ -265,16 +265,7 @@
     return cell;
 }
 
--(void) didSelectFave:(id)sender{
-    UIButton* btn = (UIButton* ) sender;
-    if(btn.state == UIControlStateSelected){
-         [btn setBackgroundImage:[UIImage imageNamed:LIKE_IMG] forState:UIControlStateNormal];
-    }
-    else{
-    [btn setBackgroundImage:[UIImage imageNamed:STARRED_IMG] forState:UIControlStateNormal];
-       
-    }
-}
+
 
 -(NSString*)formatDateWithStart:(NSString*)dateAndStart withEndTime:(NSString*)endTime{
 
@@ -296,5 +287,9 @@
     }
 
 }
+
+
+
+
 
 @end

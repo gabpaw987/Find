@@ -1,12 +1,8 @@
 
 
 #import <UIKit/UIKit.h>
-#import "MGTopLeftLabel.h"
 #import "RateView.h"
 #import "MGMapView.h"
-#import "NMRangeSlider.h"
-#import "MGTextField.h"
-#import "MGButton.h"
 
 @class MGRawView;
 
@@ -30,8 +26,6 @@
 @property (nonatomic, retain) IBOutlet UILabel* labelDetails;
 @property (nonatomic, retain) IBOutlet UILabel* labelExtraInfo;
 
-@property (nonatomic, retain) IBOutlet MGButton* buttonGo;
-
 @property (nonatomic, weak) __weak id <MGRawViewDelegate> delegate;
 @property (nonatomic, retain) IBOutlet UIButton* buttonCustom;
 @property (nonatomic, retain) IBOutlet UITextField* textFieldCustom;
@@ -39,11 +33,6 @@
 @property (nonatomic, retain) IBOutlet UIImageView* imgViewThumb;
 @property (nonatomic, retain) IBOutlet UISegmentedControl* segmentAnimation;
 
-
-@property (nonatomic, retain) IBOutlet MGTopLeftLabel* topLeftLabelAddress;
-@property (nonatomic, retain) IBOutlet MGTopLeftLabel* topLeftLabelDescription;
-//@property (nonatomic, retain) IBOutlet MGTopLeftLabel* topLeftLabelAmenities;
-//@property (nonatomic, retain) IBOutlet UILabel* labelWorkingHours;
 
 
 //@property (nonatomic, retain) IBOutlet RateView* ratingViewPrice;
@@ -108,7 +97,6 @@
 
 //@property (nonatomic, retain) IBOutlet MGMapView* mapViewDirections;
 
-//@property (nonatomic, retain) IBOutlet NMRangeSlider* rangeSliderPrice;
 //@property (nonatomic, retain) IBOutlet UILabel* labelRangeSliderMin;
 //@property (nonatomic, retain) IBOutlet UILabel* labelRangeSliderMax;
 
@@ -119,37 +107,6 @@
 //@property (nonatomic, retain) IBOutlet UIButton* buttonGalleries;
 @property (nonatomic, retain) IBOutlet UIButton* buttonStarred;
 
-//@property (nonatomic, retain) IBOutlet UIImageView* imgViewGalleryThumb1;
-//@property (nonatomic, retain) IBOutlet UIImageView* imgViewGalleryThumb2;
-//@property (nonatomic, retain) IBOutlet UIImageView* imgViewGalleryThumb3;
-
-
-//@property (nonatomic, retain) IBOutlet UIButton* buttonBack;
-//@property (nonatomic, retain) IBOutlet UIButton* buttonLogin;
-//@property (nonatomic, retain) IBOutlet UIButton* buttonRegister;
-//@property (nonatomic, retain) IBOutlet UITextField* textFieldUsername;
-//@property (nonatomic, retain) IBOutlet UITextField* textFieldPassword;
-//@property (nonatomic, retain) IBOutlet UITextField* textFieldEmail;
-//@property (nonatomic, retain) IBOutlet UITextField* textFieldFullName;
-
-//@property (nonatomic, retain) IBOutlet UITextField* textFieldSellerName;
-//@property (nonatomic, retain) IBOutlet UITextField* textFieldDealerName;
-//@property (nonatomic, retain) IBOutlet UITextField* textFieldContactNo;
-//@property (nonatomic, retain) IBOutlet UITextField* textFieldSMSNo;
-//@property (nonatomic, retain) IBOutlet UITextField* textFieldAddress;
-//@property (nonatomic, retain) IBOutlet UITextField* textFieldFacebookPage;
-//@property (nonatomic, retain) IBOutlet UITextField* textFieldTwitter;
-//@property (nonatomic, retain) IBOutlet UITextField* textFieldWebsite;
-//@property (nonatomic, retain) IBOutlet UITextField* textFieldSalesMonFri;
-//@property (nonatomic, retain) IBOutlet UITextField* textFieldSalesSat;
-//@property (nonatomic, retain) IBOutlet UITextField* textFieldSalesSun;
-//@property (nonatomic, retain) IBOutlet UITextField* textFieldServiceMonFri;
-//@property (nonatomic, retain) IBOutlet UITextField* textFieldServiceSat;
-//@property (nonatomic, retain) IBOutlet UITextField* textFieldServiceSun;
-
-//@property (nonatomic, retain) IBOutlet UISegmentedControl* segmentCarType;
-//@property (nonatomic, retain) IBOutlet UITextView* textViewNotes;
-//@property (nonatomic, retain) IBOutlet UITextView* textViewDetails;
 
 @property (nonatomic, retain) IBOutlet UIButton* buttonNext;
 @property (nonatomic, retain) IBOutlet UIButton* buttonPhotos;
@@ -175,11 +132,7 @@
 //@property (nonatomic, retain) IBOutlet UITextField* textFieldDriveTrain;
 //@property (nonatomic, retain) IBOutlet UITextField* textFieldWheelbase;
 //
-//@property (nonatomic, retain) IBOutlet MGTextField* textFieldMGUsername;
-//@property (nonatomic, retain) IBOutlet MGTextField* textFieldMGPassword;
-//@property (nonatomic, retain) IBOutlet MGTextField* textFieldMGEmail;
-//@property (nonatomic, retain) IBOutlet MGTextField* textFieldMGFullName;
-//
+
 //@property (nonatomic, retain) IBOutlet UILabel* labelContactNo;
 //@property (nonatomic, retain) IBOutlet UILabel* labelEmail;
 //@property (nonatomic, retain) IBOutlet UILabel* labelFb;
@@ -193,7 +146,6 @@
 //@property (nonatomic, retain) IBOutlet UILabel* labelLinkedIn;
 //@property (nonatomic, retain) IBOutlet UILabel* labelCompany;
 //@property (nonatomic, retain) IBOutlet UILabel* labelDateAdded;
-//@property (nonatomic, retain) IBOutlet MGTopLeftLabel* labelTopLeftLabelAddressVal;
 //@property (nonatomic, retain) IBOutlet UIButton* buttonView;
 //
 //@property (nonatomic, retain) IBOutlet UILabel* labelCompanyVal;

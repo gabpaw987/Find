@@ -121,7 +121,7 @@
                                forState:UIControlStateSelected];
     
     [MGUtilities createBorders:_registerView.imgViewThumb
-                   borderColor:THEME_MAIN_COLOR
+                   borderColor:[UIColor blackColor]
                    shadowColor:[UIColor clearColor]
                    borderWidth:CELL_BORDER_WIDTH];
     [_registerView.loginFacebook addTarget:self

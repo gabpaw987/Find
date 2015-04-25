@@ -38,7 +38,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.titleView = [ToniteNavigationBar createLogo:TONITE_LOGO];
-    self.view.backgroundColor = BG_VIEW_COLOR;
+
 
     UserSession* userSession = [UserAccessSession getUserSession];
     
@@ -128,7 +128,7 @@
                               forState:UIControlStateSelected];
     
     
-    _profileView.label1.textColor = THEME_BLACK_TINT_COLOR;
+    _profileView.label1.textColor = [UIColor blackColor];
     _profileView.label1.text = LOCALIZED(@"EDITING_NOTICE");
     
     [_profileView.buttonUpdate setTitleColor:WHITE_TEXT_COLOR
@@ -168,7 +168,7 @@
     [self setImage:userSession.coverPhotoUrl imageView:_profileView.imgViewCover withBorder:NO isThumb:NO];
     
     [MGUtilities createBorders:_profileView.imgViewThumb
-                   borderColor:THEME_MAIN_COLOR
+                   borderColor:[UIColor blackColor]
                    shadowColor:[UIColor clearColor]
                    borderWidth:CELL_BORDER_WIDTH];
 }
@@ -646,7 +646,7 @@
                                 
                                 if(border) {
                                     [MGUtilities createBorders:weakImgRef
-                                                   borderColor:THEME_MAIN_COLOR
+                                                   borderColor:[UIColor blackColor]
                                                    shadowColor:[UIColor clearColor]
                                                    borderWidth:CELL_BORDER_WIDTH];
                                 }

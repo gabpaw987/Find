@@ -11,16 +11,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="585"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TONITELOGO_new.png" id="Zg3-rf-HKX">
-                    <rect key="frame" x="15" y="31" width="291" height="150"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                </imageView>
                 <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="J0v-fI-hqW">
                     <rect key="frame" x="20" y="358" width="280" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
-                    <state key="normal" title="Register" backgroundImage="side_bar_header.png">
+                    <state key="normal" title="Register">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -29,44 +25,24 @@
                     <rect key="frame" x="8" y="150" width="304" height="180"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_thumb_placeholder.png" id="X3y-P3-Hwx">
-                            <rect key="frame" x="3" y="0.0" width="100" height="100"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textbox_profile.png" id="9Lb-Iq-6Z9">
-                            <rect key="frame" x="111" y="0.0" width="190" height="34"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full Name" minimumFontSize="17" id="CJB-vP-tlh">
                             <rect key="frame" x="119" y="0.0" width="174" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                         </textField>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textbox_profile.png" id="pvq-j3-vf0">
-                            <rect key="frame" x="111" y="126" width="190" height="34"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" id="TgN-b2-Cn2">
                             <rect key="frame" x="119" y="126" width="174" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
                             <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                         </textField>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textbox_profile.png" id="t0t-my-JKK">
-                            <rect key="frame" x="111" y="84" width="190" height="34"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="User Name" minimumFontSize="17" id="ENj-1j-dqL">
                             <rect key="frame" x="119" y="84" width="174" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
                             <textInputTraits key="textInputTraits" returnKeyType="next"/>
                         </textField>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textbox_profile.png" id="YXW-Uf-FQW">
-                            <rect key="frame" x="111" y="42" width="190" height="34"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" id="Sca-SO-NBN">
                             <rect key="frame" x="119" y="42" width="174" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -89,8 +65,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jpD-3o-WKR">
                     <rect key="frame" x="20" y="488" width="280" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.4968984212" green="0.76544988629999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
-                    <state key="normal" title="Login to Twitter" backgroundImage="button_twitter_large.png">
+                    <state key="normal" title="Login to Twitter">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -98,8 +75,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3VW-21-PNN">
                     <rect key="frame" x="20" y="422" width="280" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
-                    <state key="normal" title="Login to Facebook" backgroundImage="button_facebook_large.png">
+                    <state key="normal" title="Login to Facebook">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -111,8 +89,6 @@
             <connections>
                 <outlet property="buttonRegister" destination="J0v-fI-hqW" id="h8q-1k-dwu"/>
                 <outlet property="buttonThumb" destination="GWd-VS-9bi" id="0hN-Oe-5kN"/>
-                <outlet property="imgViewCover" destination="Zg3-rf-HKX" id="KkF-uL-m05"/>
-                <outlet property="imgViewThumb" destination="X3y-P3-Hwx" id="AtJ-cT-4td"/>
                 <outlet property="loginFacebook" destination="3VW-21-PNN" id="Q5i-e2-6Zb"/>
                 <outlet property="loginTwitter" destination="jpD-3o-WKR" id="Gi1-Sv-1r2"/>
                 <outlet property="textFieldEmail" destination="Sca-SO-NBN" id="IuX-CQ-SCD"/>
@@ -123,14 +99,6 @@
             <point key="canvasLocation" x="298" y="335.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="TONITELOGO_new.png" width="4000" height="2000"/>
-        <image name="button_facebook_large.png" width="280" height="44"/>
-        <image name="button_twitter_large.png" width="280" height="44"/>
-        <image name="profile_thumb_placeholder.png" width="100" height="100"/>
-        <image name="side_bar_header.png" width="320" height="64"/>
-        <image name="textbox_profile.png" width="190" height="34"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

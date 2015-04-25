@@ -30,7 +30,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     CGFloat peekAmount = self.view.frame.size.width/4;
-    self.view.backgroundColor = SIDE_VIEW_BG_COLOR;
+    self.view.backgroundColor = [UIColor grayColor];
     [self setImage:self.user.thumbPhotoUrl imageView:userProfilePicture withBorder:YES isThumb:YES];
     [userProfilePicture.layer setCornerRadius:40.0];
     [userProfilePicture setClipsToBounds:YES];
@@ -116,7 +116,7 @@
     [cell setUserInteractionEnabled:YES];
     [cell.labelTitle setFont:[UIFont fontWithName:@"Avenir Light" size:13]];
     [cell setBackgroundColor:[UIColor lightGrayColor]];
-    [cell.labelTitle setFont:[UIFont fontWithName:@"Avenir Light" size:18.0]];
+    [cell.labelTitle setFont:[UIFont fontWithName:@"Avenir Light" size:16.0]];
     [cell.labelTitle setTextColor:[UIColor blackColor]];
     cell.labelTitle.text = self.titles[indexPath.row];
     return cell;
@@ -215,7 +215,7 @@
                                 
                                 if(border) {
                                     [MGUtilities createBorders:weakImgRef
-                                                   borderColor:THEME_MAIN_COLOR
+                                                   borderColor:[UIColor blackColor]
                                                    shadowColor:[UIColor clearColor]
                                                    borderWidth:CELL_BORDER_WIDTH];
                                 }

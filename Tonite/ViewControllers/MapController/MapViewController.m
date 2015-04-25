@@ -64,7 +64,7 @@
     
     _insideBoundsArray = [[NSMutableArray alloc] init];
     
-    labelDistance.textColor = THEME_MAIN_COLOR;
+    labelDistance.textColor = [UIColor blackColor];
     labelDistance.text = @"";
     
     if(SHOW_ADS_MAP_VIEW) {
@@ -196,7 +196,7 @@
         
         MKPolylineRenderer * lineView = [[MKPolylineRenderer alloc] initWithOverlay:overlay];
         lineView.lineWidth = 3.5f;
-        lineView.strokeColor = THEME_MAIN_COLOR;
+        lineView.strokeColor = [UIColor blackColor];
         
         return (MKOverlayView*)lineView;
     }
@@ -204,7 +204,7 @@
     if ([overlay isKindOfClass:[MKPolygon class]]) {
         
         MKPolygonRenderer * aView = [[MKPolygonRenderer alloc] initWithPolygon:(MKPolygon*)overlay];
-        aView.strokeColor = [THEME_MAIN_COLOR colorWithAlphaComponent:0.7];
+        aView.strokeColor = [[UIColor blackColor] colorWithAlphaComponent:0.7];
         aView.lineWidth = 8;
         
         return (MKOverlayView*)aView;
@@ -219,7 +219,7 @@
         
         MKPolylineRenderer* polylineRender = [[MKPolylineRenderer alloc] initWithOverlay:overlay];
         polylineRender.lineWidth = 3.0f;
-        polylineRender.strokeColor = THEME_MAIN_COLOR;
+        polylineRender.strokeColor = [UIColor blackColor];
         
         return polylineRender;
     }
@@ -227,8 +227,8 @@
     if ([overlay isKindOfClass:[MKPolygon class]]) {
         
         MKPolygonRenderer * polygonRender = [[MKPolygonRenderer alloc] initWithPolygon:(MKPolygon*)overlay];
-        polygonRender.fillColor   = [THEME_MAIN_COLOR colorWithAlphaComponent:0.3];
-        polygonRender.strokeColor = [THEME_MAIN_COLOR colorWithAlphaComponent:01.0];
+        polygonRender.fillColor   = [[UIColor blackColor] colorWithAlphaComponent:0.3];
+        polygonRender.strokeColor = [[UIColor blackColor] colorWithAlphaComponent:01.0];
         polygonRender.lineWidth = 3;
         
         return polygonRender;
@@ -258,13 +258,13 @@
         if (_shapeLayer == nil) {
             _shapeLayer = [[CAShapeLayer alloc] init];
             _shapeLayer.fillColor = [[UIColor clearColor] CGColor];
-            _shapeLayer.strokeColor = [THEME_MAIN_COLOR CGColor];
+            _shapeLayer.strokeColor = [[UIColor blackColor] CGColor];
             _shapeLayer.lineWidth = 5.0;
             [_drawView.layer addSublayer:_shapeLayer];
         }
         else {
             _shapeLayer.fillColor = [[UIColor clearColor] CGColor];
-            _shapeLayer.strokeColor = [THEME_MAIN_COLOR CGColor];
+            _shapeLayer.strokeColor = [[UIColor blackColor] CGColor];
             _shapeLayer.lineWidth = 5.0;
             [_drawView.layer addSublayer:_shapeLayer];
         }

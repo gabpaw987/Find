@@ -42,6 +42,7 @@
     [emailText.layer setCornerRadius:5.0];
     [emailText setClipsToBounds:YES];
     emailText.placeholder = @" Email";
+    emailText.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@" Email" attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:16.0] }];
     [emailText setTintColor:[UIColor whiteColor]];
     [self.view addSubview:emailText];
     
@@ -51,6 +52,7 @@
     [passwordText.layer setCornerRadius:5.0];
     [passwordText setClipsToBounds:YES];
     passwordText.placeholder = @" Password";
+    passwordText.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@" Password" attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:16.0] }];
     [passwordText setTintColor:[UIColor whiteColor]];
     [self.view addSubview:passwordText];
     
@@ -62,6 +64,7 @@
     signInButton.titleLabel.font = [UIFont systemFontOfSize:20];
     [signInButton setTintColor:[UIColor whiteColor]];
     [signInButton setTitle:@"Sign In" forState:UIControlStateNormal];
+    [signInButton.titleLabel setFont:[UIFont fontWithName:@"Avenir Light" size:18.0]];
     [signInButton.layer setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.6].CGColor];
     [signInButton addTarget:self action:@selector(didSelectLogin:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:signInButton];
@@ -74,6 +77,7 @@
     fbButton.titleLabel.font = [UIFont systemFontOfSize:20];
     [fbButton setTintColor:[UIColor whiteColor]];
     [fbButton setTitle:@"Facebook" forState:UIControlStateNormal];
+    [fbButton.titleLabel setFont:[UIFont fontWithName:@"Avenir Light" size:18.0]];
     [fbButton.layer setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.6].CGColor];
     [self.view addSubview:fbButton];
     
@@ -85,6 +89,7 @@
     twitterButton.titleLabel.font = [UIFont systemFontOfSize:20];
     [twitterButton setTintColor:[UIColor whiteColor]];
     [twitterButton setTitle:@"Twitter" forState:UIControlStateNormal];
+    [twitterButton.titleLabel setFont:[UIFont fontWithName:@"Avenir Light" size:18.0]];
     [twitterButton.layer setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.6].CGColor];
     [self.view addSubview:twitterButton];
 }

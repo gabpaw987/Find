@@ -8,7 +8,6 @@
 
 @synthesize labelTitle;
 @synthesize labelSubtitle;
-@synthesize topLeftLabelSubtitle;
 
 
 @synthesize labelDescription;
@@ -45,9 +44,6 @@
 @synthesize labelVenue;
 
 @synthesize labelDateAddedVal;
-@synthesize topLeftLabelAddressVal;
-@synthesize topLeftLabelAddress2Val;
-@synthesize topLeftLabelDescVal;
 @synthesize mapViewCell;
 
 @synthesize labelHeader1;

@@ -1,7 +1,6 @@
 
 
 #import <UIKit/UIKit.h>
-#import "MGTopLeftLabel.h"
 #import "RateView.h"
 #import "MGSlider.h"
 
@@ -12,8 +11,6 @@
 
 @property (nonatomic, retain) IBOutlet UILabel* labelTitle;
 @property (nonatomic, retain) IBOutlet UILabel* labelSubtitle;
-
-@property (nonatomic, retain) IBOutlet MGTopLeftLabel* topLeftLabelSubtitle;
 
 
 @property (nonatomic, retain) IBOutlet UILabel* labelDescription;
@@ -59,9 +56,6 @@
 @property (nonatomic, retain) IBOutlet UILabel* labelVenueDescription;
 
 @property (nonatomic, retain) IBOutlet UILabel* labelDateAddedVal;
-@property (nonatomic, retain) IBOutlet MGTopLeftLabel* topLeftLabelAddressVal;
-@property (nonatomic, retain) IBOutlet MGTopLeftLabel* topLeftLabelAddress2Val;
-@property (nonatomic, retain) IBOutlet MGTopLeftLabel* topLeftLabelDescVal;
 
 @property (nonatomic, retain) IBOutlet UIButton* buttonDirections;
 
