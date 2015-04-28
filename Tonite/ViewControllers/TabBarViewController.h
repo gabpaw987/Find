@@ -10,5 +10,4 @@
 
 @interface TabBarViewController : UITabBarController
 
--(void) reloadInputViews;
 @end

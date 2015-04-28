@@ -5,6 +5,7 @@
 #import "DetailViewController.h"
 #import "MGSlider.h"
 #import "LBHamburgerButton.h"
+#import "NSDate+Helper.h"
 
 @interface EventViewController () <MGSliderDelegate, MGListViewDelegate>
 
@@ -27,6 +28,7 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tabBarController.navigationController setNavigationBarHidden:YES];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -40,10 +42,9 @@
 - (UIBarButtonItem *)backButton
 {
     LBHamburgerButton* button = [[LBHamburgerButton alloc] initWithFrame:CGRectMake(0, 0, 0, 0)
-
-                                                                 lineWidth:19
-                                                                lineHeight:7/6
-                                                               lineSpacing:4
+                                                                 lineWidth:18
+                                                                lineHeight:1
+                                                               lineSpacing:3.4
                                                                 lineCenter:CGPointMake(10, 0)
                                                                      color:[UIColor grayColor]];
     [button setCenter:CGPointMake(120, 120)];
@@ -59,9 +60,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.navigationController setNavigationBarHidden:NO];
+   
     [self.navigationItem setTitle: [CoreDataController getCategoryByCategoryId:mainCategoryId].category];
-    
-    [self.navigationItem setLeftBarButtonItem: [self backButton]    ];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view setBackgroundColor:[UIColor grayColor]];
@@ -79,24 +79,25 @@
     [listViewMain baseInit];
     
     [self beginParsing];
-//
-//    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
-//    swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
-//    swipeGesture.cancelsTouchesInView = YES; //So the user can still interact with controls in the modal view
-//    
-//    [self.slidingViewController.view addGestureRecognizer:swipeGesture];
-//    
-//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
-//    tapGesture.numberOfTapsRequired = 1;
-//    tapGesture.cancelsTouchesInView = NO; //So the user can still interact with controls in the modal view
-//    
-//    [self.view addGestureRecognizer:tapGesture];
-}
+    
+    [self.navigationController.navigationBar sizeThatFits:CGSizeMake(self.view.frame.size.width, 25.0)];
+    [self.navigationItem setLeftBarButtonItem: [self backButton]    ];
+    
+    UIBarButtonItem* itemLoginMenu = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed: ICON_USER]style:UIBarButtonItemStylePlain target:self action:@selector(didClickProfileMenuButton:)];
+    [itemLoginMenu setTintColor:[UIColor grayColor]];
+    
+    itemLoginMenu.imageInsets = UIEdgeInsetsMake(22, 44, 23, 3); //top, left, bottom, right
+    self.navigationItem.rightBarButtonItem = itemLoginMenu;
+    
 
-
-- (void)handleTapGesture:(UITapGestureRecognizer *)sender {
+    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didClickProfileMenuButton:)];
+    swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
+    swipeGesture.cancelsTouchesInView = YES; //So the user can still interact with controls in the modal view
+    
+    [self.slidingViewController.view addGestureRecognizer:swipeGesture];
     
 }
+
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
     return YES;
@@ -106,12 +107,13 @@
     return YES;
 }
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    return YES;
-}
-
-- (void)handleSwipeGesture:(UISwipeGestureRecognizer *)sender{
-    
+- (void)didClickProfileMenuButton:(id) sender{
+    if(self.slidingViewController.currentTopViewPosition == ECSlidingViewControllerTopViewPositionAnchoredLeft){
+        [self.slidingViewController resetTopViewAnimated:YES];
+    }
+    else{
+        [self.slidingViewController anchorTopViewToLeftAnimated:YES];
+    }
 }
 
 
@@ -256,27 +258,28 @@
     if(event.event_name == venue.venue_name){
       [cell.labelSubtitle setText:event.event_address];
     }
+  NSString* date = [self formatDateWithStart: event.event_date_starttime withEndTime: event.event_endtime];
+    [cell.labelDetails setText:date];
+    [cell.labelSubtitle setClipsToBounds:YES];
+    [cell addSubview: cell.fade ];
+    [cell addSubview:cell.labelTitle];
+    [cell addSubview:cell.labelSubtitle];
+    [cell addSubview:cell.labelExtraInfo];
+    [cell addSubview: cell.divider];
+    [cell addSubview: cell.labelDetails];
+    [cell addSubview: cell.locationIcon];
     }
-//    NSString* date = [self formatDateWithStart:event.event_date_starttime withEndTime:event.event_endtime];
-//    [cell.labelDetails setText:date];
-//    [cell.labelSubtitle setClipsToBounds:YES];
-//    [cell addSubview: cell.fade ];
-//    [cell addSubview:cell.labelTitle];
-//    [cell addSubview:cell.labelSubtitle];
-//    [cell addSubview:cell.labelExtraInfo];
-//    [cell addSubview: cell.divider];
-//    [cell addSubview: cell.labelDetails];
-//    [cell addSubview: cell.locationIcon];
-//    }
     return cell;
 }
 
 
 
 -(NSString*)formatDateWithStart:(NSString*)dateAndStart withEndTime:(NSString*)endTime{
-  NSString* entireDate= @"9PM to Midnight";
-    
-    return entireDate;
+  //NSString* entireDate= @"9PM to Midnight";
+    NSDate * myDate = [NSDate dateFromString:dateAndStart withFormat:[NSDate dbFormatString]];
+    NSString* date = [NSDate stringForDisplayFromFutureDate:myDate prefixed:YES alwaysDisplayTime:YES ];
+   // NSString* entireDate = [date stringByAppendingString:[NSDate stringForDisplayFromDate:myDate]];
+    return date;
 }
 
 

@@ -44,8 +44,12 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.tabBarController.navigationController setNavigationBarHidden:YES];
-    [self.navigationController setNavigationBarHidden:YES];
+   // [self.tabBarController.navigationController setNavigationBarHidden:YES];
+    [self.navigationController.navigationBar setBackgroundColor:[UIColor redColor]];
+    [self.navigationController.navigationBar setTranslucent:YES];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{ NSFontAttributeName:[UIFont fontWithName:@"Avenir Light" size:18.0], NSForegroundColorAttributeName: [UIColor whiteColor]}];
+    
+   [self.navigationController setNavigationBarHidden:YES];
 }
 
 
@@ -62,10 +66,6 @@
     // Do any additional setup after loading the view.
    
     
-    //***** No Navigation Bar just back buton//
-    
-   [self.navigationController setNavigationBarHidden:YES animated:NO];
-   
     UIButton* itemMenu =[[UIButton alloc] initWithFrame:CGRectMake(20.0, 35.0, 30.0, 27.5)];
     [itemMenu addTarget:self action:@selector(didClickBackButton) forControlEvents:UIControlEventTouchUpInside  ];
     [itemMenu setBackgroundImage:[UIImage imageNamed: BUTTON_BACK] forState: UIControlStateNormal   ];

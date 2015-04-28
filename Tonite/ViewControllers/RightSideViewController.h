@@ -11,7 +11,6 @@
 @interface RightSideViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UITableView *tableSideView;
-@property (strong, nonatomic) IBOutlet UIImageView *userProfilePicture;
 
 -(void) reloadInputViews ;
 @end

@@ -4,16 +4,19 @@
 //
 //  Created by Julie Murakami on 3/2/15.
 //  Copyright (c) 2015 Client. All rights reserved.
-//
+
+//Also is the Profile Menu Controller : get called by ECSlidingViewController
+
 
 #import "RightSideViewController.h"
 #import "AppDelegate.h"
 #import "SettingsController.h"
+#import "AboutUsViewController.h"
 
 @interface RightSideViewController ()<UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 @property (nonatomic, retain) UserSession* user;
 @property (nonatomic, retain) NSArray* titles;
-
+@property (nonatomic, retain) UIImageView* userProfilePicture;
 @end
 
 @implementation RightSideViewController
@@ -26,50 +29,56 @@
     [self reloadInputViews];
 }
 
+-(void) viewWillDisappear:(BOOL)animated    {
+    [super viewWillDisappear:animated];
+    //If we want to clear the side menu after opening settings/my wallet/etc. 
+    //  [self.slidingViewController resetTopViewAnimated:NO];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    CGFloat peekAmount = self.view.frame.size.width/4;
-    self.view.backgroundColor = [UIColor grayColor];
-    [self setImage:self.user.thumbPhotoUrl imageView:userProfilePicture withBorder:YES isThumb:YES];
-    [userProfilePicture.layer setCornerRadius:40.0];
-    [userProfilePicture setClipsToBounds:YES];
-    [userProfilePicture setCenter:CGPointMake((self.view.frame.size.width+ peekAmount)/2, 125)];
-
+    [self.view setBackgroundColor:[UIColor blackColor]];
     
+    // Do any additional setup after loading the view
+    
+    //Set up table
     tableSideView.delegate = self;
     tableSideView.dataSource = self;
-    [tableSideView setFrame:CGRectMake(peekAmount, 200, self.view.frame.size.width- peekAmount, self.view.frame.size.height)];
-    
-    [tableSideView setBackgroundColor:[UIColor lightGrayColor]];
-    /*DARKEN OUTSIDE MENU SCREEN
-    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
-    
-    int x = self.view.frame.size.width -ANCHOR_RIGHT_PEEK-1;
-    gradientLayer.frame = CGRectMake(0, 0, x, self.view.frame.size.height);
-    gradientLayer.colors = [NSArray arrayWithObjects:
-                            (id)THEME_BLACK_TINT_COLOR.CGColor,
-                            (id)[UIColor clearColor].CGColor,
-                            nil];
-   
-    gradientLayer.startPoint = CGPointMake(-2,0.5);
-    gradientLayer.endPoint = CGPointMake(1,0.5);
-    [self.view.layer addSublayer:gradientLayer];
-    */
- 
+    [tableSideView setFrame:CGRectMake(5.0,2*self.view.frame.size.height/5, self.view.frame.size.width, self.view.frame.size.height)];
+    [tableSideView setBackgroundColor:[UIColor blackColor]];
     self.titles =@[
-                  @"Settings",
-                  @"About Tonite",
-                  @"Friends",
-                  @"My Wallet"
-                  ];
-    /*
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
-    tapGesture.numberOfTapsRequired = 1;
-    tapGesture.cancelsTouchesInView = NO; //So the user can still interact with controls in the modal view
+                   @"Settings",
+                   @"Friends",
+                   @"My Wallet"
+                   ];
     
-    [self.slidingViewController.view addGestureRecognizer:tapGesture];
-    */
+    //peekAmount is the LeftPeekAmount or how much the top view is still visible
+    CGFloat peekAmount = self.view.frame.size.width/4;
+
+    //Set the background image
+    UIImageView* imgBackground = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"HEADHEAD.jpg"]];
+    [imgBackground setFrame: CGRectMake(peekAmount, 0.0, self.view.frame.size.width - peekAmount,2*self.view.frame.size.height/5)];
+    [imgBackground setContentMode:UIViewContentModeScaleAspectFill];
+    [self.view addSubview:imgBackground];
+    
+    //Place the line between image and table
+    UIImageView * divider = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar.png"]];
+    [divider setFrame:CGRectMake(0, 2* self.view.frame.size.height/5-25, self.view.frame.size.width, 3)];
+    [divider setAlpha:0.4];
+    [self.view addSubview:divider];
+    
+    //Place profile picture
+    self.userProfilePicture = [[UIImageView alloc]initWithFrame:CGRectMake(peekAmount + ((self.view.frame.size.width-peekAmount)/2) - self.view.frame.size.height/20, 2*self.view.frame.size.height/5 - 50, self.view.frame.size.height/10, self.view.frame.size.height/10)];
+    [self setImage:self.user.thumbPhotoUrl imageView:userProfilePicture withBorder:YES isThumb:YES];
+    [self.userProfilePicture.layer setCornerRadius:self.view.frame.size.height/20];
+    [self.userProfilePicture setClipsToBounds:YES];
+    [self.userProfilePicture.layer setShadowColor:[UIColor blackColor].CGColor];
+    [self.userProfilePicture.layer setShadowOpacity:0.7];
+    [MGUtilities createBorders:self.userProfilePicture borderColor:[UIColor lightGrayColor] shadowColor:[UIColor grayColor] borderWidth:2.5];
+    [self.view addSubview:userProfilePicture];
+    
+    
+    //Add gesture to slide back to menu
     UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
     swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
     swipeGesture.cancelsTouchesInView = YES; //So the user can still interact with controls in the modal view
@@ -100,81 +109,37 @@
     }
 }
 
-- (void)handleTapGesture:(UITapGestureRecognizer *)sender {
-}
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 40;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return 3;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    MGListCell* cell =  [tableView dequeueReusableCellWithIdentifier:@"RightSideViewCell"];
-    [cell setUserInteractionEnabled:YES];
-    [cell.labelTitle setFont:[UIFont fontWithName:@"Avenir Light" size:13]];
-    [cell setBackgroundColor:[UIColor lightGrayColor]];
-    [cell.labelTitle setFont:[UIFont fontWithName:@"Avenir Light" size:16.0]];
-    [cell.labelTitle setTextColor:[UIColor blackColor]];
-    cell.labelTitle.text = self.titles[indexPath.row];
+    UITableViewCell* cell =  [tableView dequeueReusableCellWithIdentifier:@"RightSideViewCell"];
+    [cell.textLabel setFont:[UIFont fontWithName:@"Avenir Light" size:16.0]];
+    [cell.selectedBackgroundView setBackgroundColor:[UIColor grayColor]];
+    [cell.textLabel setTextColor:[UIColor whiteColor]];
+    cell.textLabel.text = self.titles[indexPath.row];
     return cell;
 }
 
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    // This undoes the Zoom Transition's scale because it affects the other transitions.
-    // You normally wouldn't need to do anything like this, but we're changing transitions
-    // dynamically so everything needs to start in a consistent state.
-    //self.slidingViewController.topViewController.view.layer.transform = CATransform3DMakeScale(1, 1, 1);
-    
-    if (indexPath.row == 0) {
-        // SETTINGS
-        
-        //OTHER SETTINGS??
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.row == 0){
+        //SETTINGS
         UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsNavigator"];
         [self.slidingViewController presentViewController:vc animated:YES completion:nil];
-
-       // [self.slidingViewController resetTopViewAnimated:YES];
     }
     if(indexPath.row == 1){
-        //ABOUT TONITE
-     //   [self.slidingViewController resetTopViewAnimated:YES];
-        UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardAboutUs"];
-        [self.slidingViewController presentViewController:vc animated:YES completion:nil];
-  }
-   
-    if(indexPath.row == 2){
-        //FRIENDS
+        //MY FRIENDS
         [self.slidingViewController resetTopViewAnimated:YES];
-//        vc.modalPresentationStyle = UIModalPresentationFullScreen;
-//        vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-//        
-//        AppDelegate* delegate = [AppDelegate instance];
-//        [[delegate.window rootViewController] presentViewController:vc animated:YES completion:nil];
-//        [self.slidingViewController resetTopViewAnimated:YES];
-        
     }
-
-    if(indexPath.row == 3){
-        if(self.user ==nil){
-            //REGISTER PAGE
-            UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier: @"storyboardRegister"];
-            [self.slidingViewController presentViewController:vc animated:YES completion:nil];
-        }
-        else{
-           //GO TO MY WALLET
-            
-//            SIGN OUT
-//            [UserAccessSession clearAllSession];
-//            [[FHSTwitterEngine sharedEngine] clearAccessToken];
-//            [FBSession.activeSession closeAndClearTokenInformation];
-//            [FBSession.activeSession close];
-//            [FBSession setActiveSession:nil];
-//            [self.slidingViewController resetTopViewAnimated:YES];
-        }
+    if(indexPath.row == 2){
+     //MY WALLET
+        [self.slidingViewController resetTopViewAnimated:YES];
     }
 }
 
@@ -228,11 +193,8 @@
 }
 
 -(void) reloadInputViews{
-    
     self.user = [UserAccessSession getUserSession];
-    
-    [self setImage:self.user.thumbPhotoUrl imageView:userProfilePicture withBorder:YES isThumb:YES];
- 
+    //[self setImage:self.user.thumbPhotoUrl imageView:userProfilePicture withBorder:YES isThumb:YES];
     [tableSideView reloadData];
 
 }

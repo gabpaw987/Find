@@ -16,7 +16,6 @@
 
 -(void) viewWillAppear:(BOOL)animated   {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void)viewDidLoad {
@@ -27,18 +26,17 @@
     NSURL * weburl = [NSURL URLWithString:textURL];
     NSURLRequest* request = [NSURLRequest requestWithURL:weburl];
     [_webView loadRequest:request];
-    UIBarButtonItem* buttonCancel = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(didClickCancel)];
-    [self.navigationItem setLeftBarButtonItem:buttonCancel];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+//    UIBarButtonItem* buttonCancel = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(didClickCancel)];
+//    [buttonCancel setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateNormal];
+//    [buttonCancel setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateSelected];
+//    [self.navigationItem setLeftBarButtonItem:buttonCancel];
+//    
+
 }
 
 -(void) didClickCancel{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -48,27 +46,16 @@
 }
 
 
+
 -(void) scrollViewDidScroll:(UIScrollView *)scrollView{
-    if([scrollView.panGestureRecognizer translationInView:self.view].y < 0)
-    {
+    if([scrollView.panGestureRecognizer translationInView:self.view].y < 0){
         [self.navigationController setNavigationBarHidden:YES];
     }
-    else if([scrollView.panGestureRecognizer translationInView:self.view].y > 0)
-    {
+    else if([scrollView.panGestureRecognizer translationInView:self.view].y > 0){
         [self.navigationController setNavigationBarHidden:NO];
     }
 }
-//
-//-(void) scrollViewDidScrollToTop:(UIScrollView *)scrollView{
-//    if([scrollView.panGestureRecognizer translationInView:self.view].y < 0)
-//    {
-//        [self.navigationController setNavigationBarHidden:YES];
-//    }
-//    else if([scrollView.panGestureRecognizer translationInView:self.view].y > 0)
-//    {
-//        [self.navigationController setNavigationBarHidden:NO];
-//    }
-//}
+    
 
 /*
 #pragma mark - Navigation
@@ -79,8 +66,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-
 
 
 @end

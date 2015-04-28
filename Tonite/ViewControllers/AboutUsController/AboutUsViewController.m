@@ -1,15 +1,15 @@
 //
 //  AboutUsViewController.m
-//  RealEstateFinder
-//
-//
-//  Copyright (c) 2014 Mangasaur Games. All rights reserved.
-//
+//  Tonite
+
+
 
 #import "AboutUsViewController.h"
 #import "AppDelegate.h"
 
 @interface AboutUsViewController ()<UIScrollViewDelegate>
+@property (nonatomic,strong) UIScrollView * mainView;
+@property (nonatomic, strong) UIScrollView* slideShow;
 @end
 
 @implementation AboutUsViewController
@@ -26,22 +26,24 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    
+    self.mainView = [[UIScrollView alloc]initWithFrame:self.view.frame];
     self.view.backgroundColor = [UIColor whiteColor];
-   
+
+    //Setup rotating images
     NSArray* aboutUsPics = @[ABOUT_PIC1 , ABOUT_PIC2, ABOUT_PIC3];
     NSArray* aboutUsText = @[@"a better life, a better world - two taps away", @" three students with a vision ", @" better education "];
-    self.slideShow.frame =  CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height/2 - 20);
+    UIScrollView *  slider = [[UIScrollView alloc]initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.height/2 - 20)];
+    self.slideShow = slider;
     int posX = 0;
     for(int x = 0; x < [aboutUsPics count]; x++) {
         UIImageView* sliderView = [[UIImageView alloc] initWithFrame:
         CGRectMake(posX, 0.0, self.view.frame.size.width, self.slideShow.frame.size.height)];
         [sliderView setImage:[UIImage imageNamed:aboutUsPics[x]]];
-        UILabel * labeltext = [[UILabel alloc] initWithFrame:CGRectMake(0.0, self.view.frame.size.width/2 , self.view.frame.size.width, 50.0)];
+        UILabel * labeltext = [[UILabel alloc] initWithFrame:CGRectMake(0.0, self.view.frame.size.width/2-20, self.view.frame.size.width, 50.0)];
         [labeltext setTextAlignment:NSTextAlignmentCenter];
         [labeltext setFont:[UIFont fontWithName:@"Avenir Light" size:14.0]];
         [labeltext setTextColor:[UIColor whiteColor]];
-        [labeltext setShadowColor:[UIColor grayColor]];
+        [labeltext setShadowColor:[UIColor lightGrayColor]];
         [labeltext setOpaque:YES];
         [labeltext setText:aboutUsText[x]];
         [sliderView addSubview: labeltext];
@@ -49,12 +51,14 @@
         posX += self.view.frame.size.width;
     }
     self.slideShow.showsHorizontalScrollIndicator = NO;
+    self.slideShow.scrollEnabled= NO;
     self.slideShow.pagingEnabled = YES;
     self.slideShow.bounces = NO;
     self.slideShow.contentSize = CGSizeMake(posX, self.slideShow.frame.size.height);
     [self.slideShow setUserInteractionEnabled:YES];
-    [self.slideShow setBackgroundColor:[UIColor blackColor]];
-    
+ 
+ 
+    //Add gestures to the rotating images
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
     tapGesture.numberOfTapsRequired = 1;
     tapGesture.cancelsTouchesInView = NO;
@@ -64,43 +68,48 @@
     swipe.direction = UISwipeGestureRecognizerDirectionLeft;
     swipe.cancelsTouchesInView = YES;
     [self.slideShow addGestureRecognizer:swipe];
-    [self.view addSubview: self.slideShow];
+    [self.mainView addSubview: self.slideShow];
     [self startAnimationWithDuration:4.0];
     
-    
+    //Add divider between images and description.
     UIImageView *divider = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"divider.png"]];
-    [divider setFrame:CGRectMake(0.0, self.view.frame.size.height/2 -20, self.view.frame.size.width, 5)];
-    [self.view addSubview: divider];
+    [divider setFrame:CGRectMake(0.0, self.view.frame.size.height/2-20, self.view.frame.size.width, 5)];
+    [self.mainView addSubview: divider];
   
+    //Adds the Tonite logo in "About tonite"
     UIImageView * toniteLabel = [[UIImageView alloc]initWithImage:[UIImage imageNamed:TONITE_LOGO ]];
-    [toniteLabel setFrame:CGRectMake(57.0, divider.frame.origin.y+12.5, 78.0, 40.0)];
-    [self.view addSubview: toniteLabel];
+    [toniteLabel setFrame:CGRectMake(45.5, divider.frame.origin.y+12, 68.0, 36.0)];
+    [self.mainView addSubview: toniteLabel];
     
-    UILabel * aboutLabel = [[UILabel alloc]initWithFrame:CGRectMake(8.0, divider.frame.origin.y+15, 60.0, 30.0)];
+    UILabel * aboutLabel = [[UILabel alloc]initWithFrame:CGRectMake(8.0, divider.frame.origin.y+14, 60.0, 30.0)];
     [aboutLabel setText:@"About"];
     [aboutLabel setTextColor:[UIColor blackColor]];
-    [aboutLabel setFont:[ UIFont fontWithName:@"Avenir Light" size:20.0]];
-    [self.view addSubview:aboutLabel];
+    [aboutLabel setFont:[ UIFont fontWithName:@"Avenir Light" size:16.0]];
+    [self.mainView addSubview:aboutLabel];
     
-    UILabel * descriptionLabel = [[UILabel alloc]initWithFrame: CGRectMake(8.0, self.view.frame.size.height/2+ 8, self.view.frame.size.width-16 , self.view.frame.size.height/2 - 30)];
+    
+    //Setup Description
+    //The text is stored in Localized string file.
+    UILabel * descriptionLabel = [[UILabel alloc]initWithFrame: CGRectMake(8.0, aboutLabel.frame.origin.y, self.view.frame.size.width-16 , self.view.frame.size.height/2 - 30)];
     descriptionLabel.numberOfLines = 0;
     [descriptionLabel setTextAlignment:NSTextAlignmentJustified];
     [descriptionLabel setText:NSLocalizedString(@"ABOUT_US_DETAIL", @"Hello there!")];
     [descriptionLabel sizeToFit];
     [descriptionLabel setTextColor:[UIColor blackColor]];
-    [descriptionLabel setFont: [UIFont fontWithName:@"Avenir Light" size:14.0]];
+    [descriptionLabel setFont: [UIFont fontWithName:@"Avenir Light" size:13.0]];
     [descriptionLabel setOpaque: YES];
-    [self.view addSubview: descriptionLabel];
+    [self.mainView addSubview: descriptionLabel];
     
+    
+    //Setup contact up button
     UIButton * contactUs = [UIButton buttonWithType:UIButtonTypeCustom];
-    [contactUs setFrame: CGRectMake(85.0, descriptionLabel.frame.origin.y + descriptionLabel.frame.size.height - 3, self.view.frame.size.width-170,30.0)];
+    [contactUs setFrame: CGRectMake(85.0, descriptionLabel.frame.origin.y + descriptionLabel.frame.size.height -25, self.view.frame.size.width-170,30.0)];
     [contactUs setTitle:@"Contact Us" forState:UIControlStateSelected];
     [contactUs setTitle:@"Contact Us" forState:UIControlStateNormal];
     [contactUs setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [contactUs setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
     [contactUs addTarget:self action:@selector(didSelectContact) forControlEvents:UIControlEventTouchUpInside];
     [contactUs.layer setCornerRadius:5.0];
-    [contactUs setAlpha: 0.85];
     [contactUs setBackgroundColor:[UIColor lightGrayColor]];
     [contactUs.layer setBorderColor:[UIColor blackColor].CGColor];
     [contactUs.layer setBorderWidth:0.4];
@@ -109,20 +118,36 @@
     contactUs.layer.shadowRadius = 12;
      contactUs.layer.shadowOffset = CGSizeMake(8.0f, 8.0f);
     [contactUs.titleLabel setFont:[UIFont fontWithName:@"Avenir Light" size:16.0] ];
-    
-    [self.view addSubview: contactUs];
-    
+    [self.mainView addSubview: contactUs];
  
-    UIButton* itemMenu = [UIButton buttonWithType:UIButtonTypeCustom  ];
-    [itemMenu addTarget:self action:@selector(didClickBarButtonMenu:) forControlEvents:UIControlEventTouchUpInside  ];
-    [itemMenu setBackgroundImage: [UIImage imageNamed:BUTTON_CLOSE] forState:UIControlStateNormal];
-    [itemMenu setBackgroundImage:[UIImage imageNamed:BUTTON_CLOSE ]forState:UIControlStateSelected];
-    [itemMenu setFrame: CGRectMake(18, 20, 20, 20) ];
-    [self.view addSubview:itemMenu];
+    //resize scroll view
+    CGRect frame = self.view.frame;
+    frame.size.height = contactUs.frame.origin.y + 50;
+    [self.mainView setContentSize: frame.size];
+    self.mainView.scrollEnabled = YES;
+    self.mainView.bounces = NO;
+    self.mainView.userInteractionEnabled = YES;
+    [self.view addSubview: self.mainView];
+
+    
+    
+//    UIButton* itemMenu = [UIButton buttonWithType:UIButtonTypeCustom  ];
+//    [itemMenu addTarget:self action:@selector(didClickBarButtonMenu:) forControlEvents:UIControlEventTouchUpInside  ];
+//    [itemMenu setBackgroundImage: [UIImage imageNamed:BUTTON_CLOSE] forState:UIControlStateNormal];
+//    [itemMenu setBackgroundImage:[UIImage imageNamed:BUTTON_CLOSE ]forState:UIControlStateSelected];
+//    [itemMenu setFrame: CGRectMake(18, 20, 20, 20) ];
+//    [self.view addSubview:itemMenu];
+//    
+    
+    UIBarButtonItem* buttonCancel = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(didClickCancel)];
+    [buttonCancel setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateNormal];
+    [buttonCancel setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateSelected];
+    [self.navigationItem setLeftBarButtonItem:buttonCancel];
+    
 }
                                               
--(void)didClickBarButtonMenu:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+-(void)didClickCancel{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -220,16 +245,7 @@ else{
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 -(void)setImage:(NSString*)imageUrl imageView:(UIImageView*)imgView {
     
     NSURL* url = [NSURL URLWithString:imageUrl];
@@ -256,4 +272,17 @@ else{
                                 
                             }];
 }
+
+-(void) scrollViewDidScroll:(UIScrollView *)scrollView {
+    if([scrollView.panGestureRecognizer translationInView:self.view].y < 0)
+    {
+        [self.navigationController setNavigationBarHidden:YES];
+    }
+    else
+    {
+        [self.navigationController setNavigationBarHidden:NO];
+    }
+    
+}
+
 @end

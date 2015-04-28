@@ -5,6 +5,7 @@
 #import "DetailViewController.h"
 #import "TabBarViewController.h"
 #import "LBHamburgerButton.h"
+#import "NSDate+Helper.h"
 
 @interface ContentViewController () <MGSliderDelegate, MGListViewDelegate>
 
@@ -26,7 +27,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.tabBarController.navigationController setNavigationBarHidden:NO];
+   
   //  NSLog(@"Number of Events is .. %lu", (unsigned long)[self.listViewEvents.arrayData count]);
 }
 
@@ -44,73 +45,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-  
-   // self.automaticallyAdjustsScrollViewInsets = NO;
-//    BOOL screen = IS_IPHONE_6_PLUS_AND_ABOVE;
-//    if(screen) {
-//        CGRect frame = listViewEvents.frame;
-//        frame.origin.y =65;
-//        frame.size.height = self.view.frame.size.height-65;
-//        listViewEvents.frame = frame;
-//    }
+
     listViewEvents.delegate = self;
-    listViewEvents.cellHeight = (self.view.frame.size.height-65)/2;
-    
+    listViewEvents.cellHeight = (self.view.frame.size.height-45)/2;
     [listViewEvents registerNibName:@"SliderCell" cellIndentifier:@"SliderCell"];
     [listViewEvents baseInit];
-    
     [self beginParsing];
-    
-//    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleLeftSwipeGesture:)];
-//    swipeGesture.direction = UISwipeGestureRecognizerDirectionLeft;
-//    swipeGesture.cancelsTouchesInView = NO; //So the user can still interact with controls in the modal view
-//    
-//    [self.slidingViewController.view addGestureRecognizer:swipeGesture];
-//    
-//    UISwipeGestureRecognizer *swipeRightGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleRightSwipeGesture:)];
-//    swipeRightGesture.direction = UISwipeGestureRecognizerDirectionRight;
-//    swipeRightGesture.cancelsTouchesInView = NO; //So the user can still interact with controls in the modal view
-//    
-//    [self.slidingViewController.view addGestureRecognizer:swipeRightGesture];
-//    
-//  
-}
 
-
-- (void)handleTapGesture:(UITapGestureRecognizer *)sender {
-  
-}
-
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
-    return YES;
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    return YES;
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    return YES;
-}
-
-- (void)handleRightSwipeGesture:(UISwipeGestureRecognizer *)sender{
-    if (sender.state == UIGestureRecognizerStateEnded) {
-//        if(self.slidingViewController.currentTopViewPosition == ECSlidingViewControllerTopViewPositionAnchoredLeft){
-//        [self.slidingViewController resetTopViewAnimated:YES    ];
-//        }
-//        else{
-//            
-//            [self.tabBarController setSelectedIndex:1];
-//          
-//        }
-    }
-
-}
-
--(void) handleLeftSwipeGesture:(UISwipeGestureRecognizer*) sender{
-    if (sender.state == UIGestureRecognizerStateEnded) {
-        [self.slidingViewController anchorTopViewToLeftAnimated:YES onComplete:nil];
-    }
 }
 
 
@@ -162,7 +103,6 @@
 
 -(void) setData {
     listViewEvents.arrayData = [NSMutableArray arrayWithArray:[CoreDataController getAllEvents]];
-    
 }
 
 
@@ -221,11 +161,11 @@
     
     
         if([cell.slideShow.imageArray count] ==0){
-            cell.slideShow = nil;
-            Photo* p = photos[0];
-            UIImageView * image = [[UIImageView alloc]initWithFrame:cell.frame  ];
-            [self setImage:p.photo_url imageView:image];
-            [cell.contentView addSubview: image];
+//            cell.slideShow = nil;
+//            Photo* p = photos[0];
+//            UIImageView * image = [[UIImageView alloc]initWithFrame:cell.frame  ];
+//            [self setImage:p.photo_url imageView:image];
+//            [cell.contentView addSubview: image];
             
         }
         else{
@@ -268,26 +208,29 @@
 
 
 -(NSString*)formatDateWithStart:(NSString*)dateAndStart withEndTime:(NSString*)endTime{
-
-    NSString* entireDate= @"9PM to Midnight";
     
-    return entireDate;
+    NSDate * myDate = [NSDate dateFromString:dateAndStart withFormat:[NSDate dbFormatString]];
+    NSString* date = [NSDate stringForDisplayFromFutureDate:myDate prefixed:YES alwaysDisplayTime:YES ];
+    // NSString* entireDate = [date stringByAppendingString:[NSDate stringForDisplayFromDate:myDate]];
+    return date;
+  //  return entireDate;
 }
 
 
--(void)MGListView:(MGListView *)listView scrollViewDidScroll:(UIScrollView *)scrollView {
-    if([scrollView.panGestureRecognizer translationInView:self.view].y < 0)
-    {
-        
-        [self.tabBarController.navigationController setNavigationBarHidden:YES];
-    }
-    else if([scrollView.panGestureRecognizer translationInView:self.view].y > 0)
+-(void) MGListView:(MGListView *)listView scrollViewDidScroll:(UIScrollView *)scrollView   {
+     if(scrollView.contentOffset.y < 15.0)
     {
         [self.tabBarController.navigationController setNavigationBarHidden:NO];
     }
-
+    else if([scrollView.panGestureRecognizer translationInView:self.view].y < 0)
+    {
+        [self.tabBarController.navigationController setNavigationBarHidden:YES];
+    }
+    else
+    {
+        [self.tabBarController.navigationController setNavigationBarHidden:NO];
+    }
 }
-
 
 
 

@@ -9,24 +9,59 @@
 #import "AboutMeTableViewController.h"
 
 @interface AboutMeTableViewController ()<UIScrollViewDelegate>
-
+@property (nonatomic,assign) BOOL isFemale;
 
 @end
 
 @implementation AboutMeTableViewController
+@synthesize  genderMale;
+@synthesize  genderFemale;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.isFemale = NO;
     // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+
+    //    // self.clearsSelectionOnViewWillAppear = NO;
+//    [self.navigationController setNavigationBarHidden:NO];
+//    UIBarButtonItem* left = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(didSelectCancel:)];
+   [self.navigationItem.leftBarButtonItem setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateNormal];
+    [self.navigationItem.leftBarButtonItem setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateSelected];
+//    [self.navigationItem setLeftBarButtonItem:left];
+//    UIBarButtonItem* right = [[UIBarButtonItem alloc]initWithTitle:@"Save" style:UIBarButtonItemStyleDone target:self action:@selector(didSelectSave:)];
+//    [right setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateNormal];
+//    [right setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateSelected];
+//    [self.navigationItem setRightBarButtonItem:right];
+    [self.genderFemale setImage:[UIImage imageNamed:@"radio-on.png"] forState:UIControlStateSelected];
+    [self.genderFemale setImage:[UIImage imageNamed:@"radio-off.png"] forState:UIControlStateNormal];
+    [self.genderMale setImage:[UIImage imageNamed:@"radio-on.png"] forState:UIControlStateSelected];
+    [self.genderMale setImage:[UIImage imageNamed:@"radio-off.png"] forState:UIControlStateNormal];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+-(void) didSelectCancel:(id)sender{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+-(void) didSelectSave:(UIBarButtonItem*) sender{
+    NSLog(@"%@", self.labelFirstName.text);
+    
+    
+}
+
+
+
 
 -(void) viewWillAppear:(BOOL)animated   {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,49 +70,8 @@
 }
 
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 /*
 #pragma mark - Navigation
@@ -100,4 +94,19 @@
     }    
 }
 
+
+
+- (IBAction)selectGender:(UIButton *)sender {
+    if(sender.tag == 0){
+        [self.genderMale setSelected:YES];
+        [self.genderFemale setSelected:NO];
+        self.isFemale = NO;
+    }
+    else{
+        [self.genderFemale setSelected: YES];
+        [self.genderMale setSelected:NO];
+        self.isFemale = YES;
+    }
+    
+}
 @end

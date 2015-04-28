@@ -8,7 +8,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController ()<UITextFieldDelegate>
 
 @end
 
@@ -31,31 +31,40 @@
     filter.alpha = 0.05;
     [self.view addSubview:filter];
     
+    
+    //Tonite Image
     UIImageView *welcomeLabel = [[UIImageView alloc] initWithImage: [UIImage imageNamed:TONITE_LOGO]];
-    [welcomeLabel setFrame:CGRectMake(0, self.view.bounds.size.height/8, self.view.bounds.size.width/2, self.view.bounds.size.height/7)];
+    [welcomeLabel setFrame:CGRectMake(0, self.view.bounds.size.height/8, 3*self.view.bounds.size.width/5, self.view.bounds.size.height/6)];
     [welcomeLabel setCenter:CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height/8*1.5)];
     [self.view addSubview:welcomeLabel];
     
+    //Email TextField
     UITextField *emailText = [[UITextField alloc] initWithFrame:CGRectMake(3*self.view.bounds.size.width/24, 26*self.view.bounds.size.height/40, 49*self.view.bounds.size.width/64, 2.5*self.view.bounds.size.height/40)];
     emailText.layer.borderColor = [[UIColor whiteColor] CGColor];
     emailText.layer.borderWidth = 1.0;
     [emailText.layer setCornerRadius:5.0];
     [emailText setClipsToBounds:YES];
     emailText.placeholder = @" Email";
+    [emailText setTextColor:[UIColor whiteColor]];
     emailText.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@" Email" attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:16.0] }];
     [emailText setTintColor:[UIColor whiteColor]];
+    emailText.delegate = self;
     [self.view addSubview:emailText];
     
+    //Password TextField
     UITextField *passwordText = [[UITextField alloc] initWithFrame:CGRectMake(3*self.view.bounds.size.width/24, 29*self.view.bounds.size.height/40, 49*self.view.bounds.size.width/64, 2.5*self.view.bounds.size.height/40)];
     passwordText.layer.borderColor = [[UIColor whiteColor] CGColor];
     passwordText.layer.borderWidth = 1.0;
     [passwordText.layer setCornerRadius:5.0];
     [passwordText setClipsToBounds:YES];
-    passwordText.placeholder = @" Password";
+    [passwordText setSecureTextEntry:YES];
+    [passwordText setTextColor:[UIColor whiteColor]];
     passwordText.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@" Password" attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:16.0] }];
     [passwordText setTintColor:[UIColor whiteColor]];
+    passwordText.delegate = self;
     [self.view addSubview:passwordText];
     
+    //Sign In UIButton
     UIButton *signInButton = [[UIButton alloc] initWithFrame:CGRectMake(3*self.view.bounds.size.width/24, 8*self.view.bounds.size.height/10, 49*self.view.bounds.size.width/64, 2.5*self.view.bounds.size.height/40)];
     signInButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     signInButton.layer.borderWidth = 1.0;
@@ -69,6 +78,8 @@
     [signInButton addTarget:self action:@selector(didSelectLogin:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:signInButton];
     
+    
+    //Facebook UIButton
     UIButton *fbButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.bounds.size.width/8, 35*self.view.bounds.size.height/40, 3*self.view.bounds.size.width/8, 2.5*self.view.bounds.size.height/40)];
     fbButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     fbButton.layer.borderWidth = 1.0;
@@ -81,6 +92,7 @@
     [fbButton.layer setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.6].CGColor];
     [self.view addSubview:fbButton];
     
+    //Twitter UIButton
     UIButton *twitterButton = [[UIButton alloc] initWithFrame:CGRectMake(33*self.view.bounds.size.width/64, 35*self.view.bounds.size.height/40, 3*self.view.bounds.size.width/8, 2.5*self.view.bounds.size.height/40)];
     twitterButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     twitterButton.layer.borderWidth = 1.0f;
@@ -92,6 +104,12 @@
     [twitterButton.titleLabel setFont:[UIFont fontWithName:@"Avenir Light" size:18.0]];
     [twitterButton.layer setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.6].CGColor];
     [self.view addSubview:twitterButton];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 -(AVPlayerLayer*)playerLayer

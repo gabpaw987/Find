@@ -180,7 +180,6 @@
 }
 
 -(void)keyboardDidShow:(id)sender {
-    
     CGRect frame = scrollViewMain.frame;
     frame.size.height -= 216;
     scrollViewMain.frame = frame;

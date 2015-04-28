@@ -1,9 +1,6 @@
 //
 //  AboutUsViewController.h
-//  RealEstateFinder
-//
-//
-//  Copyright (c) 2014 Mangasaur Games. All rights reserved.
+//  Tonite
 //
 
 #import <UIKit/UIKit.h>
@@ -13,6 +10,5 @@
 }
 
 
-@property (strong, nonatomic) IBOutlet UIScrollView *slideShow;
 
 @end

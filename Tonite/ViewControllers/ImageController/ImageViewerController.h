@@ -1,7 +1,5 @@
 //
 //  ImageViewerController.h
-//  StoreFinder
-//
 //
 //  Copyright (c) 2014 Mangasaur Games. All rights reserved.
 //
