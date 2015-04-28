@@ -149,7 +149,7 @@
 		CB820A9D194F7793000E64DB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB820A9C194F7793000E64DB /* LoginViewController.m */; };
 		CB820AA3194F783D000E64DB /* TCView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB820AA0194F783D000E64DB /* TCView.xib */; };
 		CB820AD8194F78DD000E64DB /* MGLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB820AD7194F78DD000E64DB /* MGLoginView.m */; };
-		CB820AE4194F7C69000E64DB /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB820AE0194F7C69000E64DB /* AboutUsViewController.m */; };
+		CB820AE4194F7C69000E64DB /* AboutToniteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB820AE0194F7C69000E64DB /* AboutToniteViewController.m */; };
 		CB820AE5194F7C69000E64DB /* TCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB820AE3194F7C69000E64DB /* TCViewController.m */; };
 		CB820AEB194F8167000E64DB /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB820AEA194F8167000E64DB /* ProfileViewController.m */; };
 		CB820AEE194F81E1000E64DB /* MGProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB820AED194F81E1000E64DB /* MGProfileView.m */; };
@@ -269,7 +269,6 @@
 		E34C284A1AC875EE00D7640A /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = E34C28441AC875EE00D7640A /* heart.png */; };
 		E34C284F1AC875EE00D7640A /* user160.png in Resources */ = {isa = PBXBuildFile; fileRef = E34C28491AC875EE00D7640A /* user160.png */; };
 		E34C28511AC878AC00D7640A /* FADE.png in Resources */ = {isa = PBXBuildFile; fileRef = E34C28501AC878AC00D7640A /* FADE.png */; };
-		E34C28531AC878BB00D7640A /* slider-fade.png in Resources */ = {isa = PBXBuildFile; fileRef = E34C28521AC878BB00D7640A /* slider-fade.png */; };
 		E34CE17A1AEDBB360071FCB8 /* HEADHEAD.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E34CE1791AEDBB360071FCB8 /* HEADHEAD.jpg */; };
 		E38921891ADDF5D500DB2B81 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38921871ADDF5D500DB2B81 /* ViewController.m */; };
 		E389218C1ADDF77000DB2B81 /* Yo.mov in Resources */ = {isa = PBXBuildFile; fileRef = E389218B1ADDF77000DB2B81 /* Yo.mov */; };
@@ -453,8 +452,8 @@
 		CB820AA0194F783D000E64DB /* TCView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCView.xib; sourceTree = "<group>"; };
 		CB820AD6194F78DD000E64DB /* MGLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLoginView.h; sourceTree = "<group>"; };
 		CB820AD7194F78DD000E64DB /* MGLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGLoginView.m; sourceTree = "<group>"; };
-		CB820ADF194F7C69000E64DB /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
-		CB820AE0194F7C69000E64DB /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
+		CB820ADF194F7C69000E64DB /* AboutToniteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutToniteViewController.h; sourceTree = "<group>"; };
+		CB820AE0194F7C69000E64DB /* AboutToniteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutToniteViewController.m; sourceTree = "<group>"; };
 		CB820AE2194F7C69000E64DB /* TCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCViewController.h; sourceTree = "<group>"; };
 		CB820AE3194F7C69000E64DB /* TCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCViewController.m; sourceTree = "<group>"; };
 		CB820AE9194F8167000E64DB /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -673,7 +672,6 @@
 		E34C28441AC875EE00D7640A /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
 		E34C28491AC875EE00D7640A /* user160.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user160.png; sourceTree = "<group>"; };
 		E34C28501AC878AC00D7640A /* FADE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FADE.png; sourceTree = "<group>"; };
-		E34C28521AC878BB00D7640A /* slider-fade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider-fade.png"; sourceTree = "<group>"; };
 		E34CE1791AEDBB360071FCB8 /* HEADHEAD.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = HEADHEAD.jpg; path = ../../../../../Downloads/HEADHEAD.jpg; sourceTree = "<group>"; };
 		E38921871ADDF5D500DB2B81 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E38921881ADDF5D500DB2B81 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -973,12 +971,13 @@
 			path = AboutUs;
 			sourceTree = "<group>";
 		};
-		CB820ADE194F7C69000E64DB /* AboutUsController */ = {
+		CB820ADE194F7C69000E64DB /* AboutToniteController */ = {
 			isa = PBXGroup;
 			children = (
-				CB820ADF194F7C69000E64DB /* AboutUsViewController.h */,
-				CB820AE0194F7C69000E64DB /* AboutUsViewController.m */,
+				CB820ADF194F7C69000E64DB /* AboutToniteViewController.h */,
+				CB820AE0194F7C69000E64DB /* AboutToniteViewController.m */,
 			);
+			name = AboutToniteController;
 			path = AboutUsController;
 			sourceTree = "<group>";
 		};
@@ -1196,16 +1195,16 @@
 				CBAED3D71948A63B00769D68 /* ContentController */,
 				CB4221D6194B0BC500528013 /* CategoryController */,
 				CB422149194ADDAB00528013 /* EventPageController */,
-				CB42218D194B005400528013 /* ImageController */,
-				CB3B8E181949E6BA00574652 /* MapController */,
 				E3EA95581A96F2DF000066E8 /* TicketsViewController */,
-				E3285E4D1AEF66E500A2A9E1 /* Unused VCs */,
-				CB820ADE194F7C69000E64DB /* AboutUsController */,
+				CB820ADE194F7C69000E64DB /* AboutToniteController */,
 				CB820AE1194F7C69000E64DB /* T&CController */,
 				E304C2F71AE459D40061EE72 /* SettingsViewController */,
 				E304C3011AE465E90061EE72 /* FAQViewController */,
-				E304C3081AE468C60061EE72 /* AboutMeViewController */,
+				E304C3081AE468C60061EE72 /* CreateAccountViewController */,
 				E304C3091AE468D20061EE72 /* PrivacyPolicyViewController */,
+				CB3B8E181949E6BA00574652 /* MapController */,
+				CB42218D194B005400528013 /* ImageController */,
+				E3285E4D1AEF66E500A2A9E1 /* Unused VCs */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1723,13 +1722,13 @@
 			name = FAQViewController;
 			sourceTree = "<group>";
 		};
-		E304C3081AE468C60061EE72 /* AboutMeViewController */ = {
+		E304C3081AE468C60061EE72 /* CreateAccountViewController */ = {
 			isa = PBXGroup;
 			children = (
 				E304C3031AE468770061EE72 /* AboutMeTableViewController.m */,
 				E304C3021AE468770061EE72 /* AboutMeTableViewController.h */,
 			);
-			name = AboutMeViewController;
+			name = CreateAccountViewController;
 			sourceTree = "<group>";
 		};
 		E304C3091AE468D20061EE72 /* PrivacyPolicyViewController */ = {
@@ -1806,7 +1805,6 @@
 				E339573F1AD30DCB00A6D2AD /* TONITELOGO_new.png */,
 				E31FD7DC1AD461CE00789CB2 /* Gradient-OVERLAY.png */,
 				E34C28441AC875EE00D7640A /* heart.png */,
-				E34C28521AC878BB00D7640A /* slider-fade.png */,
 				E34C28501AC878AC00D7640A /* FADE.png */,
 				E34C28491AC875EE00D7640A /* user160.png */,
 			);
@@ -1926,7 +1924,6 @@
 				CB48DD6F19D44E630039C26B /* ic_news@3x.png in Resources */,
 				CB422132194AD85000528013 /* ic_map_draw@2x.png in Resources */,
 				CB48DD2619D444610039C26B /* slider_placeholder@3x.png in Resources */,
-				E34C28531AC878BB00D7640A /* slider-fade.png in Resources */,
 				CB42213A194AD85000528013 /* ic_map_route@2x.png in Resources */,
 				CB7DFBC819520991007FC9B9 /* review_thumb_placeholder@2x.png in Resources */,
 				CB422131194AD85000528013 /* ic_map_draw.png in Resources */,
@@ -2128,7 +2125,7 @@
 				CBAED3891948A4EF00769D68 /* UserSession.m in Sources */,
 				CBAED3AD1948A4EF00769D68 /* MGParser.m in Sources */,
 				CB42214C194ADDB300528013 /* DetailViewController.m in Sources */,
-				CB820AE4194F7C69000E64DB /* AboutUsViewController.m in Sources */,
+				CB820AE4194F7C69000E64DB /* AboutToniteViewController.m in Sources */,
 				CBAED39B1948A4EF00769D68 /* UIImageView+AFNetworking.m in Sources */,
 				562FD42D1AC0708F00F6DD9C /* Venue.m in Sources */,
 				CBAED3821948A4EF00769D68 /* MGMapAnnotation.m in Sources */,

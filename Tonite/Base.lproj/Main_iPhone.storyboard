@@ -70,7 +70,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexColor" patternImage="8F73685A-C155-4E9B-A77E-B85BE6B82A0A" colorSpace="pattern"/>
+                                <color key="sectionIndexColor" patternImage="4D3381E8-57AC-4285-96A1-FE2DAEB89AE4" colorSpace="pattern"/>
                                 <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" id="mWx-NG-H0N" customClass="MenuTableViewCell">
@@ -627,10 +627,10 @@
             </objects>
             <point key="canvasLocation" x="2224" y="4147"/>
         </scene>
-        <!--About Us View Controller-->
+        <!--About Tonite View Controller-->
         <scene sceneID="ZWb-4j-BmV">
             <objects>
-                <viewController id="gV4-Ti-l9x" customClass="AboutUsViewController" sceneMemberID="viewController">
+                <viewController id="gV4-Ti-l9x" customClass="AboutToniteViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a98-45-gvY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -927,7 +927,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="8F73685A-C155-4E9B-A77E-B85BE6B82A0A" width="256" height="256">
+        <image name="4D3381E8-57AC-4285-96A1-FE2DAEB89AE4" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGTk9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEQcI
 ExQZHh8nKzIzNDw/QkhLVSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NW

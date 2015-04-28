@@ -11,7 +11,7 @@
 #import "RightSideViewController.h"
 #import "AppDelegate.h"
 #import "SettingsController.h"
-#import "AboutUsViewController.h"
+#import "AboutToniteViewController.h"
 
 @interface RightSideViewController ()<UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 @property (nonatomic, retain) UserSession* user;

@@ -4,15 +4,15 @@
 
 
 
-#import "AboutUsViewController.h"
+#import "AboutToniteViewController.h"
 #import "AppDelegate.h"
 
-@interface AboutUsViewController ()<UIScrollViewDelegate>
+@interface AboutToniteViewController ()<UIScrollViewDelegate>
 @property (nonatomic,strong) UIScrollView * mainView;
 @property (nonatomic, strong) UIScrollView* slideShow;
 @end
 
-@implementation AboutUsViewController
+@implementation AboutToniteViewController
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

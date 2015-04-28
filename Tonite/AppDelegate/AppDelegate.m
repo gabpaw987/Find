@@ -46,15 +46,12 @@
     rightMenuController = [storyboard instantiateViewControllerWithIdentifier:@"storyboardRightSide"];
     
     self.slidingViewController = [ECSlidingViewController slidingWithTopViewController:navController];
-    
     self.slidingViewController.underRightViewController = rightMenuController;
-    
-   
     self.slidingViewController.anchorLeftPeekAmount = self.slidingViewController.view.frame.size.width/4;
 
     
+    //Instantiate launch video after launch screen
     UIViewController* launchVid = [[ViewController alloc]init];
-    
     self.window.rootViewController = launchVid;
     [self.window makeKeyAndVisible];
     [[FHSTwitterEngine sharedEngine] permanentlySetConsumerKey:TWITTER_CONSUMER_KEY

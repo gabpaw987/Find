@@ -41,7 +41,7 @@
 
 
 
-
+#define ICON_SETTINGS @"ic_settings.png"
 
 #define TONITE_LOGO @"TONITELOGO_new.png"
 

@@ -5,7 +5,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AboutUsViewController : UIViewController <MFMailComposeViewControllerDelegate>{
+@interface AboutToniteViewController : UIViewController <MFMailComposeViewControllerDelegate>{
     NSTimer* animateTimer;
 }
 
