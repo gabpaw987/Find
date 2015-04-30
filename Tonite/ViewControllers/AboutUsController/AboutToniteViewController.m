@@ -16,6 +16,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 
@@ -25,7 +26,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
     self.mainView = [[UIScrollView alloc]initWithFrame:self.view.frame];
     self.view.backgroundColor = [UIColor whiteColor];
 
@@ -138,11 +138,11 @@
 //    [itemMenu setFrame: CGRectMake(18, 20, 20, 20) ];
 //    [self.view addSubview:itemMenu];
 //    
-    
-    UIBarButtonItem* buttonCancel = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(didClickCancel)];
-    [buttonCancel setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateNormal];
-    [buttonCancel setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateSelected];
-    [self.navigationItem setLeftBarButtonItem:buttonCancel];
+//
+//    UIBarButtonItem* buttonCancel = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(didClickCancel)];
+//    [buttonCancel setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateNormal];
+//    [buttonCancel setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateSelected];
+//    [self.navigationItem setLeftBarButtonItem:buttonCancel];
     
 }
                                               
@@ -276,11 +276,14 @@ else{
 -(void) scrollViewDidScroll:(UIScrollView *)scrollView {
     if([scrollView.panGestureRecognizer translationInView:self.view].y < 0)
     {
-        [self.navigationController setNavigationBarHidden:YES];
+      //  [self.navigationController setNavigationBarHidden:YES];
+     //  [self.navigationItem setHidesBackButton:YES animated:NO];
+       // [self.navigationController setNavigationBarHidden:YES animated:YES];
     }
     else
     {
-        [self.navigationController setNavigationBarHidden:NO];
+        //[self.navigationController setNavigationBarHidden:NO];
+     //   [self.navigationItem setHidesBackButton:NO animated:YES];
     }
     
 }

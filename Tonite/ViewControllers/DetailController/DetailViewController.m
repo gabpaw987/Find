@@ -23,7 +23,7 @@
 }
 
 @property (nonatomic, strong) id<MGAnimationController> animationController;
-
+@property (nonatomic, strong) UIButton * attendButton;
 @end
 
 @implementation DetailViewController
@@ -44,36 +44,34 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-   // [self.tabBarController.navigationController setNavigationBarHidden:YES];
-    [self.navigationController.navigationBar setBackgroundColor:[UIColor redColor]];
-    [self.navigationController.navigationBar setTranslucent:YES];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{ NSFontAttributeName:[UIFont fontWithName:@"Avenir Light" size:18.0], NSForegroundColorAttributeName: [UIColor whiteColor]}];
-    
-   [self.navigationController setNavigationBarHidden:YES];
+    [self.tabBarController.navigationController setNavigationBarHidden:YES];
+    [self.navigationController setNavigationBarHidden:YES];
+    [self.slidingViewController.panGesture setEnabled:NO];
 }
-
-
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 }
 
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self.tabBarController.navigationController setNavigationBarHidden:YES];
+    [self.navigationController setNavigationBarHidden:YES];
+    
+    //Add Back Button
+    UIButton* buttonCancel =[UIButton buttonWithType:UIButtonTypeCustom];
+    [buttonCancel addTarget:self action:@selector(didClickBackButton) forControlEvents:UIControlEventTouchUpInside];
+    NSAttributedString * title = [[NSAttributedString alloc]initWithString:@"Back" attributes: @{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:14.0], NSForegroundColorAttributeName: [UIColor whiteColor]}];
+    [buttonCancel setAttributedTitle:title forState:UIControlStateSelected];
+    [buttonCancel setAttributedTitle:title forState:UIControlStateNormal];
+    buttonCancel.frame =  CGRectMake(8.0, 8.0, 50.0, 50.5);
+    [self.view addSubview:buttonCancel];
    
-    
-    UIButton* itemMenu =[[UIButton alloc] initWithFrame:CGRectMake(20.0, 35.0, 30.0, 27.5)];
-    [itemMenu addTarget:self action:@selector(didClickBackButton) forControlEvents:UIControlEventTouchUpInside  ];
-    [itemMenu setBackgroundImage:[UIImage imageNamed: BUTTON_BACK] forState: UIControlStateNormal   ];
-    [itemMenu setBackgroundImage:[UIImage imageNamed: BUTTON_BACK] forState:UIControlStateSelected];
-    [self.view addSubview:itemMenu];
-    
     venue = [CoreDataController getVenueByVenueId: event.venue_id];
-
     _headerView = [[MGHeaderView alloc] initWithNibName:@"HeaderView"];
     if(!venue){
         [_headerView.labelSubtitle setText: [event.event_address stringByDecodingHTMLEntities]];
@@ -108,18 +106,22 @@
     
     //******* Static "BUY" Button
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    CGFloat buttonHeight = self.view.frame.size.height - 60;
-    CGRect rect = CGRectMake(0, buttonHeight, self.view.frame.size.width, 60);
-    UIButton* buyButton = [UIButton buttonWithType:UIButtonTypeCustom];
+  
+    CGRect rect = CGRectMake(0, self.view.frame.size.height-50, self.view.frame.size.width, 50);
+    UIButton* buyButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [buyButton setFrame:rect];
-    [buyButton setTitle:@"GET TICKETS" forState:UIControlStateNormal];
-    [buyButton setTitle:@"GET TICKETS" forState:UIControlStateSelected];
-    [buyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-    [buyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    NSAttributedString * buttonTitle = [[NSAttributedString alloc]initWithString:@"Attend Event" attributes: @{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:18.0], NSForegroundColorAttributeName: [UIColor blackColor]}];
+    [buyButton setAttributedTitle:buttonTitle forState:UIControlStateNormal];
+    [buyButton setAttributedTitle: buttonTitle forState:UIControlStateSelected];
+    [buyButton.layer setBorderColor:[UIColor grayColor].CGColor];
+    [buyButton.layer setBorderWidth:2.0];
+    [buyButton setBackgroundImage:[UIImage imageNamed:NAV_BAR_BG] forState: UIControlStateNormal];
+    [buyButton setBackgroundImage:[UIImage imageNamed:NAV_BAR_BG] forState:UIControlStateSelected];
     [buyButton setBackgroundColor:[UIColor grayColor]];
     [buyButton addTarget:self action:@selector(didClickBuyButton) forControlEvents:UIControlEventTouchUpInside];
     [buyButton setAlpha:0.85];
-    [self.view addSubview: buyButton];
+    self.attendButton = buyButton;
+    [self.view addSubview: self.attendButton];
     
     
     
@@ -136,6 +138,7 @@
     tableViewMain.delegate = self;
     [tableViewMain registerNibName:@"DetailCell" cellIndentifier:@"DetailCell"];
     [tableViewMain baseInit];
+ 
     tableViewMain.tableView.tableHeaderView = _headerView;
     tableViewMain.tableView.tableFooterView = _footerView;
     tableViewMain.noOfItems = 1;
@@ -234,13 +237,41 @@
 
 -(UITableViewCell*)MGListView:(MGListView *)listView1 didCreateCell:(MGListCell *)cell indexPath:(NSIndexPath *)indexPath {
     
-    if(cell != nil) {
+    if(cell == nil) {
+        return cell;
+    }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.labelDescription.textColor =[UIColor blackColor] ;
+           cell.labelDescription.numberOfLines  = 0;
+    
         [cell.labelDescription setText:[event.event_desc stringByDecodingHTMLEntities]];
+
+        [cell.labelDescription sizeToFit];
+ //   NSLog(@" %f" , cell.labelDescription.frame.size.height);
+        CGRect mapFrame = cell.mapViewCell.frame;
+    mapFrame.origin.y = cell.labelDescription.frame.size.height+ cell.labelDescription.frame.origin.y + 20;
+        cell.mapViewCell.frame = mapFrame;
+        cell.mapViewCell.delegate = self;
+        [cell.mapViewCell baseInit];
+        cell.mapViewCell.mapView.zoomEnabled = NO;
+        cell.mapViewCell.mapView.scrollEnabled = NO;
+    
+        [cell.routeButton addTarget:self
+                         action:@selector(didClickButtonRoute:)
+               forControlEvents:UIControlEventTouchUpInside];
+
+    
+    CLLocationCoordinate2D coords = CLLocationCoordinate2DMake([event.lat doubleValue], [event.lon doubleValue]);
+    
+    if(CLLocationCoordinate2DIsValid(coords)) {
+        MGMapAnnotation* ann = [[MGMapAnnotation alloc] initWithCoordinate:coords
+                                                                      name:venue.venue_name                                                                   description:event.event_address];
+        ann.object = event;
         
-        [cell.labelVenueDescription setTextColor: [UIColor blackColor]];
-        [cell.labelVenue setTextColor:[UIColor blackColor]];
+        [cell.mapViewCell setMapData:[NSMutableArray arrayWithObjects:ann, nil] ];
+        [cell.mapViewCell setSelectedAnnotation:coords];
+        [cell.mapViewCell moveCenterByOffset:CGPointMake(0, -40) from:coords];
+    }
+    
         if(venue){
         [cell.labelVenue setText:[venue.venue_name stringByDecodingHTMLEntities ]];
         [cell.labelVenueDescription setText:venue.venue_desc ];
@@ -250,60 +281,29 @@
         [cell.labelVenueDescription setText:@"Description about the Venue" ];
         }
         
+        cell.labelVenueDescription.numberOfLines = 0;
+        [cell.labelVenueDescription sizeToFit];
         
-        CGSize size = [cell.labelDescription sizeOfMultiLineLabel];
-        CGRect frame = cell.labelDescription.frame;
-        cell.labelDescription.frame = frame;
-       
-        float totalHeightLabel = size.height + frame.origin.y + (18);
-        
+        CGRect frame = cell.labelVenueDescription.frame;
+        float totalHeightLabel = frame.size.height + frame.origin.y;
+    
         if(totalHeightLabel > cell.frame.size.height) {
-            frame.size = size;
-            cell.labelDescription.frame = frame;
-            
             CGRect cellFrame = cell.frame;
-            cellFrame.size.height = totalHeightLabel + cell.frame.size.height;
+            cellFrame.size.height = totalHeightLabel;
             cell.frame = cellFrame;
         }
-        else {
-            
-            frame.size = size;
-            cell.labelDescription.frame = frame;
-        }
-        
-        
-        cell.mapViewCell.delegate = self;
-        [cell.mapViewCell baseInit];
-        cell.mapViewCell.mapView.zoomEnabled = NO;
-        cell.mapViewCell.mapView.scrollEnabled = NO;
-        
-        
-       [cell.routeButton addTarget:self
-                      action:@selector(didClickButtonRoute:)
-                    forControlEvents:UIControlEventTouchUpInside];
     
-        
-
-        
-        CLLocationCoordinate2D coords = CLLocationCoordinate2DMake([event.lat doubleValue], [event.lon doubleValue]);
-        
-        if(CLLocationCoordinate2DIsValid(coords)) {
-            MGMapAnnotation* ann = [[MGMapAnnotation alloc] initWithCoordinate:coords
-                                                                          name:venue.venue_name                                                                   description:event.event_address];
-            ann.object = event;
-            
-            [cell.mapViewCell setMapData:[NSMutableArray arrayWithObjects:ann, nil] ];
-            [cell.mapViewCell setSelectedAnnotation:coords];
-            [cell.mapViewCell moveCenterByOffset:CGPointMake(0, -40) from:coords];
-        }
-        
-    }
+    
     
     return cell;
 }
 
+-(CGFloat)MGListView:(MGListView *)listView cell:(MGListCell *)cell heightForRowAtIndexPath:(NSIndexPath *)indexPath    {
+    return cell.frame.size.height;
+}
+
 -(void)MGListView:(MGListView *)_listView scrollViewDidScroll:(UIScrollView *)scrollView {
-    
+
     CGFloat yPos = -scrollView.contentOffset.y;
     
     if (yPos > 0) {
@@ -314,46 +314,7 @@
     }
 }
 
--(CGFloat)MGListView:(MGListView *)listView cell:(MGListCell*)cell heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if(indexPath.row == 4) {
-        [cell.labelDescription setText:event.event_desc];
-        CGSize size = [cell.labelDescription sizeOfMultiLineLabel];
-        
-        return size.height + (10* 2);
-    }
-    
-    [cell.labelDescription setText:event.event_desc];
-    
-    //UILabel *textLabel = [[UILabel alloc]initWithFrame:CGRectMake(5,10, self.view.frame.size.width-5,100)];
-   // [textLabel setTextAlignment: NSTextAlignmentJustified];
-    cell.labelDescription.numberOfLines = 0;
-    [cell.labelDescription setText:event.event_desc];
-    [cell.labelDescription sizeToFit];
-    
-//    [self.scrollText setContentSize:CGSizeMake(self.view.frame.size.width,textLabel.frame.size.height)];
-//    [self.scrollText addSubview:textLabel];
-//    
-    
-    CGSize size = [cell.labelDescription sizeOfMultiLineLabel];
-    CGRect frame = cell.labelDescription.frame;
-    CGRect cellFrame = cell.frame;
-    
-    float totalHeightLabel = size.height + frame.origin.y + (18);
-    
-    if(totalHeightLabel > cell.frame.size.height) {
-        frame.size = size;
-        cell.labelDescription.frame = frame;
-        
-        float heightDiff = totalHeightLabel - cell.frame.size.height;
-        
-        cellFrame.size.height += heightDiff;
-        cell.frame = cellFrame;
-    }
-    
-    
-    return cell.frame.size.height;
-}
+
 
 #pragma mark - UIViewControllerTransitioningDelegate
 

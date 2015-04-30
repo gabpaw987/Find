@@ -223,6 +223,7 @@
     Event* event= [listViewMain.arrayData objectAtIndex:indexPath.row];
     DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardDetail"];
     vc.event = event;
+    [self.navigationController setNavigationBarHidden:YES];
     [self.navigationController pushViewController:vc animated:YES];
     
 }

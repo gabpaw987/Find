@@ -27,7 +27,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-   
+    [self.tabBarController.tabBar setHidden:YES];
   //  NSLog(@"Number of Events is .. %lu", (unsigned long)[self.listViewEvents.arrayData count]);
 }
 
@@ -183,12 +183,13 @@
     //[cell.contentView addSubview: cell.slideShow.scrollView];
         }
  
-    
+    //NEED TO SET PRICE STILL
    // [cell.labelExtraInfo setText: event_price????];
         cell.labelTitle.text =event.event_name;
         cell.labelSubtitle.text=  venue.venue_name;
     if(event.event_name == venue.venue_name){
         [cell.labelSubtitle setText:event.event_address];
+      
     }
     NSString* date = [self formatDateWithStart:event.event_date_starttime withEndTime:event.event_endtime];
         [cell.labelDetails setText:date];

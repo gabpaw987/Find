@@ -46,7 +46,20 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [textField resignFirstResponder];
+    if(textField == self.labelFirstName){
+        [ self.labelFirstName resignFirstResponder];
+        [self.labelLastName becomeFirstResponder];
+    }
+    else if(textField == self.labelLastName){
+        [ self.labelLastName resignFirstResponder];
+        [self.labelEmail becomeFirstResponder];
+    }
+    else if(textField == self.labelEmail){
+        [self.labelEmail resignFirstResponder];
+        [self.labelPassword becomeFirstResponder];
+    }
+    else
+        [textField resignFirstResponder];
     return YES;
 }
 

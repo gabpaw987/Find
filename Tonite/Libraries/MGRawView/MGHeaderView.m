@@ -9,10 +9,6 @@
 #import "MGHeaderView.h"
 
 @implementation MGHeaderView
-
-@synthesize ratingView;
-@synthesize buttonFave;
-@synthesize imgViewFeatured;
 @synthesize labelVenueName;
 @synthesize labelEventName;
 @synthesize labelPrice;
