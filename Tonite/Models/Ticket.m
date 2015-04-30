@@ -1,20 +1,19 @@
 //
-//  Ticket.m
+//  Friendship.m
 //  Tonite
 //
 //  Created by Gabriel Pawlowsky on 3/23/15.
 //  Copyright (c) 2015 Client. All rights reserved.
 //
 
-#import "Ticket.h"
+#import "Friendship.h"
 
 
-@implementation Ticket
+@implementation Friendship
 
-@dynamic ticket_id;
-@dynamic ticket_type_id;
-@dynamic user_id;
-@dynamic created_at;
-@dynamic updated_at;
+@dynamic friendship_id;
+@dynamic user1_id;
+@dynamic user2_id;
 
 @end
+
