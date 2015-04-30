@@ -22,7 +22,12 @@
 @property (nonatomic, retain) NSString * lon;
 @property (nonatomic, retain) NSString * lat;
 @property (nonatomic, retain) NSString * venue_desc;
-@property (nonatomic, retain) NSString * venue_address;
+@property (nonatomic, retain) NSString * venue_address1;
+@property (nonatomic, retain) NSString * venue_address2;
+@property (nonatomic, retain) NSString * venue_zip;
+@property (nonatomic, retain) NSString * venue_city;
+@property (nonatomic, retain) NSString * venue_state;
+@property (nonatomic, retain) NSString * venue_country;
 @property (nonatomic, retain) NSString * venue_name;
 @property (nonatomic, retain) NSString * updated_at;
 @property (nonatomic, retain) NSString * created_at;
