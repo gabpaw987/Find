@@ -23,9 +23,9 @@
     return self;
 }
 
-
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+//    [self.tabBarController.navigationController setNavigationBarHidden:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -60,9 +60,8 @@
     [self.navigationController setNavigationBarHidden:NO];
     [self.navigationItem setTitle: [CoreDataController getCategoryByCategoryId:mainCategoryId].category];
     
-    [self.navigationItem setLeftBarButtonItem: [self backButton]    ];
+    [self.navigationItem setLeftBarButtonItem: [self backButton]];
     
-    self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view setBackgroundColor:[UIColor grayColor]];
     BOOL screen = IS_IPHONE_6_PLUS_AND_ABOVE;
     if(screen) {
@@ -163,6 +162,7 @@
                                    duration:0.5f
                                     bgColor:color
                                         atY:64];
+            [listViewMain setUserInteractionEnabled:NO];
 
     }
     }];
@@ -174,7 +174,7 @@
 
 
 -(void) setData {
-    listViewMain.arrayData = [NSMutableArray arrayWithArray:[CoreDataController getEventsByCategoryId:mainCategoryId    ]];
+    listViewMain.arrayData = [NSMutableArray arrayWithArray:[CoreDataController getEventsByCategoryId:mainCategoryId]];
     
 }
 

@@ -404,6 +404,9 @@
 		E34C284F1AC875EE00D7640A /* user160.png in Resources */ = {isa = PBXBuildFile; fileRef = E34C28491AC875EE00D7640A /* user160.png */; };
 		E34C28511AC878AC00D7640A /* FADE.png in Resources */ = {isa = PBXBuildFile; fileRef = E34C28501AC878AC00D7640A /* FADE.png */; };
 		E34C28531AC878BB00D7640A /* slider-fade.png in Resources */ = {isa = PBXBuildFile; fileRef = E34C28521AC878BB00D7640A /* slider-fade.png */; };
+		E36E15031ADD98AE00E1A639 /* rockwell-extra-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E36E15021ADD98AE00E1A639 /* rockwell-extra-bold.ttf */; };
+		E36E15061ADD9A3100E1A639 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E36E15041ADD9A3100E1A639 /* ViewController.m */; };
+		E36E15091ADD9D3800E1A639 /* Yo.mov in Resources */ = {isa = PBXBuildFile; fileRef = E36E15081ADD9D3800E1A639 /* Yo.mov */; };
 		E3B871F21AC774FB009223D5 /* artsCulture.png in Resources */ = {isa = PBXBuildFile; fileRef = E3B871E91AC774FB009223D5 /* artsCulture.png */; };
 		E3B871F31AC774FB009223D5 /* Avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = E3B871EA1AC774FB009223D5 /* Avatar.png */; };
 		E3B871F41AC774FB009223D5 /* dine.png in Resources */ = {isa = PBXBuildFile; fileRef = E3B871EB1AC774FB009223D5 /* dine.png */; };
@@ -937,6 +940,10 @@
 		E34C28491AC875EE00D7640A /* user160.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user160.png; sourceTree = "<group>"; };
 		E34C28501AC878AC00D7640A /* FADE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FADE.png; sourceTree = "<group>"; };
 		E34C28521AC878BB00D7640A /* slider-fade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider-fade.png"; sourceTree = "<group>"; };
+		E36E15021ADD98AE00E1A639 /* rockwell-extra-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rockwell-extra-bold.ttf"; sourceTree = "<group>"; };
+		E36E15041ADD9A3100E1A639 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E36E15051ADD9A3100E1A639 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E36E15081ADD9D3800E1A639 /* Yo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Yo.mov; sourceTree = "<group>"; };
 		E3B871E91AC774FB009223D5 /* artsCulture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = artsCulture.png; sourceTree = "<group>"; };
 		E3B871EA1AC774FB009223D5 /* Avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Avatar.png; sourceTree = "<group>"; };
 		E3B871EB1AC774FB009223D5 /* dine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dine.png; sourceTree = "<group>"; };
@@ -1557,6 +1564,8 @@
 		CBAED25B1948A40F00769D68 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E36E15081ADD9D3800E1A639 /* Yo.mov */,
+				E36E15021ADD98AE00E1A639 /* rockwell-extra-bold.ttf */,
 				E34C28431AC875EE00D7640A /* 1x */,
 				E3B871E81AC774FB009223D5 /* tonite_images */,
 				CB820AD9194F7C47000E64DB /* AboutUs */,
@@ -1578,6 +1587,13 @@
 		CBAED25C1948A40F00769D68 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+<<<<<<< HEAD
+				E36E15071ADD9A3600E1A639 /* LaunchVideoViewController */,
+=======
+>>>>>>> parent of f2fde40... tickets respond to database fields now, and a date library has been added for displaying dates for the tickets. currently waiting on assets from Jason before I can advance more. need to implement my wallet still
+=======
+>>>>>>> parent of f2fde40... tickets respond to database fields now, and a date library has been added for displaying dates for the tickets. currently waiting on assets from Jason before I can advance more. need to implement my wallet still
 				1465C56F1ACA1CFD00A1E9F5 /* QRController */,
 				E3268B771AA51371004FA763 /* RightSideViewController */,
 				CB7DFBE119521999007FC9B9 /* SideController */,
@@ -2216,6 +2232,15 @@
 			path = Tonite/Resources/1x;
 			sourceTree = SOURCE_ROOT;
 		};
+		E36E15071ADD9A3600E1A639 /* LaunchVideoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E36E15051ADD9A3100E1A639 /* ViewController.h */,
+				E36E15041ADD9A3100E1A639 /* ViewController.m */,
+			);
+			name = LaunchVideoViewController;
+			sourceTree = "<group>";
+		};
 		E3B871E81AC774FB009223D5 /* tonite_images */ = {
 			isa = PBXGroup;
 			children = (
@@ -2297,6 +2322,7 @@
 				E33957401AD30DCB00A6D2AD /* TONITELOGO_new.png in Resources */,
 				CB48DD7019D44E630039C26B /* ic_register@3x.png in Resources */,
 				CB48DCEB19D444370039C26B /* button_login_large@3x.png in Resources */,
+				E36E15031ADD98AE00E1A639 /* rockwell-extra-bold.ttf in Resources */,
 				CB7DFB9D1951DDF9007FC9B9 /* Icon-Small-40.png in Resources */,
 				CB4221CC194B01C400528013 /* ic_close.png in Resources */,
 				CB48DCE619D444370039C26B /* button_blue@3x.png in Resources */,
@@ -2470,6 +2496,7 @@
 				CB7DFB9A1951DDF9007FC9B9 /* Icon-60@2x.png in Resources */,
 				CB48DD7619D44E630039C26B /* ic_web_back@3x.png in Resources */,
 				CB4221C5194B01BB00528013 /* list_arrow@2x.png in Resources */,
+				E36E15091ADD9D3800E1A639 /* Yo.mov in Resources */,
 				56EC19B91ACB9C4A0083858D /* TicketType.m in Resources */,
 				E3B871F51AC774FB009223D5 /* elReyTheatre.png in Resources */,
 				CB48DD1F19D444580039C26B /* ic_map_nearby@3x.png in Resources */,
@@ -2688,6 +2715,7 @@
 				CBAED3E01948A63B00769D68 /* ContentViewController.m in Sources */,
 				E3268B7A1AA513C6004FA763 /* RightSideViewController.m in Sources */,
 				CB4221D9194B0BC500528013 /* EventViewController.m in Sources */,
+				E36E15061ADD9A3100E1A639 /* ViewController.m in Sources */,
 				CB820A99194F27E8000E64DB /* MGButton.m in Sources */,
 				CBAED3B31948A4EF00769D68 /* NSStringExtras.m in Sources */,
 				CBAED3621948A4EF00769D68 /* ECSlidingAnimationController.m in Sources */,
@@ -2816,8 +2844,6 @@
 		CBAED2521948A1DD00769D68 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Tonite/Libraries/FacebookSDK",
@@ -2847,8 +2873,6 @@
 		CBAED2531948A1DD00769D68 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Tonite/Libraries/FacebookSDK",

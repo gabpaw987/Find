@@ -34,8 +34,8 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) RightSideViewController*
     rightMenuController;
-@property (nonatomic, strong) ContentViewController* contentViewController;
-
+//@property (nonatomic, strong) ContentViewController* contentViewController;
+@property (nonatomic, strong) ECSlidingViewController *slidingViewController;
 
 
 +(AppDelegate*) instance;
