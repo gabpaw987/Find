@@ -28,33 +28,49 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tabBarController.tabBar setHidden:YES];
-  //  NSLog(@"Number of Events is .. %lu", (unsigned long)[self.listViewEvents.arrayData count]);
+    [self.tabBarController.navigationController setNavigationBarHidden:NO];
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
-
--(void) viewDidAppear:(BOOL)animated   {
-    [super viewDidAppear:animated];
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.tabBarController.navigationController setNavigationBarHidden:YES];
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 -(void) viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-}
+   }
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.tabBarController.tabBar setHidden:YES];
     // Do any additional setup after loading the view.
-
+   
     listViewEvents.delegate = self;
     listViewEvents.cellHeight = (self.view.frame.size.height-45)/2;
     [listViewEvents registerNibName:@"SliderCell" cellIndentifier:@"SliderCell"];
     [listViewEvents baseInit];
+    self.listViewEvents.frame = self.view.frame;
     [self beginParsing];
+    
+    UIRefreshControl* refresher = [[UIRefreshControl alloc]init];
+    [refresher addTarget: self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.listViewEvents addSubviewRefreshControlWithTintColor:[UIColor whiteColor]];
+
 
 }
 
-
+-(void) refresh:(UIRefreshControl*)refresher{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [refresher endRefreshing];
+        });
+    });
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -75,26 +91,49 @@
  */
 
 -(void)beginParsing {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.mode = MBProgressHUDModeIndeterminate;
-    hud.labelText = LOCALIZED(@"LOADING");
-    
-    [self.view addSubview:hud];
-    [self.view setUserInteractionEnabled:NO];
-    [hud showAnimated:YES whileExecutingBlock:^{
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            hud.mode = MBProgressHUDModeIndeterminate;
+            hud.labelText = LOCALIZED(@"LOADING");
+            [self.view addSubview:hud];
+            [self.view setUserInteractionEnabled:NO];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
         
-        [self performParsing];
+         [DataParser fetchServerData];
         
-    } completionBlock:^{
-        
-        [hud removeFromSuperview];
-        [self.view setUserInteractionEnabled:YES];
-        
-        [self setData];
-        [listViewEvents reloadData];
-    }];
-    
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            [hud showAnimated:YES whileExecutingBlock:^{
+                [self setData];
+            }completionBlock:^{
+                [hud removeFromSuperview ];
+                [listViewEvents reloadData];
+                [self.view setUserInteractionEnabled:YES];
+             
+            }];
+
+        });
+    });
 }
+
+//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    hud.mode = MBProgressHUDModeIndeterminate;
+//    hud.labelText = LOCALIZED(@"LOADING");
+//    
+//    [self.view addSubview:hud];
+//    [self.view setUserInteractionEnabled:NO];
+//    [hud showAnimated:YES whileExecutingBlock:^{
+//        
+//        [self performParsing];
+//        
+//    } completionBlock:^{
+//        
+//        [hud removeFromSuperview];
+//        [self.view setUserInteractionEnabled:YES];
+//        
+//        [self setData];
+//        [listViewEvents reloadData];
+//    }];
+//    
+//}
 
 -(void) performParsing {
     [DataParser fetchServerData];
@@ -140,60 +179,45 @@
 }
 
 -(void) MGListView:(MGListView *)_listView didSelectCell:(MGListCell *)cell indexPath:(NSIndexPath *)indexPath {
-    
     Event* event= [listViewEvents.arrayData objectAtIndex:indexPath.row];
     DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardDetail"];
-    vc.event = event;
+    vc.eventId = event.event_id;
     [self.navigationController pushViewController:vc animated:YES];
     
 }
 
 -(UITableViewCell*)MGListView:(MGListView *)listView1 didCreateCell:(MGListCell *)cell indexPath:(NSIndexPath *)indexPath {
-
+    
     if(cell!= nil){
-    for(UIView* view in cell.subviews)
-        [view removeFromSuperview];
-    Event* event = [self.listViewEvents.arrayData objectAtIndex:indexPath.row];
-    Venue* venue = [CoreDataController getVenueByVenueId:event.venue_id];
-    NSArray* photos = [CoreDataController getEventPhotosByEventId:event.event_id ];
-    cell.slideShow.imageArray = photos;
-    [cell.slideShow setNumberOfItems:[cell.slideShow.imageArray count]];
-    
-    
-        if([cell.slideShow.imageArray count] ==0){
-//            cell.slideShow = nil;
-//            Photo* p = photos[0];
-//            UIImageView * image = [[UIImageView alloc]initWithFrame:cell.frame  ];
-//            [self setImage:p.photo_url imageView:image];
-//            [cell.contentView addSubview: image];
-            
-        }
-        else{
+        for(UIView* view in cell.subviews)
+            [view removeFromSuperview];
+        Event* event = [self.listViewEvents.arrayData objectAtIndex:indexPath.row];
+        Venue* venue = [CoreDataController getVenueByVenueId:event.venue_id];
+        cell.slideShow.imageArray = [CoreDataController getEventPhotosByEventId:event.event_id ];
+        [cell.slideShow setNumberOfItems:[cell.slideShow.imageArray count]];
+        
             CGRect frame = cell.frame;
             frame.size.width = self.view.frame.size.width;
-            frame.size.height = listViewEvents.cellHeight-2 ;
-            [cell.slideShow setNeedsReLayoutWithViewSize:frame.size];
-    
-    //*** Timing of the sliding photos **********//
+            frame.size.height = listViewEvents.cellHeight;
+            [cell.slideShow setNeedsReLayoutWithViewSize: frame.size];
+        
+        // Timing of the sliding photos **********//
         // NSInteger randomNumber = arc4random() % 9;
         //float x = (float) (randomNumber/ 9) + 2;
-    
-    [cell.slideShow startAnimationWithDuration:3.0];
-    [cell addSubview:cell.slideShow.scrollView];
-    //[cell.contentView addSubview: cell.slideShow.scrollView];
+        
+            [cell.slideShow startAnimationWithDuration:3.0];
+            [cell addSubview:cell.slideShow.scrollView];
+            
+            TicketType* ticket = [CoreDataController getTicketTypeByEventId:event.event_id];
+            [cell.labelExtraInfo setText:[ NSString stringWithFormat: @"$%@", ticket.ticket_price]];
+                
+            cell.labelTitle.text =event.event_name;
+            cell.labelSubtitle.text=  venue.venue_name;
+        if(event.event_name == venue.venue_name){
+            [cell.labelSubtitle setText:event.event_address1];
         }
- 
-    //NEED TO SET PRICE STILL
-   // [cell.labelExtraInfo setText: event_price????];
-        cell.labelTitle.text =event.event_name;
-        cell.labelSubtitle.text=  venue.venue_name;
-    if(event.event_name == venue.venue_name){
-        [cell.labelSubtitle setText:event.event_address];
-      
-    }
-    NSString* date = [self formatDateWithStart:event.event_date_starttime withEndTime:event.event_endtime];
+        NSString* date = [self formatDateWithStart:event.event_date_starttime withEndTime:event.event_endtime];
         [cell.labelDetails setText:date];
-        [cell.labelSubtitle setClipsToBounds:YES];
         [cell addSubview: cell.fade ];
         [cell addSubview:cell.labelTitle];
         [cell addSubview:cell.labelSubtitle];
@@ -203,6 +227,7 @@
         [cell addSubview: cell.locationIcon];
         [cell setUserInteractionEnabled:YES];
     }
+ 
     return cell;
 }
 
@@ -212,28 +237,17 @@
     
     NSDate * myDate = [NSDate dateFromString:dateAndStart withFormat:[NSDate dbFormatString]];
     NSString* date = [NSDate stringForDisplayFromFutureDate:myDate prefixed:YES alwaysDisplayTime:YES ];
-    // NSString* entireDate = [date stringByAppendingString:[NSDate stringForDisplayFromDate:myDate]];
-    return date;
-  //  return entireDate;
+  return date;
 }
 
-
--(void) MGListView:(MGListView *)listView scrollViewDidScroll:(UIScrollView *)scrollView   {
-     if(scrollView.contentOffset.y < 15.0)
-    {
-        [self.tabBarController.navigationController setNavigationBarHidden:NO];
-    }
-    else if([scrollView.panGestureRecognizer translationInView:self.view].y < 0)
-    {
+-(void)MGListView:(MGListView *)listView scrollViewDidScroll:(UIScrollView *)scrollView {
+   if([scrollView.panGestureRecognizer translationInView:self.view].y < 0 ){
         [self.tabBarController.navigationController setNavigationBarHidden:YES];
     }
-    else
-    {
+    else{
         [self.tabBarController.navigationController setNavigationBarHidden:NO];
     }
 }
-
-
 
 
 @end

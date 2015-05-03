@@ -27,16 +27,17 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.tabBarController.navigationController setNavigationBarHidden:YES];
+    [self.tabBarController.navigationController setNavigationBarHidden:NO];
+    [self.navigationController setNavigationBarHidden:YES];
 
 }
 
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-}
 
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden: YES];
+    [self.tabBarController.navigationController setNavigationBarHidden: YES];
+
 }
 
 - (UIBarButtonItem *)backButton
@@ -49,7 +50,7 @@
                                                                      color:[UIColor grayColor]];
     [button setCenter:CGPointMake(120, 120)];
     [button setBackgroundColor:[UIColor clearColor]];
-    [button addTarget:self action:@selector(didClickButtonGo:) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(didClickBarButtonMenu:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *item= [[UIBarButtonItem alloc] initWithCustomView:button];
     
     return item;
@@ -59,46 +60,39 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationController setNavigationBarHidden:YES];
+    [self.tabBarController.navigationController setNavigationBarHidden:NO];
    
-    [self.navigationItem setTitle: [CoreDataController getCategoryByCategoryId:mainCategoryId].category];
-    
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.view setBackgroundColor:[UIColor grayColor]];
-    BOOL screen = IS_IPHONE_6_PLUS_AND_ABOVE;
-    if(screen) {
-        CGRect frame = listViewMain.frame;
-        frame.origin.y =64;
-        frame.size.height = self.view.frame.size.height-64;
-        listViewMain.frame = frame;
-    }
+    listViewMain.frame = self.view.frame;
     listViewMain.delegate = self;
-    listViewMain.cellHeight = (self.view.frame.size.height-64)/2;
+    listViewMain.cellHeight = (self.view.frame.size.height-50)/2;
     
     [listViewMain registerNibName:@"SliderCell" cellIndentifier:@"SliderCell"];
     [listViewMain baseInit];
-    
     [self beginParsing];
     
-    [self.navigationController.navigationBar sizeThatFits:CGSizeMake(self.view.frame.size.width, 25.0)];
-    [self.navigationItem setLeftBarButtonItem: [self backButton]    ];
-    
-    UIBarButtonItem* itemLoginMenu = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed: ICON_USER]style:UIBarButtonItemStylePlain target:self action:@selector(didClickProfileMenuButton:)];
-    [itemLoginMenu setTintColor:[UIColor grayColor]];
-    
-    itemLoginMenu.imageInsets = UIEdgeInsetsMake(22, 44, 23, 3); //top, left, bottom, right
-    self.navigationItem.rightBarButtonItem = itemLoginMenu;
-    
+    //Creates the title label on the navigation bar. See ToniteNavigationBar
+    [self.tabBarController.navigationItem setTitleView:[ToniteNavigationBar createTitle:[CoreDataController getCategoryByCategoryId:mainCategoryId].category]];
 
-    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didClickProfileMenuButton:)];
-    swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
-    swipeGesture.cancelsTouchesInView = YES; //So the user can still interact with controls in the modal view
-    
-    [self.slidingViewController.view addGestureRecognizer:swipeGesture];
+    [self.tabBarController.navigationItem setLeftBarButtonItem: [self backButton]];
+
+    UIRefreshControl* refresher = [[UIRefreshControl alloc]init];
+    [refresher addTarget: self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.listViewMain addSubviewRefreshControlWithTintColor:[UIColor whiteColor]];
     
 }
 
+-(void) refresh:(UIRefreshControl*)refresher{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // (...code to get new data here...)
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //any UI refresh
+            [refresher endRefreshing];
+        });
+    });
+}
 
+ 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
     return YES;
 }
@@ -115,10 +109,6 @@
         [self.slidingViewController anchorTopViewToLeftAnimated:YES];
     }
 }
-
-
-
-
 
 
 - (void)didReceiveMemoryWarning
@@ -147,14 +137,14 @@
     [self.view addSubview:hud];
     [self.view setUserInteractionEnabled:NO];
     [hud showAnimated:YES whileExecutingBlock:^{
-            [self performParsing];
+        [self setData];
+        
         
     } completionBlock:^{
         
         [hud removeFromSuperview];
         [self.view setUserInteractionEnabled:YES];
         
-        [self setData];
         [listViewMain reloadData];
         
         if(listViewMain.arrayData == nil || listViewMain.arrayData.count == 0) {
@@ -166,24 +156,21 @@
                                    duration:0.5f
                                     bgColor:color
                                         atY:64];
-
     }
     }];
 }
 
--(void) performParsing {
-    [DataParser fetchServerData];
-}
-
 
 -(void) setData {
-    listViewMain.arrayData = [NSMutableArray arrayWithArray:[CoreDataController getEventsByCategoryId:mainCategoryId    ]];
-    
+    listViewMain.arrayData = [NSMutableArray arrayWithArray:[CoreDataController getEventsByCategoryId:mainCategoryId]];
 }
 
--(void)didClickButtonGo:(id)sender {
+-(void)didClickBarButtonMenu:(id)sender {
     LBHamburgerButton* btn = (LBHamburgerButton*)sender;
     [btn switchState];
+    [btn removeTarget:self action:@selector(didClickBarButtonMenu:) forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:self.tabBarController action:@selector(didClickBarButtonMenu:) forControlEvents:UIControlEventTouchUpInside];
+    [self.tabBarController.navigationItem setTitleView:[ToniteNavigationBar createLogo:@"TONITELOGO_new.png"]];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
@@ -222,8 +209,7 @@
     
     Event* event= [listViewMain.arrayData objectAtIndex:indexPath.row];
     DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardDetail"];
-    vc.event = event;
-    [self.navigationController setNavigationBarHidden:YES];
+    vc.eventId = event.event_id;
     [self.navigationController pushViewController:vc animated:YES];
     
 }
@@ -257,9 +243,9 @@
     cell.labelTitle.text =event.event_name;
     cell.labelSubtitle.text=  venue.venue_name;
     if(event.event_name == venue.venue_name){
-      [cell.labelSubtitle setText:event.event_address];
+      [cell.labelSubtitle setText:event.event_address1];
     }
-  NSString* date = [self formatDateWithStart: event.event_date_starttime withEndTime: event.event_endtime];
+        NSString* date = [self formatDateWithStart: event.event_date_starttime withEndTime: event.event_endtime];
     [cell.labelDetails setText:date];
     [cell.labelSubtitle setClipsToBounds:YES];
     [cell addSubview: cell.fade ];
@@ -269,29 +255,26 @@
     [cell addSubview: cell.divider];
     [cell addSubview: cell.labelDetails];
     [cell addSubview: cell.locationIcon];
+   
     }
     return cell;
 }
 
-
-
 -(NSString*)formatDateWithStart:(NSString*)dateAndStart withEndTime:(NSString*)endTime{
-  //NSString* entireDate= @"9PM to Midnight";
+    
     NSDate * myDate = [NSDate dateFromString:dateAndStart withFormat:[NSDate dbFormatString]];
     NSString* date = [NSDate stringForDisplayFromFutureDate:myDate prefixed:YES alwaysDisplayTime:YES ];
-   // NSString* entireDate = [date stringByAppendingString:[NSDate stringForDisplayFromDate:myDate]];
     return date;
 }
 
-
 -(void)MGListView:(MGListView *)listView scrollViewDidScroll:(UIScrollView *)scrollView {
-    if([scrollView.panGestureRecognizer translationInView:self.view].y < 0)
+    if(([scrollView.panGestureRecognizer translationInView:self.view].y < 0 ) && (scrollView.contentOffset.y > 10.0))
     {
-        [self.navigationController setNavigationBarHidden:YES];
+        [self.tabBarController.navigationController setNavigationBarHidden:YES];
     }
-    else if([scrollView.panGestureRecognizer translationInView:self.view].y > 0)
+    else
     {
-        [self.navigationController setNavigationBarHidden:NO];
+        [self.tabBarController.navigationController setNavigationBarHidden:NO];
     }
 
 

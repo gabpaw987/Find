@@ -23,15 +23,16 @@
     // Uncomment the following line to preserve selection between presentations.
 
     //    // self.clearsSelectionOnViewWillAppear = NO;
-//    [self.navigationController setNavigationBarHidden:NO];
-//    UIBarButtonItem* left = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(didSelectCancel:)];
-   [self.navigationItem.leftBarButtonItem setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateNormal];
-    [self.navigationItem.leftBarButtonItem setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateSelected];
-//    [self.navigationItem setLeftBarButtonItem:left];
-//    UIBarButtonItem* right = [[UIBarButtonItem alloc]initWithTitle:@"Save" style:UIBarButtonItemStyleDone target:self action:@selector(didSelectSave:)];
-//    [right setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateNormal];
-//    [right setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateSelected];
-//    [self.navigationItem setRightBarButtonItem:right];
+    [self.navigationController setNavigationBarHidden:NO];
+    UIBarButtonItem* buttonCancel = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(didClickCancel)];
+    [buttonCancel setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateNormal];
+    [buttonCancel setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateSelected];
+    [self.navigationItem setLeftBarButtonItem:buttonCancel];
+    
+    UIBarButtonItem* right = [[UIBarButtonItem alloc]initWithTitle:@"Save" style:UIBarButtonItemStyleDone target:self action:@selector(didSelectSave:)];
+    [right setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateNormal];
+    [right setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateSelected];
+    [self.navigationItem setRightBarButtonItem:right];
     [self.genderFemale setImage:[UIImage imageNamed:@"radio-on.png"] forState:UIControlStateSelected];
     [self.genderFemale setImage:[UIImage imageNamed:@"radio-off.png"] forState:UIControlStateNormal];
     [self.genderMale setImage:[UIImage imageNamed:@"radio-on.png"] forState:UIControlStateSelected];
@@ -39,7 +40,7 @@
     
 }
 
--(void) didSelectCancel:(id)sender{
+-(void) didClickCancel{
     [self.navigationController popViewControllerAnimated:YES];
 }
 

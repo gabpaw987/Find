@@ -19,7 +19,7 @@
     [self setClipsToBounds:YES];
     [self setBackgroundColor:[UIColor blackColor]];
     [self.imgBackground setAlpha:0.65];
-    [self.imgBackground setClipsToBounds:NO];
+    [self.imgBackground setClipsToBounds:YES];
     [self.imgBackground setContentMode:UIViewContentModeScaleAspectFill];
     [self.imgBackground setFrame: CGRectMake(self.frame.origin.x,self.frame.origin.y, self.frame.size.width, self.frame.size.height*1.3)];
     [self.imgBackground setCenter:self.center];

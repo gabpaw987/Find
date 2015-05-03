@@ -25,6 +25,7 @@
 @property (nonatomic, retain) IBOutlet UILabel* labelInfo;
 @property (nonatomic, retain) IBOutlet UILabel* labelDetails;
 @property (nonatomic, retain) IBOutlet UILabel* labelExtraInfo;
+@property (strong, nonatomic) IBOutlet UILabel *termsText;
 
 @property (nonatomic, weak) __weak id <MGRawViewDelegate> delegate;
 @property (nonatomic, retain) IBOutlet UIButton* buttonCustom;

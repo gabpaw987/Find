@@ -11,6 +11,8 @@
 #import "ImageViewerController.h"
 #import "ZoomAnimationController.h"
 #import "QRTicketViewController.h"
+#import "NSDate+Helper.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface DetailViewController () <MGListViewDelegate, UIViewControllerTransitioningDelegate, MGMapViewDelegate> {
     
@@ -19,25 +21,24 @@
  
     NSArray* _arrayPhotos;
     float _headerHeight;
-    BOOL _isLoadedView;
 }
 
 @property (nonatomic, strong) id<MGAnimationController> animationController;
-@property (nonatomic, strong) UIButton * attendButton;
+@property (nonatomic, retain) Event* event;
+@property (nonatomic, retain) Venue * venue;
+@property (nonatomic, retain) MPMoviePlayerController* video;
 @end
 
 @implementation DetailViewController
 
 @synthesize tableViewMain;
-@synthesize event;
-@synthesize venue;
+@synthesize eventId;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        venue = nil;
     }
     return self;
 }
@@ -49,8 +50,9 @@
     [self.slidingViewController.panGesture setEnabled:NO];
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+-(void) viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.slidingViewController.panGesture setEnabled:YES];
 }
 
 
@@ -58,58 +60,65 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [self.tabBarController.navigationController setNavigationBarHidden:YES];
-    [self.navigationController setNavigationBarHidden:YES];
-    
     //Add Back Button
     UIButton* buttonCancel =[UIButton buttonWithType:UIButtonTypeCustom];
     [buttonCancel addTarget:self action:@selector(didClickBackButton) forControlEvents:UIControlEventTouchUpInside];
-    NSAttributedString * title = [[NSAttributedString alloc]initWithString:@"Back" attributes: @{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:14.0], NSForegroundColorAttributeName: [UIColor whiteColor]}];
+    NSAttributedString * title = [[NSAttributedString alloc]initWithString:@"Back" attributes: @{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:14.0], NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     [buttonCancel setAttributedTitle:title forState:UIControlStateSelected];
     [buttonCancel setAttributedTitle:title forState:UIControlStateNormal];
-    buttonCancel.frame =  CGRectMake(8.0, 8.0, 50.0, 50.5);
+    buttonCancel.frame =  CGRectMake(8.0, 8.0, 55, 55);
     [self.view addSubview:buttonCancel];
-   
-    venue = [CoreDataController getVenueByVenueId: event.venue_id];
+    
+    //Fetch for event info
+    self.event = [CoreDataController getEventByEventId: eventId];
     _headerView = [[MGHeaderView alloc] initWithNibName:@"HeaderView"];
-    if(!venue){
-        [_headerView.labelSubtitle setText: [event.event_address1 stringByDecodingHTMLEntities]];
+    [_headerView.labelTitle setText: [_event.event_name stringByDecodingHTMLEntities]];
+    
+    self.venue = [CoreDataController getVenueByVenueId: self.event.venue_id];
+    if(self.venue.venue_name ==self.event.event_name){
+        [_headerView.labelSubtitle setText: [_event.event_address1 stringByDecodingHTMLEntities]];
     }
     else{
-        [_headerView.labelSubtitle setText:[venue.venue_name stringByDecodingHTMLEntities]];
+        [_headerView.labelSubtitle setText:[_venue.venue_name stringByDecodingHTMLEntities]];
     }
-
-    _headerView.imgViewPhoto.contentMode = UIViewContentModeScaleAspectFill;
-    _headerView.imgViewPhoto.clipsToBounds = YES;
-    _headerView.label1.backgroundColor = [BLACK_TEXT_COLOR colorWithAlphaComponent:0.66];
-    _headerView.labelTitle.textColor = WHITE_TEXT_COLOR;
-    _headerView.labelSubtitle.textColor = WHITE_TEXT_COLOR;
-    _headerView.labelTitle.text = [event.event_name stringByDecodingHTMLEntities];
-    
-    _arrayPhotos = [CoreDataController getEventPhotosByEventId:event.event_id];
-  
-
-    [_headerView.buttonPhotos addTarget:self
-                                 action:@selector(didClickButtonPhotos:)
-                       forControlEvents:UIControlEventTouchUpInside];
-    
-    [_headerView.labelPhotos setText:[NSString stringWithFormat:@"%d", (int)_arrayPhotos.count]];
-    
+    NSString* date = [self formatDateWithStart:_event.event_date_starttime withEndTime:_event.event_endtime];
+    [_headerView.labelDetails setText: date];
     _headerHeight = _headerView.frame.size.height;
     
-    Photo* p = _arrayPhotos == nil || _arrayPhotos.count == 0 ? nil : _arrayPhotos[0];
+    TicketType* ticket = [CoreDataController getTicketTypeByEventId:_event.event_id];
+    [_headerView.labelPrice setText:[NSString stringWithFormat:@"$%@",ticket.ticket_price]];
     
-    if(p != nil)
-        [self setImage:p.photo_url imageView:_headerView.imgViewPhoto];
-    
-    
-    //******* Static "BUY" Button
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+    _arrayPhotos = [CoreDataController getEventPhotosByEventId:self.event.event_id];
+//    Video* vid = [CoreDataController getEventVideoByEventId:eventId];
+//    NSURL* url = [NSURL URLWithString:vid.video_url];
+//    self.video = [[MPMoviePlayerController alloc]initWithContentURL:url];
+//    [[NSNotificationCenter defaultCenter ] addObserver:self selector:@selector(didFinishPlaying:) name:MPMoviePlayerPlaybackDidFinishNotification object:self.video];
+//    [self.video setControlStyle: MPMovieControlStyleDefault];
+//    [self.video setShouldAutoplay:YES];
+//    [_headerView.imgBackground addSubview:self.video.view];
+//    [self.video setFullscreen:YES];
+//    
+    //Setup images and Video
   
-    CGRect rect = CGRectMake(0, self.view.frame.size.height-50, self.view.frame.size.width, 50);
-    UIButton* buyButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [buyButton setFrame:rect];
+    [_headerView.imgBackground setClipsToBounds:YES];
+    [_headerView.imgBackground setContentMode:UIViewContentModeScaleAspectFill];
+    Photo* p = _arrayPhotos == nil || _arrayPhotos.count == 0 ? nil : _arrayPhotos[0];
+    if(p){
+        NSMutableArray * images = [[NSMutableArray alloc]init];
+        for(int x = 0; x <[_arrayPhotos count]; x++) {
+            p = _arrayPhotos[x];
+            [images addObject: [UIImage imageWithData:[NSData dataWithContentsOfURL: [NSURL URLWithString:p.photo_url]]]];
+        }
+        _headerView.imgBackground.image = [UIImage animatedImageWithImages:images duration:3.0];
+       
+    }
+    
+    
+    //*  Static "BUY" Button *//
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+    CGFloat buttonheight = self.view.frame.size.height - 50;
+    CGRect rect = CGRectMake(0, buttonheight, self.view.frame.size.width, 50);
+    UIButton* buyButton = [[UIButton alloc]initWithFrame:rect];
     NSAttributedString * buttonTitle = [[NSAttributedString alloc]initWithString:@"Attend Event" attributes: @{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:18.0], NSForegroundColorAttributeName: [UIColor blackColor]}];
     [buyButton setAttributedTitle:buttonTitle forState:UIControlStateNormal];
     [buyButton setAttributedTitle: buttonTitle forState:UIControlStateSelected];
@@ -120,9 +129,7 @@
     [buyButton setBackgroundColor:[UIColor grayColor]];
     [buyButton addTarget:self action:@selector(didClickBuyButton) forControlEvents:UIControlEventTouchUpInside];
     [buyButton setAlpha:0.85];
-    self.attendButton = buyButton;
-    [self.view addSubview: self.attendButton];
-    
+    [self.view addSubview:buyButton];
     
     
     //*** Twitter and Facebook buttons in Footer//
@@ -142,15 +149,12 @@
     tableViewMain.tableView.tableHeaderView = _headerView;
     tableViewMain.tableView.tableFooterView = _footerView;
     tableViewMain.noOfItems = 1;
-    tableViewMain.cellHeight = 0;
-    [tableViewMain reloadData];
-    [tableViewMain tableView].delaysContentTouches = NO;
-
-    _isLoadedView = NO;
 }
 
-
-
+//-(void) didFinishPlaying:(NSNotification* ) notification{
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:self.video];
+//    [self.video.view removeFromSuperview];
+//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -168,6 +172,165 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+-(void) didClickBuyButton{
+    //*********** GO TO Tickets ******************//
+
+    QRTicketViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardQRTicket"];
+    
+ //   DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardQRTicket"];
+    //vc.event = listViewMain.arrayData[indexPath.row];
+    
+    vc.event = self.event;
+    
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+
+-(void) didClickBackButton{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+//To ImageViewController to view event images//
+-(void)didClickButtonPhotos:(id)sender {
+    if(_arrayPhotos == nil || _arrayPhotos.count == 0)
+        return;
+    ImageViewerController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"segueImageViewer"];
+    vc.imageArray = _arrayPhotos;
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
+    vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:vc animated:YES completion:nil];
+    
+}
+
+-(void) MGListView:(MGListView *)_listView didSelectCell:(MGListCell *)cell indexPath:(NSIndexPath *)indexPath {
+}
+
+-(UITableViewCell*)MGListView:(MGListView *)listView1 didCreateCell:(MGListCell *)cell indexPath:(NSIndexPath *)indexPath {
+    
+    if(cell == nil) {
+        return cell;
+    }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+        cell.labelDescription.numberOfLines  = 0;
+        [cell.labelDescription setText:[_event.event_desc stringByDecodingHTMLEntities]];
+        [cell.labelDescription sizeToFit];
+    NSLog(@" description height is . %f", cell.labelDescription.frame.size.height);
+    
+    
+        CGRect mapFrame = cell.mapViewCell.frame;
+        mapFrame.origin.y = cell.labelDescription.frame.origin.y + cell.labelDescription.frame.size.height+ 10;
+        mapFrame.size.height = 150;
+    
+    NSLog(@" map starts at .  %f" , mapFrame.origin.y);
+        [cell.mapViewCell setFrame: mapFrame];
+      
+        //Dividing Border of MapView
+        UIImageView* upperBorder = [[UIImageView alloc] initWithImage:[UIImage imageNamed:NAV_BAR_BG]];
+        [upperBorder setFrame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 5)];
+        [cell.mapViewCell addSubview: upperBorder];
+    
+        UIImageView* bottomFrame = [[UIImageView alloc]initWithImage:[UIImage imageNamed:NAV_BAR_BG]];
+        [bottomFrame setFrame: CGRectMake(0.0, cell.mapViewCell.frame.size.height, self.view.frame.size.width, 5)];
+        [cell.mapViewCell addSubview: bottomFrame];
+
+    
+        cell.mapViewCell.delegate = self;
+        [cell.mapViewCell baseInit];
+        cell.mapViewCell.mapView.zoomEnabled = NO;
+        cell.mapViewCell.mapView.scrollEnabled = NO;
+    
+        [cell.routeButton addTarget:self
+                         action:@selector(didClickButtonRoute:)
+               forControlEvents:UIControlEventTouchUpInside];
+
+    
+    CLLocationCoordinate2D coords = CLLocationCoordinate2DMake([_event.lat doubleValue], [_event.lon doubleValue]);
+    
+    if(CLLocationCoordinate2DIsValid(coords)) {
+        
+        MGMapAnnotation* ann = [[MGMapAnnotation alloc] initWithCoordinate:coords
+                                                                      name:_venue.venue_name                                                                   description:_event.event_address1];
+        ann.object = _event;
+        
+        [cell.mapViewCell setMapData:[NSMutableArray arrayWithObjects:ann, nil] ];
+        [cell.mapViewCell setSelectedAnnotation:coords];
+        [cell.mapViewCell moveCenterByOffset:CGPointMake(0, -40) from:coords];
+    }
+
+    CGRect venueFrame = cell.labelVenue.frame;
+    venueFrame.origin.y = mapFrame.origin.y + 160;
+    NSLog(@"label for venue starts at  %f", venueFrame.origin.y);
+    [cell.labelVenue setFrame: venueFrame];
+    cell.labelVenueDescription.numberOfLines = 0;
+        if(_venue){
+            [cell.labelVenue setText:[_venue.venue_name stringByDecodingHTMLEntities ]];
+            [cell.labelVenueDescription setText:_venue.venue_desc ];
+        }
+        else{
+            [cell.labelVenue setText:[_event.event_address1 stringByDecodingHTMLEntities ]];
+            [cell.labelVenueDescription setText: @"Description about the Venue" ];
+        }
+        [cell.labelVenueDescription setTextAlignment:NSTextAlignmentJustified];
+        [cell.labelVenueDescription sizeToFit];
+        [cell.labelVenueDescription setClipsToBounds:YES];
+        CGRect descripFrame = cell.labelVenueDescription.frame;
+        descripFrame.origin.y = venueFrame.origin.y + 40;
+        NSLog( @" description of venue starts at %f, and ends at %f",descripFrame.origin.y , descripFrame.origin.y + descripFrame.size.height);
+        [cell.labelVenueDescription setFrame: descripFrame];
+        float height = cell.labelVenueDescription.frame.size.height + cell.labelVenueDescription.frame.origin.y;
+        CGRect frame = cell.frame;
+        frame.size.height = height;
+        [cell setFrame: frame];
+        return cell;
+}
+
+
+
+-(CGFloat)MGListView:(MGListView *)listView cell:(MGListCell *)cell heightForRowAtIndexPath:(NSIndexPath *)indexPath    {
+
+    
+    [cell.labelDescription setText:[_event.event_desc stringByDecodingHTMLEntities]];
+    CGSize size = [cell.labelDescription sizeOfMultiLineLabel];
+    CGRect frame = cell.labelDescription.frame;
+    [cell.labelVenueDescription setText: [_venue.venue_desc stringByDecodingHTMLEntities]];
+    CGSize vsize = [cell.labelVenueDescription sizeOfMultiLineLabel];
+    
+    float totalHeightLabel = size.height + frame.origin.y + vsize.height+ 200;
+    
+    if(totalHeightLabel > cell.frame.size.height) {
+        return totalHeightLabel;
+    }
+    else{
+        return totalHeightLabel;
+    }
+}
+
+-(NSString*)formatDateWithStart:(NSString*)dateAndStart withEndTime:(NSString*)endTime{
+    
+    NSDate * myDate = [NSDate dateFromString:dateAndStart withFormat:[NSDate dbFormatString]];
+    NSString* date = [NSDate stringForDisplayFromFutureDate:myDate prefixed:YES alwaysDisplayTime:YES ];
+    return date;
+}
+
+//Resizes images while scrolling
+-(void)MGListView:(MGListView *)_listView scrollViewDidScroll:(UIScrollView *)scrollView {
+
+    CGFloat yPos = -scrollView.contentOffset.y;
+    if (yPos > 0) {
+        CGRect imgRect = _headerView.imgBackground.frame;
+        imgRect.origin.y = scrollView.contentOffset.y;
+        imgRect.size.height = _headerHeight + yPos;
+        _headerView.imgBackground.frame = imgRect;
+    }
+}
 
 -(void)setImage:(NSString*)imageUrl imageView:(UIImageView*)imgView {
     
@@ -196,150 +359,30 @@
                             }];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
--(void) didClickBuyButton{
-    //*********** GO TO PURCHASING ******************//
-
-    QRTicketViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardQRTicket"];
-    
- //   DetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"storyboardQRTicket"];
-    //vc.event = listViewMain.arrayData[indexPath.row];
-    
-    vc.event = self.event;
-    
-    [self.navigationController pushViewController:vc animated:YES];
-    
-}
-
--(void) didClickBackButton{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-
--(void)didClickButtonPhotos:(id)sender {
-    
-    if(_arrayPhotos == nil || _arrayPhotos.count == 0)
-        return;
-    ImageViewerController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"segueImageViewer"];
-    vc.imageArray = _arrayPhotos;
-    vc.modalPresentationStyle = UIModalPresentationFullScreen;
-    vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:vc animated:YES completion:nil];
-    
-}
-
--(void) MGListView:(MGListView *)_listView didSelectCell:(MGListCell *)cell indexPath:(NSIndexPath *)indexPath {
-}
-
--(UITableViewCell*)MGListView:(MGListView *)listView1 didCreateCell:(MGListCell *)cell indexPath:(NSIndexPath *)indexPath {
-    
-    if(cell == nil) {
-        return cell;
-    }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-           cell.labelDescription.numberOfLines  = 0;
-    
-        [cell.labelDescription setText:[event.event_desc stringByDecodingHTMLEntities]];
-
-        [cell.labelDescription sizeToFit];
- //   NSLog(@" %f" , cell.labelDescription.frame.size.height);
-        CGRect mapFrame = cell.mapViewCell.frame;
-    mapFrame.origin.y = cell.labelDescription.frame.size.height+ cell.labelDescription.frame.origin.y + 20;
-        cell.mapViewCell.frame = mapFrame;
-        cell.mapViewCell.delegate = self;
-        [cell.mapViewCell baseInit];
-        cell.mapViewCell.mapView.zoomEnabled = NO;
-        cell.mapViewCell.mapView.scrollEnabled = NO;
-    
-        [cell.routeButton addTarget:self
-                         action:@selector(didClickButtonRoute:)
-               forControlEvents:UIControlEventTouchUpInside];
-
-    
-    CLLocationCoordinate2D coords = CLLocationCoordinate2DMake([event.lat doubleValue], [event.lon doubleValue]);
-    
-    if(CLLocationCoordinate2DIsValid(coords)) {
-        MGMapAnnotation* ann = [[MGMapAnnotation alloc] initWithCoordinate:coords
-                                                                      name:venue.venue_name                                                                   description:event.event_address];
-        ann.object = event;
-        
-        [cell.mapViewCell setMapData:[NSMutableArray arrayWithObjects:ann, nil] ];
-        [cell.mapViewCell setSelectedAnnotation:coords];
-        [cell.mapViewCell moveCenterByOffset:CGPointMake(0, -40) from:coords];
-    }
-    
-        if(venue){
-        [cell.labelVenue setText:[venue.venue_name stringByDecodingHTMLEntities ]];
-        [cell.labelVenueDescription setText:venue.venue_desc ];
-        }
-        else{
-        [cell.labelVenue setText:[event.event_address1 stringByDecodingHTMLEntities ]];
-        [cell.labelVenueDescription setText:@"Description about the Venue" ];
-        }
-        
-        cell.labelVenueDescription.numberOfLines = 0;
-        [cell.labelVenueDescription sizeToFit];
-        
-        CGRect frame = cell.labelVenueDescription.frame;
-        float totalHeightLabel = frame.size.height + frame.origin.y;
-    
-        if(totalHeightLabel > cell.frame.size.height) {
-            CGRect cellFrame = cell.frame;
-            cellFrame.size.height = totalHeightLabel;
-            cell.frame = cellFrame;
-        }
-    
-    
-    
-    return cell;
-}
-
--(CGFloat)MGListView:(MGListView *)listView cell:(MGListCell *)cell heightForRowAtIndexPath:(NSIndexPath *)indexPath    {
-    return cell.frame.size.height;
-}
-
--(void)MGListView:(MGListView *)_listView scrollViewDidScroll:(UIScrollView *)scrollView {
-
-    CGFloat yPos = -scrollView.contentOffset.y;
-    
-    if (yPos > 0) {
-        CGRect imgRect = _headerView.imgViewPhoto.frame;
-        imgRect.origin.y = scrollView.contentOffset.y;
-        imgRect.size.height = _headerHeight + yPos;
-        _headerView.imgViewPhoto.frame = imgRect;
-    }
-}
-
-
-
 #pragma mark - UIViewControllerTransitioningDelegate
-
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
-                                                                  presentingController:(UIViewController *)presenting
-                                                                      sourceController:(UIViewController *)source
-{
-    self.animationController.isPresenting = YES;
-    
-    return self.animationController;
-}
-
-- (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
-    self.animationController.isPresenting = NO;
-    
-    return self.animationController;
-}
+//
+//- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+//                                                                  presentingController:(UIViewController *)presenting
+//                                                                      sourceController:(UIViewController *)source
+//{
+//    self.animationController.isPresenting = YES;
+//    
+//    return self.animationController;
+//}
+//
+//- (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+//    self.animationController.isPresenting = NO;
+//    
+//    return self.animationController;
+//}
 
 -(void)didClickButtonRoute:(id)sender {
     
-    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([event.lat doubleValue], [event.lon doubleValue]);
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([_event.lat doubleValue], [_event.lon doubleValue]);
     
     MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate addressDictionary:nil];
     MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
-    mapItem.name = event.event_name;
+    mapItem.name = _event.event_name;
     
     if ([mapItem respondsToSelector:@selector(openInMapsWithLaunchOptions:)]) {
         [mapItem openInMapsWithLaunchOptions:@{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving}];
@@ -400,7 +443,6 @@
         [MGUtilities showAlertTitle:LOCALIZED(@"TWITTER_AUTHENTICATION_FAILED")
                             message:LOCALIZED(@"TWITTER_AUTHENTICATION_FAILED_MSG")];
     }
-    
 }
 
 
@@ -418,7 +460,6 @@
     
     mKPinAnnotationView.image = [UIImage imageNamed:MAP_PIN];
     mKPinAnnotationView.frame = CGRectMake(0, 0, 20.0, 22.0);
-    
 }
 
 

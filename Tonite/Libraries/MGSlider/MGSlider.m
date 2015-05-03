@@ -80,12 +80,7 @@
 
 
 - (void)scrollingTimer {
-//    [UIView animateWithDuration:0.5
-//                          delay:1.0
-//                        options:UIViewAnimationOptionCurveEaseIn
-//                     animations:^{ Image.alpha = 1; }
-//                     completion:^(BOOL finished){}
-//     ];
+
     int nextPage = (int)(scrollView.contentOffset.x/scrollWidth) + 1;
     CGRect rect = CGRectZero;
     if([self.imageArray count] > 1)

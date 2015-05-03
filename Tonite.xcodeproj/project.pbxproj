@@ -148,10 +148,8 @@
 		CB7DFBE419521999007FC9B9 /* SideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7DFBE319521999007FC9B9 /* SideViewController.m */; };
 		CB7DFBE8195224DF007FC9B9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7DFBE7195224DF007FC9B9 /* RegisterViewController.m */; };
 		CB820A9D194F7793000E64DB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB820A9C194F7793000E64DB /* LoginViewController.m */; };
-		CB820AA3194F783D000E64DB /* TCView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB820AA0194F783D000E64DB /* TCView.xib */; };
 		CB820AD8194F78DD000E64DB /* MGLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB820AD7194F78DD000E64DB /* MGLoginView.m */; };
 		CB820AE4194F7C69000E64DB /* AboutToniteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB820AE0194F7C69000E64DB /* AboutToniteViewController.m */; };
-		CB820AE5194F7C69000E64DB /* TCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB820AE3194F7C69000E64DB /* TCViewController.m */; };
 		CB820AEB194F8167000E64DB /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB820AEA194F8167000E64DB /* ProfileViewController.m */; };
 		CB820AEE194F81E1000E64DB /* MGProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB820AED194F81E1000E64DB /* MGProfileView.m */; };
 		CBAED21D1948A1DD00769D68 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBAED21C1948A1DD00769D68 /* Foundation.framework */; };
@@ -252,6 +250,7 @@
 		E304C3041AE468770061EE72 /* AboutMeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E304C3031AE468770061EE72 /* AboutMeTableViewController.m */; };
 		E304C3071AE468A20061EE72 /* PrivacyPolicyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E304C3061AE468A20061EE72 /* PrivacyPolicyViewController.m */; };
 		E304C30B1AE49FE70061EE72 /* image1.PNG in Resources */ = {isa = PBXBuildFile; fileRef = E304C30A1AE49FE60061EE72 /* image1.PNG */; };
+		E315EEB51AF494F200F45880 /* toniteTC.txt in Resources */ = {isa = PBXBuildFile; fileRef = E315EEB41AF494F200F45880 /* toniteTC.txt */; };
 		E31FD7DD1AD461CE00789CB2 /* Gradient-OVERLAY.png in Resources */ = {isa = PBXBuildFile; fileRef = E31FD7DC1AD461CE00789CB2 /* Gradient-OVERLAY.png */; };
 		E3216FB51ACA45AA00F23BBB /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3216FB41ACA45AA00F23BBB /* TabBarViewController.m */; };
 		E3216FBC1ACA4D2100F23BBB /* HamburgerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E3216FBB1ACA4D2100F23BBB /* HamburgerButton.m */; };
@@ -273,6 +272,7 @@
 		E34CE17A1AEDBB360071FCB8 /* HEADHEAD.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E34CE1791AEDBB360071FCB8 /* HEADHEAD.jpg */; };
 		E38921891ADDF5D500DB2B81 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38921871ADDF5D500DB2B81 /* ViewController.m */; };
 		E389218C1ADDF77000DB2B81 /* Yo.mov in Resources */ = {isa = PBXBuildFile; fileRef = E389218B1ADDF77000DB2B81 /* Yo.mov */; };
+		E3A481531AF5CF3D00FE1641 /* TCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A481521AF5CF3D00FE1641 /* TCViewController.m */; };
 		E3B630931AEB225F0001B91A /* Location.png in Resources */ = {isa = PBXBuildFile; fileRef = E3B630921AEB225F0001B91A /* Location.png */; };
 		E3B871F21AC774FB009223D5 /* artsCulture.png in Resources */ = {isa = PBXBuildFile; fileRef = E3B871E91AC774FB009223D5 /* artsCulture.png */; };
 		E3B871F31AC774FB009223D5 /* Avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = E3B871EA1AC774FB009223D5 /* Avatar.png */; };
@@ -452,13 +452,10 @@
 		CB7DFBE7195224DF007FC9B9 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		CB820A9B194F7793000E64DB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CB820A9C194F7793000E64DB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		CB820AA0194F783D000E64DB /* TCView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCView.xib; sourceTree = "<group>"; };
 		CB820AD6194F78DD000E64DB /* MGLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLoginView.h; sourceTree = "<group>"; };
 		CB820AD7194F78DD000E64DB /* MGLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGLoginView.m; sourceTree = "<group>"; };
 		CB820ADF194F7C69000E64DB /* AboutToniteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutToniteViewController.h; sourceTree = "<group>"; };
 		CB820AE0194F7C69000E64DB /* AboutToniteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutToniteViewController.m; sourceTree = "<group>"; };
-		CB820AE2194F7C69000E64DB /* TCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCViewController.h; sourceTree = "<group>"; };
-		CB820AE3194F7C69000E64DB /* TCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCViewController.m; sourceTree = "<group>"; };
 		CB820AE9194F8167000E64DB /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		CB820AEA194F8167000E64DB /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		CB820AEC194F81E1000E64DB /* MGProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGProfileView.h; sourceTree = "<group>"; };
@@ -652,6 +649,7 @@
 		E304C3051AE468A20061EE72 /* PrivacyPolicyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyPolicyViewController.h; sourceTree = "<group>"; };
 		E304C3061AE468A20061EE72 /* PrivacyPolicyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyPolicyViewController.m; sourceTree = "<group>"; };
 		E304C30A1AE49FE60061EE72 /* image1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1.PNG; sourceTree = "<group>"; };
+		E315EEB41AF494F200F45880 /* toniteTC.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = toniteTC.txt; path = ../../../../Desktop/tonite_images/toniteTC.txt; sourceTree = "<group>"; };
 		E31FD7DC1AD461CE00789CB2 /* Gradient-OVERLAY.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Gradient-OVERLAY.png"; path = "../../Views/Gradient-OVERLAY.png"; sourceTree = "<group>"; };
 		E3216FB31ACA45AA00F23BBB /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		E3216FB41ACA45AA00F23BBB /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TabBarViewController.m; sourceTree = "<group>"; };
@@ -679,6 +677,8 @@
 		E38921871ADDF5D500DB2B81 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E38921881ADDF5D500DB2B81 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		E389218B1ADDF77000DB2B81 /* Yo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Yo.mov; sourceTree = "<group>"; };
+		E3A481511AF5CF3D00FE1641 /* TCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCViewController.h; sourceTree = "<group>"; };
+		E3A481521AF5CF3D00FE1641 /* TCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCViewController.m; sourceTree = "<group>"; };
 		E3B630921AEB225F0001B91A /* Location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Location.png; sourceTree = "<group>"; };
 		E3B871E91AC774FB009223D5 /* artsCulture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = artsCulture.png; sourceTree = "<group>"; };
 		E3B871EA1AC774FB009223D5 /* Avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Avatar.png; sourceTree = "<group>"; };
@@ -981,16 +981,16 @@
 				CB820AE0194F7C69000E64DB /* AboutToniteViewController.m */,
 			);
 			name = AboutToniteController;
-			path = AboutUsController;
 			sourceTree = "<group>";
 		};
 		CB820AE1194F7C69000E64DB /* T&CController */ = {
 			isa = PBXGroup;
 			children = (
-				CB820AE2194F7C69000E64DB /* TCViewController.h */,
-				CB820AE3194F7C69000E64DB /* TCViewController.m */,
+				E3A481511AF5CF3D00FE1641 /* TCViewController.h */,
+				E3A481521AF5CF3D00FE1641 /* TCViewController.m */,
 			);
-			path = "T&CController";
+			name = "T&CController";
+			path = "../T&CController";
 			sourceTree = "<group>";
 		};
 		CB820AE8194F815B000E64DB /* ProfileController */ = {
@@ -1172,6 +1172,7 @@
 		CBAED25B1948A40F00769D68 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E315EEB41AF494F200F45880 /* toniteTC.txt */,
 				E389218B1ADDF77000DB2B81 /* Yo.mov */,
 				E34C28431AC875EE00D7640A /* 1x */,
 				E3B871E81AC774FB009223D5 /* tonite_images */,
@@ -1198,12 +1199,7 @@
 				CB4221D6194B0BC500528013 /* CategoryController */,
 				CB422149194ADDAB00528013 /* EventPageController */,
 				E3EA95581A96F2DF000066E8 /* TicketsViewController */,
-				CB820ADE194F7C69000E64DB /* AboutToniteController */,
-				CB820AE1194F7C69000E64DB /* T&CController */,
-				E304C2F71AE459D40061EE72 /* SettingsViewController */,
-				E304C3011AE465E90061EE72 /* FAQViewController */,
-				E304C3081AE468C60061EE72 /* CreateAccountViewController */,
-				E304C3091AE468D20061EE72 /* PrivacyPolicyViewController */,
+				E3A4814A1AF580D400FE1641 /* Settings */,
 				CB3B8E181949E6BA00574652 /* MapController */,
 				CB42218D194B005400528013 /* ImageController */,
 				E3285E4D1AEF66E500A2A9E1 /* Unused VCs */,
@@ -1222,7 +1218,6 @@
 				CB543392194C304000B28C73 /* RegisterView.xib */,
 				CBFEC953194CC0BC00A64FEC /* ReviewCell.xib */,
 				CB7199511959B2FD001DB700 /* ReviewLoadMoreCell.xib */,
-				CB820AA0194F783D000E64DB /* TCView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1715,6 +1710,7 @@
 				E304C2FC1AE45E080061EE72 /* SettingsViewController.m */,
 			);
 			name = SettingsViewController;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		E304C3011AE465E90061EE72 /* FAQViewController */ = {
@@ -1724,6 +1720,7 @@
 				E304C2FE1AE465E20061EE72 /* FAQTableViewController.h */,
 			);
 			name = FAQViewController;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		E304C3081AE468C60061EE72 /* CreateAccountViewController */ = {
@@ -1733,6 +1730,7 @@
 				E304C3021AE468770061EE72 /* AboutMeTableViewController.h */,
 			);
 			name = CreateAccountViewController;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		E304C3091AE468D20061EE72 /* PrivacyPolicyViewController */ = {
@@ -1742,6 +1740,7 @@
 				E304C3051AE468A20061EE72 /* PrivacyPolicyViewController.h */,
 			);
 			name = PrivacyPolicyViewController;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		E31B2CAE1AED696D001E812D /* RadioButtons */ = {
@@ -1825,6 +1824,20 @@
 				E38921871ADDF5D500DB2B81 /* ViewController.m */,
 			);
 			name = LaunchVideoController;
+			sourceTree = "<group>";
+		};
+		E3A4814A1AF580D400FE1641 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E304C2F71AE459D40061EE72 /* SettingsViewController */,
+				E304C3081AE468C60061EE72 /* CreateAccountViewController */,
+				E304C3091AE468D20061EE72 /* PrivacyPolicyViewController */,
+				E304C3011AE465E90061EE72 /* FAQViewController */,
+				CB820AE1194F7C69000E64DB /* T&CController */,
+				CB820ADE194F7C69000E64DB /* AboutToniteController */,
+			);
+			name = Settings;
+			path = AboutUsController;
 			sourceTree = "<group>";
 		};
 		E3B871E81AC774FB009223D5 /* tonite_images */ = {
@@ -1952,7 +1965,6 @@
 				CB7DFBB719520673007FC9B9 /* detail_image_placeholder.png in Resources */,
 				E31FD7DD1AD461CE00789CB2 /* Gradient-OVERLAY.png in Resources */,
 				CB7DFBC31952088E007FC9B9 /* profile_thumb_placeholder.png in Resources */,
-				CB820AA3194F783D000E64DB /* TCView.xib in Resources */,
 				E389218C1ADDF77000DB2B81 /* Yo.mov in Resources */,
 				CB42218C194AEC2300528013 /* DetailCell.xib in Resources */,
 				CB7DFB561951726C007FC9B9 /* ic_web_forward.png in Resources */,
@@ -2026,6 +2038,7 @@
 				CB7199521959B2FD001DB700 /* ReviewLoadMoreCell.xib in Resources */,
 				CB2627AF1950CE050024C15A /* FooterView.xib in Resources */,
 				E3B871F91AC774FB009223D5 /* thegiveback.png in Resources */,
+				E315EEB51AF494F200F45880 /* toniteTC.txt in Resources */,
 				CB48DD8519D452030039C26B /* image_viewer_placeholder@3x.png in Resources */,
 				E3B871F21AC774FB009223D5 /* artsCulture.png in Resources */,
 				CB48DD2019D444580039C26B /* ic_map_refresh@3x.png in Resources */,
@@ -2075,6 +2088,7 @@
 				56EC19BA1ACD1ED80083858D /* TicketType.m in Sources */,
 				CBAED3971948A4EF00769D68 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				CBAED3691948A4EF00769D68 /* METransitions.m in Sources */,
+				E3A481531AF5CF3D00FE1641 /* TCViewController.m in Sources */,
 				E3EA95571A96F2C6000066E8 /* TicketsViewController.m in Sources */,
 				CBAED3AA1948A4EF00769D68 /* MGImageViewer.m in Sources */,
 				CBAED3A01948A4EF00769D68 /* MGFileManager.m in Sources */,
@@ -2110,7 +2124,6 @@
 				56E95D991AF1E458008AF4EE /* Friendship.m in Sources */,
 				CBAED4051948E18400769D68 /* GTMNSString+HTML.m in Sources */,
 				CBAED3651948A4EF00769D68 /* ECSlidingViewController.m in Sources */,
-				CB820AE5194F7C69000E64DB /* TCViewController.m in Sources */,
 				CBAED3A41948A4EF00769D68 /* JBParallaxCell.m in Sources */,
 				CB594AD3194D715E0062413B /* MGFooterView.m in Sources */,
 				CBAED4221948E9EC00769D68 /* DataParser.m in Sources */,

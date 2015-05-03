@@ -11,12 +11,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="frb-a6-lMQ">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                </imageView>
                 <view contentMode="scaleToFill" id="AhF-cs-zNN" customClass="MGSlider">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="298"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <accessibility key="accessibilityConfiguration">
@@ -25,7 +21,7 @@
                     </accessibility>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FADE.png" id="eaY-lm-8Fc">
-                    <rect key="frame" x="0.0" y="48" width="320" height="251"/>
+                    <rect key="frame" x="0.0" y="50" width="320" height="247"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EventName" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" id="bEi-jo-wLt">
@@ -36,7 +32,7 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navbar.png" id="ns1-Rk-kiF">
+                <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.39999999999999963" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navbar.png" id="ns1-Rk-kiF">
                     <rect key="frame" x="0.0" y="297" width="320" height="3"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 </imageView>
@@ -49,7 +45,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$35" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="I8v-NY-dhI">
-                    <rect key="frame" x="277" y="274" width="30" height="20"/>
+                    <rect key="frame" x="269" y="274" width="38" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -63,18 +59,17 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1.PNG" id="2Mj-Rc-9DQ">
-                    <rect key="frame" x="0.0" y="260" width="26" height="16"/>
+                    <rect key="frame" x="0.0" y="261" width="26" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="divider" destination="ns1-Rk-kiF" id="Yiu-Ir-eiB"/>
                 <outlet property="fade" destination="eaY-lm-8Fc" id="neZ-JF-lj8"/>
-                <outlet property="imgViewPic" destination="frb-a6-lMQ" id="XXT-PP-fXU"/>
                 <outlet property="labelDetails" destination="TJw-pY-xIa" id="U51-Yo-Kfd"/>
                 <outlet property="labelExtraInfo" destination="I8v-NY-dhI" id="5G6-gz-hdC"/>
                 <outlet property="labelSubtitle" destination="kzd-58-Nzd" id="eCC-FP-Iqu"/>
@@ -82,7 +77,7 @@
                 <outlet property="locationIcon" destination="2Mj-Rc-9DQ" id="nFa-71-HaT"/>
                 <outlet property="slideShow" destination="AhF-cs-zNN" id="Z1M-Za-Yzm"/>
             </connections>
-            <point key="canvasLocation" x="174" y="311"/>
+            <point key="canvasLocation" x="162" y="245"/>
         </view>
     </objects>
     <resources>

@@ -10,5 +10,6 @@
 }
 
 
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollMain;
 
 @end

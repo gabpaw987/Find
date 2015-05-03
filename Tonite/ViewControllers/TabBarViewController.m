@@ -14,7 +14,7 @@
 #import "ECSlidingViewController.h"
 
 
-@interface TabBarViewController ()<UIScrollViewDelegate>
+@interface TabBarViewController ()
 
 @end
 
@@ -29,14 +29,11 @@
     [super viewDidLoad];
    
     // Do any additional setup after loading the view.
-   
     [self.tabBar setHidden:YES];
     
     [self setSelectedIndex:0];
-    
     //Creates the tonite label on the navigation bar. See ToniteNavigationBar
     [self.navigationItem setTitleView:[ToniteNavigationBar createLogo:@"TONITELOGO_new.png"]];
-    
     //Create Menu left navigation button
     LBHamburgerButton* itemMenu = [[LBHamburgerButton alloc] initWithFrame:CGRectMake(0, 0, 0, 0)
                                                                  lineWidth:18
@@ -54,13 +51,11 @@
     //Create Profile right navigation button
     UIBarButtonItem* itemLoginMenu = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed: ICON_USER]style:UIBarButtonItemStylePlain target:self action:@selector(didClickProfileMenuButton)];
     [itemLoginMenu setTintColor:[UIColor grayColor]];
-   
     itemLoginMenu.imageInsets = UIEdgeInsetsMake(22, 44, 23, 3); //top, left, bottom, right
     self.navigationItem.rightBarButtonItem = itemLoginMenu;
 
     //Add ECslider recognizer to swipe in and out the profile menu
     [self.view addGestureRecognizer: self.slidingViewController.panGesture];
-  
 }
 
 
@@ -75,16 +70,19 @@
     LBHamburgerButton* btn = (LBHamburgerButton*)sender;
         [btn switchState];
     if(self.selectedIndex ==1){
+        [self.navigationController setNavigationBarHidden:NO];
        [self setSelectedIndex:0];
     }
     else{
+        [self.navigationController setNavigationBarHidden:NO];
         [self setSelectedIndex:1];
     }
 }
 
 -(void) didClickProfileMenuButton{
     if(self.slidingViewController.currentTopViewPosition == ECSlidingViewControllerTopViewPositionAnchoredLeft){
-        [self.slidingViewController resetTopViewAnimated:YES];
+       [self.slidingViewController resetTopViewAnimated:YES];
+
     }
     else{
         [self.slidingViewController anchorTopViewToLeftAnimated:YES];
@@ -92,25 +90,6 @@
 }
 
 
-
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if([scrollView.panGestureRecognizer translationInView:self.view].y < 0)
-    {
-        [self.navigationController setNavigationBarHidden:YES];
-    }
-    else if([scrollView.panGestureRecognizer translationInView:self.view].y > 0)
-    {
-        [self.navigationController setNavigationBarHidden:NO];
-    }
-    //keep navigation bar visible if at the top of the view
-    else if(scrollView.contentOffset.y < 10.0)
-    {
-        [self.tabBarController.navigationController setNavigationBarHidden:YES];
-    }
-    else{
-        [self.tabBarController.navigationController setNavigationBarHidden:NO];
-    }
-}
 
 /*
 #pragma mark - Navigation

@@ -84,6 +84,7 @@
 }
 
 
+
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if(noOfItems > 0) {
@@ -136,12 +137,13 @@
 
 -(void)reloadData {
     [self.tableView registerNib:[UINib nibWithNibName:_nibName bundle:nil] forCellReuseIdentifier:_cellIdentifier];
-    
     [self.tableView reloadData];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.delegate MGListView:self scrollViewDidScroll:scrollView];
 }
+
+
 
 @end

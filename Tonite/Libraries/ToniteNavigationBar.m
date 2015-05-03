@@ -17,7 +17,7 @@
     // Drawing code
 }
 */
-- (CGSize)sizeThatFits:(CGSize)size {
+-(CGSize)sizeThatFits:(CGSize)size {
     
     CGSize newSize = CGSizeMake(self.frame.size.width, 25.0);
     return newSize;
@@ -28,6 +28,18 @@
     [[UINavigationBar appearance] setAlpha:0.6];
 }
 
++(UIView*) createTitle: (NSString*) title{
+    UILabel* titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(-3.0, 4.0, 75, 38)];
+    [titleLabel setClipsToBounds:YES];
+    [titleLabel setBackgroundColor:[UIColor clearColor]];
+    [titleLabel setAlpha:0.5];
+    [titleLabel setTextColor:[UIColor grayColor]];
+    [titleLabel setFont:[UIFont fontWithName:@"Avenir Light" size:15.0]];
+    [titleLabel setText: title];
+    [titleLabel setTextAlignment: NSTextAlignmentCenter];
+    titleLabel.layer.zPosition = 9999;
+    return titleLabel;
+}
 
 
 +(UIView*)createLogo:(NSString*)logoFileName {

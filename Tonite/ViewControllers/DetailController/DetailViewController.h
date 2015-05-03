@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface DetailViewController : UIViewController
 
 @property (nonatomic, retain) IBOutlet MGListView* tableViewMain;
-@property (nonatomic, retain) Event* event;
-@property (nonatomic, retain) Venue* venue;
+@property (nonatomic, retain) NSString* eventId;
 
 @end

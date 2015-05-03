@@ -44,7 +44,7 @@
     self.dateString.text = [NSDate stringForDisplayFromDate:myDate];
     self.timeString.text = [NSDate stringForDisplayFromDate:myDate];
     self.eventNameString.text = self.event.event_name;
-    self.venueString.text = self.event.event_address;
+    self.venueString.text = self.event.event_address1;
 }
 
 - (void)didReceiveMemoryWarning {

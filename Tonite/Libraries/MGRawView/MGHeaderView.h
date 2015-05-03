@@ -11,7 +11,7 @@
 
 @interface MGHeaderView : MGRawView
 
-@property (strong, nonatomic) IBOutlet UIScrollView *scrollMain;
+@property (strong, nonatomic) IBOutlet UIImageView *imgBackground;
 
 @property (strong, nonatomic) IBOutlet UILabel *labelEventName;
 @property (strong, nonatomic) IBOutlet UILabel *labelVenueName;

@@ -421,10 +421,12 @@
 }
 
 - (void)anchorTopViewToLeftAnimated:(BOOL)animated {
+    [self.topViewController.view setUserInteractionEnabled:NO];
     [self anchorTopViewToLeftAnimated:animated onComplete:nil];
 }
 
 - (void)resetTopViewAnimated:(BOOL)animated {
+    [self.topViewController.view setUserInteractionEnabled:YES];
     [self resetTopViewAnimated:animated onComplete:nil];
 }
 

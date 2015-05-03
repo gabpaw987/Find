@@ -10,4 +10,5 @@
 
 @interface ToniteNavigationBar : UINavigationBar
 +(UIView*)createLogo:(NSString*)logoFileName;
++(UIView*)createTitle:(NSString* )title;
 @end

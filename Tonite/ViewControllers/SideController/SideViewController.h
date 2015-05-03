@@ -13,5 +13,4 @@
 
 @property(nonatomic, retain) IBOutlet UITableView* tableViewSide;
 
--(void) reloadInputViews;
 @end

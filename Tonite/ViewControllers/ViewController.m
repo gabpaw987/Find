@@ -34,9 +34,22 @@
     
     //Tonite Image
     UIImageView *welcomeLabel = [[UIImageView alloc] initWithImage: [UIImage imageNamed:TONITE_LOGO]];
-    [welcomeLabel setFrame:CGRectMake(0, self.view.bounds.size.height/8, 3*self.view.bounds.size.width/5, self.view.bounds.size.height/6)];
+    [welcomeLabel setContentMode:UIViewContentModeScaleAspectFit];
+    [welcomeLabel setFrame:CGRectMake(0, self.view.bounds.size.height/8, 3*self.view.bounds.size.width/6, self.view.bounds.size.height/6)];
     [welcomeLabel setCenter:CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height/8*1.5)];
     [self.view addSubview:welcomeLabel];
+    
+    //Stay in the k(now) label
+    UILabel* sloganLabel = [[UILabel alloc]initWithFrame:CGRectMake(0.0, self.view.bounds.size.height/6, self.view.bounds.size.width/2, self.view.bounds.size.height/8)];
+    NSMutableAttributedString * string = [[NSMutableAttributedString alloc] initWithString:@"stay in the k(now)"];
+    [string addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Avenir Light" size:18.0] range:NSMakeRange(0, 17)];
+    [string addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0,14)];
+    [string addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(14,3)];
+    [string addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(17,1)];
+    [sloganLabel setAttributedText:string];
+    [sloganLabel setTextAlignment:NSTextAlignmentCenter];
+    [sloganLabel setCenter:CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height/6 *1.5)];
+    [self.view addSubview:sloganLabel];
     
     //Email TextField
     UITextField *emailText = [[UITextField alloc] initWithFrame:CGRectMake(3*self.view.bounds.size.width/24, 26*self.view.bounds.size.height/40, 49*self.view.bounds.size.width/64, 2.5*self.view.bounds.size.height/40)];
@@ -122,7 +135,7 @@
         NSURL *movieURL = [NSURL fileURLWithPath:moviePath];
         _playerLayer = [AVPlayerLayer playerLayerWithPlayer:[[AVPlayer alloc]initWithURL:movieURL]];
         _playerLayer.frame = CGRectMake(0,0,self.view.frame.size.width, self.view.frame.size.height);
-        _playerLayer.player.play;
+        [_playerLayer.player play];
     }
     return _playerLayer;
 }

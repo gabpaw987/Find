@@ -7,8 +7,7 @@
 #import "AboutToniteViewController.h"
 #import "AppDelegate.h"
 
-@interface AboutToniteViewController ()<UIScrollViewDelegate>
-@property (nonatomic,strong) UIScrollView * mainView;
+@interface AboutToniteViewController ()
 @property (nonatomic, strong) UIScrollView* slideShow;
 @end
 
@@ -16,7 +15,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO];
+   // [self.navigationController setNavigationBarHidden:NO];
 }
 
 
@@ -26,9 +25,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.mainView = [[UIScrollView alloc]initWithFrame:self.view.frame];
-    self.view.backgroundColor = [UIColor whiteColor];
-
     //Setup rotating images
     NSArray* aboutUsPics = @[ABOUT_PIC1 , ABOUT_PIC2, ABOUT_PIC3];
     NSArray* aboutUsText = @[@"a better life, a better world - two taps away", @" three students with a vision ", @" better education "];
@@ -68,24 +64,24 @@
     swipe.direction = UISwipeGestureRecognizerDirectionLeft;
     swipe.cancelsTouchesInView = YES;
     [self.slideShow addGestureRecognizer:swipe];
-    [self.mainView addSubview: self.slideShow];
+    [self.scrollMain addSubview: self.slideShow];
     [self startAnimationWithDuration:4.0];
     
     //Add divider between images and description.
     UIImageView *divider = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"divider.png"]];
     [divider setFrame:CGRectMake(0.0, self.view.frame.size.height/2-20, self.view.frame.size.width, 5)];
-    [self.mainView addSubview: divider];
+    [self.scrollMain addSubview: divider];
   
     //Adds the Tonite logo in "About tonite"
     UIImageView * toniteLabel = [[UIImageView alloc]initWithImage:[UIImage imageNamed:TONITE_LOGO ]];
-    [toniteLabel setFrame:CGRectMake(45.5, divider.frame.origin.y+12, 68.0, 36.0)];
-    [self.mainView addSubview: toniteLabel];
+    [toniteLabel setFrame:CGRectMake((self.view.frame.size.width/2 )- 10, divider.frame.origin.y+12, 68.0, 36.0)];
+    [self.scrollMain addSubview: toniteLabel];
     
-    UILabel * aboutLabel = [[UILabel alloc]initWithFrame:CGRectMake(8.0, divider.frame.origin.y+14, 60.0, 30.0)];
+    UILabel * aboutLabel = [[UILabel alloc]initWithFrame:CGRectMake((self.view.frame.size.width /2)-47, divider.frame.origin.y+14, 60.0, 30.0)];
     [aboutLabel setText:@"About"];
     [aboutLabel setTextColor:[UIColor blackColor]];
     [aboutLabel setFont:[ UIFont fontWithName:@"Avenir Light" size:16.0]];
-    [self.mainView addSubview:aboutLabel];
+    [self.scrollMain addSubview:aboutLabel];
     
     
     //Setup Description
@@ -98,7 +94,7 @@
     [descriptionLabel setTextColor:[UIColor blackColor]];
     [descriptionLabel setFont: [UIFont fontWithName:@"Avenir Light" size:13.0]];
     [descriptionLabel setOpaque: YES];
-    [self.mainView addSubview: descriptionLabel];
+    [self.scrollMain addSubview: descriptionLabel];
     
     
     //Setup contact up button
@@ -114,36 +110,23 @@
     [contactUs.layer setBorderColor:[UIColor blackColor].CGColor];
     [contactUs.layer setBorderWidth:0.4];
     [contactUs.layer setShadowColor:[UIColor blackColor].CGColor];
-    contactUs.layer.shadowOpacity = 0.8;
-    contactUs.layer.shadowRadius = 12;
-     contactUs.layer.shadowOffset = CGSizeMake(8.0f, 8.0f);
+    contactUs.layer.shadowOpacity = 0.4;
+    contactUs.layer.shadowRadius = 6;
+     contactUs.layer.shadowOffset = CGSizeMake(4.0f, 4.0f);
     [contactUs.titleLabel setFont:[UIFont fontWithName:@"Avenir Light" size:16.0] ];
-    [self.mainView addSubview: contactUs];
+    [self.scrollMain addSubview: contactUs];
  
     //resize scroll view
     CGRect frame = self.view.frame;
     frame.size.height = contactUs.frame.origin.y + 50;
-    [self.mainView setContentSize: frame.size];
-    self.mainView.scrollEnabled = YES;
-    self.mainView.bounces = NO;
-    self.mainView.userInteractionEnabled = YES;
-    [self.view addSubview: self.mainView];
+    [self.scrollMain setContentSize: frame.size];
+    
+    
+    UIBarButtonItem* buttonCancel = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(didClickCancel)];
+    [buttonCancel setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateNormal];
+    [buttonCancel setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateSelected];
+    [self.navigationItem setLeftBarButtonItem:buttonCancel];
 
-    
-    
-//    UIButton* itemMenu = [UIButton buttonWithType:UIButtonTypeCustom  ];
-//    [itemMenu addTarget:self action:@selector(didClickBarButtonMenu:) forControlEvents:UIControlEventTouchUpInside  ];
-//    [itemMenu setBackgroundImage: [UIImage imageNamed:BUTTON_CLOSE] forState:UIControlStateNormal];
-//    [itemMenu setBackgroundImage:[UIImage imageNamed:BUTTON_CLOSE ]forState:UIControlStateSelected];
-//    [itemMenu setFrame: CGRectMake(18, 20, 20, 20) ];
-//    [self.view addSubview:itemMenu];
-//    
-//
-//    UIBarButtonItem* buttonCancel = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(didClickCancel)];
-//    [buttonCancel setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateNormal];
-//    [buttonCancel setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateSelected];
-//    [self.navigationItem setLeftBarButtonItem:buttonCancel];
-    
 }
                                               
 -(void)didClickCancel{
@@ -273,19 +256,19 @@ else{
                             }];
 }
 
--(void) scrollViewDidScroll:(UIScrollView *)scrollView {
+
+-(void) scrollViewDidScroll:(UIScrollView *)scrollView{
     if([scrollView.panGestureRecognizer translationInView:self.view].y < 0)
     {
-      //  [self.navigationController setNavigationBarHidden:YES];
-     //  [self.navigationItem setHidesBackButton:YES animated:NO];
-       // [self.navigationController setNavigationBarHidden:YES animated:YES];
+        [self.navigationController setNavigationBarHidden:YES];
     }
     else
     {
-        //[self.navigationController setNavigationBarHidden:NO];
-     //   [self.navigationItem setHidesBackButton:NO animated:YES];
+        [self.navigationController setNavigationBarHidden:NO];
     }
     
+    
 }
+
 
 @end
