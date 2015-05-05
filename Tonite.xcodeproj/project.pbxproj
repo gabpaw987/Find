@@ -260,8 +260,6 @@
 		E32566BE1AE9AF9F002BFC0C /* aboutUs1.png in Resources */ = {isa = PBXBuildFile; fileRef = E32566BB1AE9AF9F002BFC0C /* aboutUs1.png */; };
 		E3268B7A1AA513C6004FA763 /* RightSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3268B791AA513C6004FA763 /* RightSideViewController.m */; };
 		E3285E4C1AEF65F800A2A9E1 /* button_twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = E3285E4B1AEF65F800A2A9E1 /* button_twitter.png */; };
-		E32992411AF11FFD00A3623E /* radio-off.png in Resources */ = {isa = PBXBuildFile; fileRef = E32992401AF11FFD00A3623E /* radio-off.png */; };
-		E32992431AF1200A00A3623E /* radio-on.png in Resources */ = {isa = PBXBuildFile; fileRef = E32992421AF1200A00A3623E /* radio-on.png */; };
 		E339573E1AD2FD9400A6D2AD /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E339573D1AD2FD9400A6D2AD /* MenuTableViewCell.m */; };
 		E33957401AD30DCB00A6D2AD /* TONITELOGO_new.png in Resources */ = {isa = PBXBuildFile; fileRef = E339573F1AD30DCB00A6D2AD /* TONITELOGO_new.png */; };
 		E33957431AD39BC900A6D2AD /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E33957411AD39BC900A6D2AD /* Main_iPhone.storyboard */; };
@@ -283,6 +281,8 @@
 		E3B871F81AC774FB009223D5 /* the411.png in Resources */ = {isa = PBXBuildFile; fileRef = E3B871EF1AC774FB009223D5 /* the411.png */; };
 		E3B871F91AC774FB009223D5 /* thegiveback.png in Resources */ = {isa = PBXBuildFile; fileRef = E3B871F01AC774FB009223D5 /* thegiveback.png */; };
 		E3B871FA1AC774FB009223D5 /* ucla2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E3B871F11AC774FB009223D5 /* ucla2.jpg */; };
+		E3C4859C1AF8735F00516E23 /* radio-on.png in Resources */ = {isa = PBXBuildFile; fileRef = E3C4859A1AF8735F00516E23 /* radio-on.png */; };
+		E3C4859D1AF8735F00516E23 /* radio-off.png in Resources */ = {isa = PBXBuildFile; fileRef = E3C4859B1AF8735F00516E23 /* radio-off.png */; };
 		E3DAE93A1AEB2A59009EA94F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3DAE9391AEB2A59009EA94F /* Default-568h@2x.png */; };
 		E3EA95571A96F2C6000066E8 /* TicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EA95561A96F2C6000066E8 /* TicketsViewController.m */; };
 		E3F2F51C1ADDF17C00F15B3D /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F2F51A1ADDF17C00F15B3D /* NSDate+Helper.m */; };
@@ -663,8 +663,6 @@
 		E3268B781AA513C6004FA763 /* RightSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightSideViewController.h; sourceTree = "<group>"; };
 		E3268B791AA513C6004FA763 /* RightSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightSideViewController.m; sourceTree = "<group>"; };
 		E3285E4B1AEF65F800A2A9E1 /* button_twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_twitter.png; sourceTree = "<group>"; };
-		E32992401AF11FFD00A3623E /* radio-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "radio-off.png"; path = "../../../../Downloads/radio-off.png"; sourceTree = "<group>"; };
-		E32992421AF1200A00A3623E /* radio-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "radio-on.png"; path = "../../../../Downloads/radio-on.png"; sourceTree = "<group>"; };
 		E339573C1AD2FD9400A6D2AD /* MenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewCell.h; sourceTree = "<group>"; };
 		E339573D1AD2FD9400A6D2AD /* MenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewCell.m; sourceTree = "<group>"; };
 		E339573F1AD30DCB00A6D2AD /* TONITELOGO_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TONITELOGO_new.png; sourceTree = "<group>"; };
@@ -689,6 +687,8 @@
 		E3B871EF1AC774FB009223D5 /* the411.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = the411.png; sourceTree = "<group>"; };
 		E3B871F01AC774FB009223D5 /* thegiveback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thegiveback.png; sourceTree = "<group>"; };
 		E3B871F11AC774FB009223D5 /* ucla2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ucla2.jpg; sourceTree = "<group>"; };
+		E3C4859A1AF8735F00516E23 /* radio-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio-on.png"; sourceTree = "<group>"; };
+		E3C4859B1AF8735F00516E23 /* radio-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radio-off.png"; sourceTree = "<group>"; };
 		E3DAE9391AEB2A59009EA94F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E3EA95551A96F2C6000066E8 /* TicketsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TicketsViewController.h; path = "untitled folder/TicketsViewController.h"; sourceTree = "<group>"; };
 		E3EA95561A96F2C6000066E8 /* TicketsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TicketsViewController.m; path = "untitled folder/TicketsViewController.m"; sourceTree = "<group>"; };
@@ -1723,16 +1723,6 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		E31B2CAE1AED696D001E812D /* RadioButtons */ = {
-			isa = PBXGroup;
-			children = (
-				E32992421AF1200A00A3623E /* radio-on.png */,
-				E32992401AF11FFD00A3623E /* radio-off.png */,
-			);
-			name = RadioButtons;
-			path = ../../Libraries;
-			sourceTree = "<group>";
-		};
 		E31EB7981AF7F160001544BC /* FAQs */ = {
 			isa = PBXGroup;
 			children = (
@@ -1801,7 +1791,8 @@
 		E34C28431AC875EE00D7640A /* 1x */ = {
 			isa = PBXGroup;
 			children = (
-				E31B2CAE1AED696D001E812D /* RadioButtons */,
+				E3C4859A1AF8735F00516E23 /* radio-on.png */,
+				E3C4859B1AF8735F00516E23 /* radio-off.png */,
 				E34C28411AC8717C00D7640A /* navbar.png */,
 				E3B630921AEB225F0001B91A /* Location.png */,
 				E304C30A1AE49FE60061EE72 /* image1.PNG */,
@@ -1960,15 +1951,16 @@
 				E34C284A1AC875EE00D7640A /* heart.png in Resources */,
 				CB48DD1D19D444580039C26B /* ic_map_draw@3x.png in Resources */,
 				CB422134194AD85000528013 /* ic_map_location@2x.png in Resources */,
+				E3C4859C1AF8735F00516E23 /* radio-on.png in Resources */,
 				CB7DFBB719520673007FC9B9 /* detail_image_placeholder.png in Resources */,
 				E31FD7DD1AD461CE00789CB2 /* Gradient-OVERLAY.png in Resources */,
 				CB7DFBC31952088E007FC9B9 /* profile_thumb_placeholder.png in Resources */,
+				E3C4859D1AF8735F00516E23 /* radio-off.png in Resources */,
 				E389218C1ADDF77000DB2B81 /* Yo.mov in Resources */,
 				CB42218C194AEC2300528013 /* DetailCell.xib in Resources */,
 				CB7DFB561951726C007FC9B9 /* ic_web_forward.png in Resources */,
 				CBC8C37A1954BC8B00CEFCFB /* button_route.png in Resources */,
 				CB7DFBCC19520A1E007FC9B9 /* slider_placeholder@2x.png in Resources */,
-				E32992431AF1200A00A3623E /* radio-on.png in Resources */,
 				E3B871F31AC774FB009223D5 /* Avatar.png in Resources */,
 				CB7DFBB01952044F007FC9B9 /* list_store_placeholder@2x.png in Resources */,
 				CB48DD0419D444460039C26B /* ic_detail_sms@3x.png in Resources */,
@@ -2014,7 +2006,6 @@
 				CB4221B4194B01BB00528013 /* divider.png in Resources */,
 				CB48DD2219D444580039C26B /* map_info_shadow@3x.png in Resources */,
 				E323436A1AF6B7AF00150235 /* toniteTC.txt in Resources */,
-				E32992411AF11FFD00A3623E /* radio-off.png in Resources */,
 				CB7DFBBF195207BC007FC9B9 /* profile_placeholder.png in Resources */,
 				CB48DD7119D44E630039C26B /* ic_search@3x.png in Resources */,
 				E34C28511AC878AC00D7640A /* FADE.png in Resources */,
