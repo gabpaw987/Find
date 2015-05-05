@@ -3,9 +3,7 @@
 #import "MGListCell.h"
 
 @implementation MGListCell
-
 @synthesize slideShow;
-
 @synthesize labelTitle;
 @synthesize labelSubtitle;
 
@@ -46,11 +44,6 @@
 @synthesize labelDateAddedVal;
 @synthesize mapViewCell;
 
-@synthesize labelHeader1;
-@synthesize labelHeader2;
-@synthesize labelHeader3;
-@synthesize labelHeader4;
-@synthesize imgViewFave;
 @synthesize labelVenueDescription;
 
 @synthesize ratingView;
@@ -59,7 +52,7 @@
 
 @synthesize lblNonSelectorTitle;
 
-
+@synthesize arrayPhotos;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -84,6 +77,9 @@
         imgViewIcon.image = unselectedImageIcon;
     }
 }
+
+
+
 
 - (IBAction)routeButton:(UIButton *)sender {
 }

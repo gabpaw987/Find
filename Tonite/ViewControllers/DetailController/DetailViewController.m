@@ -20,7 +20,9 @@
     MGFooterView* _footerView;
  
     NSArray* _arrayPhotos;
+    NSMutableArray* images;
     float _headerHeight;
+    int count;
 }
 
 @property (nonatomic, strong) id<MGAnimationController> animationController;
@@ -45,8 +47,8 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.tabBarController.navigationController setNavigationBarHidden:YES];
-    [self.navigationController setNavigationBarHidden:YES];
+//    [self.tabBarController.navigationController setNavigationBarHidden:YES];
+//    [self.navigationController setNavigationBarHidden:YES];
     [self.slidingViewController.panGesture setEnabled:NO];
 }
 
@@ -56,10 +58,25 @@
 }
 
 
+- (void)fadeImage {
+    if(count == [images count]-1)
+        count = 0;
+    else
+        count++;
+    _headerView.imgBackground.alpha = 0;
+    
+    [UIView transitionWithView:_headerView.imgBackground duration:2.0f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+         _headerView.imgBackground.image = images[count];
+        _headerView.imgBackground.alpha = 1;
+    }completion:NULL];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
     //Add Back Button
     UIButton* buttonCancel =[UIButton buttonWithType:UIButtonTypeCustom];
     [buttonCancel addTarget:self action:@selector(didClickBackButton) forControlEvents:UIControlEventTouchUpInside];
@@ -88,34 +105,34 @@
     TicketType* ticket = [CoreDataController getTicketTypeByEventId:_event.event_id];
     [_headerView.labelPrice setText:[NSString stringWithFormat:@"$%@",ticket.ticket_price]];
     
-    _arrayPhotos = [CoreDataController getEventPhotosByEventId:self.event.event_id];
-//    Video* vid = [CoreDataController getEventVideoByEventId:eventId];
-//    NSURL* url = [NSURL URLWithString:vid.video_url];
-//    self.video = [[MPMoviePlayerController alloc]initWithContentURL:url];
-//    [[NSNotificationCenter defaultCenter ] addObserver:self selector:@selector(didFinishPlaying:) name:MPMoviePlayerPlaybackDidFinishNotification object:self.video];
-//    [self.video setControlStyle: MPMovieControlStyleDefault];
-//    [self.video setShouldAutoplay:YES];
-//    [_headerView.imgBackground addSubview:self.video.view];
-//    [self.video setFullscreen:YES];
-//    
+    
     //Setup images and Video
-  
+    _arrayPhotos = [CoreDataController getEventPhotosByEventId:self.event.event_id];
+    [_headerView.imgBackground setBackgroundColor:[UIColor blackColor]];
     [_headerView.imgBackground setClipsToBounds:YES];
     [_headerView.imgBackground setContentMode:UIViewContentModeScaleAspectFill];
     Photo* p = _arrayPhotos == nil || _arrayPhotos.count == 0 ? nil : _arrayPhotos[0];
     if(p){
-        NSMutableArray * images = [[NSMutableArray alloc]init];
+        images = [[NSMutableArray alloc]init];
         for(int x = 0; x <[_arrayPhotos count]; x++) {
             p = _arrayPhotos[x];
             [images addObject: [UIImage imageWithData:[NSData dataWithContentsOfURL: [NSURL URLWithString:p.photo_url]]]];
         }
-        _headerView.imgBackground.image = [UIImage animatedImageWithImages:images duration:3.0];
-       
+       // _headerView.imgBackground.image = [UIImage animatedImageWithImages:images duration:3.0];
+        count = 0;
+        [_headerView.imgBackground setImage:images[0]];
+        [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(fadeImage) userInfo:nil repeats:YES];
+        
+        //[_headerView.imgBackground setAnimationImages:images];
+       // [_headerView.imgBackground setAnimationDuration: 5.0];
+       // [_headerView.imgBackground startAnimating];
     }
+   
+    [_headerView.buttonPhotos addTarget:self action:@selector(didClickButtonPhotos:) forControlEvents:UIControlEventTouchUpInside   ];
     
     
     //*  Static "BUY" Button *//
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+   // [self.view setBackgroundColor:[UIColor whiteColor]];
     CGFloat buttonheight = self.view.frame.size.height - 50;
     CGRect rect = CGRectMake(0, buttonheight, self.view.frame.size.width, 50);
     UIButton* buyButton = [[UIButton alloc]initWithFrame:rect];
@@ -151,10 +168,7 @@
     tableViewMain.noOfItems = 1;
 }
 
-//-(void) didFinishPlaying:(NSNotification* ) notification{
-//    [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:self.video];
-//    [self.video.view removeFromSuperview];
-//}
+
 
 - (void)didReceiveMemoryWarning
 {

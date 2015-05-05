@@ -70,7 +70,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="588"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexColor" patternImage="FE8B0B3C-8719-44BC-BE3F-5895EEB966C2" colorSpace="pattern"/>
+                                <color key="sectionIndexColor" patternImage="B63AD83D-7387-488F-95F5-E4CE1DB2FE59" colorSpace="pattern"/>
                                 <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" id="mWx-NG-H0N" customClass="MenuTableViewCell">
@@ -81,12 +81,12 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999964" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="gyX-Cb-wCH">
-                                                    <rect key="frame" x="-3" y="0.0" width="324" height="348"/>
+                                                    <rect key="frame" x="-2" y="-1" width="324" height="388"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </imageView>
                                                 <label opaque="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" adjustsFontSizeToFit="NO" id="rWf-nA-uZV">
-                                                    <rect key="frame" x="-7" y="0.0" width="324" height="364"/>
+                                                    <rect key="frame" x="-6" y="-1" width="324" height="404"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="26"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -94,7 +94,7 @@
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
                                                 <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.74999999999999978" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Glz-an-J6i">
-                                                    <rect key="frame" x="-3" y="320" width="320" height="8"/>
+                                                    <rect key="frame" x="-2" y="359" width="320" height="8"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </imageView>
@@ -105,7 +105,7 @@
                                             <outlet property="divider" destination="Glz-an-J6i" id="Wjl-iF-ee1"/>
                                             <outlet property="imgBackground" destination="gyX-Cb-wCH" id="ZKY-i8-QvA"/>
                                             <outlet property="labelTitle" destination="rWf-nA-uZV" id="Trv-0N-2Hd"/>
-                                            <segue destination="wgD-xh-uh2" kind="push" identifier="toCategoryPage" id="K3g-lj-xc3"/>
+                                            <segue destination="wgD-xh-uh2" kind="push" identifier="toEvents" id="QhH-IJ-SMy"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -268,7 +268,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="y56-eK-x4A" kind="push" id="izx-Br-9Lx"/>
+                                            <segue destination="W8k-KS-dcG" kind="push" id="ofP-C7-6dS"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -590,23 +590,47 @@
                     <view key="view" contentMode="scaleToFill" id="qoy-6m-rFa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="wNI-nh-S3j">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="h5x-AM-Hiy"/>
+                    <connections>
+                        <outlet property="scrollView" destination="wNI-nh-S3j" id="EaH-T1-g3J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cJ8-sZ-9hy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2224" y="4183"/>
         </scene>
+        <!--FAQ-->
+        <scene sceneID="GYf-6y-xd8">
+            <objects>
+                <viewController storyboardIdentifier="storyboardFAQ" title="FAQ" id="W8k-KS-dcG" customClass="WebViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cPm-jx-Zf9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="AyJ-YG-dTZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F3V-Or-QvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2222" y="2816"/>
+        </scene>
         <!--Privacy Policy-->
         <scene sceneID="Oa8-9H-aBx">
             <objects>
-                <viewController storyboardIdentifier="storyboardPrivacy" title="Privacy Policy" id="gpo-Wc-bWy" customClass="PrivacyPolicyViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="storyboardPrivacy" title="Privacy Policy" id="gpo-Wc-bWy" customClass="WebViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7yh-Sy-irU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" id="uPK-Vk-2yS">
+                            <webView contentMode="scaleToFill" id="d2e-z2-ExY">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -615,9 +639,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="dsf-4D-JDy"/>
-                    <connections>
-                        <outlet property="webView" destination="uPK-Vk-2yS" id="acE-h4-Fdb"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7qN-JI-uLK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -646,34 +667,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sLL-KU-zMe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2230" y="2144"/>
-        </scene>
-        <!--FAQs-->
-        <scene sceneID="Qqp-yt-XCZ">
-            <objects>
-                <tableViewController storyboardIdentifier="storyboardFAQs" title="FAQs" id="y56-eK-x4A" customClass="FAQTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="J0D-Sj-IY1">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FAQCell" id="oR7-pE-iEg">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oR7-pE-iEg" id="T1E-DN-Pyg">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <sections/>
-                        <connections>
-                            <outlet property="dataSource" destination="y56-eK-x4A" id="cY7-r2-Whr"/>
-                            <outlet property="delegate" destination="y56-eK-x4A" id="9Ny-4K-bGp"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="dxr-Zo-kWf"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NlU-0r-qig" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2224" y="2808"/>
         </scene>
         <!--Event View Controller-->
         <scene sceneID="6le-vZ-sUL">
@@ -897,7 +890,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FE8B0B3C-8719-44BC-BE3F-5895EEB966C2" width="256" height="256">
+        <image name="B63AD83D-7387-488F-95F5-E4CE1DB2FE59" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGTk9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEQcI
 ExQZHh8nKzIzNDw/QkhLVSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NW

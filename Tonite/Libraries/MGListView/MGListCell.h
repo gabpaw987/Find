@@ -11,6 +11,7 @@
 
 @property (nonatomic, retain) IBOutlet UILabel* labelTitle;
 @property (nonatomic, retain) IBOutlet UILabel* labelSubtitle;
+@property (strong, nonatomic) IBOutlet UIImageView* imgBackground;
 
 
 @property (nonatomic, retain) IBOutlet UILabel* labelDescription;
@@ -61,10 +62,6 @@
 
 @property (nonatomic, retain) IBOutlet MGMapView* mapViewCell;
 
-@property (nonatomic, retain) IBOutlet UILabel* labelHeader4;
-@property (nonatomic, retain) IBOutlet UILabel* labelHeader3;
-@property (nonatomic, retain) IBOutlet UILabel* labelHeader2;
-@property (nonatomic, retain) IBOutlet UILabel* labelHeader1;
 
 @property (nonatomic, retain) IBOutlet UILabel* lblNonSelectorTitle;
 
@@ -72,6 +69,7 @@
 
 
 @property (strong, nonatomic) IBOutlet UIButton *routeButton;
+@property (strong, nonatomic) NSMutableArray* arrayPhotos;
 
 
 @end

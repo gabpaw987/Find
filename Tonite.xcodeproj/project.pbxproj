@@ -246,14 +246,14 @@
 		CBE78817194B735D0010B76E /* UILabel+DynamicHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE78816194B735D0010B76E /* UILabel+DynamicHeight.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		CBFEC954194CC0BC00A64FEC /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBFEC953194CC0BC00A64FEC /* ReviewCell.xib */; };
 		E304C2FD1AE45E080061EE72 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E304C2FC1AE45E080061EE72 /* SettingsViewController.m */; };
-		E304C3001AE465E20061EE72 /* FAQTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E304C2FF1AE465E20061EE72 /* FAQTableViewController.m */; };
 		E304C3041AE468770061EE72 /* AboutMeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E304C3031AE468770061EE72 /* AboutMeTableViewController.m */; };
-		E304C3071AE468A20061EE72 /* PrivacyPolicyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E304C3061AE468A20061EE72 /* PrivacyPolicyViewController.m */; };
 		E304C30B1AE49FE70061EE72 /* image1.PNG in Resources */ = {isa = PBXBuildFile; fileRef = E304C30A1AE49FE60061EE72 /* image1.PNG */; };
-		E315EEB51AF494F200F45880 /* toniteTC.txt in Resources */ = {isa = PBXBuildFile; fileRef = E315EEB41AF494F200F45880 /* toniteTC.txt */; };
+		E31EB7971AF7F15B001544BC /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E31EB7961AF7F15B001544BC /* WebViewController.m */; };
+		E31EB79B1AF7F488001544BC /* PrivacyPolicyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E31EB79A1AF7F488001544BC /* PrivacyPolicyViewController.m */; };
 		E31FD7DD1AD461CE00789CB2 /* Gradient-OVERLAY.png in Resources */ = {isa = PBXBuildFile; fileRef = E31FD7DC1AD461CE00789CB2 /* Gradient-OVERLAY.png */; };
 		E3216FB51ACA45AA00F23BBB /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3216FB41ACA45AA00F23BBB /* TabBarViewController.m */; };
 		E3216FBC1ACA4D2100F23BBB /* HamburgerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E3216FBB1ACA4D2100F23BBB /* HamburgerButton.m */; };
+		E323436A1AF6B7AF00150235 /* toniteTC.txt in Resources */ = {isa = PBXBuildFile; fileRef = E32343691AF6B7AF00150235 /* toniteTC.txt */; };
 		E32566B81AE994C9002BFC0C /* ToniteNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E32566B71AE994C9002BFC0C /* ToniteNavigationBar.m */; };
 		E32566BC1AE9AF9F002BFC0C /* aboutUs3.png in Resources */ = {isa = PBXBuildFile; fileRef = E32566B91AE9AF9F002BFC0C /* aboutUs3.png */; };
 		E32566BD1AE9AF9F002BFC0C /* aboutUs2.png in Resources */ = {isa = PBXBuildFile; fileRef = E32566BA1AE9AF9F002BFC0C /* aboutUs2.png */; };
@@ -642,19 +642,19 @@
 		CBFEC953194CC0BC00A64FEC /* ReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
 		E304C2FB1AE45E080061EE72 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		E304C2FC1AE45E080061EE72 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		E304C2FE1AE465E20061EE72 /* FAQTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAQTableViewController.h; sourceTree = "<group>"; };
-		E304C2FF1AE465E20061EE72 /* FAQTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAQTableViewController.m; sourceTree = "<group>"; };
 		E304C3021AE468770061EE72 /* AboutMeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutMeTableViewController.h; sourceTree = "<group>"; };
 		E304C3031AE468770061EE72 /* AboutMeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutMeTableViewController.m; sourceTree = "<group>"; };
-		E304C3051AE468A20061EE72 /* PrivacyPolicyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyPolicyViewController.h; sourceTree = "<group>"; };
-		E304C3061AE468A20061EE72 /* PrivacyPolicyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyPolicyViewController.m; sourceTree = "<group>"; };
 		E304C30A1AE49FE60061EE72 /* image1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1.PNG; sourceTree = "<group>"; };
-		E315EEB41AF494F200F45880 /* toniteTC.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = toniteTC.txt; path = ../../../../Desktop/tonite_images/toniteTC.txt; sourceTree = "<group>"; };
+		E31EB7951AF7F15B001544BC /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		E31EB7961AF7F15B001544BC /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		E31EB7991AF7F488001544BC /* PrivacyPolicyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyPolicyViewController.h; sourceTree = "<group>"; };
+		E31EB79A1AF7F488001544BC /* PrivacyPolicyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyPolicyViewController.m; sourceTree = "<group>"; };
 		E31FD7DC1AD461CE00789CB2 /* Gradient-OVERLAY.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Gradient-OVERLAY.png"; path = "../../Views/Gradient-OVERLAY.png"; sourceTree = "<group>"; };
 		E3216FB31ACA45AA00F23BBB /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		E3216FB41ACA45AA00F23BBB /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TabBarViewController.m; sourceTree = "<group>"; };
 		E3216FB91ACA4C3300F23BBB /* LBHamburgerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBHamburgerButton.h; sourceTree = "<group>"; };
 		E3216FBB1ACA4D2100F23BBB /* HamburgerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HamburgerButton.m; sourceTree = "<group>"; };
+		E32343691AF6B7AF00150235 /* toniteTC.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = toniteTC.txt; path = ../../../../Desktop/tonite_images/toniteTC.txt; sourceTree = "<group>"; };
 		E32566B61AE994C9002BFC0C /* ToniteNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToniteNavigationBar.h; sourceTree = "<group>"; };
 		E32566B71AE994C9002BFC0C /* ToniteNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToniteNavigationBar.m; sourceTree = "<group>"; };
 		E32566B91AE9AF9F002BFC0C /* aboutUs3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aboutUs3.png; sourceTree = "<group>"; };
@@ -1172,7 +1172,7 @@
 		CBAED25B1948A40F00769D68 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E315EEB41AF494F200F45880 /* toniteTC.txt */,
+				E32343691AF6B7AF00150235 /* toniteTC.txt */,
 				E389218B1ADDF77000DB2B81 /* Yo.mov */,
 				E34C28431AC875EE00D7640A /* 1x */,
 				E3B871E81AC774FB009223D5 /* tonite_images */,
@@ -1713,16 +1713,6 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		E304C3011AE465E90061EE72 /* FAQViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E304C2FF1AE465E20061EE72 /* FAQTableViewController.m */,
-				E304C2FE1AE465E20061EE72 /* FAQTableViewController.h */,
-			);
-			name = FAQViewController;
-			path = ..;
-			sourceTree = "<group>";
-		};
 		E304C3081AE468C60061EE72 /* CreateAccountViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1730,16 +1720,6 @@
 				E304C3021AE468770061EE72 /* AboutMeTableViewController.h */,
 			);
 			name = CreateAccountViewController;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		E304C3091AE468D20061EE72 /* PrivacyPolicyViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E304C3061AE468A20061EE72 /* PrivacyPolicyViewController.m */,
-				E304C3051AE468A20061EE72 /* PrivacyPolicyViewController.h */,
-			);
-			name = PrivacyPolicyViewController;
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -1751,6 +1731,24 @@
 			);
 			name = RadioButtons;
 			path = ../../Libraries;
+			sourceTree = "<group>";
+		};
+		E31EB7981AF7F160001544BC /* FAQs */ = {
+			isa = PBXGroup;
+			children = (
+				E31EB7961AF7F15B001544BC /* WebViewController.m */,
+				E31EB7951AF7F15B001544BC /* WebViewController.h */,
+			);
+			name = FAQs;
+			sourceTree = "<group>";
+		};
+		E31EB79C1AF7F4CF001544BC /* PrivacyPolicyViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E31EB79A1AF7F488001544BC /* PrivacyPolicyViewController.m */,
+				E31EB7991AF7F488001544BC /* PrivacyPolicyViewController.h */,
+			);
+			name = PrivacyPolicyViewController;
 			sourceTree = "<group>";
 		};
 		E3216FB61ACA45AE00F23BBB /* TabBarViewController */ = {
@@ -1831,10 +1829,10 @@
 			children = (
 				E304C2F71AE459D40061EE72 /* SettingsViewController */,
 				E304C3081AE468C60061EE72 /* CreateAccountViewController */,
-				E304C3091AE468D20061EE72 /* PrivacyPolicyViewController */,
-				E304C3011AE465E90061EE72 /* FAQViewController */,
 				CB820AE1194F7C69000E64DB /* T&CController */,
 				CB820ADE194F7C69000E64DB /* AboutToniteController */,
+				E31EB7981AF7F160001544BC /* FAQs */,
+				E31EB79C1AF7F4CF001544BC /* PrivacyPolicyViewController */,
 			);
 			name = Settings;
 			path = AboutUsController;
@@ -2015,6 +2013,7 @@
 				CB26276F19508DA60024C15A /* ic_map.png in Resources */,
 				CB4221B4194B01BB00528013 /* divider.png in Resources */,
 				CB48DD2219D444580039C26B /* map_info_shadow@3x.png in Resources */,
+				E323436A1AF6B7AF00150235 /* toniteTC.txt in Resources */,
 				E32992411AF11FFD00A3623E /* radio-off.png in Resources */,
 				CB7DFBBF195207BC007FC9B9 /* profile_placeholder.png in Resources */,
 				CB48DD7119D44E630039C26B /* ic_search@3x.png in Resources */,
@@ -2038,7 +2037,6 @@
 				CB7199521959B2FD001DB700 /* ReviewLoadMoreCell.xib in Resources */,
 				CB2627AF1950CE050024C15A /* FooterView.xib in Resources */,
 				E3B871F91AC774FB009223D5 /* thegiveback.png in Resources */,
-				E315EEB51AF494F200F45880 /* toniteTC.txt in Resources */,
 				CB48DD8519D452030039C26B /* image_viewer_placeholder@3x.png in Resources */,
 				E3B871F21AC774FB009223D5 /* artsCulture.png in Resources */,
 				CB48DD2019D444580039C26B /* ic_map_refresh@3x.png in Resources */,
@@ -2096,6 +2094,7 @@
 				CBAED3811948A4EF00769D68 /* MGDrawView.m in Sources */,
 				CBAED3701948A4EF00769D68 /* MGListView.m in Sources */,
 				CBAED4081948E18400769D68 /* NSString+XMLEntities.m in Sources */,
+				E31EB7971AF7F15B001544BC /* WebViewController.m in Sources */,
 				CBAED3B81948A4EF00769D68 /* MGUIImageExtras.m in Sources */,
 				CBAED3AE1948A4EF00769D68 /* MGRawScrollView.m in Sources */,
 				E3216FBC1ACA4D2100F23BBB /* HamburgerButton.m in Sources */,
@@ -2105,7 +2104,6 @@
 				CB344E8319787F7D000784DA /* NSManageObject+Bindings.m in Sources */,
 				CBAED3AB1948A4EF00769D68 /* MGMapRoute.m in Sources */,
 				E304C2FD1AE45E080061EE72 /* SettingsViewController.m in Sources */,
-				E304C3071AE468A20061EE72 /* PrivacyPolicyViewController.m in Sources */,
 				CB42218A194ADF4E00528013 /* MGHeaderView.m in Sources */,
 				E32566B81AE994C9002BFC0C /* ToniteNavigationBar.m in Sources */,
 				E3216FB51ACA45AA00F23BBB /* TabBarViewController.m in Sources */,
@@ -2154,10 +2152,10 @@
 				CBAED3671948A4EF00769D68 /* MEDynamicTransition.m in Sources */,
 				CBAED3BC1948A4EF00769D68 /* Reachability.m in Sources */,
 				141E87FF1AD679E700767BD0 /* QRTicketViewController.m in Sources */,
+				E31EB79B1AF7F488001544BC /* PrivacyPolicyViewController.m in Sources */,
 				CBAED3931948A4EF00769D68 /* AFHTTPClient.m in Sources */,
 				CBAED2611948A43B00769D68 /* AppDelegate.m in Sources */,
 				CBAED4071948E18400769D68 /* NSString+HTML.m in Sources */,
-				E304C3001AE465E20061EE72 /* FAQTableViewController.m in Sources */,
 				CB820A9D194F7793000E64DB /* LoginViewController.m in Sources */,
 				CBAED3981948A4EF00769D68 /* AFPropertyListRequestOperation.m in Sources */,
 				CBAED4061948E18400769D68 /* NSDate+InternetDateTime.m in Sources */,

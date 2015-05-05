@@ -11,6 +11,13 @@
 #define ABOUT_PIC1 @"aboutUs1.png"
 
 
+//Set Privacy Webview
+#define PRIVACY_POLICY @"http://www.hashtagtonite.com/privacy"
+
+//Set FAQ Webview
+#define FAQ_PAGE @"http://www.hashtagtonite.com/faq"
+
+
 
 
 

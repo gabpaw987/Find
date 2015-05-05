@@ -1,40 +1,40 @@
 //
-//  PrivacyPolicyViewController.m
+//  WebViewController.m
 //  Tonite
 //
-//  Created by Julie Murakami on 4/19/15.
+//  Created by Julie Murakami on 5/4/15.
 //  Copyright (c) 2015 Client. All rights reserved.
 //
 
-#import "PrivacyPolicyViewController.h"
+#import "WebViewController.h"
 
-@interface PrivacyPolicyViewController ()<UIScrollViewDelegate>
+@interface WebViewController ()
 
 @end
 
-@implementation PrivacyPolicyViewController
-
+@implementation WebViewController
 -(void) viewWillAppear:(BOOL)animated   {
     [super viewWillAppear:animated];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
-    NSString* textURL = @"http://www.hashtagtonite.com/privacy";
+    // Do any additional setup after loading the view.
+
+    NSString* textURL = FAQ_PAGE;
     NSURL * weburl = [NSURL URLWithString:textURL];
     NSURLRequest* request = [NSURLRequest requestWithURL:weburl];
     [_webView loadRequest:request];
-    
+  
     
     [self.navigationController setNavigationBarHidden:NO];
     UIBarButtonItem* buttonCancel = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(didClickCancel)];
     [buttonCancel setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateNormal];
     [buttonCancel setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateSelected];
     [self.navigationItem setLeftBarButtonItem:buttonCancel];
-
-
+    
+    
 }
 
 -(void) didClickCancel{
@@ -57,7 +57,7 @@
         [self.navigationController setNavigationBarHidden:NO];
     }
 }
-    
+
 
 /*
 #pragma mark - Navigation
@@ -68,6 +68,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
 
 @end

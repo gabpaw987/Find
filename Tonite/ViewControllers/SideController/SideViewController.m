@@ -133,7 +133,7 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     NSIndexPath* index = [self.tableViewSide indexPathForSelectedRow];
-    EventViewController* vc = segue.destinationViewController;
+    EventViewController    * vc = segue.destinationViewController;
     vc.mainCategoryId= [NSString stringWithFormat:@"%ld", (long)index.row+ 1];
     
 }
