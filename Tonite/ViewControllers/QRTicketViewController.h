@@ -16,9 +16,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *venueString;
 @property (weak, nonatomic) IBOutlet UILabel *eventNameString;
 @property (weak, nonatomic) IBOutlet UILabel *timeString;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundPic;
+@property (weak, nonatomic) IBOutlet UIImageView *ticketPic;
+
 
 @property Event * event;
 @property Venue * venue;
-@property Ticket * ticket;
+@property TicketType * ticketType;
 
 @end
