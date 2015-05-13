@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		141E87FF1AD679E700767BD0 /* QRTicketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141E87FE1AD679E700767BD0 /* QRTicketViewController.m */; };
 		144718B61ACA22DF00888989 /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 144718B51ACA22DF00888989 /* QRViewController.m */; };
+		14ECE72E1AFF2FAE0017F835 /* TicketBG-grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 14ECE72C1AFF2FAE0017F835 /* TicketBG-grey.png */; };
+		14ECE72F1AFF2FAE0017F835 /* TicketBG-short.png in Resources */ = {isa = PBXBuildFile; fileRef = 14ECE72D1AFF2FAE0017F835 /* TicketBG-short.png */; };
 		562FD4231AC060BE00F6DD9C /* VenueCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 562FD4221AC060BE00F6DD9C /* VenueCategory.m */; };
 		562FD4251AC06CC400F6DD9C /* Video.h in Resources */ = {isa = PBXBuildFile; fileRef = 562FD4241AC06CC400F6DD9C /* Video.h */; };
 		562FD4271AC06CDE00F6DD9C /* TextEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 562FD4261AC06CDE00F6DD9C /* TextEntry.m */; };
@@ -250,7 +252,6 @@
 		E31FD7DD1AD461CE00789CB2 /* Gradient-OVERLAY.png in Resources */ = {isa = PBXBuildFile; fileRef = E31FD7DC1AD461CE00789CB2 /* Gradient-OVERLAY.png */; };
 		E3216FB51ACA45AA00F23BBB /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3216FB41ACA45AA00F23BBB /* TabBarViewController.m */; };
 		E3216FBC1ACA4D2100F23BBB /* HamburgerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E3216FBB1ACA4D2100F23BBB /* HamburgerButton.m */; };
-		E323436A1AF6B7AF00150235 /* toniteTC.txt in Resources */ = {isa = PBXBuildFile; fileRef = E32343691AF6B7AF00150235 /* toniteTC.txt */; };
 		E32566B81AE994C9002BFC0C /* ToniteNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E32566B71AE994C9002BFC0C /* ToniteNavigationBar.m */; };
 		E32566BC1AE9AF9F002BFC0C /* aboutUs3.png in Resources */ = {isa = PBXBuildFile; fileRef = E32566B91AE9AF9F002BFC0C /* aboutUs3.png */; };
 		E32566BD1AE9AF9F002BFC0C /* aboutUs2.png in Resources */ = {isa = PBXBuildFile; fileRef = E32566BA1AE9AF9F002BFC0C /* aboutUs2.png */; };
@@ -265,7 +266,6 @@
 		E34C284A1AC875EE00D7640A /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = E34C28441AC875EE00D7640A /* heart.png */; };
 		E34C284F1AC875EE00D7640A /* user160.png in Resources */ = {isa = PBXBuildFile; fileRef = E34C28491AC875EE00D7640A /* user160.png */; };
 		E34C28511AC878AC00D7640A /* FADE.png in Resources */ = {isa = PBXBuildFile; fileRef = E34C28501AC878AC00D7640A /* FADE.png */; };
-		E34CE17A1AEDBB360071FCB8 /* HEADHEAD.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E34CE1791AEDBB360071FCB8 /* HEADHEAD.jpg */; };
 		E38921891ADDF5D500DB2B81 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38921871ADDF5D500DB2B81 /* ViewController.m */; };
 		E389218C1ADDF77000DB2B81 /* Yo.mov in Resources */ = {isa = PBXBuildFile; fileRef = E389218B1ADDF77000DB2B81 /* Yo.mov */; };
 		E38C0C551AFC3D6500231524 /* FadeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E38C0C541AFC3D6500231524 /* FadeImageView.m */; };
@@ -301,6 +301,8 @@
 		141E87FE1AD679E700767BD0 /* QRTicketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRTicketViewController.m; sourceTree = "<group>"; };
 		144718B51ACA22DF00888989 /* QRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRViewController.m; sourceTree = "<group>"; };
 		144718B71ACA22F000888989 /* QRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRViewController.h; sourceTree = "<group>"; };
+		14ECE72C1AFF2FAE0017F835 /* TicketBG-grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TicketBG-grey.png"; sourceTree = "<group>"; };
+		14ECE72D1AFF2FAE0017F835 /* TicketBG-short.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TicketBG-short.png"; sourceTree = "<group>"; };
 		562FD4201AC0605200F6DD9C /* VenueCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VenueCategory.h; sourceTree = "<group>"; };
 		562FD4221AC060BE00F6DD9C /* VenueCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueCategory.m; sourceTree = "<group>"; };
 		562FD4241AC06CC400F6DD9C /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
@@ -655,7 +657,6 @@
 		E3216FB41ACA45AA00F23BBB /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TabBarViewController.m; sourceTree = "<group>"; };
 		E3216FB91ACA4C3300F23BBB /* LBHamburgerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBHamburgerButton.h; sourceTree = "<group>"; };
 		E3216FBB1ACA4D2100F23BBB /* HamburgerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HamburgerButton.m; sourceTree = "<group>"; };
-		E32343691AF6B7AF00150235 /* toniteTC.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = toniteTC.txt; path = ../../../../Desktop/tonite_images/toniteTC.txt; sourceTree = "<group>"; };
 		E32566B61AE994C9002BFC0C /* ToniteNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToniteNavigationBar.h; sourceTree = "<group>"; };
 		E32566B71AE994C9002BFC0C /* ToniteNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToniteNavigationBar.m; sourceTree = "<group>"; };
 		E32566B91AE9AF9F002BFC0C /* aboutUs3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aboutUs3.png; sourceTree = "<group>"; };
@@ -673,7 +674,6 @@
 		E34C28441AC875EE00D7640A /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
 		E34C28491AC875EE00D7640A /* user160.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user160.png; sourceTree = "<group>"; };
 		E34C28501AC878AC00D7640A /* FADE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FADE.png; sourceTree = "<group>"; };
-		E34CE1791AEDBB360071FCB8 /* HEADHEAD.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = HEADHEAD.jpg; path = ../../../../../Downloads/HEADHEAD.jpg; sourceTree = "<group>"; };
 		E38921871ADDF5D500DB2B81 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E38921881ADDF5D500DB2B81 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		E389218B1ADDF77000DB2B81 /* Yo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Yo.mov; sourceTree = "<group>"; };
@@ -1777,6 +1777,8 @@
 		E34C28431AC875EE00D7640A /* newIcons */ = {
 			isa = PBXGroup;
 			children = (
+				14ECE72C1AFF2FAE0017F835 /* TicketBG-grey.png */,
+				14ECE72D1AFF2FAE0017F835 /* TicketBG-short.png */,
 				E34C28411AC8717C00D7640A /* navbar.png */,
 				E3B630921AEB225F0001B91A /* Location.png */,
 				E304C30A1AE49FE60061EE72 /* image1.PNG */,
@@ -1845,7 +1847,6 @@
 		E3B871E81AC774FB009223D5 /* tonite_images */ = {
 			isa = PBXGroup;
 			children = (
-				E34CE1791AEDBB360071FCB8 /* HEADHEAD.jpg */,
 				E3B871E91AC774FB009223D5 /* artsCulture.png */,
 				E3B871EA1AC774FB009223D5 /* Avatar.png */,
 				E3B871EB1AC774FB009223D5 /* dine.png */,
@@ -1969,6 +1970,7 @@
 				CB7DFBB719520673007FC9B9 /* detail_image_placeholder.png in Resources */,
 				E31FD7DD1AD461CE00789CB2 /* Gradient-OVERLAY.png in Resources */,
 				CB7DFBC31952088E007FC9B9 /* profile_thumb_placeholder.png in Resources */,
+				14ECE72E1AFF2FAE0017F835 /* TicketBG-grey.png in Resources */,
 				E389218C1ADDF77000DB2B81 /* Yo.mov in Resources */,
 				CB42218C194AEC2300528013 /* DetailCell.xib in Resources */,
 				CB7DFB561951726C007FC9B9 /* ic_web_forward.png in Resources */,
@@ -2018,10 +2020,10 @@
 				CB48DD0519D444460039C26B /* ic_detail_website@3x.png in Resources */,
 				CB3B8E151949DBBF00574652 /* SliderCell.xib in Resources */,
 				CB2627A81950CC770024C15A /* ic_detail_email.png in Resources */,
+				14ECE72F1AFF2FAE0017F835 /* TicketBG-short.png in Resources */,
 				CB26276F19508DA60024C15A /* ic_map.png in Resources */,
 				CB4221B4194B01BB00528013 /* divider.png in Resources */,
 				CB48DD2219D444580039C26B /* map_info_shadow@3x.png in Resources */,
-				E323436A1AF6B7AF00150235 /* toniteTC.txt in Resources */,
 				CB7DFBBF195207BC007FC9B9 /* profile_placeholder.png in Resources */,
 				CB48DD7119D44E630039C26B /* ic_search@3x.png in Resources */,
 				E34C28511AC878AC00D7640A /* FADE.png in Resources */,
@@ -2083,7 +2085,6 @@
 				E32566BD1AE9AF9F002BFC0C /* aboutUs2.png in Resources */,
 				E3B871F41AC774FB009223D5 /* dine.png in Resources */,
 				CBC8C37B1954BC8B00CEFCFB /* button_route@2x.png in Resources */,
-				E34CE17A1AEDBB360071FCB8 /* HEADHEAD.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
