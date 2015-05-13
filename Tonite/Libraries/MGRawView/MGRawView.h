@@ -1,7 +1,7 @@
 
 
 #import <UIKit/UIKit.h>
-#import "RateView.h"
+
 #import "MGMapView.h"
 
 @class MGRawView;

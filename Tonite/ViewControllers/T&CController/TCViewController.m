@@ -34,7 +34,7 @@
     //tc.autoresizingMask = UIViewAutoresizingFlexibleHeight;
 
     NSError* error;
-    [ tc setText:[NSString stringWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"toniteTC" ofType:@"txt"] encoding:NSUTF8StringEncoding error:&error]];
+    [tc setText:[NSString stringWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"toniteTC" ofType:@"txt"] encoding:NSUTF8StringEncoding error:&error]];
 
     if(error){
         NSLog(@"Failed to read file");

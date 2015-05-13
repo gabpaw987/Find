@@ -12,7 +12,6 @@
 @synthesize arrayData = _arrayData;
 @synthesize object;
 @synthesize selectedIndex;
-@synthesize isCustomCell;
 @synthesize noOfItems;
 @synthesize refreshControl;
 
@@ -35,7 +34,6 @@
     
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    isCustomCell = NO;
     noOfItems = 0;
     refreshControl = [[UIRefreshControl alloc] init];
     
@@ -45,7 +43,6 @@
     
     if(color != nil)
         [refreshControl setTintColor:color];
-    
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     [_tableView addSubview:refreshControl];
 }
@@ -74,29 +71,18 @@
     [self.tableView registerNib:[UINib nibWithNibName:_nibName bundle:nil] forCellReuseIdentifier:_cellIdentifier];
 }
 
-- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
-    for (UIView * view in [self subviews]) {
-        if (view.userInteractionEnabled && [view pointInside:[self convertPoint:point toView:view] withEvent:event]) {
-            return YES;
-        }
-    }
-    return NO;
-}
-
-
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     if(noOfItems > 0) {
         return noOfItems;
     }
-    
     return _arrayData.count;
 }
 
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     MGListCell *cell = (MGListCell*)[tableView cellForRowAtIndexPath:indexPath];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     [self.delegate MGListView:self didSelectCell:cell indexPath:indexPath];
     selectedIndex = indexPath.row;
 }
@@ -120,20 +106,10 @@
     
     if(!cell) {
         cell =  [[MGListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:_cellIdentifier];
-    //[tableView dequeueReusableCellWithIdentifier:_cellIdentifier];
-        
-        [self.delegate MGListView:self didCreateCell:cell indexPath:indexPath];
-        return cell;
     }
-    
     return [self.delegate MGListView:self didCreateCell:cell indexPath:indexPath];
 }
 
--(void)setSelectedList:(NSInteger)index {
-    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
-    [self tableView:_tableView didSelectRowAtIndexPath:indexPath];
-}
 
 -(void)reloadData {
     [self.tableView registerNib:[UINib nibWithNibName:_nibName bundle:nil] forCellReuseIdentifier:_cellIdentifier];
@@ -144,6 +120,15 @@
     [self.delegate MGListView:self scrollViewDidScroll:scrollView];
 }
 
+
+
+
+
+-(void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    MGListCell* theCell = (MGListCell*) cell;
+    [theCell.imgView.timer invalidate];
+    theCell.imgView.timer = nil;
+}
 
 
 @end

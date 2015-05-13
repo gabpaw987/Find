@@ -7,6 +7,7 @@
 //
 
 #import "ToniteNavigationBar.h"
+#import "AppDelegate.h"
 
 @implementation ToniteNavigationBar
 
@@ -26,13 +27,15 @@
     
     [self setTransform:CGAffineTransformMakeTranslation(0, -38.0)];
     [[UINavigationBar appearance] setAlpha:0.6];
+    [[UINavigationBar appearance] setTranslucent:YES];
+    [[UINavigationBar appearance] setOpaque:NO];    
 }
 
 +(UIView*) createTitle: (NSString*) title{
     UILabel* titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(-3.0, 4.0, 75, 38)];
     [titleLabel setClipsToBounds:YES];
     [titleLabel setBackgroundColor:[UIColor clearColor]];
-    [titleLabel setAlpha:0.5];
+    [titleLabel setAlpha:0.4];
     [titleLabel setTextColor:[UIColor grayColor]];
     [titleLabel setFont:[UIFont fontWithName:@"Avenir Light" size:15.0]];
     [titleLabel setText: title];
@@ -53,12 +56,17 @@
     
     [btn setBackgroundImage:image forState:UIControlStateNormal];
     [btn setBackgroundImage:image forState:UIControlStateSelected];
-    [btn setUserInteractionEnabled:NO];
+    [btn setUserInteractionEnabled:YES];
+  // [btn addTarget:self  action:@selector(go2ToniteEvent:) forControlEvents:UIControlEventTouchUpInside];
     [view setBackgroundColor:[UIColor  clearColor]];
     [view addSubview:btn];
     view.layer.zPosition = 9999;
-    
     return view;
+}
+
+-(void) go2ToniteEvent:(id) sender {
+   // AppDelegate* delegate  = [UIApplication sharedApplication].delegate;
+ 
 }
 
 

@@ -47,8 +47,8 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-//    [self.tabBarController.navigationController setNavigationBarHidden:YES];
-//    [self.navigationController setNavigationBarHidden:YES];
+    [self.tabBarController.navigationController setNavigationBarHidden:YES];
+    [self.navigationController setNavigationBarHidden:YES];
     [self.slidingViewController.panGesture setEnabled:NO];
 }
 
@@ -59,16 +59,16 @@
 
 
 - (void)fadeImage {
-    if(count == [images count]-1)
+    if(count == [images count])
         count = 0;
-    else
-        count++;
     _headerView.imgBackground.alpha = 0;
     
     [UIView transitionWithView:_headerView.imgBackground duration:2.0f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
          _headerView.imgBackground.image = images[count];
         _headerView.imgBackground.alpha = 1;
-    }completion:NULL];
+    }completion:^(BOOL finished){
+        count++;
+    }];
 }
 
 - (void)viewDidLoad
@@ -76,6 +76,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self.tabBarController.navigationController setNavigationBarHidden:YES];
+    [self.navigationController setNavigationBarHidden:YES];
     
     //Add Back Button
     UIButton* buttonCancel =[UIButton buttonWithType:UIButtonTypeCustom];
@@ -118,21 +120,16 @@
             p = _arrayPhotos[x];
             [images addObject: [UIImage imageWithData:[NSData dataWithContentsOfURL: [NSURL URLWithString:p.photo_url]]]];
         }
-       // _headerView.imgBackground.image = [UIImage animatedImageWithImages:images duration:3.0];
-        count = 0;
+        count = 1;
         [_headerView.imgBackground setImage:images[0]];
-        [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(fadeImage) userInfo:nil repeats:YES];
-        
-        //[_headerView.imgBackground setAnimationImages:images];
-       // [_headerView.imgBackground setAnimationDuration: 5.0];
-       // [_headerView.imgBackground startAnimating];
+        if(images.count > 1)
+            [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(fadeImage) userInfo:nil repeats:YES];
     }
    
     [_headerView.buttonPhotos addTarget:self action:@selector(didClickButtonPhotos:) forControlEvents:UIControlEventTouchUpInside   ];
     
     
     //*  Static "BUY" Button *//
-   // [self.view setBackgroundColor:[UIColor whiteColor]];
     CGFloat buttonheight = self.view.frame.size.height - 50;
     CGRect rect = CGRectMake(0, buttonheight, self.view.frame.size.width, 50);
     UIButton* buyButton = [[UIButton alloc]initWithFrame:rect];
@@ -260,27 +257,22 @@
         [cell.mapViewCell baseInit];
         cell.mapViewCell.mapView.zoomEnabled = NO;
         cell.mapViewCell.mapView.scrollEnabled = NO;
-    
         [cell.routeButton addTarget:self
                          action:@selector(didClickButtonRoute:)
                forControlEvents:UIControlEventTouchUpInside];
 
-    
-    CLLocationCoordinate2D coords = CLLocationCoordinate2DMake([_event.lat doubleValue], [_event.lon doubleValue]);
-    
-    if(CLLocationCoordinate2DIsValid(coords)) {
-        
+        CLLocationCoordinate2D coords = CLLocationCoordinate2DMake([_event.lat doubleValue], [_event.lon doubleValue]);
+        if(CLLocationCoordinate2DIsValid(coords)) {
         MGMapAnnotation* ann = [[MGMapAnnotation alloc] initWithCoordinate:coords
                                                                       name:_venue.venue_name                                                                   description:_event.event_address1];
         ann.object = _event;
-        
         [cell.mapViewCell setMapData:[NSMutableArray arrayWithObjects:ann, nil] ];
         [cell.mapViewCell setSelectedAnnotation:coords];
         [cell.mapViewCell moveCenterByOffset:CGPointMake(0, -40) from:coords];
     }
 
     CGRect venueFrame = cell.labelVenue.frame;
-    venueFrame.origin.y = mapFrame.origin.y + 160;
+    venueFrame.origin.y = mapFrame.origin.y + cell.mapViewCell.bounds.size.height;
     NSLog(@"label for venue starts at  %f", venueFrame.origin.y);
     [cell.labelVenue setFrame: venueFrame];
     cell.labelVenueDescription.numberOfLines = 0;
@@ -298,11 +290,8 @@
         CGRect descripFrame = cell.labelVenueDescription.frame;
         descripFrame.origin.y = venueFrame.origin.y + 40;
         NSLog( @" description of venue starts at %f, and ends at %f",descripFrame.origin.y , descripFrame.origin.y + descripFrame.size.height);
-        [cell.labelVenueDescription setFrame: descripFrame];
-        float height = cell.labelVenueDescription.frame.size.height + cell.labelVenueDescription.frame.origin.y;
-        CGRect frame = cell.frame;
-        frame.size.height = height;
-        [cell setFrame: frame];
+    NSLog( @" cell height is ... %f" , cell.frame.size.height);
+    [cell.labelVenueDescription setFrame: descripFrame];
         return cell;
 }
 
@@ -313,18 +302,13 @@
     
     [cell.labelDescription setText:[_event.event_desc stringByDecodingHTMLEntities]];
     CGSize size = [cell.labelDescription sizeOfMultiLineLabel];
-    CGRect frame = cell.labelDescription.frame;
     [cell.labelVenueDescription setText: [_venue.venue_desc stringByDecodingHTMLEntities]];
     CGSize vsize = [cell.labelVenueDescription sizeOfMultiLineLabel];
     
-    float totalHeightLabel = size.height + frame.origin.y + vsize.height+ 200;
+    float totalHeightLabel =  size.height +vsize.height+ 200;
     
-    if(totalHeightLabel > cell.frame.size.height) {
-        return totalHeightLabel;
-    }
-    else{
-        return totalHeightLabel;
-    }
+    return totalHeightLabel;
+   
 }
 
 -(NSString*)formatDateWithStart:(NSString*)dateAndStart withEndTime:(NSString*)endTime{
@@ -374,21 +358,21 @@
 }
 
 #pragma mark - UIViewControllerTransitioningDelegate
-//
-//- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
-//                                                                  presentingController:(UIViewController *)presenting
-//                                                                      sourceController:(UIViewController *)source
-//{
-//    self.animationController.isPresenting = YES;
-//    
-//    return self.animationController;
-//}
-//
-//- (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
-//    self.animationController.isPresenting = NO;
-//    
-//    return self.animationController;
-//}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                  presentingController:(UIViewController *)presenting
+                                                                      sourceController:(UIViewController *)source
+{
+    self.animationController.isPresenting = YES;
+    
+    return self.animationController;
+}
+
+- (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    self.animationController.isPresenting = NO;
+    
+    return self.animationController;
+}
 
 -(void)didClickButtonRoute:(id)sender {
     

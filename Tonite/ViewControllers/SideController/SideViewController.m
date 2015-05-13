@@ -42,11 +42,6 @@
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES];
 
-    // Do any additional setup after loading the view.
-    tableViewSide.delegate = self;
-    tableViewSide.dataSource = self;
-    tableViewSide.frame = self.view.frame;
-    //Set cell size for two per view
     AppDelegate* delegate = [AppDelegate instance];
     _cellHeight = (delegate.window.frame.size.height-45)/2;
   

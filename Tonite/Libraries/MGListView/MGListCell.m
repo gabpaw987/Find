@@ -3,61 +3,26 @@
 #import "MGListCell.h"
 
 @implementation MGListCell
-@synthesize slideShow;
-@synthesize labelTitle;
-@synthesize labelSubtitle;
+
+@synthesize labelTitle;     //Event name
+@synthesize labelSubtitle;  //Venue name
+@synthesize labelDetails;   //Date and time
+@synthesize imgView;        //Event pics
+@synthesize labelExtraInfo; //Price
+@synthesize fade;           //Fade on top
+@synthesize divider;        //Translucent Between cells
+@synthesize locationIcon;   
 
 
-@synthesize labelDescription;
-@synthesize labelInfo;
-@synthesize labelDetails;
-@synthesize labelExtraInfo;
-@synthesize imgViewThumb;
-@synthesize imgViewBg;
-@synthesize imgViewPic;
-
-
-@synthesize selectedImage;
-@synthesize unselectedImage;
-@synthesize imgViewSelectionBackground;
-
-@synthesize selectedColor;
-@synthesize unSelectedColor;
-@synthesize imgViewArrow;
-
-@synthesize selectedImageArrow;
-@synthesize unselectedImageArrow;
-
-@synthesize selectedImageIcon;
-@synthesize unselectedImageIcon;
-
-@synthesize imgViewIcon;
-
-@synthesize object;
-
-
-@synthesize labelStatus;
-@synthesize labelDateAdded;
-@synthesize labelAddress;
-@synthesize labelVenue;
-
-@synthesize labelDateAddedVal;
 @synthesize mapViewCell;
-
 @synthesize labelVenueDescription;
-
-@synthesize ratingView;
-
-@synthesize buttonDirections;
-
-@synthesize lblNonSelectorTitle;
-
-@synthesize arrayPhotos;
+@synthesize labelDescription;   //Event Description
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
+        
     }
     return self;
 }
@@ -67,17 +32,12 @@
     [super setSelected:selected animated:animated];
     
     if(selected) {
-        imgViewSelectionBackground.image = selectedImage;
-        imgViewArrow.image = selectedImageArrow;
-        imgViewIcon.image = selectedImageIcon;
+        [ self.imgView setAlpha:0.7];
     }
     else {
-        imgViewSelectionBackground.image = unselectedImage;
-        imgViewArrow.image = unselectedImageArrow;
-        imgViewIcon.image = unselectedImageIcon;
+        [self.imgView setAlpha:1.0];
     }
 }
-
 
 
 

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface PrivacyPolicyViewController : UIViewController
-
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
+
+
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "MGRawView.h"
-#import "RateView.h"
+
 
 @interface MGHeaderView : MGRawView
 

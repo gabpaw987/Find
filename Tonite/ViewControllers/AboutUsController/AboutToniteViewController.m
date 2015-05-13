@@ -18,7 +18,11 @@
    // [self.navigationController setNavigationBarHidden:NO];
 }
 
-
+-(void) viewWillDisappear:(BOOL)animated {
+    [animateTimer invalidate];
+    animateTimer = nil;
+    [super viewWillDisappear:animateTimer];
+}
 
 
 - (void)viewDidLoad

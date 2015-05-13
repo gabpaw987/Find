@@ -2,7 +2,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EventViewController : UIViewController <MGSliderDelegate, MGListViewDelegate>
+@interface EventViewController : UIViewController <MGListViewDelegate>
 
 
 @property (retain, nonatomic) IBOutlet MGListView *listViewMain;

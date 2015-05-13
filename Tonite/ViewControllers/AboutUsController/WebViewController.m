@@ -22,7 +22,7 @@
     
     // Do any additional setup after loading the view.
 
-    NSString* textURL = FAQ_PAGE;
+    NSString* textURL = @"http://www.hashtagtonite.com/faq";
     NSURL * weburl = [NSURL URLWithString:textURL];
     NSURLRequest* request = [NSURLRequest requestWithURL:weburl];
     [_webView loadRequest:request];
@@ -33,8 +33,6 @@
     [buttonCancel setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateNormal];
     [buttonCancel setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir Light" size:13.0]} forState:UIControlStateSelected];
     [self.navigationItem setLeftBarButtonItem:buttonCancel];
-    
-    
 }
 
 -(void) didClickCancel{

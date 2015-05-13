@@ -35,7 +35,7 @@
 @property (nonatomic, retain) NSMutableArray* arrayData;
 @property (nonatomic, retain) id object;
 
-@property (nonatomic, assign) BOOL isCustomCell;
+//@property (nonatomic, assign) BOOL isCustomCell;
 
 @property (nonatomic, assign) NSInteger selectedIndex;
 @property (nonatomic, assign) NSInteger noOfItems;
@@ -43,7 +43,6 @@
 @property (nonatomic, retain) UIRefreshControl* refreshControl;
 
 -(void)registerNibName:(NSString*)nibName cellIndentifier:(NSString*)cellIdentifier;
--(void)setSelectedList:(NSInteger)index;
 
 -(void)reloadData;
 

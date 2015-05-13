@@ -3,11 +3,10 @@
 #import "EventViewController.h"
 #import "AppDelegate.h"
 #import "DetailViewController.h"
-#import "MGSlider.h"
 #import "LBHamburgerButton.h"
 #import "NSDate+Helper.h"
 
-@interface EventViewController () <MGSliderDelegate, MGListViewDelegate>
+@interface EventViewController () <MGListViewDelegate>
 
 @end
 
@@ -60,8 +59,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.navigationController setNavigationBarHidden:YES];
-    [self.tabBarController.navigationController setNavigationBarHidden:NO];
+//    [self.navigationController setNavigationBarHidden:YES];
+//    [self.tabBarController.navigationController setNavigationBarHidden:NO];
    
     listViewMain.frame = self.view.frame;
     listViewMain.delegate = self;
@@ -217,27 +216,14 @@
 -(UITableViewCell*)MGListView:(MGListView *)listView1 didCreateCell:(MGListCell *)cell indexPath:(NSIndexPath *)indexPath {
     if(cell !=nil){
 
-    for(UIView* view in cell.subviews)
-        [view removeFromSuperview];
     Event* event = [listViewMain.arrayData objectAtIndex:indexPath.row];
     Venue* venue = [CoreDataController getVenueByVenueId:event.venue_id];
-    [cell.slideShow setImageArray:[CoreDataController getEventPhotosByEventId:event.event_id] ];
-    [cell.slideShow setNumberOfItems:[cell.slideShow.imageArray count]];
-    
-    
-    if([cell.slideShow.imageArray count] != 0){
-        CGRect frame = cell.frame;
-        frame.size.width = self.view.frame.size.width;
-        frame.size.height = listViewMain.cellHeight-2 ;
-        [cell.slideShow setNeedsReLayoutWithViewSize:frame.size];
-        
-        //*** Timing of the sliding photos **********//
-        // NSInteger randomNumber = arc4random() % 9;
-        //float x = (float) (randomNumber/ 9) + 2;
-        
-        [cell.slideShow startAnimationWithDuration:2.5];
-        [cell addSubview:cell.slideShow.scrollView];
-    }
+        [cell.imgView setArrayPhotos: [CoreDataController getEventPhotosByEventId:event.event_id ]];
+//        cell.imgView.animationImages = [cell arrayPhotos];
+//        [cell.imgView setAnimationDuration:3.0];
+//        [cell.imgView startAnimating];
+//        
+
     
  //    [cell.labelExtraInfo setText: event_price????];
     cell.labelTitle.text =event.event_name;
@@ -248,13 +234,7 @@
         NSString* date = [self formatDateWithStart: event.event_date_starttime withEndTime: event.event_endtime];
     [cell.labelDetails setText:date];
     [cell.labelSubtitle setClipsToBounds:YES];
-    [cell addSubview: cell.fade ];
-    [cell addSubview:cell.labelTitle];
-    [cell addSubview:cell.labelSubtitle];
-    [cell addSubview:cell.labelExtraInfo];
-    [cell addSubview: cell.divider];
-    [cell addSubview: cell.labelDetails];
-    [cell addSubview: cell.locationIcon];
+
    
     }
     return cell;

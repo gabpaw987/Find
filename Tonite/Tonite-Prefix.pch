@@ -31,7 +31,6 @@
     #import "NSManageObject+Bindings.h"
     #import "MGFooterView.h"
     #import "MGAnimationController.h"
-    #import "RateView.h"
 
     #import "NSStringExtras.h"
     #import "METransitions.h"
@@ -44,7 +43,6 @@
     #import "MGListCell.h"
     #import "MGListView.h"
     #import "NSString+HTML.h"
-    #import "MGSlider.h"
     #import "MBProgressHUD.h"
     #import "MGUtilities.h"
     #import "MGFileManager.h"

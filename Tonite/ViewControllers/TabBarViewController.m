@@ -34,7 +34,7 @@
     [self setSelectedIndex:0];
     //Creates the tonite label on the navigation bar. See ToniteNavigationBar
     [self.navigationItem setTitleView:[ToniteNavigationBar createLogo:@"TONITELOGO_new.png"]];
-    //Create Menu left navigation button
+
     LBHamburgerButton* itemMenu = [[LBHamburgerButton alloc] initWithFrame:CGRectMake(0, 0, 0, 0)
                                                                  lineWidth:18
                                                                 lineHeight:1
@@ -55,7 +55,7 @@
     self.navigationItem.rightBarButtonItem = itemLoginMenu;
 
     //Add ECslider recognizer to swipe in and out the profile menu
-    [self.view addGestureRecognizer: self.slidingViewController.panGesture];
+   // [self.view addGestureRecognizer: self.slidingViewController.panGesture];
 }
 
 
